@@ -12,6 +12,7 @@ namespace DataAccessLayer
         public DALSecretary()
         {
             DbConnect dbConnect = new DbConnect();
+
         }
         public void AddSecretary(string name, string surname, string mail, string phone_number, string address)
         {

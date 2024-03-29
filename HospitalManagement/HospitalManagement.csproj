@@ -133,22 +133,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{4be8ed16-60f1-446b-8018-3bf2fca797c6}</Project>
-      <Name>DataAccessLayer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
-      <Project>{ce7295d4-0079-4d1f-a769-b5fa87ad019d}</Project>
-      <Name>EntityLayer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Assets\hospital.ico" />
     <Content Include="Assets\Login\exit.png" />
     <Content Include="Assets\Login\login_pic.png" />
     <Content Include="Assets\Login\medical-team.png" />
     <Content Include="Assets\Login\password.png" />
     <Content Include="Assets\Login\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
+      <Project>{2c96a546-0857-4b20-9067-f082e983a18e}</Project>
+      <Name>BusinessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

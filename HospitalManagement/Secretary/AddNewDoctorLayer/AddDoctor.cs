@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HospitalManagement.Secretary.AddNewDoctorLayer;
-using DataAccessLayer;
+using BusinessLayer;
 
 namespace HospitalManagement.Secretary.AddNewDoctorLayer
 {
@@ -28,8 +28,8 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
         {
             try
             {
-                DALDoktor db = new DALDoktor();
-                db.AddDoctor(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+                BlDoctor blDoctor = new BlDoctor();
+                blDoctor.AddDoctor(textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, textBox6.Text);
                 MessageBox.Show("Başarıyla Kayıt Oldunuz");
             }
             catch (Exception ex)

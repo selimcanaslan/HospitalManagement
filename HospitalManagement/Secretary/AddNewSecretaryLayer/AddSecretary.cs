@@ -1,5 +1,4 @@
-﻿using DataAccessLayer;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,9 +27,9 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
         {
             try
             {
-                DALSecretary db = new DALSecretary();
-                db.AddSecretary(textBox1.Text, textBox2.Text, textBox4.Text, textBox5.Text, textBox6.Text);
-                MessageBox.Show("Başarıyla Kayıt Oldunuz");
+                //DALSecretary db = new DALSecretary();
+                //db.AddSecretary(textBox1.Text, textBox2.Text, textBox4.Text, textBox5.Text, textBox6.Text);
+                //MessageBox.Show("Başarıyla Kayıt Oldunuz");
             }
             catch (Exception ex)
             {
