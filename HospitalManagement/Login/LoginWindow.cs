@@ -40,10 +40,11 @@ namespace HospitalManagement
             if (String.IsNullOrWhiteSpace(user_name_textBox.Text) == true || String.IsNullOrWhiteSpace(password_textBox.Text) == true)
             {
                 string error = "Please make sure you fill all the fields";
-                if (checkBox1.Checked == false && checkBox2.Checked == false) {
+                if (checkBox1.Checked == false && checkBox2.Checked == false)
+                {
                     error += " and check your auth type";
                 }
-                MessageBox.Show(error,"Hata");
+                MessageBox.Show(error, "Hata");
             }
             else
             {
@@ -57,7 +58,7 @@ namespace HospitalManagement
                             Console.WriteLine(row["user_name"].ToString());
                             Console.WriteLine(row["password"].ToString());
                             Console.WriteLine(row["auth_type"].ToString());
-                        }  
+                        }
 
                         this.Hide();
                         SecretaryLayer secretaryLayer = new SecretaryLayer("secretary");

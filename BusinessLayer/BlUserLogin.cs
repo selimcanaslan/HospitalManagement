@@ -12,8 +12,9 @@ namespace BusinessLayer
     {
         private DALUserLogin _dalUserLogin;
 
-        public BlUserLogin() {
-            _dalUserLogin = new DALUserLogin();    
+        public BlUserLogin()
+        {
+            _dalUserLogin = new DALUserLogin();
         }
         public DataTable fetchUserLoginData(string username, string password, string auth_type)
         {
