@@ -15,6 +15,12 @@ namespace HospitalManagement.Doctor
         public DoctorLayer()
         {
             InitializeComponent();
+            CenterToParent();
+        }
+
+        private void DoctorLayer_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

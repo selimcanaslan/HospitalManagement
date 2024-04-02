@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using HospitalManagement.Secretary;
 using HospitalManagement.Login;
 using BusinessLayer;
+using HospitalManagement.Doctor;
 
 namespace HospitalManagement
 {
@@ -27,25 +28,27 @@ namespace HospitalManagement
         private void LoginWindow_Load(object sender, EventArgs e)
         {
             CenterToScreen();
+            test_fill_info();
         }
-
-
-        private void label1_Click(object sender, EventArgs e)
+        private void test_fill_info()
         {
-            MessageBox.Show("Banane", "Error");
+            user_name_textBox.Text = "selimcanaslan";
+            password_textBox.Text = "selimcanaslan";
+            checkBox2.Checked = true;
         }
-
         private void login_button_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(user_name_textBox.Text) == true || String.IsNullOrWhiteSpace(password_textBox.Text) == true)
             {
-                string error = "Please make sure you fill all the fields";
-                if (checkBox1.Checked == false && checkBox2.Checked == false)
-                {
-                    error += " and check your auth type";
-                }
-                MessageBox.Show(error, "Hata");
+                MessageBox.Show("Please make sure you fill all the fields", "Error");
+                return;
             }
+            else if (checkBox1.Checked == false && checkBox2.Checked == false)
+            {
+                MessageBox.Show("Please check one of the checkbox", "Error");
+                return;
+            }
+
             else
             {
                 try
@@ -55,35 +58,37 @@ namespace HospitalManagement
                     {
                         foreach (DataRow row in user_info.Rows)
                         {
-                            Console.WriteLine(row["user_name"].ToString());
-                            Console.WriteLine(row["password"].ToString());
-                            Console.WriteLine(row["auth_type"].ToString());
+                            auth_type = row["auth_type"].ToString();
                         }
 
                         this.Hide();
-                        SecretaryLayer secretaryLayer = new SecretaryLayer("secretary");
-                        //secretaryLayer.Closed += (s, args) => this.Show(); // call the login window after secretary window closed
-                        secretaryLayer.Closed += (s, args) => this.Close(); // close whole app after secretary window closed
-                        secretaryLayer.Show();
+                        if (auth_type == "Secretary")
+                        {
+                            SecretaryLayer secretaryLayer = new SecretaryLayer("secretary");
+                            //secretaryLayer.Closed += (s, args) => this.Show(); // call the login window after secretary window closed
+                            secretaryLayer.Closed += (s, args) => this.Close(); // close whole app after secretary window closed
+                            secretaryLayer.Show();
+                        }
+                        else if (auth_type == "Doctor")
+                        {
+                            DoctorLayer doctorLayer = new DoctorLayer();
+                            doctorLayer.Closed += (s, args) => this.Close();
+                            doctorLayer.Show();
+                        }
                     }
                     else
                     {
                         MessageBox.Show("Girdilerinizle Eşleşen Kayıt Bulunamadı!", "Hata");
                     }
                 }
-                catch { Console.WriteLine("Something Went Wrong"); }
+                catch { MessageBox.Show("Something Went Wrong", "Internal DB Error"); }
+                finally { Console.WriteLine(auth_type); }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void DoctorLayer_Closed(object sender, EventArgs e)
         {
-            ExitLogin exitLogin = new ExitLogin();
-            exitLogin.ShowDialog();
-            bool selection = exitLogin.selection;
-            if (selection)
-            {
-                this.Close();
-            }
+            throw new NotImplementedException();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -102,6 +107,11 @@ namespace HospitalManagement
                 checkBox1.Checked = false;
                 auth_type = "Secretary";
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Banane", "Error");
         }
     }
 }

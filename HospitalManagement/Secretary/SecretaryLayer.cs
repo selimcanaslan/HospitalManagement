@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HospitalManagement.Secretary.AddNewSecretaryLayer;
+using Guna.UI2.WinForms;
 
 namespace HospitalManagement.Secretary
 {
@@ -23,6 +24,7 @@ namespace HospitalManagement.Secretary
         private void SecretaryLayer_Load(object sender, EventArgs e)
         {
             CenterToParent();
+            panelVisibilityInitialize();
         }
 
         private void add_new_doctor_button_Click(object sender, EventArgs e)
@@ -35,6 +37,48 @@ namespace HospitalManagement.Secretary
         {
             AddSecretary addSecretary = new AddSecretary();
             addSecretary.Show();
+        }
+
+        private void patientButton_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(patientButtonSubMenu);
+        }
+
+        private void panelVisibilityInitialize()
+        {
+            patientButtonSubMenu.Visible = false;
+            secretaryButtonSubMenu.Visible = false;
+            doctorButtonSubMenu.Visible = false;
+
+        }
+
+        private void hideSubMenu()
+        {
+            if (patientButtonSubMenu.Visible == true) { patientButtonSubMenu.Visible=false; }
+            if (secretaryButtonSubMenu.Visible == true) { secretaryButtonSubMenu.Visible=false; }
+            if (doctorButtonSubMenu.Visible == true) { doctorButtonSubMenu.Visible = false; }
+        }
+        private void ShowSubMenu(Guna2Panel subMenu)
+        {
+            if (subMenu.Visible == false)
+            {
+                hideSubMenu();
+                subMenu.Visible = true;
+            }
+            else
+            {
+                subMenu.Visible = false;
+            }
+        }
+
+        private void secretaryButton_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(secretaryButtonSubMenu);
+        }
+
+        private void doctorButton_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(doctorButtonSubMenu);
         }
     }
 }
