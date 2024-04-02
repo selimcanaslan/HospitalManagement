@@ -92,6 +92,24 @@
     <Compile Include="Secretary\AddNewSecretaryLayer\AddSecretary.Designer.cs">
       <DependentUpon>AddSecretary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\CreateAppointmentLayer\CreateAppointment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secretary\CreateAppointmentLayer\CreateAppointment.Designer.cs">
+      <DependentUpon>CreateAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\PatientFeaturesLayer\PatientFeatures.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secretary\PatientFeaturesLayer\PatientFeatures.Designer.cs">
+      <DependentUpon>PatientFeatures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\PatientGraphsLayer\PatientGraphs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secretary\PatientGraphsLayer\PatientGraphs.Designer.cs">
+      <DependentUpon>PatientGraphs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\SecretaryLayer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +143,15 @@
     <EmbeddedResource Include="Secretary\AddNewSecretaryLayer\AddSecretary.resx">
       <DependentUpon>AddSecretary.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Secretary\CreateAppointmentLayer\CreateAppointment.resx">
+      <DependentUpon>CreateAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Secretary\PatientFeaturesLayer\PatientFeatures.resx">
+      <DependentUpon>PatientFeatures.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Secretary\PatientGraphsLayer\PatientGraphs.resx">
+      <DependentUpon>PatientGraphs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Secretary\SecretaryLayer.resx">
       <DependentUpon>SecretaryLayer.cs</DependentUpon>
     </EmbeddedResource>
@@ -156,5 +183,6 @@
       <Name>BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

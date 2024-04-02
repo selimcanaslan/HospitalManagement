@@ -10,11 +10,24 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HospitalManagement.Secretary.AddNewSecretaryLayer;
 using Guna.UI2.WinForms;
+using HospitalManagement.Secretary.CreateAppointmentLayer;
+using HospitalManagement.Secretary.PatientFeaturesLayer;
+using HospitalManagement.Secretary.PatientGraphsLayer;
 
 namespace HospitalManagement.Secretary
 {
     public partial class SecretaryLayer : Form
     {
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int CS_DROPSHADOW = 0x00020000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
         public SecretaryLayer(String loginType)
         {
             InitializeComponent();
@@ -25,23 +38,6 @@ namespace HospitalManagement.Secretary
         {
             CenterToParent();
             panelVisibilityInitialize();
-        }
-
-        private void add_new_doctor_button_Click(object sender, EventArgs e)
-        {
-            AddDoctor addDoctor = new AddDoctor();
-            addDoctor.Show();
-        }
-
-        private void add_new_secretary_button_Click(object sender, EventArgs e)
-        {
-            AddSecretary addSecretary = new AddSecretary();
-            addSecretary.Show();
-        }
-
-        private void patientButton_Click(object sender, EventArgs e)
-        {
-            ShowSubMenu(patientButtonSubMenu);
         }
 
         private void panelVisibilityInitialize()
@@ -69,6 +65,7 @@ namespace HospitalManagement.Secretary
             {
                 subMenu.Visible = false;
             }
+
         }
 
         private void secretaryButton_Click(object sender, EventArgs e)
@@ -106,6 +103,26 @@ namespace HospitalManagement.Secretary
         private void addNewDoctorButton_Click(object sender, EventArgs e)
         {
             openChildForm(new AddDoctor());
+        }
+
+        private void patientButton_Click(object sender, EventArgs e)
+        {
+            ShowSubMenu(patientButtonSubMenu);
+        }
+
+        private void createAppointmentButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new CreateAppointment());
+        }
+
+        private void patientFeaturesButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new PatientFeatures());
+        }
+
+        private void patientGraphsButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new PatientGraphs());
         }
     }
 }
