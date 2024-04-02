@@ -80,5 +80,32 @@ namespace HospitalManagement.Secretary
         {
             ShowSubMenu(doctorButtonSubMenu);
         }
+        private Form activeForm = null;
+        private void openChildForm(Form childForm)
+        {
+            if(activeForm != null)
+            {
+                activeForm.Close();
+            }
+            activeForm = childForm;
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            containerPanel.Controls.Add(childForm);
+            containerPanel.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            
+        }
+
+        private void addNewSecretaryButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AddSecretary());
+        }
+
+        private void addNewDoctorButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new AddDoctor());
+        }
     }
 }

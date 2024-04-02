@@ -30,99 +30,88 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SecretaryLayer));
-            this.add_new_doctor_button = new System.Windows.Forms.Button();
-            this.add_new_secretary_button = new System.Windows.Forms.Button();
-            this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2ControlBox3 = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.exitControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.minimizeControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
+            this.topWindowPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.windowName = new System.Windows.Forms.Label();
+            this.topWindowPanelDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.leftPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.patientButton = new Guna.UI2.WinForms.Guna2Button();
-            this.patientButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
-            this.secretaryButton = new Guna.UI2.WinForms.Guna2Button();
-            this.secretaryButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button5 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button6 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button7 = new Guna.UI2.WinForms.Guna2Button();
-            this.doctorButton = new Guna.UI2.WinForms.Guna2Button();
             this.doctorButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button9 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button10 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button11 = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2Panel1.SuspendLayout();
+            this.deleteDoctorButton = new Guna.UI2.WinForms.Guna2Button();
+            this.updateDoctorButton = new Guna.UI2.WinForms.Guna2Button();
+            this.addNewDoctorButton = new Guna.UI2.WinForms.Guna2Button();
+            this.doctorButton = new Guna.UI2.WinForms.Guna2Button();
+            this.secretaryButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.deleteSecretaryButton = new Guna.UI2.WinForms.Guna2Button();
+            this.updateSecretaryButton = new Guna.UI2.WinForms.Guna2Button();
+            this.addNewSecretaryButton = new Guna.UI2.WinForms.Guna2Button();
+            this.secretaryButton = new Guna.UI2.WinForms.Guna2Button();
+            this.patientButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.patientGraphsButton = new Guna.UI2.WinForms.Guna2Button();
+            this.patientFeaturesButton = new Guna.UI2.WinForms.Guna2Button();
+            this.createExaminationButton = new Guna.UI2.WinForms.Guna2Button();
+            this.patientButton = new Guna.UI2.WinForms.Guna2Button();
+            this.windowNameDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.containerPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.topWindowPanel.SuspendLayout();
             this.leftPanel.SuspendLayout();
-            this.patientButtonSubMenu.SuspendLayout();
-            this.secretaryButtonSubMenu.SuspendLayout();
             this.doctorButtonSubMenu.SuspendLayout();
+            this.secretaryButtonSubMenu.SuspendLayout();
+            this.patientButtonSubMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // add_new_doctor_button
+            // exitControlBox
             // 
-            this.add_new_doctor_button.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_new_doctor_button.Location = new System.Drawing.Point(695, 461);
-            this.add_new_doctor_button.Name = "add_new_doctor_button";
-            this.add_new_doctor_button.Size = new System.Drawing.Size(120, 39);
-            this.add_new_doctor_button.TabIndex = 0;
-            this.add_new_doctor_button.Text = "Add Doctor";
-            this.add_new_doctor_button.UseVisualStyleBackColor = true;
-            this.add_new_doctor_button.Click += new System.EventHandler(this.add_new_doctor_button_Click);
+            this.exitControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exitControlBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.exitControlBox.IconColor = System.Drawing.Color.White;
+            this.exitControlBox.Location = new System.Drawing.Point(791, 0);
+            this.exitControlBox.Name = "exitControlBox";
+            this.exitControlBox.Size = new System.Drawing.Size(45, 29);
+            this.exitControlBox.TabIndex = 3;
             // 
-            // add_new_secretary_button
+            // minimizeControlBox
             // 
-            this.add_new_secretary_button.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.add_new_secretary_button.Location = new System.Drawing.Point(567, 461);
-            this.add_new_secretary_button.Name = "add_new_secretary_button";
-            this.add_new_secretary_button.Size = new System.Drawing.Size(118, 34);
-            this.add_new_secretary_button.TabIndex = 1;
-            this.add_new_secretary_button.Text = "Add Secretary";
-            this.add_new_secretary_button.UseVisualStyleBackColor = true;
-            this.add_new_secretary_button.Click += new System.EventHandler(this.add_new_secretary_button_Click);
+            this.minimizeControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimizeControlBox.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.minimizeControlBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.minimizeControlBox.IconColor = System.Drawing.Color.White;
+            this.minimizeControlBox.Location = new System.Drawing.Point(746, 0);
+            this.minimizeControlBox.Name = "minimizeControlBox";
+            this.minimizeControlBox.Size = new System.Drawing.Size(45, 29);
+            this.minimizeControlBox.TabIndex = 5;
             // 
-            // guna2ControlBox1
+            // topWindowPanel
             // 
-            this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(791, 0);
-            this.guna2ControlBox1.Name = "guna2ControlBox1";
-            this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox1.TabIndex = 3;
+            this.topWindowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.topWindowPanel.Controls.Add(this.windowName);
+            this.topWindowPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.topWindowPanel.Location = new System.Drawing.Point(0, 0);
+            this.topWindowPanel.Name = "topWindowPanel";
+            this.topWindowPanel.Size = new System.Drawing.Size(836, 29);
+            this.topWindowPanel.TabIndex = 6;
             // 
-            // guna2ControlBox3
+            // windowName
             // 
-            this.guna2ControlBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.guna2ControlBox3.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
-            this.guna2ControlBox3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2ControlBox3.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox3.Location = new System.Drawing.Point(746, 0);
-            this.guna2ControlBox3.Name = "guna2ControlBox3";
-            this.guna2ControlBox3.Size = new System.Drawing.Size(45, 29);
-            this.guna2ControlBox3.TabIndex = 5;
+            this.windowName.AutoSize = true;
+            this.windowName.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.windowName.ForeColor = System.Drawing.SystemColors.Control;
+            this.windowName.Location = new System.Drawing.Point(1, 6);
+            this.windowName.Name = "windowName";
+            this.windowName.Size = new System.Drawing.Size(218, 16);
+            this.windowName.TabIndex = 8;
+            this.windowName.Text = "Hospital Management - Secretary";
             // 
-            // guna2Panel1
+            // topWindowPanelDragControl
             // 
-            this.guna2Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Panel1.Controls.Add(this.label1);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(836, 29);
-            this.guna2Panel1.TabIndex = 6;
-            // 
-            // guna2DragControl2
-            // 
-            this.guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl2.DragStartTransparencyValue = 1D;
-            this.guna2DragControl2.TargetControl = this.guna2Panel1;
-            this.guna2DragControl2.UseTransparentDrag = true;
+            this.topWindowPanelDragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.topWindowPanelDragControl.DragStartTransparencyValue = 1D;
+            this.topWindowPanelDragControl.TargetControl = this.topWindowPanel;
+            this.topWindowPanelDragControl.UseTransparentDrag = true;
             // 
             // leftPanel
             // 
+            this.leftPanel.AutoScroll = true;
             this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.leftPanel.Controls.Add(this.doctorButtonSubMenu);
             this.leftPanel.Controls.Add(this.doctorButton);
@@ -133,8 +122,260 @@
             this.leftPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.leftPanel.Location = new System.Drawing.Point(0, 29);
             this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Size = new System.Drawing.Size(228, 480);
+            this.leftPanel.Size = new System.Drawing.Size(219, 480);
             this.leftPanel.TabIndex = 7;
+            // 
+            // doctorButtonSubMenu
+            // 
+            this.doctorButtonSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.doctorButtonSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.doctorButtonSubMenu.Controls.Add(this.deleteDoctorButton);
+            this.doctorButtonSubMenu.Controls.Add(this.updateDoctorButton);
+            this.doctorButtonSubMenu.Controls.Add(this.addNewDoctorButton);
+            this.doctorButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.doctorButtonSubMenu.Location = new System.Drawing.Point(0, 522);
+            this.doctorButtonSubMenu.Name = "doctorButtonSubMenu";
+            this.doctorButtonSubMenu.Size = new System.Drawing.Size(202, 135);
+            this.doctorButtonSubMenu.TabIndex = 13;
+            // 
+            // deleteDoctorButton
+            // 
+            this.deleteDoctorButton.BorderThickness = 1;
+            this.deleteDoctorButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.deleteDoctorButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.deleteDoctorButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteDoctorButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.deleteDoctorButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.deleteDoctorButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.deleteDoctorButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.deleteDoctorButton.ForeColor = System.Drawing.Color.White;
+            this.deleteDoctorButton.Location = new System.Drawing.Point(0, 90);
+            this.deleteDoctorButton.Name = "deleteDoctorButton";
+            this.deleteDoctorButton.Size = new System.Drawing.Size(202, 45);
+            this.deleteDoctorButton.TabIndex = 2;
+            this.deleteDoctorButton.Text = "Doktor Sil";
+            // 
+            // updateDoctorButton
+            // 
+            this.updateDoctorButton.BorderThickness = 1;
+            this.updateDoctorButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.updateDoctorButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.updateDoctorButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.updateDoctorButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.updateDoctorButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.updateDoctorButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.updateDoctorButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.updateDoctorButton.ForeColor = System.Drawing.Color.White;
+            this.updateDoctorButton.Location = new System.Drawing.Point(0, 45);
+            this.updateDoctorButton.Name = "updateDoctorButton";
+            this.updateDoctorButton.Size = new System.Drawing.Size(202, 45);
+            this.updateDoctorButton.TabIndex = 1;
+            this.updateDoctorButton.Text = "Doktor Güncelle";
+            // 
+            // addNewDoctorButton
+            // 
+            this.addNewDoctorButton.BorderThickness = 1;
+            this.addNewDoctorButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addNewDoctorButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addNewDoctorButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addNewDoctorButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addNewDoctorButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addNewDoctorButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addNewDoctorButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addNewDoctorButton.ForeColor = System.Drawing.Color.White;
+            this.addNewDoctorButton.Location = new System.Drawing.Point(0, 0);
+            this.addNewDoctorButton.Name = "addNewDoctorButton";
+            this.addNewDoctorButton.Size = new System.Drawing.Size(202, 45);
+            this.addNewDoctorButton.TabIndex = 0;
+            this.addNewDoctorButton.Text = "Doktor Kayıt";
+            this.addNewDoctorButton.Click += new System.EventHandler(this.addNewDoctorButton_Click);
+            // 
+            // doctorButton
+            // 
+            this.doctorButton.Animated = true;
+            this.doctorButton.BorderThickness = 1;
+            this.doctorButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.doctorButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.doctorButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.doctorButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.doctorButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.doctorButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.doctorButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.doctorButton.ForeColor = System.Drawing.Color.White;
+            this.doctorButton.Image = ((System.Drawing.Image)(resources.GetObject("doctorButton.Image")));
+            this.doctorButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.doctorButton.ImageSize = new System.Drawing.Size(30, 30);
+            this.doctorButton.Location = new System.Drawing.Point(0, 438);
+            this.doctorButton.Name = "doctorButton";
+            this.doctorButton.Size = new System.Drawing.Size(202, 84);
+            this.doctorButton.TabIndex = 12;
+            this.doctorButton.Text = "Doktor İşlemleri";
+            this.doctorButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.doctorButton.Click += new System.EventHandler(this.doctorButton_Click);
+            // 
+            // secretaryButtonSubMenu
+            // 
+            this.secretaryButtonSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.secretaryButtonSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.secretaryButtonSubMenu.Controls.Add(this.deleteSecretaryButton);
+            this.secretaryButtonSubMenu.Controls.Add(this.updateSecretaryButton);
+            this.secretaryButtonSubMenu.Controls.Add(this.addNewSecretaryButton);
+            this.secretaryButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.secretaryButtonSubMenu.Location = new System.Drawing.Point(0, 303);
+            this.secretaryButtonSubMenu.Name = "secretaryButtonSubMenu";
+            this.secretaryButtonSubMenu.Size = new System.Drawing.Size(202, 135);
+            this.secretaryButtonSubMenu.TabIndex = 11;
+            // 
+            // deleteSecretaryButton
+            // 
+            this.deleteSecretaryButton.BorderThickness = 1;
+            this.deleteSecretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.deleteSecretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.deleteSecretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.deleteSecretaryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.deleteSecretaryButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.deleteSecretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.deleteSecretaryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.deleteSecretaryButton.ForeColor = System.Drawing.Color.White;
+            this.deleteSecretaryButton.Location = new System.Drawing.Point(0, 90);
+            this.deleteSecretaryButton.Name = "deleteSecretaryButton";
+            this.deleteSecretaryButton.Size = new System.Drawing.Size(202, 45);
+            this.deleteSecretaryButton.TabIndex = 2;
+            this.deleteSecretaryButton.Text = "Sekreter Sil";
+            this.deleteSecretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.deleteSecretaryButton.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // updateSecretaryButton
+            // 
+            this.updateSecretaryButton.BorderThickness = 1;
+            this.updateSecretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.updateSecretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.updateSecretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.updateSecretaryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.updateSecretaryButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.updateSecretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.updateSecretaryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.updateSecretaryButton.ForeColor = System.Drawing.Color.White;
+            this.updateSecretaryButton.Location = new System.Drawing.Point(0, 45);
+            this.updateSecretaryButton.Name = "updateSecretaryButton";
+            this.updateSecretaryButton.Size = new System.Drawing.Size(202, 45);
+            this.updateSecretaryButton.TabIndex = 1;
+            this.updateSecretaryButton.Text = "Sekreter Güncelle";
+            this.updateSecretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.updateSecretaryButton.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // addNewSecretaryButton
+            // 
+            this.addNewSecretaryButton.BorderThickness = 1;
+            this.addNewSecretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addNewSecretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addNewSecretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addNewSecretaryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addNewSecretaryButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addNewSecretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addNewSecretaryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addNewSecretaryButton.ForeColor = System.Drawing.Color.White;
+            this.addNewSecretaryButton.Location = new System.Drawing.Point(0, 0);
+            this.addNewSecretaryButton.Name = "addNewSecretaryButton";
+            this.addNewSecretaryButton.Size = new System.Drawing.Size(202, 45);
+            this.addNewSecretaryButton.TabIndex = 0;
+            this.addNewSecretaryButton.Text = "Sekreter Kayıt";
+            this.addNewSecretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.addNewSecretaryButton.TextOffset = new System.Drawing.Point(10, 0);
+            this.addNewSecretaryButton.Click += new System.EventHandler(this.addNewSecretaryButton_Click);
+            // 
+            // secretaryButton
+            // 
+            this.secretaryButton.Animated = true;
+            this.secretaryButton.BorderThickness = 1;
+            this.secretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.secretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.secretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.secretaryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.secretaryButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.secretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.secretaryButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.secretaryButton.ForeColor = System.Drawing.Color.White;
+            this.secretaryButton.Image = ((System.Drawing.Image)(resources.GetObject("secretaryButton.Image")));
+            this.secretaryButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.secretaryButton.ImageSize = new System.Drawing.Size(30, 30);
+            this.secretaryButton.Location = new System.Drawing.Point(0, 219);
+            this.secretaryButton.Name = "secretaryButton";
+            this.secretaryButton.Size = new System.Drawing.Size(202, 84);
+            this.secretaryButton.TabIndex = 10;
+            this.secretaryButton.Text = "Sekreter İşlemleri";
+            this.secretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.secretaryButton.Click += new System.EventHandler(this.secretaryButton_Click);
+            // 
+            // patientButtonSubMenu
+            // 
+            this.patientButtonSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.patientButtonSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.patientButtonSubMenu.Controls.Add(this.patientGraphsButton);
+            this.patientButtonSubMenu.Controls.Add(this.patientFeaturesButton);
+            this.patientButtonSubMenu.Controls.Add(this.createExaminationButton);
+            this.patientButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientButtonSubMenu.Location = new System.Drawing.Point(0, 84);
+            this.patientButtonSubMenu.Name = "patientButtonSubMenu";
+            this.patientButtonSubMenu.Size = new System.Drawing.Size(202, 135);
+            this.patientButtonSubMenu.TabIndex = 9;
+            // 
+            // patientGraphsButton
+            // 
+            this.patientGraphsButton.BorderThickness = 1;
+            this.patientGraphsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.patientGraphsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.patientGraphsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.patientGraphsButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.patientGraphsButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientGraphsButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.patientGraphsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.patientGraphsButton.ForeColor = System.Drawing.Color.White;
+            this.patientGraphsButton.Location = new System.Drawing.Point(0, 90);
+            this.patientGraphsButton.Name = "patientGraphsButton";
+            this.patientGraphsButton.Size = new System.Drawing.Size(202, 45);
+            this.patientGraphsButton.TabIndex = 2;
+            this.patientGraphsButton.Text = "Hasta Grafikleri";
+            this.patientGraphsButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.patientGraphsButton.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // patientFeaturesButton
+            // 
+            this.patientFeaturesButton.BorderThickness = 1;
+            this.patientFeaturesButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.patientFeaturesButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.patientFeaturesButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.patientFeaturesButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.patientFeaturesButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientFeaturesButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.patientFeaturesButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.patientFeaturesButton.ForeColor = System.Drawing.Color.White;
+            this.patientFeaturesButton.Location = new System.Drawing.Point(0, 45);
+            this.patientFeaturesButton.Name = "patientFeaturesButton";
+            this.patientFeaturesButton.Size = new System.Drawing.Size(202, 45);
+            this.patientFeaturesButton.TabIndex = 1;
+            this.patientFeaturesButton.Text = "Hasta (Ekle - Sil - Güncelle)";
+            this.patientFeaturesButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.patientFeaturesButton.TextOffset = new System.Drawing.Point(10, 0);
+            // 
+            // createExaminationButton
+            // 
+            this.createExaminationButton.BorderThickness = 1;
+            this.createExaminationButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.createExaminationButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.createExaminationButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.createExaminationButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.createExaminationButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.createExaminationButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.createExaminationButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.createExaminationButton.ForeColor = System.Drawing.Color.White;
+            this.createExaminationButton.Location = new System.Drawing.Point(0, 0);
+            this.createExaminationButton.Name = "createExaminationButton";
+            this.createExaminationButton.Size = new System.Drawing.Size(202, 45);
+            this.createExaminationButton.TabIndex = 0;
+            this.createExaminationButton.Text = "Randevu Oluştur";
+            this.createExaminationButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.createExaminationButton.TextOffset = new System.Drawing.Point(10, 0);
             // 
             // patientButton
             // 
@@ -154,281 +395,36 @@
             this.patientButton.ImageSize = new System.Drawing.Size(30, 30);
             this.patientButton.Location = new System.Drawing.Point(0, 0);
             this.patientButton.Name = "patientButton";
-            this.patientButton.Size = new System.Drawing.Size(228, 84);
+            this.patientButton.Size = new System.Drawing.Size(202, 84);
             this.patientButton.TabIndex = 8;
             this.patientButton.Text = "Hasta İşlemleri";
             this.patientButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.patientButton.Click += new System.EventHandler(this.patientButton_Click);
             // 
-            // patientButtonSubMenu
+            // windowNameDragControl
             // 
-            this.patientButtonSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.patientButtonSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.patientButtonSubMenu.Controls.Add(this.guna2Button4);
-            this.patientButtonSubMenu.Controls.Add(this.guna2Button3);
-            this.patientButtonSubMenu.Controls.Add(this.guna2Button2);
-            this.patientButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.patientButtonSubMenu.Location = new System.Drawing.Point(0, 84);
-            this.patientButtonSubMenu.Name = "patientButtonSubMenu";
-            this.patientButtonSubMenu.Size = new System.Drawing.Size(228, 135);
-            this.patientButtonSubMenu.TabIndex = 9;
+            this.windowNameDragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.windowNameDragControl.DragStartTransparencyValue = 1D;
+            this.windowNameDragControl.TargetControl = this.windowName;
+            this.windowNameDragControl.UseTransparentDrag = true;
             // 
-            // guna2Button2
+            // containerPanel
             // 
-            this.guna2Button2.BorderThickness = 1;
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(228, 45);
-            this.guna2Button2.TabIndex = 0;
-            this.guna2Button2.Text = "Randevu Oluştur";
-            this.guna2Button2.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.BorderThickness = 1;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(0, 45);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(228, 45);
-            this.guna2Button3.TabIndex = 1;
-            this.guna2Button3.Text = "Hasta (Ekle - Sil - Güncelle)";
-            this.guna2Button3.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // guna2Button4
-            // 
-            this.guna2Button4.BorderThickness = 1;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Location = new System.Drawing.Point(0, 90);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(228, 45);
-            this.guna2Button4.TabIndex = 2;
-            this.guna2Button4.Text = "Hasta Grafikleri";
-            this.guna2Button4.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            // 
-            // secretaryButton
-            // 
-            this.secretaryButton.Animated = true;
-            this.secretaryButton.BorderThickness = 1;
-            this.secretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.secretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.secretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.secretaryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.secretaryButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.secretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.secretaryButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.secretaryButton.ForeColor = System.Drawing.Color.White;
-            this.secretaryButton.Image = ((System.Drawing.Image)(resources.GetObject("secretaryButton.Image")));
-            this.secretaryButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.secretaryButton.ImageSize = new System.Drawing.Size(30, 30);
-            this.secretaryButton.Location = new System.Drawing.Point(0, 219);
-            this.secretaryButton.Name = "secretaryButton";
-            this.secretaryButton.Size = new System.Drawing.Size(228, 84);
-            this.secretaryButton.TabIndex = 10;
-            this.secretaryButton.Text = "Sekreter İşlemleri";
-            this.secretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.secretaryButton.Click += new System.EventHandler(this.secretaryButton_Click);
-            // 
-            // secretaryButtonSubMenu
-            // 
-            this.secretaryButtonSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.secretaryButtonSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.secretaryButtonSubMenu.Controls.Add(this.guna2Button5);
-            this.secretaryButtonSubMenu.Controls.Add(this.guna2Button6);
-            this.secretaryButtonSubMenu.Controls.Add(this.guna2Button7);
-            this.secretaryButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.secretaryButtonSubMenu.Location = new System.Drawing.Point(0, 303);
-            this.secretaryButtonSubMenu.Name = "secretaryButtonSubMenu";
-            this.secretaryButtonSubMenu.Size = new System.Drawing.Size(228, 135);
-            this.secretaryButtonSubMenu.TabIndex = 11;
-            // 
-            // guna2Button5
-            // 
-            this.guna2Button5.BorderThickness = 1;
-            this.guna2Button5.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button5.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button5.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button5.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button5.ForeColor = System.Drawing.Color.White;
-            this.guna2Button5.Location = new System.Drawing.Point(0, 90);
-            this.guna2Button5.Name = "guna2Button5";
-            this.guna2Button5.Size = new System.Drawing.Size(228, 45);
-            this.guna2Button5.TabIndex = 2;
-            this.guna2Button5.Text = "guna2Button5";
-            // 
-            // guna2Button6
-            // 
-            this.guna2Button6.BorderThickness = 1;
-            this.guna2Button6.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button6.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button6.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button6.ForeColor = System.Drawing.Color.White;
-            this.guna2Button6.Location = new System.Drawing.Point(0, 45);
-            this.guna2Button6.Name = "guna2Button6";
-            this.guna2Button6.Size = new System.Drawing.Size(228, 45);
-            this.guna2Button6.TabIndex = 1;
-            this.guna2Button6.Text = "guna2Button6";
-            // 
-            // guna2Button7
-            // 
-            this.guna2Button7.BorderThickness = 1;
-            this.guna2Button7.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button7.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button7.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button7.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button7.ForeColor = System.Drawing.Color.White;
-            this.guna2Button7.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button7.Name = "guna2Button7";
-            this.guna2Button7.Size = new System.Drawing.Size(228, 45);
-            this.guna2Button7.TabIndex = 0;
-            this.guna2Button7.Text = "guna2Button7";
-            // 
-            // doctorButton
-            // 
-            this.doctorButton.Animated = true;
-            this.doctorButton.BorderThickness = 1;
-            this.doctorButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.doctorButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.doctorButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.doctorButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.doctorButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.doctorButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.doctorButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.doctorButton.ForeColor = System.Drawing.Color.White;
-            this.doctorButton.Image = ((System.Drawing.Image)(resources.GetObject("doctorButton.Image")));
-            this.doctorButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.doctorButton.ImageSize = new System.Drawing.Size(30, 30);
-            this.doctorButton.Location = new System.Drawing.Point(0, 438);
-            this.doctorButton.Name = "doctorButton";
-            this.doctorButton.Size = new System.Drawing.Size(228, 84);
-            this.doctorButton.TabIndex = 12;
-            this.doctorButton.Text = "Doktor İşlemleri";
-            this.doctorButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.doctorButton.Click += new System.EventHandler(this.doctorButton_Click);
-            // 
-            // doctorButtonSubMenu
-            // 
-            this.doctorButtonSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.doctorButtonSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.doctorButtonSubMenu.Controls.Add(this.guna2Button9);
-            this.doctorButtonSubMenu.Controls.Add(this.guna2Button10);
-            this.doctorButtonSubMenu.Controls.Add(this.guna2Button11);
-            this.doctorButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.doctorButtonSubMenu.Location = new System.Drawing.Point(0, 522);
-            this.doctorButtonSubMenu.Name = "doctorButtonSubMenu";
-            this.doctorButtonSubMenu.Size = new System.Drawing.Size(228, 135);
-            this.doctorButtonSubMenu.TabIndex = 13;
-            // 
-            // guna2Button9
-            // 
-            this.guna2Button9.BorderThickness = 1;
-            this.guna2Button9.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button9.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button9.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button9.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button9.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button9.ForeColor = System.Drawing.Color.White;
-            this.guna2Button9.Location = new System.Drawing.Point(0, 90);
-            this.guna2Button9.Name = "guna2Button9";
-            this.guna2Button9.Size = new System.Drawing.Size(228, 45);
-            this.guna2Button9.TabIndex = 2;
-            this.guna2Button9.Text = "guna2Button9";
-            // 
-            // guna2Button10
-            // 
-            this.guna2Button10.BorderThickness = 1;
-            this.guna2Button10.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button10.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button10.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button10.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button10.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button10.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button10.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button10.ForeColor = System.Drawing.Color.White;
-            this.guna2Button10.Location = new System.Drawing.Point(0, 45);
-            this.guna2Button10.Name = "guna2Button10";
-            this.guna2Button10.Size = new System.Drawing.Size(228, 45);
-            this.guna2Button10.TabIndex = 1;
-            this.guna2Button10.Text = "guna2Button10";
-            // 
-            // guna2Button11
-            // 
-            this.guna2Button11.BorderThickness = 1;
-            this.guna2Button11.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button11.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button11.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button11.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Button11.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.guna2Button11.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button11.ForeColor = System.Drawing.Color.White;
-            this.guna2Button11.Location = new System.Drawing.Point(0, 0);
-            this.guna2Button11.Name = "guna2Button11";
-            this.guna2Button11.Size = new System.Drawing.Size(228, 45);
-            this.guna2Button11.TabIndex = 0;
-            this.guna2Button11.Text = "guna2Button11";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(1, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(218, 16);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Hospital Management - Secretary";
-            // 
-            // guna2DragControl1
-            // 
-            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl1.DragStartTransparencyValue = 1D;
-            this.guna2DragControl1.TargetControl = this.label1;
-            this.guna2DragControl1.UseTransparentDrag = true;
+            this.containerPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.containerPanel.Location = new System.Drawing.Point(219, 29);
+            this.containerPanel.Name = "containerPanel";
+            this.containerPanel.Size = new System.Drawing.Size(617, 445);
+            this.containerPanel.TabIndex = 8;
             // 
             // SecretaryLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(836, 501);
-            this.Controls.Add(this.add_new_doctor_button);
-            this.Controls.Add(this.add_new_secretary_button);
-            this.Controls.Add(this.guna2ControlBox3);
-            this.Controls.Add(this.guna2ControlBox1);
-            this.Controls.Add(this.guna2Panel1);
+            this.ClientSize = new System.Drawing.Size(836, 474);
+            this.Controls.Add(this.containerPanel);
+            this.Controls.Add(this.minimizeControlBox);
+            this.Controls.Add(this.exitControlBox);
+            this.Controls.Add(this.topWindowPanel);
             this.Controls.Add(this.leftPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
@@ -436,41 +432,39 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SecretaryLayer";
             this.Load += new System.EventHandler(this.SecretaryLayer_Load);
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
+            this.topWindowPanel.ResumeLayout(false);
+            this.topWindowPanel.PerformLayout();
             this.leftPanel.ResumeLayout(false);
-            this.patientButtonSubMenu.ResumeLayout(false);
-            this.secretaryButtonSubMenu.ResumeLayout(false);
             this.doctorButtonSubMenu.ResumeLayout(false);
+            this.secretaryButtonSubMenu.ResumeLayout(false);
+            this.patientButtonSubMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button add_new_doctor_button;
-        private System.Windows.Forms.Button add_new_secretary_button;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
-        private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox3;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
+        private Guna.UI2.WinForms.Guna2ControlBox exitControlBox;
+        private Guna.UI2.WinForms.Guna2ControlBox minimizeControlBox;
+        private Guna.UI2.WinForms.Guna2Panel topWindowPanel;
+        private Guna.UI2.WinForms.Guna2DragControl topWindowPanelDragControl;
         private Guna.UI2.WinForms.Guna2Panel leftPanel;
         private Guna.UI2.WinForms.Guna2Button patientButton;
         private Guna.UI2.WinForms.Guna2Panel patientButtonSubMenu;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button patientGraphsButton;
+        private Guna.UI2.WinForms.Guna2Button patientFeaturesButton;
+        private Guna.UI2.WinForms.Guna2Button createExaminationButton;
         private Guna.UI2.WinForms.Guna2Panel doctorButtonSubMenu;
-        private Guna.UI2.WinForms.Guna2Button guna2Button9;
-        private Guna.UI2.WinForms.Guna2Button guna2Button10;
-        private Guna.UI2.WinForms.Guna2Button guna2Button11;
+        private Guna.UI2.WinForms.Guna2Button deleteDoctorButton;
+        private Guna.UI2.WinForms.Guna2Button updateDoctorButton;
+        private Guna.UI2.WinForms.Guna2Button addNewDoctorButton;
         private Guna.UI2.WinForms.Guna2Button doctorButton;
         private Guna.UI2.WinForms.Guna2Panel secretaryButtonSubMenu;
-        private Guna.UI2.WinForms.Guna2Button guna2Button5;
-        private Guna.UI2.WinForms.Guna2Button guna2Button6;
-        private Guna.UI2.WinForms.Guna2Button guna2Button7;
+        private Guna.UI2.WinForms.Guna2Button deleteSecretaryButton;
+        private Guna.UI2.WinForms.Guna2Button updateSecretaryButton;
+        private Guna.UI2.WinForms.Guna2Button addNewSecretaryButton;
         private Guna.UI2.WinForms.Guna2Button secretaryButton;
-        private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private System.Windows.Forms.Label windowName;
+        private Guna.UI2.WinForms.Guna2DragControl windowNameDragControl;
+        private Guna.UI2.WinForms.Guna2Panel containerPanel;
     }
 }
