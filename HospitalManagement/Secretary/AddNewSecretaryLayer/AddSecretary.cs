@@ -9,6 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using MailKit.Net.Smtp;
+using MailKit;
+using MimeKit;
+using System.Net;
+using System.Net.Mail;
 
 namespace HospitalManagement.Secretary.AddNewSecretaryLayer
 {
@@ -84,6 +89,29 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             }
             else { return true; }
         }
+        private void sendUserNamePasswordToMailAddress(string usernameAndPassword, string mailAddress)
+        {
+            var smtpClient = new System.Net.Mail.SmtpClient("smtp.gmail.com")
+            {
+                Port = 587,
+                Credentials = new NetworkCredential("selimcanaslan33@gmail.com", "awzc nxve hnwo sxkj"),
+                EnableSsl = true,
+            };
+
+            var mailMessage = new MailMessage
+            {
+                From = new MailAddress("jakuzathelion@gmail.com"),
+                Subject = "Giriş Bilgileriniz",
+                Body = "<h1>Bilgileriniz Aşağıda Gösterilmektedir</h1>" +
+                "<h2>Şifrenizi Uygulama Üzerinden Oturum Açarak Değiştirebilirsiniz</h2>" +
+                "<p>Kullanıcı Adı: " + usernameAndPassword + "</p>" +
+                "<p>Şifre :" + usernameAndPassword + "</p>",
+                IsBodyHtml = true,
+            };
+            mailMessage.To.Add(mailAddress);
+
+            smtpClient.Send(mailMessage);
+        }
 
         private void registerButton_Click(object sender, EventArgs e)
         {
@@ -93,7 +121,13 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
                 BlSecretary blSecretary = new BlSecretary();
                 bool response = blSecretary.AddSecretary(nameTextBox.Text, surnameTextBox.Text,
                     mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text);
-                if (response) { MessageBox.Show("Registiration Successfull!"); }
+                if (response)
+                {
+                    string userNameAndPassword = (nameTextBox.Text + surnameTextBox.Text).ToLower().Trim();
+                    sendUserNamePasswordToMailAddress(userNameAndPassword, mailTextBox.Text);
+                    MessageBox.Show("Registiration Successfull!");
+
+                }
                 else { MessageBox.Show("Registiration Failed!"); }
             }
             else
