@@ -252,6 +252,7 @@
             this.registerButton.ForeColor = System.Drawing.Color.White;
             this.registerButton.Location = new System.Drawing.Point(354, 312);
             this.registerButton.Name = "registerButton";
+            this.registerButton.PressedColor = System.Drawing.Color.Gainsboro;
             this.registerButton.Size = new System.Drawing.Size(251, 63);
             this.registerButton.TabIndex = 33;
             this.registerButton.Text = "Kayıt Oluştur";

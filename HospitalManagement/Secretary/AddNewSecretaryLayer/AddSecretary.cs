@@ -30,21 +30,6 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             CenterToParent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //DALSecretary db = new DALSecretary();
-                //db.AddSecretary(textBox1.Text, textBox2.Text, textBox4.Text, textBox5.Text, textBox6.Text);
-                //MessageBox.Show("Başarıyla Kayıt Oldunuz");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-
-        }
-
         private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar))
@@ -91,26 +76,34 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
         }
         private void sendUserNamePasswordToMailAddress(string usernameAndPassword, string mailAddress)
         {
-            var smtpClient = new System.Net.Mail.SmtpClient("smtp.gmail.com")
+            try
             {
-                Port = 587,
-                Credentials = new NetworkCredential("selimcanaslan33@gmail.com", "awzc nxve hnwo sxkj"),
-                EnableSsl = true,
-            };
+                var smtpClient = new System.Net.Mail.SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("selimcanaslan33@gmail.com", "awzc nxve hnwo sxkj"),
+                    EnableSsl = true,
+                };
 
-            var mailMessage = new MailMessage
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("selimcanaslan33@gmail.com"),
+                    Subject = "Giriş Bilgileriniz",
+                    Body = "<h1>Bilgileriniz Aşağıda Gösterilmektedir</h1>" +
+                    "<h2>Şifrenizi Uygulama Üzerinden Oturum Açarak Değiştirebilirsiniz</h2>" +
+                    "<p>Kullanıcı Adı: " + usernameAndPassword + "</p>" +
+                    "<p>Şifre :" + usernameAndPassword + "</p>",
+                    IsBodyHtml = true,
+                };
+                mailMessage.To.Add(mailAddress);
+
+                smtpClient.SendMailAsync(mailMessage);
+            }
+            catch (SmtpException e)
             {
-                From = new MailAddress("jakuzathelion@gmail.com"),
-                Subject = "Giriş Bilgileriniz",
-                Body = "<h1>Bilgileriniz Aşağıda Gösterilmektedir</h1>" +
-                "<h2>Şifrenizi Uygulama Üzerinden Oturum Açarak Değiştirebilirsiniz</h2>" +
-                "<p>Kullanıcı Adı: " + usernameAndPassword + "</p>" +
-                "<p>Şifre :" + usernameAndPassword + "</p>",
-                IsBodyHtml = true,
-            };
-            mailMessage.To.Add(mailAddress);
+                Console.WriteLine("Error: {0}", e.StatusCode);
+            }
 
-            smtpClient.Send(mailMessage);
         }
 
         private void registerButton_Click(object sender, EventArgs e)
@@ -125,10 +118,15 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
                 {
                     string userNameAndPassword = (nameTextBox.Text + surnameTextBox.Text).ToLower().Trim();
                     sendUserNamePasswordToMailAddress(userNameAndPassword, mailTextBox.Text);
-                    MessageBox.Show("Registiration Successfull!");
+                    MessageBox.Show("Sekreter Kaydı Başarıyla Oluşturuldu!\n" +
+                        "Giriş Bilgileri Mail Adresine Gönderildi!");
 
                 }
-                else { MessageBox.Show("Registiration Failed!"); }
+                else
+                {
+                    MessageBox.Show("Kayıt Başarısız!\n" +
+                    "Sistem Yöneticinize Ulaşın!");
+                }
             }
             else
             {

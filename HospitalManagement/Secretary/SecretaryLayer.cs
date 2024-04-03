@@ -50,8 +50,8 @@ namespace HospitalManagement.Secretary
 
         private void hideSubMenu()
         {
-            if (patientButtonSubMenu.Visible == true) { patientButtonSubMenu.Visible=false; }
-            if (secretaryButtonSubMenu.Visible == true) { secretaryButtonSubMenu.Visible=false; }
+            if (patientButtonSubMenu.Visible == true) { patientButtonSubMenu.Visible = false; }
+            if (secretaryButtonSubMenu.Visible == true) { secretaryButtonSubMenu.Visible = false; }
             if (doctorButtonSubMenu.Visible == true) { doctorButtonSubMenu.Visible = false; }
         }
         private void ShowSubMenu(Guna2Panel subMenu)
@@ -80,19 +80,35 @@ namespace HospitalManagement.Secretary
         private Form activeForm = null;
         private void openChildForm(Form childForm)
         {
-            if(activeForm != null)
+            if (activeForm != null && activeForm.GetType() == childForm.GetType())
+            {
+                return;
+            }
+            else if (activeForm == null)
+            {
+                activeForm = childForm;
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                containerPanel.Controls.Add(childForm);
+                containerPanel.Tag = childForm;
+                childForm.BringToFront();
+                childForm.Show();
+            }
+            else if (activeForm != null)
             {
                 activeForm.Close();
+                activeForm = childForm;
+                childForm.TopLevel = false;
+                childForm.FormBorderStyle = FormBorderStyle.None;
+                childForm.Dock = DockStyle.Fill;
+                containerPanel.Controls.Add(childForm);
+                containerPanel.Tag = childForm;
+                childForm.BringToFront();
+                childForm.Show();
             }
-            activeForm = childForm;
-            childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
-            childForm.Dock = DockStyle.Fill;
-            containerPanel.Controls.Add(childForm);
-            containerPanel.Tag = childForm;
-            childForm.BringToFront();
-            childForm.Show();
-            
+
+
         }
 
         private void addNewSecretaryButton_Click(object sender, EventArgs e)
