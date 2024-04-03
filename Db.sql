@@ -77,3 +77,5 @@ END
 
 INSERT Secretary VALUES ('Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5555555555', 'Mersin Toroslar')
 INSERT Doctor VALUES ('Muhammet Yusuf', 'ASLAN', 'Cerrah', 'doktoryusuf@gmail.com', '5555345555', 'Mersin Toroslar')
+
+TRUNCATE TABLE User_Login_Info

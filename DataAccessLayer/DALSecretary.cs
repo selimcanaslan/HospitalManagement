@@ -14,16 +14,20 @@ namespace DataAccessLayer
             DbConnect dbConnect = new DbConnect();
 
         }
-        public void AddSecretary(string name, string surname, string mail, string phone_number, string address)
+        public bool AddSecretary(string name, string surname, string mail, string phone_number, string address)
         {
             String query = "INSERT INTO Secretary VALUES ('" + name + "','" + surname + "','" + mail +
                 "','" + phone_number + "','" + address + "')";
             exception = null;
             com.Connection = con;
             com.CommandText = query;
-
-            try { com.ExecuteScalar(); }
-            catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); }
+            try
+            {
+                int rows_affected = com.ExecuteNonQuery();
+                if (rows_affected >= 1) { return true; }
+                else { return false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
         }
     }
 }

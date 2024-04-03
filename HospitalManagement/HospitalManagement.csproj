@@ -177,6 +177,7 @@
     <Content Include="Assets\Login\medical-team.png" />
     <Content Include="Assets\Login\password.png" />
     <Content Include="Assets\Login\profile.png" />
+    <None Include="Assets\Secretary\secretary_registiration.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">

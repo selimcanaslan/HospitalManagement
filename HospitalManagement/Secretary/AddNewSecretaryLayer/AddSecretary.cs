@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BusinessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
 {
     public partial class AddSecretary : Form
     {
+        string err_message = "";
         public AddSecretary()
         {
             InitializeComponent();
@@ -60,6 +62,46 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             {
                 e.Handled = true;
             }
+        }
+
+        private bool fieldValidation()
+        {
+            if (string.IsNullOrWhiteSpace(nameTextBox.Text) || string.IsNullOrWhiteSpace(surnameTextBox.Text) || string.IsNullOrWhiteSpace(mailTextBox.Text)
+                || string.IsNullOrWhiteSpace(phoneTextBox.Text) || string.IsNullOrWhiteSpace(addressTextBox.Text))
+            { err_message += "Lütfen hiçbir alanı boş bırakmayınız!\n"; }
+            if (mailTextBox.Text.Length > 0 &&
+                mailTextBox.Text.EndsWith("@gmail.com") == false &&
+                mailTextBox.Text.EndsWith("@hotmail.com") == false &&
+                mailTextBox.Text.EndsWith("@outlook.com") == false)
+            {
+                err_message += "Mail adresi hotmail, gmail ya da outlook olmalıdır.\n";
+            }
+            if (phoneTextBox.Text.Length != 10 && phoneTextBox.Text.Length > 0) { err_message += "Lütfen Telefon numaranızı başında 0 olmadan giriniz.\n"; }
+
+            if (err_message != "")
+            {
+                return false;
+            }
+            else { return true; }
+        }
+
+        private void registerButton_Click(object sender, EventArgs e)
+        {
+
+            if (fieldValidation() == true)
+            {
+                BlSecretary blSecretary = new BlSecretary();
+                bool response = blSecretary.AddSecretary(nameTextBox.Text, surnameTextBox.Text,
+                    mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text);
+                if (response) { MessageBox.Show("Registiration Successfull!"); }
+                else { MessageBox.Show("Registiration Failed!"); }
+            }
+            else
+            {
+                MessageBox.Show(err_message);
+                err_message = string.Empty;
+            }
+
         }
     }
 }
