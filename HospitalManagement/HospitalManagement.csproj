@@ -130,6 +130,18 @@
     <Compile Include="Secretary\CreateAppointmentLayer\CreateAppointment.Designer.cs">
       <DependentUpon>CreateAppointment.cs</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\DeleteDoctorLayer\DeleteDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secretary\DeleteDoctorLayer\DeleteDoctor.Designer.cs">
+      <DependentUpon>DeleteDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\DeleteSecretaryLayer\DeleteSecretary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secretary\DeleteSecretaryLayer\DeleteSecretary.Designer.cs">
+      <DependentUpon>DeleteSecretary.cs</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\PatientFeaturesLayer\PatientFeatures.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +159,18 @@
     </Compile>
     <Compile Include="Secretary\SecretaryLayer.Designer.cs">
       <DependentUpon>SecretaryLayer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\UpdateDoctorLayer\UpdateDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secretary\UpdateDoctorLayer\UpdateDoctor.Designer.cs">
+      <DependentUpon>UpdateDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Secretary\UpdateSecretaryLayer\UpdateSecretary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secretary\UpdateSecretaryLayer\UpdateSecretary.Designer.cs">
+      <DependentUpon>UpdateSecretary.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Doctor\DoctorLayer.resx">
       <DependentUpon>DoctorLayer.cs</DependentUpon>
@@ -179,6 +203,12 @@
     <EmbeddedResource Include="Secretary\CreateAppointmentLayer\CreateAppointment.resx">
       <DependentUpon>CreateAppointment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Secretary\DeleteDoctorLayer\DeleteDoctor.resx">
+      <DependentUpon>DeleteDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Secretary\DeleteSecretaryLayer\DeleteSecretary.resx">
+      <DependentUpon>DeleteSecretary.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Secretary\PatientFeaturesLayer\PatientFeatures.resx">
       <DependentUpon>PatientFeatures.cs</DependentUpon>
     </EmbeddedResource>
@@ -187,6 +217,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Secretary\SecretaryLayer.resx">
       <DependentUpon>SecretaryLayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Secretary\UpdateDoctorLayer\UpdateDoctor.resx">
+      <DependentUpon>UpdateDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Secretary\UpdateSecretaryLayer\UpdateSecretary.resx">
+      <DependentUpon>UpdateSecretary.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

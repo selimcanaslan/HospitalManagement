@@ -13,6 +13,10 @@ using Guna.UI2.WinForms;
 using HospitalManagement.Secretary.CreateAppointmentLayer;
 using HospitalManagement.Secretary.PatientFeaturesLayer;
 using HospitalManagement.Secretary.PatientGraphsLayer;
+using HospitalManagement.Secretary.DeleteSecretaryLayer;
+using HospitalManagement.Secretary.UpdateSecretaryLayer;
+using HospitalManagement.Secretary.DeleteDoctorLayer;
+using HospitalManagement.Secretary.UpdateDoctorLayer;
 
 namespace HospitalManagement.Secretary
 {
@@ -107,10 +111,7 @@ namespace HospitalManagement.Secretary
                 childForm.BringToFront();
                 childForm.Show();
             }
-
-
         }
-
         private void addNewSecretaryButton_Click(object sender, EventArgs e)
         {
             openChildForm(new AddSecretary());
@@ -139,6 +140,26 @@ namespace HospitalManagement.Secretary
         private void patientGraphsButton_Click(object sender, EventArgs e)
         {
             openChildForm(new PatientGraphs());
+        }
+
+        private void deleteSecretaryButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new DeleteSecretary());
+        }
+
+        private void updateSecretaryButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new UpdateSecretary());
+        }
+
+        private void deleteDoctorButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new DeleteDoctor());
+        }
+
+        private void updateDoctorButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new UpdateDoctor());
         }
     }
 }

@@ -66,7 +66,13 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             {
                 err_message += "Mail adresi hotmail, gmail ya da outlook olmalıdır.\n";
             }
-            if (phoneTextBox.Text.Length != 10 && phoneTextBox.Text.Length > 0) { err_message += "Lütfen Telefon numaranızı başında 0 olmadan giriniz.\n"; }
+            if (phoneTextBox.Text.Length != 10 && phoneTextBox.Text.Length > 0)
+            { err_message += "Telefon Numaranız 10 Haneden Oluşmalıdır!\n"; }
+
+            if (phoneTextBox.Text.StartsWith("0"))
+            {
+                err_message += "Lütfen Telefon numaranızı başında 0 olmadan giriniz.\n";
+            }
 
             if (err_message != "")
             {
@@ -130,7 +136,7 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             }
             else
             {
-                MessageBox.Show(err_message);
+                MessageBox.Show(err_message,"Hata!");
                 err_message = string.Empty;
             }
 
