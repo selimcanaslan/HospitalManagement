@@ -10,7 +10,8 @@ namespace DataAccessLayer
 {
     public class DbConnect
     {
-        private string SQLConnectionString = @"Server = SCA\SQLEXPRESS;Database =Hospital; Trusted_Connection = True;";
+        private string SQLConnectionStringLocal = @"Server = SCA\SQLEXPRESS;Database =Hospital; Trusted_Connection = True;";
+        private string SQLConnectionStringSomee = "workstation id=gp_hospital.mssql.somee.com;packet size=4096;user id=sca33_SQLLogin_1;pwd=ejc7i6uu64;data source=gp_hospital.mssql.somee.com;persist security info=False;initial catalog=gp_hospital;TrustServerCertificate=True";
         protected SqlConnection con = new SqlConnection();
         protected SqlDataAdapter da = new SqlDataAdapter();
         protected SqlCommand com = new SqlCommand();
@@ -19,36 +20,18 @@ namespace DataAccessLayer
         public DbConnect()
         {
             exception = null;
-            con = new SqlConnection(SQLConnectionString);
+            con = new SqlConnection(SQLConnectionStringLocal);
             if (con.State == System.Data.ConnectionState.Closed)
             {
                 try
                 {
                     con.Open();
-                    Console.WriteLine("Db Baglanti Saglandi");
                 }
                 catch (SqlException ex)
                 {
                     Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
                 }
             }
-        }
-        public DataTable DTable(string query)
-        {
-            DataTable dt = new DataTable();
-            com.Connection = con;
-            com.CommandText = query;
-            da.SelectCommand = com;
-            try
-            {
-                da.Fill(dt);
-            }
-            catch (SqlException ex)
-            {
-
-                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
-            }
-            return dt;
         }
     }
 }

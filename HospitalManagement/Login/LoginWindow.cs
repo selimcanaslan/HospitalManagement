@@ -22,7 +22,7 @@ namespace HospitalManagement
         public LoginWindow()
         {
             InitializeComponent();
-            _blUserLogin = new BlUserLogin();
+
         }
 
         private void LoginWindow_Load(object sender, EventArgs e)
@@ -53,6 +53,7 @@ namespace HospitalManagement
             {
                 try
                 {
+                    _blUserLogin = new BlUserLogin();
                     DataTable user_info = _blUserLogin.fetchUserLoginData(user_name_textBox.Text, password_textBox.Text, auth_type);
                     if (user_info.Rows.Count == 1)
                     {

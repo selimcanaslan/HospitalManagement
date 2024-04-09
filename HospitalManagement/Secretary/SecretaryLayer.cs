@@ -22,6 +22,11 @@ namespace HospitalManagement.Secretary
 {
     public partial class SecretaryLayer : Form
     {
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(Pens.Black, this.Bounds);
+        }
+
         protected override CreateParams CreateParams
         {
             get
@@ -36,6 +41,7 @@ namespace HospitalManagement.Secretary
         {
             InitializeComponent();
             this.Text = loginType.ToUpper();
+            
         }
 
         private void SecretaryLayer_Load(object sender, EventArgs e)

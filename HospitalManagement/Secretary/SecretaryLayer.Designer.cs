@@ -65,9 +65,9 @@
             this.exitControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exitControlBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.exitControlBox.IconColor = System.Drawing.Color.White;
-            this.exitControlBox.Location = new System.Drawing.Point(791, 0);
+            this.exitControlBox.Location = new System.Drawing.Point(795, 2);
             this.exitControlBox.Name = "exitControlBox";
-            this.exitControlBox.Size = new System.Drawing.Size(45, 29);
+            this.exitControlBox.Size = new System.Drawing.Size(40, 27);
             this.exitControlBox.TabIndex = 3;
             // 
             // minimizeControlBox
@@ -76,19 +76,23 @@
             this.minimizeControlBox.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
             this.minimizeControlBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.minimizeControlBox.IconColor = System.Drawing.Color.White;
-            this.minimizeControlBox.Location = new System.Drawing.Point(746, 0);
+            this.minimizeControlBox.Location = new System.Drawing.Point(755, 2);
             this.minimizeControlBox.Name = "minimizeControlBox";
-            this.minimizeControlBox.Size = new System.Drawing.Size(45, 29);
+            this.minimizeControlBox.Size = new System.Drawing.Size(40, 27);
             this.minimizeControlBox.TabIndex = 5;
             // 
             // topWindowPanel
             // 
             this.topWindowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.topWindowPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.topWindowPanel.Controls.Add(this.windowName);
+            this.topWindowPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.topWindowPanel.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.topWindowPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.topWindowPanel.Location = new System.Drawing.Point(0, 0);
+            this.topWindowPanel.Location = new System.Drawing.Point(1, 1);
             this.topWindowPanel.Name = "topWindowPanel";
-            this.topWindowPanel.Size = new System.Drawing.Size(836, 29);
+            this.topWindowPanel.ShadowDecoration.BorderRadius = 30;
+            this.topWindowPanel.Size = new System.Drawing.Size(834, 29);
             this.topWindowPanel.TabIndex = 6;
             // 
             // windowName
@@ -118,10 +122,11 @@
             this.leftPanel.Controls.Add(this.secretaryButton);
             this.leftPanel.Controls.Add(this.patientButtonSubMenu);
             this.leftPanel.Controls.Add(this.patientButton);
+            this.leftPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.leftPanel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.leftPanel.Location = new System.Drawing.Point(0, 29);
+            this.leftPanel.Location = new System.Drawing.Point(1, 30);
             this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Size = new System.Drawing.Size(219, 480);
+            this.leftPanel.Size = new System.Drawing.Size(216, 385);
             this.leftPanel.TabIndex = 7;
             // 
             // doctorButtonSubMenu
@@ -134,7 +139,7 @@
             this.doctorButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.doctorButtonSubMenu.Location = new System.Drawing.Point(0, 522);
             this.doctorButtonSubMenu.Name = "doctorButtonSubMenu";
-            this.doctorButtonSubMenu.Size = new System.Drawing.Size(219, 135);
+            this.doctorButtonSubMenu.Size = new System.Drawing.Size(216, 135);
             this.doctorButtonSubMenu.TabIndex = 13;
             // 
             // deleteDoctorButton
@@ -149,7 +154,7 @@
             this.deleteDoctorButton.ForeColor = System.Drawing.Color.White;
             this.deleteDoctorButton.Location = new System.Drawing.Point(0, 90);
             this.deleteDoctorButton.Name = "deleteDoctorButton";
-            this.deleteDoctorButton.Size = new System.Drawing.Size(219, 45);
+            this.deleteDoctorButton.Size = new System.Drawing.Size(216, 45);
             this.deleteDoctorButton.TabIndex = 2;
             this.deleteDoctorButton.Text = "Doktor Sil";
             this.deleteDoctorButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -169,7 +174,7 @@
             this.updateDoctorButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.updateDoctorButton.Location = new System.Drawing.Point(0, 45);
             this.updateDoctorButton.Name = "updateDoctorButton";
-            this.updateDoctorButton.Size = new System.Drawing.Size(219, 45);
+            this.updateDoctorButton.Size = new System.Drawing.Size(216, 45);
             this.updateDoctorButton.TabIndex = 1;
             this.updateDoctorButton.Text = "Doktor Güncelle";
             this.updateDoctorButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -188,7 +193,7 @@
             this.addNewDoctorButton.ForeColor = System.Drawing.Color.White;
             this.addNewDoctorButton.Location = new System.Drawing.Point(0, 0);
             this.addNewDoctorButton.Name = "addNewDoctorButton";
-            this.addNewDoctorButton.Size = new System.Drawing.Size(219, 45);
+            this.addNewDoctorButton.Size = new System.Drawing.Size(216, 45);
             this.addNewDoctorButton.TabIndex = 0;
             this.addNewDoctorButton.Text = "Doktor Kayıt";
             this.addNewDoctorButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -211,7 +216,7 @@
             this.doctorButton.ImageSize = new System.Drawing.Size(30, 30);
             this.doctorButton.Location = new System.Drawing.Point(0, 438);
             this.doctorButton.Name = "doctorButton";
-            this.doctorButton.Size = new System.Drawing.Size(219, 84);
+            this.doctorButton.Size = new System.Drawing.Size(216, 84);
             this.doctorButton.TabIndex = 12;
             this.doctorButton.Text = "Doktor İşlemleri";
             this.doctorButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -227,7 +232,7 @@
             this.secretaryButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.secretaryButtonSubMenu.Location = new System.Drawing.Point(0, 303);
             this.secretaryButtonSubMenu.Name = "secretaryButtonSubMenu";
-            this.secretaryButtonSubMenu.Size = new System.Drawing.Size(219, 135);
+            this.secretaryButtonSubMenu.Size = new System.Drawing.Size(216, 135);
             this.secretaryButtonSubMenu.TabIndex = 11;
             // 
             // deleteSecretaryButton
@@ -242,7 +247,7 @@
             this.deleteSecretaryButton.ForeColor = System.Drawing.Color.White;
             this.deleteSecretaryButton.Location = new System.Drawing.Point(0, 90);
             this.deleteSecretaryButton.Name = "deleteSecretaryButton";
-            this.deleteSecretaryButton.Size = new System.Drawing.Size(219, 45);
+            this.deleteSecretaryButton.Size = new System.Drawing.Size(216, 45);
             this.deleteSecretaryButton.TabIndex = 2;
             this.deleteSecretaryButton.Text = "Sekreter Sil";
             this.deleteSecretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -261,7 +266,7 @@
             this.updateSecretaryButton.ForeColor = System.Drawing.Color.White;
             this.updateSecretaryButton.Location = new System.Drawing.Point(0, 45);
             this.updateSecretaryButton.Name = "updateSecretaryButton";
-            this.updateSecretaryButton.Size = new System.Drawing.Size(219, 45);
+            this.updateSecretaryButton.Size = new System.Drawing.Size(216, 45);
             this.updateSecretaryButton.TabIndex = 1;
             this.updateSecretaryButton.Text = "Sekreter Güncelle";
             this.updateSecretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -282,7 +287,7 @@
             this.addNewSecretaryButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.addNewSecretaryButton.Location = new System.Drawing.Point(0, 0);
             this.addNewSecretaryButton.Name = "addNewSecretaryButton";
-            this.addNewSecretaryButton.Size = new System.Drawing.Size(219, 45);
+            this.addNewSecretaryButton.Size = new System.Drawing.Size(216, 45);
             this.addNewSecretaryButton.TabIndex = 0;
             this.addNewSecretaryButton.Text = "Sekreter Kayıt";
             this.addNewSecretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -305,7 +310,7 @@
             this.secretaryButton.ImageSize = new System.Drawing.Size(30, 30);
             this.secretaryButton.Location = new System.Drawing.Point(0, 219);
             this.secretaryButton.Name = "secretaryButton";
-            this.secretaryButton.Size = new System.Drawing.Size(219, 84);
+            this.secretaryButton.Size = new System.Drawing.Size(216, 84);
             this.secretaryButton.TabIndex = 10;
             this.secretaryButton.Text = "Sekreter İşlemleri";
             this.secretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -321,7 +326,7 @@
             this.patientButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.patientButtonSubMenu.Location = new System.Drawing.Point(0, 84);
             this.patientButtonSubMenu.Name = "patientButtonSubMenu";
-            this.patientButtonSubMenu.Size = new System.Drawing.Size(219, 135);
+            this.patientButtonSubMenu.Size = new System.Drawing.Size(216, 135);
             this.patientButtonSubMenu.TabIndex = 9;
             // 
             // patientGraphsButton
@@ -336,7 +341,7 @@
             this.patientGraphsButton.ForeColor = System.Drawing.Color.White;
             this.patientGraphsButton.Location = new System.Drawing.Point(0, 90);
             this.patientGraphsButton.Name = "patientGraphsButton";
-            this.patientGraphsButton.Size = new System.Drawing.Size(219, 45);
+            this.patientGraphsButton.Size = new System.Drawing.Size(216, 45);
             this.patientGraphsButton.TabIndex = 2;
             this.patientGraphsButton.Text = "Hasta Grafikleri";
             this.patientGraphsButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -355,7 +360,7 @@
             this.patientFeaturesButton.ForeColor = System.Drawing.Color.White;
             this.patientFeaturesButton.Location = new System.Drawing.Point(0, 45);
             this.patientFeaturesButton.Name = "patientFeaturesButton";
-            this.patientFeaturesButton.Size = new System.Drawing.Size(219, 45);
+            this.patientFeaturesButton.Size = new System.Drawing.Size(216, 45);
             this.patientFeaturesButton.TabIndex = 1;
             this.patientFeaturesButton.Text = "Hasta (Ekle - Sil - Güncelle)";
             this.patientFeaturesButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -374,7 +379,7 @@
             this.createAppointmentButton.ForeColor = System.Drawing.Color.White;
             this.createAppointmentButton.Location = new System.Drawing.Point(0, 0);
             this.createAppointmentButton.Name = "createAppointmentButton";
-            this.createAppointmentButton.Size = new System.Drawing.Size(219, 45);
+            this.createAppointmentButton.Size = new System.Drawing.Size(216, 45);
             this.createAppointmentButton.TabIndex = 0;
             this.createAppointmentButton.Text = "Randevu Oluştur";
             this.createAppointmentButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -398,7 +403,7 @@
             this.patientButton.ImageSize = new System.Drawing.Size(30, 30);
             this.patientButton.Location = new System.Drawing.Point(0, 0);
             this.patientButton.Name = "patientButton";
-            this.patientButton.Size = new System.Drawing.Size(219, 84);
+            this.patientButton.Size = new System.Drawing.Size(216, 84);
             this.patientButton.TabIndex = 8;
             this.patientButton.Text = "Hasta İşlemleri";
             this.patientButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -414,15 +419,17 @@
             // containerPanel
             // 
             this.containerPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.containerPanel.Location = new System.Drawing.Point(219, 29);
+            this.containerPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.containerPanel.Location = new System.Drawing.Point(218, 30);
             this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Size = new System.Drawing.Size(617, 387);
+            this.containerPanel.Size = new System.Drawing.Size(617, 385);
             this.containerPanel.TabIndex = 8;
             // 
             // SecretaryLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(836, 416);
             this.Controls.Add(this.containerPanel);
             this.Controls.Add(this.minimizeControlBox);
@@ -433,6 +440,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "SecretaryLayer";
+            this.Padding = new System.Windows.Forms.Padding(1);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SecretaryLayer";
             this.Load += new System.EventHandler(this.SecretaryLayer_Load);

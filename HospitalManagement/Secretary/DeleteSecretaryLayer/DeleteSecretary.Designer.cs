@@ -28,39 +28,65 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.secretaryNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.searchButton = new Guna.UI2.WinForms.Guna2Button();
+            this.dgvSecretary = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSecretary)).BeginInit();
             this.SuspendLayout();
             // 
-            // guna2TextBox1
+            // secretaryNameTextBox
             // 
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(12, 31);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(593, 49);
-            this.guna2TextBox1.TabIndex = 0;
+            this.secretaryNameTextBox.BorderThickness = 0;
+            this.secretaryNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.secretaryNameTextBox.DefaultText = "";
+            this.secretaryNameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.secretaryNameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.secretaryNameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.secretaryNameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.secretaryNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
+            this.secretaryNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.secretaryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.White;
+            this.secretaryNameTextBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secretaryNameTextBox.ForeColor = System.Drawing.Color.White;
+            this.secretaryNameTextBox.HoverState.BorderColor = System.Drawing.Color.White;
+            this.secretaryNameTextBox.Location = new System.Drawing.Point(0, 0);
+            this.secretaryNameTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.secretaryNameTextBox.Name = "secretaryNameTextBox";
+            this.secretaryNameTextBox.PasswordChar = '\0';
+            this.secretaryNameTextBox.PlaceholderText = "";
+            this.secretaryNameTextBox.SelectedText = "";
+            this.secretaryNameTextBox.Size = new System.Drawing.Size(617, 45);
+            this.secretaryNameTextBox.TabIndex = 0;
             // 
-            // label1
+            // searchButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(101, 19);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Sekreter Adı";
+            this.searchButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.searchButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.searchButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.searchButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.searchButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.searchButton.ForeColor = System.Drawing.Color.White;
+            this.searchButton.Location = new System.Drawing.Point(518, 2);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(94, 41);
+            this.searchButton.TabIndex = 3;
+            this.searchButton.Text = "ARA";
+            // 
+            // dgvSecretary
+            // 
+            this.dgvSecretary.AllowUserToAddRows = false;
+            this.dgvSecretary.AllowUserToResizeColumns = false;
+            this.dgvSecretary.AllowUserToResizeRows = false;
+            this.dgvSecretary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSecretary.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvSecretary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSecretary.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvSecretary.Location = new System.Drawing.Point(0, 47);
+            this.dgvSecretary.MultiSelect = false;
+            this.dgvSecretary.Name = "dgvSecretary";
+            this.dgvSecretary.Size = new System.Drawing.Size(617, 340);
+            this.dgvSecretary.TabIndex = 6;
+            this.dgvSecretary.Click += new System.EventHandler(this.dgvSecretary_CurrentCellChanged);
             // 
             // DeleteSecretary
             // 
@@ -68,19 +94,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(617, 387);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.secretaryNameTextBox);
+            this.Controls.Add(this.dgvSecretary);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DeleteSecretary";
             this.Text = "DeleteSecretary";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSecretary)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
-        private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2TextBox secretaryNameTextBox;
+        private Guna.UI2.WinForms.Guna2Button searchButton;
+        private System.Windows.Forms.DataGridView dgvSecretary;
     }
 }

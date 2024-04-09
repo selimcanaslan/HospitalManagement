@@ -30,7 +30,7 @@ namespace DataAccessLayer
             return obj;
         }
 
-        public DataTable Table(string query)
+        public DataTable DTable(string query)
         {
             DataTable dt = new DataTable();
             com.Connection = con;

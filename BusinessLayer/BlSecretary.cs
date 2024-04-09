@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,14 @@ namespace BusinessLayer
         public bool AddSecretary(string name, string surname, string mail, string phone_number, string address)
         {
             return _dalSecretary.AddSecretary(name, surname, mail, phone_number, address);
+        }
+        public DataTable fetchAllSecretary()
+        {
+            return _dalSecretary.fetchAllSecretary();
+        }
+        public bool deleteSecretary(string phone_number)
+        {
+            return _dalSecretary.deleteSecretary(phone_number);
         }
     }
 }
