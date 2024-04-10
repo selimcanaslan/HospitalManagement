@@ -52,6 +52,24 @@ namespace DataAccessLayer
             }
             return dt;
         }
+        public DataTable fetchSecretaryByGivenName(string name)
+        {
+            DataTable dt = new DataTable();
+            string query = $"SELECT * FROM Secretary WHERE name + ' ' + surname LIKE '{name}%'";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
         public bool deleteSecretary(string phone_number)
         {
             String query = "DELETE FROM Secretary WHERE phone_number='" + phone_number + "'";

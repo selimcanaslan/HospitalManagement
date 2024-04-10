@@ -26,7 +26,29 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
             dgvSecretary.Columns["phone_number"].HeaderText = "Telefon";
             dgvSecretary.Columns["address"].HeaderText = "Adres";
         }
-        private void dgvSecretary_CurrentCellChanged(object sender, EventArgs e)
+        private void updateDgv()
+        {
+            dgvSecretary.DataSource = _blSecretary.fetchAllSecretary();
+
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string name = secretaryNameTextBox.Text;
+            DataTable dt = new DataTable();
+            dt = _blSecretary.fetchSecretaryByGivenName(name);
+            if (dt.Rows.Count > 0)
+            {
+                dgvSecretary.DataSource = dt;
+            }
+            else
+            {
+                MessageBox.Show("Girdiğiniz İsimde Sekreter Bulunamadı!\nSekreter adını doğru yazdığınıza emin olun!\nAd, Soyad arasında boşluk bıraktığınıza emin olun!", "Kullanıcı Bulunamadı");
+            }
+
+        }
+
+        private void dgvSecretary_SelectionChanged(object sender, EventArgs e)
         {
             if (dgvSecretary.SelectedCells.Count > 0)
             {
@@ -34,7 +56,7 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
                 {
                     int selectedrowindex = dgvSecretary.SelectedRows[0].Index;
                     DataGridViewRow selectedRow = dgvSecretary.Rows[selectedrowindex];
-                    string tam_ad = Convert.ToString(selectedRow.Cells["name"].Value) +
+                    string tam_ad = Convert.ToString(selectedRow.Cells["name"].Value) + " " +
                         Convert.ToString(selectedRow.Cells["surname"].Value);
                     string mail = Convert.ToString(selectedRow.Cells["mail"].Value);
                     string telefon = Convert.ToString(selectedRow.Cells["phone_number"].Value);
@@ -48,7 +70,7 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
                         if (response) { MessageBox.Show("Kayıt Başarıyla Silindi", "Bilgi"); updateDgv(); }
                         else
                         {
-                            MessageBox.Show("Kayıt Silinirken Bir Hata İle Karşılaşıldı", "Bilgi");
+                            MessageBox.Show("Kayıt Silinirken Bir Hata İle Karşılaşıldı", "Bilgi"); ;
                         }
                     }
                     else if (dialogResult == DialogResult.No)
@@ -61,11 +83,6 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
                     return;
                 }
             }
-        }
-        private void updateDgv()
-        {
-            dgvSecretary.DataSource = _blSecretary.fetchAllSecretary();
-
         }
     }
 }

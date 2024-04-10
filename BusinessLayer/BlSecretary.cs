@@ -25,6 +25,10 @@ namespace BusinessLayer
         {
             return _dalSecretary.fetchAllSecretary();
         }
+        public DataTable fetchSecretaryByGivenName(string name)
+        {
+            return _dalSecretary.fetchSecretaryByGivenName(name);
+        }
         public bool deleteSecretary(string phone_number)
         {
             return _dalSecretary.deleteSecretary(phone_number);

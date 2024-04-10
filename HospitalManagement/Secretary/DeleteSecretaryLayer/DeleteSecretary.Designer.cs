@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.secretaryNameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.searchButton = new Guna.UI2.WinForms.Guna2Button();
             this.dgvSecretary = new System.Windows.Forms.DataGridView();
@@ -53,7 +54,8 @@
             this.secretaryNameTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.secretaryNameTextBox.Name = "secretaryNameTextBox";
             this.secretaryNameTextBox.PasswordChar = '\0';
-            this.secretaryNameTextBox.PlaceholderText = "";
+            this.secretaryNameTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
+            this.secretaryNameTextBox.PlaceholderText = "Aramak İstediğiniz Kişinin İsmini Yazın.";
             this.secretaryNameTextBox.SelectedText = "";
             this.secretaryNameTextBox.Size = new System.Drawing.Size(617, 45);
             this.secretaryNameTextBox.TabIndex = 0;
@@ -64,13 +66,15 @@
             this.searchButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.searchButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.searchButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.searchButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.searchButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.searchButton.ForeColor = System.Drawing.Color.White;
-            this.searchButton.Location = new System.Drawing.Point(518, 2);
+            this.searchButton.Location = new System.Drawing.Point(521, 2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(94, 41);
             this.searchButton.TabIndex = 3;
             this.searchButton.Text = "ARA";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // dgvSecretary
             // 
@@ -84,9 +88,17 @@
             this.dgvSecretary.Location = new System.Drawing.Point(0, 47);
             this.dgvSecretary.MultiSelect = false;
             this.dgvSecretary.Name = "dgvSecretary";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvSecretary.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvSecretary.Size = new System.Drawing.Size(617, 340);
             this.dgvSecretary.TabIndex = 6;
-            this.dgvSecretary.Click += new System.EventHandler(this.dgvSecretary_CurrentCellChanged);
+            this.dgvSecretary.SelectionChanged += new System.EventHandler(this.dgvSecretary_SelectionChanged);
             // 
             // DeleteSecretary
             // 
