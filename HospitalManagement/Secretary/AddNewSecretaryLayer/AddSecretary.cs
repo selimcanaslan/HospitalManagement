@@ -20,6 +20,8 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
         public AddSecretary()
         {
             InitializeComponent();
+            tcnoTextBox.MaxLength = 11;
+            phoneTextBox.MaxLength = 10;
         }
 
         private void AddSecretary_Load(object sender, EventArgs e)
@@ -51,10 +53,18 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             }
         }
 
+        private void tcnoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private bool fieldValidation()
         {
             if (string.IsNullOrWhiteSpace(nameTextBox.Text) || string.IsNullOrWhiteSpace(surnameTextBox.Text) || string.IsNullOrWhiteSpace(mailTextBox.Text)
-                || string.IsNullOrWhiteSpace(phoneTextBox.Text) || string.IsNullOrWhiteSpace(addressTextBox.Text))
+                || string.IsNullOrWhiteSpace(phoneTextBox.Text) || string.IsNullOrWhiteSpace(addressTextBox.Text) || string.IsNullOrWhiteSpace(tcnoTextBox.Text))
             { err_message += "Lütfen hiçbir alanı boş bırakmayınız!\n"; }
             if (mailTextBox.Text.Length > 0 &&
                 mailTextBox.Text.EndsWith("@gmail.com") == false &&
@@ -69,6 +79,10 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             if (phoneTextBox.Text.StartsWith("0"))
             {
                 err_message += "Lütfen Telefon numaranızı başında 0 olmadan giriniz.\n";
+            }
+            if (tcnoTextBox.Text.StartsWith("0"))
+            {
+                err_message += "TC.No Sıfır (0) ile başlayamaz.";
             }
 
             if (err_message != "")
@@ -115,7 +129,7 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             if (fieldValidation() == true)
             {
                 BlSecretary blSecretary = new BlSecretary();
-                bool response = blSecretary.AddSecretary(nameTextBox.Text, surnameTextBox.Text,
+                bool response = blSecretary.AddSecretary(nameTextBox.Text, surnameTextBox.Text, tcnoTextBox.Text,
                     mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text);
                 if (response)
                 {
@@ -133,10 +147,12 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             }
             else
             {
-                MessageBox.Show(err_message,"Hata!");
+                MessageBox.Show(err_message, "Hata!");
                 err_message = string.Empty;
             }
 
         }
+
+
     }
 }

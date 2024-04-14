@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginWindow));
             this.user_name_textBox = new System.Windows.Forms.TextBox();
             this.login_button = new System.Windows.Forms.Button();
@@ -41,6 +42,8 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -191,6 +194,18 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
+            // guna2DragControl2
+            // 
+            this.guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl2.TargetControl = this.pictureBox3;
+            this.guna2DragControl2.UseTransparentDrag = true;
+            // 
             // LoginWindow
             // 
             this.AcceptButton = this.login_button;
@@ -240,6 +255,8 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private Guna.UI2.WinForms.Guna2ControlBox guna2ControlBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
     }
 }
 

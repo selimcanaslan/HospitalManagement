@@ -17,9 +17,9 @@ namespace BusinessLayer
             _dbConnect = new DbConnect();
             _dalSecretary = new DALSecretary();
         }
-        public bool AddSecretary(string name, string surname, string mail, string phone_number, string address)
+        public bool AddSecretary(string name, string surname, string tc_no, string mail, string phone_number, string address)
         {
-            return _dalSecretary.AddSecretary(name, surname, mail, phone_number, address);
+            return _dalSecretary.AddSecretary(name, surname, tc_no, mail, phone_number, address);
         }
         public DataTable fetchAllSecretary()
         {

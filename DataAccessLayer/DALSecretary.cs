@@ -18,9 +18,9 @@ namespace DataAccessLayer
             DbConnect dbConnect = new DbConnect();
 
         }
-        public bool AddSecretary(string name, string surname, string mail, string phone_number, string address)
+        public bool AddSecretary(string name, string surname, string tcno, string mail, string phone_number, string address)
         {
-            String query = "INSERT INTO Secretary VALUES ('" + name + "','" + surname + "','" + mail +
+            String query = "INSERT INTO Secretary VALUES ('" + name + "','" + surname + "','" + tcno + "','" + mail +
                 "','" + phone_number + "','" + address + "')";
             exception = null;
             com.Connection = con;
@@ -37,7 +37,7 @@ namespace DataAccessLayer
         public DataTable fetchAllSecretary()
         {
             DataTable dt = new DataTable();
-            string query = "SELECT * FROM Secretary";
+            string query = "SELECT tc_no,name,surname,mail,phone_number,address FROM Secretary";
             com.Connection = con;
             com.CommandText = query;
             da.SelectCommand = com;
@@ -55,7 +55,7 @@ namespace DataAccessLayer
         public DataTable fetchSecretaryByGivenName(string name)
         {
             DataTable dt = new DataTable();
-            string query = $"SELECT * FROM Secretary WHERE name + ' ' + surname LIKE '{name}%'";
+            string query = $"SELECT tc_no,name,surname,mail,phone_number,address FROM Secretary WHERE name + ' ' + surname LIKE '{name}%'";
             com.Connection = con;
             com.CommandText = query;
             da.SelectCommand = com;

@@ -3,20 +3,22 @@ USE Hospital;
 
 CREATE TABLE Doctor(
 	id int identity(1,1) PRIMARY KEY CLUSTERED,
+	tc_no varchar(11) UNIQUE,
 	name varchar(30),
 	surname varchar(30),
 	section varchar(50),
 	mail varchar(50),
-	phone_number varchar(10),
+	phone_number varchar(10) UNIQUE,
 	address nvarchar(max)
 );
 
 CREATE TABLE Secretary(
 	id int identity(1,1) PRIMARY KEY CLUSTERED,
+	tc_no varchar(11) UNIQUE,
 	name varchar(30),
 	surname varchar(30),
-	mail varchar(50),
-	phone_number varchar(10),
+	mail varchar(50) UNIQUE,
+	phone_number varchar(10) UNIQUE,
 	address nvarchar(max)
 );
 
@@ -75,7 +77,9 @@ INSERT User_Login_Info VALUES (@user_name,@password,@auth_type)
 SELECT @user_name
 END
 
-INSERT Secretary VALUES ('Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
+INSERT Secretary VALUES ('21824004326','Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
 INSERT Secretary VALUES ('Muhammet Yusuf', 'ASLAN', 'doktoryusuf@gmail.com', '5555345555', 'Mersin Toroslar')
 
 TRUNCATE TABLE User_Login_Info
+
+truncate table Secretary

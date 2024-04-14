@@ -239,6 +239,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\common\exlamation_mark.png" />
     <Content Include="Assets\hospital.ico" />
     <Content Include="Assets\Login\exit.png" />
     <Content Include="Assets\Login\login_pic.png" />

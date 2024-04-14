@@ -19,7 +19,7 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
             InitializeComponent();
             _blSecretary = new BlSecretary();
             dgvSecretary.DataSource = _blSecretary.fetchAllSecretary();
-            dgvSecretary.Columns["id"].HeaderText = "Kayıt numarası";
+            dgvSecretary.Columns["tc_no"].HeaderText = "T.C No";
             dgvSecretary.Columns["name"].HeaderText = "Ad";
             dgvSecretary.Columns["surname"].HeaderText = "Soyad";
             dgvSecretary.Columns["mail"].HeaderText = "Mail";
@@ -35,16 +35,26 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
         private void searchButton_Click(object sender, EventArgs e)
         {
             string name = secretaryNameTextBox.Text;
-            DataTable dt = new DataTable();
-            dt = _blSecretary.fetchSecretaryByGivenName(name);
-            if (dt.Rows.Count > 0)
+            if (name != "")
             {
-                dgvSecretary.DataSource = dt;
+                DataTable dt = new DataTable();
+                dt = _blSecretary.fetchSecretaryByGivenName(name);
+                if (dt.Rows.Count > 0)
+                {
+                    dgvSecretary.DataSource = dt;
+                    MessageBox.Show("Eşleşen Kayıtlar Getirildi!");
+
+                }
+                else
+                {
+                    MessageBox.Show("Girdiğiniz İsimde Sekreter Bulunamadı!\nSekreter adını doğru yazdığınıza emin olun!\nAd, Soyad arasında boşluk bıraktığınıza emin olun!", "Kullanıcı Bulunamadı");
+                }
             }
             else
             {
-                MessageBox.Show("Girdiğiniz İsimde Sekreter Bulunamadı!\nSekreter adını doğru yazdığınıza emin olun!\nAd, Soyad arasında boşluk bıraktığınıza emin olun!", "Kullanıcı Bulunamadı");
+                MessageBox.Show("Lütfen Aranacak İsmi Giriniz.");
             }
+
 
         }
 

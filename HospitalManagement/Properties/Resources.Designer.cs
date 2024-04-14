@@ -63,6 +63,26 @@ namespace HospitalManagement.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exlamation_mark {
+            get {
+                object obj = ResourceManager.GetObject("exlamation_mark", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap exlamation_mark1 {
+            get {
+                object obj = ResourceManager.GetObject("exlamation_mark1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap medical_team {
             get {
                 object obj = ResourceManager.GetObject("medical-team", resourceCulture);
