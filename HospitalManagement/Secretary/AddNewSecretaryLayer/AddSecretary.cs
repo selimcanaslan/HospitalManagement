@@ -129,11 +129,12 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             if (fieldValidation() == true)
             {
                 BlSecretary blSecretary = new BlSecretary();
-                bool response = blSecretary.AddSecretary(nameTextBox.Text, surnameTextBox.Text, tcnoTextBox.Text,
+                bool response = blSecretary.AddSecretary(tcnoTextBox.Text, nameTextBox.Text, surnameTextBox.Text, 
                     mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text);
                 if (response)
                 {
-                    string userNameAndPassword = (nameTextBox.Text + surnameTextBox.Text).ToLower().Trim();
+                    string name = nameTextBox.Text.ToString().Trim();
+                    string userNameAndPassword = (name + surnameTextBox.Text).ToLower();
                     sendUserNamePasswordToMailAddress(userNameAndPassword, mailTextBox.Text);
                     MessageBox.Show("Sekreter Kaydı Başarıyla Oluşturuldu!\n" +
                         "Giriş Bilgileri Mail Adresine Gönderildi!");

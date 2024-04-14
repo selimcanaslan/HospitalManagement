@@ -15,6 +15,15 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
         public UpdateSecretary()
         {
             InitializeComponent();
+            secretaryTcnoTextBox.MaxLength = 11;
+        }
+
+        private void secretaryTcnoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

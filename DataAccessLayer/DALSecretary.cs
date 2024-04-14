@@ -18,9 +18,9 @@ namespace DataAccessLayer
             DbConnect dbConnect = new DbConnect();
 
         }
-        public bool AddSecretary(string name, string surname, string tcno, string mail, string phone_number, string address)
+        public bool AddSecretary(string tcno, string name, string surname,  string mail, string phone_number, string address)
         {
-            String query = "INSERT INTO Secretary VALUES ('" + name + "','" + surname + "','" + tcno + "','" + mail +
+            String query = "INSERT INTO Secretary VALUES ('" + tcno + "','" + name + "','" + surname + "','" + mail +
                 "','" + phone_number + "','" + address + "')";
             exception = null;
             com.Connection = con;

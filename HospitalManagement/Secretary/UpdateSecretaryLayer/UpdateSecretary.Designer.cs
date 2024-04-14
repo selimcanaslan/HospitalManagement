@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.searchButton = new Guna.UI2.WinForms.Guna2Button();
             this.secretaryTcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.SuspendLayout();
             // 
             // guna2Button1
@@ -58,6 +60,7 @@
             this.guna2Button1.PressedColor = System.Drawing.Color.Empty;
             this.guna2Button1.Size = new System.Drawing.Size(20, 41);
             this.guna2Button1.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.guna2Button1, "Bilgilerini Düzenlemek İstediğiniz Sekreterin TC Numarasını Girerek Aratın");
             // 
             // searchButton
             // 
@@ -98,6 +101,7 @@
             this.secretaryTcnoTextBox.SelectedText = "";
             this.secretaryTcnoTextBox.Size = new System.Drawing.Size(617, 45);
             this.secretaryTcnoTextBox.TabIndex = 8;
+            this.secretaryTcnoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secretaryTcnoTextBox_KeyPress);
             // 
             // UpdateSecretary
             // 
@@ -120,5 +124,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private Guna.UI2.WinForms.Guna2Button searchButton;
         private Guna.UI2.WinForms.Guna2TextBox secretaryTcnoTextBox;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }
