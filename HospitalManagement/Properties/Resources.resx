@@ -124,16 +124,19 @@
   <data name="secretary_registiration" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Secretary\secretary_registiration.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="password" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Login\password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="medical-team" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\Login\medical-team.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="exlamation_mark1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\common\exlamation_mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="exlamation_mark" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\common\exlamation_mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="password" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\Login\password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exlamation_mark1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Assets\common\exlamation_mark.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ppholder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\Secretary\ppholder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

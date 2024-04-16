@@ -30,7 +30,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            profilePicture.LoadAsync("http://sca.somee.com/5f36452270380e18884e218d.jpg");
+            profilePicture.Load("http://sca.somee.com/5f36452270380e18884e218d.jpg");
             sendNewProfilePictureViaFtp();
         }
 
@@ -48,6 +48,17 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
             FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
             string result = fTPHelper.Upload(new MemoryStream(data), "picture1.jpeg");
             MessageBox.Show(result);
+        }
+
+        private void uploadProfilePicture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                profilePicture.Image = Image.FromFile(ofd.FileName);
+            }
+            
         }
     }
 }

@@ -240,6 +240,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Secretary\doctor.png" />
+    <Content Include="Assets\Secretary\patient.png" />
+    <Content Include="Assets\Secretary\ppholder.png" />
+    <Content Include="Assets\Secretary\secretary.png" />
     <None Include="Assets\common\exlamation_mark.png" />
     <Content Include="Assets\hospital.ico" />
     <Content Include="Assets\Login\exit.png" />
