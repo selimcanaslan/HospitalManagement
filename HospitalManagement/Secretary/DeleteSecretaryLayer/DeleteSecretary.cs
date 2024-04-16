@@ -43,16 +43,19 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
                 {
                     dgvSecretary.DataSource = dt;
                     MessageBox.Show("Eşleşen Kayıtlar Getirildi!");
+                    secretaryNameTextBox.Focus();
 
                 }
                 else
                 {
                     MessageBox.Show("Girdiğiniz İsimde Sekreter Bulunamadı!\nSekreter adını doğru yazdığınıza emin olun!\nAd, Soyad arasında boşluk bıraktığınıza emin olun!", "Kullanıcı Bulunamadı");
+                    secretaryNameTextBox.Focus();
                 }
             }
             else
             {
                 MessageBox.Show("Lütfen Aranacak İsmi Giriniz.");
+                secretaryNameTextBox.Focus();
             }
 
 

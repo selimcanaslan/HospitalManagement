@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +26,28 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
             {
                 e.Handled = true;
             }
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            profilePicture.LoadAsync("http://sca.somee.com/5f36452270380e18884e218d.jpg");
+            sendNewProfilePictureViaFtp();
+        }
+
+        private void sendNewProfilePictureViaFtp()
+        {
+            byte[] data;
+            using (Image image = Image.FromFile(@"C:\Users\selim\source\repos\HospitalManagement\HospitalManagement\Assets\common\exlamation_mark.png"))
+            {
+                using (MemoryStream m = new MemoryStream())
+                {
+                    image.Save(m, image.RawFormat);
+                    data = m.ToArray();
+                }
+            }
+            FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
+            string result = fTPHelper.Upload(new MemoryStream(data), "picture1.jpeg");
+            MessageBox.Show(result);
         }
     }
 }

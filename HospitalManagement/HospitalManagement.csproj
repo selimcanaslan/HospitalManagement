@@ -142,6 +142,7 @@
     <Compile Include="Secretary\DeleteSecretaryLayer\DeleteSecretary.Designer.cs">
       <DependentUpon>DeleteSecretary.cs</DependentUpon>
     </Compile>
+    <Compile Include="Secretary\FTPHelper.cs" />
     <Compile Include="Secretary\PatientFeaturesLayer\PatientFeatures.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -33,6 +33,8 @@
             this.searchButton = new Guna.UI2.WinForms.Guna2Button();
             this.secretaryTcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.profilePicture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // guna2Button1
@@ -76,6 +78,7 @@
             this.searchButton.Size = new System.Drawing.Size(94, 41);
             this.searchButton.TabIndex = 9;
             this.searchButton.Text = "ARA";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // secretaryTcnoTextBox
             // 
@@ -103,18 +106,29 @@
             this.secretaryTcnoTextBox.TabIndex = 8;
             this.secretaryTcnoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secretaryTcnoTextBox_KeyPress);
             // 
+            // profilePicture
+            // 
+            this.profilePicture.Location = new System.Drawing.Point(505, 63);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(100, 100);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 11;
+            this.profilePicture.TabStop = false;
+            // 
             // UpdateSecretary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(617, 387);
+            this.Controls.Add(this.profilePicture);
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.secretaryTcnoTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UpdateSecretary";
             this.Text = "UpdateSecretary";
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,5 +139,6 @@
         private Guna.UI2.WinForms.Guna2Button searchButton;
         private Guna.UI2.WinForms.Guna2TextBox secretaryTcnoTextBox;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox profilePicture;
     }
 }
