@@ -65,7 +65,6 @@
             this.searchButton.Size = new System.Drawing.Size(94, 41);
             this.searchButton.TabIndex = 9;
             this.searchButton.Text = "ARA";
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // secretaryTcnoTextBox
             // 

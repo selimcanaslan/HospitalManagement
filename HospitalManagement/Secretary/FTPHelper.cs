@@ -32,7 +32,7 @@ namespace HospitalManagement.Secretary
                 requestStream.Close();
                 FtpWebResponse response = (FtpWebResponse)request.GetResponse();
                 response.Close();
-                return "successful";
+                return "Profil Resmi Başarıyla Güncellendi!";
             }
             catch (Exception ex)
             {

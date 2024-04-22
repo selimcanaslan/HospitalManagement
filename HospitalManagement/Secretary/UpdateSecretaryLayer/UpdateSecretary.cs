@@ -27,17 +27,11 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                 e.Handled = true;
             }
         }
-
-        private void searchButton_Click(object sender, EventArgs e)
+        private void sendNewProfilePictureViaFtp(string imagePath, string identifier = "")
         {
-            profilePicture.Load("http://sca.somee.com/5f36452270380e18884e218d.jpg");
-            sendNewProfilePictureViaFtp();
-        }
-
-        private void sendNewProfilePictureViaFtp()
-        {
+            string loggedInUserName = LoginWindow._userEntity.kullaniciAd;
             byte[] data;
-            using (Image image = Image.FromFile(@"C:\Users\selim\source\repos\HospitalManagement\HospitalManagement\Assets\common\exlamation_mark.png"))
+            using (Image image = Image.FromFile(imagePath))
             {
                 using (MemoryStream m = new MemoryStream())
                 {
@@ -46,7 +40,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                 }
             }
             FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
-            string result = fTPHelper.Upload(new MemoryStream(data), "picture1.jpeg");
+            string result = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/{loggedInUserName}.jpeg");
             MessageBox.Show(result);
         }
 
@@ -57,8 +51,10 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 profilePicture.Image = Image.FromFile(ofd.FileName);
+                sendNewProfilePictureViaFtp(ofd.FileName);
             }
-            
         }
+
+        //profilePicture.Load("http://sca.somee.com/5f36452270380e18884e218d.jpg");
     }
 }

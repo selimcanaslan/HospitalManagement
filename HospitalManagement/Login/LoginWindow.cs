@@ -12,13 +12,15 @@ using HospitalManagement.Secretary;
 using HospitalManagement.Login;
 using BusinessLayer;
 using HospitalManagement.Doctor;
+using EntityLayer;
 
 namespace HospitalManagement
 {
     public partial class LoginWindow : Form
     {
         private BlUserLogin _blUserLogin;
-        private string auth_type = "";
+        private string auth_type;
+        public static UserLoginEntity _userEntity;
         public LoginWindow()
         {
             InitializeComponent();
@@ -53,15 +55,19 @@ namespace HospitalManagement
             {
                 try
                 {
+
                     _blUserLogin = new BlUserLogin();
                     DataTable user_info = _blUserLogin.fetchUserLoginData(user_name_textBox.Text, password_textBox.Text, auth_type);
                     if (user_info.Rows.Count == 1)
                     {
+                        _userEntity = new UserLoginEntity();
                         foreach (DataRow row in user_info.Rows)
                         {
                             auth_type = row["auth_type"].ToString();
+                            _userEntity.AuthType = auth_type;
+                            _userEntity.kullaniciAd = row["user_name"].ToString();
+                            _userEntity.kullaniciSifre = row["password"].ToString();
                         }
-
                         this.Hide();
                         if (auth_type == "Secretary")
                         {
@@ -83,7 +89,7 @@ namespace HospitalManagement
                     }
                 }
                 catch { MessageBox.Show("Something Went Wrong", "Internal DB Error"); }
-                finally { Console.WriteLine(auth_type); }
+                finally { }
             }
         }
 
