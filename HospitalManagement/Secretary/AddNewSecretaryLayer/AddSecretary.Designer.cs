@@ -42,6 +42,9 @@
             this.tcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.profilePicture = new System.Windows.Forms.PictureBox();
+            this.importProfilePicture = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // registerButton
@@ -281,10 +284,33 @@
             // label2
             // 
             this.label2.Image = global::HospitalManagement.Properties.Resources.secretary_registiration;
-            this.label2.Location = new System.Drawing.Point(321, 6);
+            this.label2.Location = new System.Drawing.Point(318, 168);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(294, 411);
+            this.label2.Size = new System.Drawing.Size(320, 354);
             this.label2.TabIndex = 40;
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(325, 10);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(144, 139);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 41;
+            this.profilePicture.TabStop = false;
+            // 
+            // importProfilePicture
+            // 
+            this.importProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.importProfilePicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.importProfilePicture.Location = new System.Drawing.Point(350, 151);
+            this.importProfilePicture.Name = "importProfilePicture";
+            this.importProfilePicture.Size = new System.Drawing.Size(98, 16);
+            this.importProfilePicture.TabIndex = 42;
+            this.importProfilePicture.Text = "Fotoğraf Aktar";
+            this.importProfilePicture.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.importProfilePicture.Click += new System.EventHandler(this.importProfilePicture_Click);
             // 
             // AddSecretary
             // 
@@ -292,6 +318,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(617, 387);
+            this.Controls.Add(this.importProfilePicture);
+            this.Controls.Add(this.profilePicture);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
@@ -305,11 +334,11 @@
             this.Controls.Add(this.tcnoTextBox);
             this.Controls.Add(this.mailTextBox);
             this.Controls.Add(this.surnameTextBox);
-            this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddSecretary";
             this.Text = "AddSecretary";
             this.Load += new System.EventHandler(this.AddSecretary_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -330,5 +359,7 @@
         private Guna.UI2.WinForms.Guna2TextBox tcnoTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox profilePicture;
+        private System.Windows.Forms.Label importProfilePicture;
     }
 }

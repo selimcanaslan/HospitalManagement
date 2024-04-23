@@ -18,7 +18,7 @@ namespace DataAccessLayer
             DbConnect dbConnect = new DbConnect();
 
         }
-        public bool AddSecretary(string tcno, string name, string surname,  string mail, string phone_number, string address)
+        public bool AddSecretary(string tcno, string name, string surname, string mail, string phone_number, string address)
         {
             String query = "INSERT INTO Secretary VALUES ('" + tcno + "','" + name + "','" + surname + "','" + mail +
                 "','" + phone_number + "','" + address + "')";
@@ -56,16 +56,34 @@ namespace DataAccessLayer
         {
             DataTable dt = new DataTable();
             string query = $"SELECT tc_no,name,surname,mail,phone_number,address FROM Secretary WHERE name + ' ' + surname LIKE '{name}%'";
-            com.Connection = con;
-            com.CommandText = query;
-            da.SelectCommand = com;
             try
             {
+                com.Connection = con;
+                com.CommandText = query;
+                da.SelectCommand = com;
                 da.Fill(dt);
             }
             catch (SqlException ex)
             {
 
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable fetchSecretaryByGivenTcNo(string tcNo)
+        {
+            Console.WriteLine("gelinen tcno= " + tcNo);
+            DataTable dt = new DataTable();
+            string query = $"SELECT id,tc_no,name,surname,mail,phone_number,address FROM Secretary WHERE tc_no = '{tcNo}'";
+            try
+            {
+                com.Connection = con;
+                com.CommandText = query;
+                da.SelectCommand = com;
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
                 Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
             }
             return dt;
@@ -83,7 +101,45 @@ namespace DataAccessLayer
                 else { return false; }
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
-            
+
+        }
+
+        public string lowercasedAndTrimmedNameSurname(string tcNo)
+        {
+            string userName = "";
+            String query = $"SELECT TRIM(LOWER((name + surname))) as user_name FROM Secretary Where tc_no = '{tcNo}'";
+            DataTable dt = new DataTable();
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+                foreach (DataRow row in dt.Rows)
+                {
+                    userName = row["user_name"].ToString();
+                }
+                return userName.Replace(" ", "").ToLower();
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return ex.GetType().Name + " - " + ex.Message; }
+
+        }
+        public bool updateSecretary(string name, string surname, string tcNo, string mail, string phoneNumber, string address, int id)
+        {
+            String query = $"UPDATE Secretary SET name= '{name}', surname='{surname}', tc_no = '{tcNo}', mail='{mail}'" +
+                $", phone_number = '{phoneNumber}', address = '{address}' WHERE id = {id}";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            try
+            {
+                int rows_affected = com.ExecuteNonQuery();
+                if (rows_affected >= 1) { return true; }
+                else { return false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
+
         }
     }
 }

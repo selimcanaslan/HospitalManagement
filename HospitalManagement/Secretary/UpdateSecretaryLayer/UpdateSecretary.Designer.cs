@@ -32,8 +32,8 @@
             this.searchButton = new Guna.UI2.WinForms.Guna2Button();
             this.secretaryTcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -46,7 +46,7 @@
             this.tcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.mailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.surnameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.updateInformations = new Guna.UI2.WinForms.Guna2Button();
             this.uploadProfilePicture = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
@@ -65,6 +65,7 @@
             this.searchButton.Size = new System.Drawing.Size(94, 41);
             this.searchButton.TabIndex = 9;
             this.searchButton.Text = "ARA";
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // secretaryTcnoTextBox
             // 
@@ -92,17 +93,6 @@
             this.secretaryTcnoTextBox.TabIndex = 8;
             this.secretaryTcnoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secretaryTcnoTextBox_KeyPress);
             // 
-            // profilePicture
-            // 
-            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(388, 58);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(222, 222);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 11;
-            this.profilePicture.TabStop = false;
-            // 
             // guna2Button1
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
@@ -129,6 +119,17 @@
             this.guna2Button1.Size = new System.Drawing.Size(20, 41);
             this.guna2Button1.TabIndex = 10;
             this.toolTip1.SetToolTip(this.guna2Button1, "Bilgilerini Düzenlemek İstediğiniz Sekreterin TC Numarasını Girerek Aratın");
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(388, 58);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(222, 222);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 11;
+            this.profilePicture.TabStop = false;
             // 
             // label1
             // 
@@ -342,19 +343,20 @@
             this.surnameTextBox.Size = new System.Drawing.Size(306, 40);
             this.surnameTextBox.TabIndex = 41;
             // 
-            // guna2Button2
+            // updateInformations
             // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(333, 306);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(277, 75);
-            this.guna2Button2.TabIndex = 52;
-            this.guna2Button2.Text = "Bilgileri Güncelle";
+            this.updateInformations.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.updateInformations.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.updateInformations.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.updateInformations.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.updateInformations.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.updateInformations.ForeColor = System.Drawing.Color.White;
+            this.updateInformations.Location = new System.Drawing.Point(333, 306);
+            this.updateInformations.Name = "updateInformations";
+            this.updateInformations.Size = new System.Drawing.Size(277, 75);
+            this.updateInformations.TabIndex = 52;
+            this.updateInformations.Text = "Bilgileri Güncelle";
+            this.updateInformations.Click += new System.EventHandler(this.updateInformations_Click);
             // 
             // uploadProfilePicture
             // 
@@ -378,7 +380,7 @@
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(617, 387);
             this.Controls.Add(this.uploadProfilePicture);
-            this.Controls.Add(this.guna2Button2);
+            this.Controls.Add(this.updateInformations);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
@@ -423,7 +425,7 @@
         private Guna.UI2.WinForms.Guna2TextBox tcnoTextBox;
         private Guna.UI2.WinForms.Guna2TextBox mailTextBox;
         private Guna.UI2.WinForms.Guna2TextBox surnameTextBox;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button updateInformations;
         private Guna.UI2.WinForms.Guna2Button uploadProfilePicture;
     }
 }

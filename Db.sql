@@ -78,8 +78,17 @@ SELECT @user_name
 END
 
 INSERT Secretary VALUES ('21824004326','Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
-INSERT Secretary VALUES ('Muhammet Yusuf', 'ASLAN', 'doktoryusuf@gmail.com', '5555345555', 'Mersin Toroslar')
+INSERT Secretary VALUES ('21824324326','Muhammet Yusuf', 'ASLAN', 'doktoryusuf@gmail.com', '5555345555', 'Mersin Toroslar')
 
+SELECT * FROM Secretary
+SELECT * FROM User_Login_Info
 TRUNCATE TABLE User_Login_Info
+TRUNCATE TABLE Secretary
+drop table Secretary
 
-truncate table Secretary
+SELECT TRIM(LOWER(name + surname)) as user_name FROM Secretary Where tc_no = '21824004326';
+
+SELECT tc_no,name,surname,mail,phone_number,address FROM Secretary WHERE tc_no = '21824004326'
+
+
+UPDATE Secretary SET name= {name}, surname={surname}, mail={mail}",phone_number = {phoneNumber}, address = {address}"

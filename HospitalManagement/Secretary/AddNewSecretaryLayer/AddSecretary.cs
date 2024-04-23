@@ -11,12 +11,15 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Net;
 using System.Net.Mail;
+using System.IO;
 
 namespace HospitalManagement.Secretary.AddNewSecretaryLayer
 {
     public partial class AddSecretary : Form
     {
         string err_message = "";
+        string importedProfilePicture = "";
+        string lowercasedAndTrimmedNameSurname = "";
         public AddSecretary()
         {
             InitializeComponent();
@@ -128,16 +131,18 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
 
             if (fieldValidation() == true)
             {
+                lowercasedAndTrimmedNameSurname = nameTextBox.Text.ToLower().Trim() + surnameTextBox.Text.ToLower().Trim();
                 BlSecretary blSecretary = new BlSecretary();
-                bool response = blSecretary.AddSecretary(tcnoTextBox.Text, nameTextBox.Text, surnameTextBox.Text, 
+                bool response = blSecretary.AddSecretary(tcnoTextBox.Text, nameTextBox.Text, surnameTextBox.Text,
                     mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text);
                 if (response)
                 {
+                    string uploadResult = sendNewProfilePictureViaFtp(importedProfilePicture);
                     string name = nameTextBox.Text.ToString().Trim();
                     string userNameAndPassword = (name + surnameTextBox.Text).ToLower();
                     sendUserNamePasswordToMailAddress(userNameAndPassword, mailTextBox.Text);
-                    MessageBox.Show("Sekreter Kaydı Başarıyla Oluşturuldu!\n" +
-                        "Giriş Bilgileri Mail Adresine Gönderildi!");
+                    MessageBox.Show("Sekreter Kaydı Başarıyla Oluşturuldu!\n" + uploadResult +
+                        "\nGiriş Bilgileri Mail Adresine Gönderildi!");
 
                 }
                 else
@@ -154,6 +159,31 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
 
         }
 
+        private void importProfilePicture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                profilePicture.Image = Image.FromFile(ofd.FileName);
+                importedProfilePicture = ofd.FileName;
+            }
+        }
+        private string sendNewProfilePictureViaFtp(string imagePath, string identifier = "")
+        {
 
+            byte[] data;
+            using (Image image = Image.FromFile(imagePath))
+            {
+                using (MemoryStream m = new MemoryStream())
+                {
+                    image.Save(m, image.RawFormat);
+                    data = m.ToArray();
+                }
+            }
+            FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
+            string imageUploadresult = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/{lowercasedAndTrimmedNameSurname}.jpeg");
+            return imageUploadresult;
+        }
     }
 }

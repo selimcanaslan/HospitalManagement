@@ -29,9 +29,21 @@ namespace BusinessLayer
         {
             return _dalSecretary.fetchSecretaryByGivenName(name);
         }
+        public DataTable fetchSecretaryByGivenTcNo(string tcNo)
+        {
+            return _dalSecretary.fetchSecretaryByGivenTcNo(tcNo);
+        }
+        public bool updateSecretary(string name, string surname, string tcNo, string mail, string phoneNumber, string address, int id)
+        {
+            return _dalSecretary.updateSecretary(name, surname, tcNo, mail, phoneNumber, address, id);
+        }
         public bool deleteSecretary(string phone_number)
         {
             return _dalSecretary.deleteSecretary(phone_number);
+        }
+        public string lowercasedAndTrimmedNameSurname(string tcNo)
+        {
+            return _dalSecretary.lowercasedAndTrimmedNameSurname(tcNo);
         }
     }
 }
