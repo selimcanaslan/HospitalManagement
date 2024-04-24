@@ -240,7 +240,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Secretary\create.png" />
+    <None Include="Assets\Secretary\delete.png" />
     <Content Include="Assets\Secretary\doctor.png" />
+    <None Include="Assets\Secretary\edit.png" />
     <Content Include="Assets\Secretary\patient.png" />
     <Content Include="Assets\Secretary\ppholder.png" />
     <Content Include="Assets\Secretary\secretary.png" />

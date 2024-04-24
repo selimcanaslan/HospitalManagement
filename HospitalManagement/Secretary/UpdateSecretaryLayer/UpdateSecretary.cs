@@ -24,7 +24,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
             InitializeComponent();
             secretaryTcnoTextBox.MaxLength = 11;
             secretaryToUpdate = null;
-
+            uploadProfilePicture.Enabled = false;
         }
 
         private void secretaryTcnoTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -73,6 +73,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                     string userName = blSecretary.lowercasedAndTrimmedNameSurname(secretaryTcnoTextBox.Text);
                     profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/{userName}.jpeg");
                     MessageBox.Show("Bilgiler Başarıyla Getirildi");
+                    uploadProfilePicture.Enabled = true;
                 }
                 else
                 {

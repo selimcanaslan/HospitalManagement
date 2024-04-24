@@ -40,19 +40,19 @@
             this.deleteDoctorButton = new Guna.UI2.WinForms.Guna2Button();
             this.updateDoctorButton = new Guna.UI2.WinForms.Guna2Button();
             this.addNewDoctorButton = new Guna.UI2.WinForms.Guna2Button();
-            this.doctorButton = new Guna.UI2.WinForms.Guna2Button();
             this.secretaryButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.deleteSecretaryButton = new Guna.UI2.WinForms.Guna2Button();
             this.updateSecretaryButton = new Guna.UI2.WinForms.Guna2Button();
-            this.addNewSecretaryButton = new Guna.UI2.WinForms.Guna2Button();
-            this.secretaryButton = new Guna.UI2.WinForms.Guna2Button();
             this.patientButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.patientGraphsButton = new Guna.UI2.WinForms.Guna2Button();
             this.patientFeaturesButton = new Guna.UI2.WinForms.Guna2Button();
             this.createAppointmentButton = new Guna.UI2.WinForms.Guna2Button();
-            this.patientButton = new Guna.UI2.WinForms.Guna2Button();
             this.windowNameDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.containerPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.doctorButton = new Guna.UI2.WinForms.Guna2Button();
+            this.addNewSecretaryButton = new Guna.UI2.WinForms.Guna2Button();
+            this.secretaryButton = new Guna.UI2.WinForms.Guna2Button();
+            this.patientButton = new Guna.UI2.WinForms.Guna2Button();
             this.topWindowPanel.SuspendLayout();
             this.leftPanel.SuspendLayout();
             this.doctorButtonSubMenu.SuspendLayout();
@@ -144,6 +144,7 @@
             // 
             // deleteDoctorButton
             // 
+            this.deleteDoctorButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteDoctorButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.deleteDoctorButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.deleteDoctorButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -152,6 +153,7 @@
             this.deleteDoctorButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.deleteDoctorButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.deleteDoctorButton.ForeColor = System.Drawing.Color.White;
+            this.deleteDoctorButton.HoverState.ForeColor = System.Drawing.Color.Orange;
             this.deleteDoctorButton.Location = new System.Drawing.Point(0, 90);
             this.deleteDoctorButton.Name = "deleteDoctorButton";
             this.deleteDoctorButton.Size = new System.Drawing.Size(216, 45);
@@ -163,6 +165,7 @@
             // 
             // updateDoctorButton
             // 
+            this.updateDoctorButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updateDoctorButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.updateDoctorButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.updateDoctorButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -171,6 +174,7 @@
             this.updateDoctorButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.updateDoctorButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.updateDoctorButton.ForeColor = System.Drawing.Color.White;
+            this.updateDoctorButton.HoverState.ForeColor = System.Drawing.Color.Orange;
             this.updateDoctorButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.updateDoctorButton.Location = new System.Drawing.Point(0, 45);
             this.updateDoctorButton.Name = "updateDoctorButton";
@@ -183,6 +187,7 @@
             // 
             // addNewDoctorButton
             // 
+            this.addNewDoctorButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addNewDoctorButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.addNewDoctorButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.addNewDoctorButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -191,6 +196,7 @@
             this.addNewDoctorButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.addNewDoctorButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.addNewDoctorButton.ForeColor = System.Drawing.Color.White;
+            this.addNewDoctorButton.HoverState.ForeColor = System.Drawing.Color.Orange;
             this.addNewDoctorButton.Location = new System.Drawing.Point(0, 0);
             this.addNewDoctorButton.Name = "addNewDoctorButton";
             this.addNewDoctorButton.Size = new System.Drawing.Size(216, 45);
@@ -199,28 +205,6 @@
             this.addNewDoctorButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.addNewDoctorButton.TextOffset = new System.Drawing.Point(10, 0);
             this.addNewDoctorButton.Click += new System.EventHandler(this.addNewDoctorButton_Click);
-            // 
-            // doctorButton
-            // 
-            this.doctorButton.Animated = true;
-            this.doctorButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.doctorButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.doctorButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.doctorButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.doctorButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.doctorButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.doctorButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.doctorButton.ForeColor = System.Drawing.Color.White;
-            this.doctorButton.Image = ((System.Drawing.Image)(resources.GetObject("doctorButton.Image")));
-            this.doctorButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.doctorButton.ImageSize = new System.Drawing.Size(30, 30);
-            this.doctorButton.Location = new System.Drawing.Point(0, 438);
-            this.doctorButton.Name = "doctorButton";
-            this.doctorButton.Size = new System.Drawing.Size(216, 84);
-            this.doctorButton.TabIndex = 12;
-            this.doctorButton.Text = "Doktor İşlemleri";
-            this.doctorButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.doctorButton.Click += new System.EventHandler(this.doctorButton_Click);
             // 
             // secretaryButtonSubMenu
             // 
@@ -237,6 +221,7 @@
             // 
             // deleteSecretaryButton
             // 
+            this.deleteSecretaryButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.deleteSecretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.deleteSecretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.deleteSecretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -245,6 +230,10 @@
             this.deleteSecretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.deleteSecretaryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.deleteSecretaryButton.ForeColor = System.Drawing.Color.White;
+            this.deleteSecretaryButton.HoverState.ForeColor = System.Drawing.Color.Orange;
+            this.deleteSecretaryButton.Image = global::HospitalManagement.Properties.Resources.delete;
+            this.deleteSecretaryButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.deleteSecretaryButton.ImageOffset = new System.Drawing.Point(5, 0);
             this.deleteSecretaryButton.Location = new System.Drawing.Point(0, 90);
             this.deleteSecretaryButton.Name = "deleteSecretaryButton";
             this.deleteSecretaryButton.Size = new System.Drawing.Size(216, 45);
@@ -256,6 +245,7 @@
             // 
             // updateSecretaryButton
             // 
+            this.updateSecretaryButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updateSecretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.updateSecretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.updateSecretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -264,6 +254,10 @@
             this.updateSecretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.updateSecretaryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.updateSecretaryButton.ForeColor = System.Drawing.Color.White;
+            this.updateSecretaryButton.HoverState.ForeColor = System.Drawing.Color.Orange;
+            this.updateSecretaryButton.Image = global::HospitalManagement.Properties.Resources.edit;
+            this.updateSecretaryButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.updateSecretaryButton.ImageOffset = new System.Drawing.Point(5, 0);
             this.updateSecretaryButton.Location = new System.Drawing.Point(0, 45);
             this.updateSecretaryButton.Name = "updateSecretaryButton";
             this.updateSecretaryButton.Size = new System.Drawing.Size(216, 45);
@@ -272,49 +266,6 @@
             this.updateSecretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.updateSecretaryButton.TextOffset = new System.Drawing.Point(10, 0);
             this.updateSecretaryButton.Click += new System.EventHandler(this.updateSecretaryButton_Click);
-            // 
-            // addNewSecretaryButton
-            // 
-            this.addNewSecretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.addNewSecretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.addNewSecretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.addNewSecretaryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.addNewSecretaryButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.addNewSecretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.addNewSecretaryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.addNewSecretaryButton.ForeColor = System.Drawing.Color.White;
-            this.addNewSecretaryButton.Image = global::HospitalManagement.Properties.Resources.secretary_registiration;
-            this.addNewSecretaryButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.addNewSecretaryButton.Location = new System.Drawing.Point(0, 0);
-            this.addNewSecretaryButton.Name = "addNewSecretaryButton";
-            this.addNewSecretaryButton.Size = new System.Drawing.Size(216, 45);
-            this.addNewSecretaryButton.TabIndex = 0;
-            this.addNewSecretaryButton.Text = "Sekreter Kayıt";
-            this.addNewSecretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.addNewSecretaryButton.TextOffset = new System.Drawing.Point(10, 0);
-            this.addNewSecretaryButton.Click += new System.EventHandler(this.addNewSecretaryButton_Click);
-            // 
-            // secretaryButton
-            // 
-            this.secretaryButton.Animated = true;
-            this.secretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.secretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.secretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.secretaryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.secretaryButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.secretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.secretaryButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
-            this.secretaryButton.ForeColor = System.Drawing.Color.White;
-            this.secretaryButton.Image = ((System.Drawing.Image)(resources.GetObject("secretaryButton.Image")));
-            this.secretaryButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.secretaryButton.ImageSize = new System.Drawing.Size(30, 30);
-            this.secretaryButton.Location = new System.Drawing.Point(0, 219);
-            this.secretaryButton.Name = "secretaryButton";
-            this.secretaryButton.Size = new System.Drawing.Size(216, 84);
-            this.secretaryButton.TabIndex = 10;
-            this.secretaryButton.Text = "Sekreter İşlemleri";
-            this.secretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.secretaryButton.Click += new System.EventHandler(this.secretaryButton_Click);
             // 
             // patientButtonSubMenu
             // 
@@ -331,6 +282,7 @@
             // 
             // patientGraphsButton
             // 
+            this.patientGraphsButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.patientGraphsButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.patientGraphsButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.patientGraphsButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -339,6 +291,7 @@
             this.patientGraphsButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.patientGraphsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.patientGraphsButton.ForeColor = System.Drawing.Color.White;
+            this.patientGraphsButton.HoverState.ForeColor = System.Drawing.Color.Orange;
             this.patientGraphsButton.Location = new System.Drawing.Point(0, 90);
             this.patientGraphsButton.Name = "patientGraphsButton";
             this.patientGraphsButton.Size = new System.Drawing.Size(216, 45);
@@ -350,6 +303,7 @@
             // 
             // patientFeaturesButton
             // 
+            this.patientFeaturesButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.patientFeaturesButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.patientFeaturesButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.patientFeaturesButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -358,6 +312,7 @@
             this.patientFeaturesButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.patientFeaturesButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.patientFeaturesButton.ForeColor = System.Drawing.Color.White;
+            this.patientFeaturesButton.HoverState.ForeColor = System.Drawing.Color.Orange;
             this.patientFeaturesButton.Location = new System.Drawing.Point(0, 45);
             this.patientFeaturesButton.Name = "patientFeaturesButton";
             this.patientFeaturesButton.Size = new System.Drawing.Size(216, 45);
@@ -369,6 +324,7 @@
             // 
             // createAppointmentButton
             // 
+            this.createAppointmentButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.createAppointmentButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.createAppointmentButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.createAppointmentButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -377,6 +333,7 @@
             this.createAppointmentButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.createAppointmentButton.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createAppointmentButton.ForeColor = System.Drawing.Color.White;
+            this.createAppointmentButton.HoverState.ForeColor = System.Drawing.Color.Orange;
             this.createAppointmentButton.Location = new System.Drawing.Point(0, 0);
             this.createAppointmentButton.Name = "createAppointmentButton";
             this.createAppointmentButton.Size = new System.Drawing.Size(216, 45);
@@ -385,29 +342,6 @@
             this.createAppointmentButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.createAppointmentButton.TextOffset = new System.Drawing.Point(10, 0);
             this.createAppointmentButton.Click += new System.EventHandler(this.createAppointmentButton_Click);
-            // 
-            // patientButton
-            // 
-            this.patientButton.Animated = true;
-            this.patientButton.BackColor = System.Drawing.Color.Yellow;
-            this.patientButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.patientButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.patientButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.patientButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.patientButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.patientButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.patientButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientButton.ForeColor = System.Drawing.Color.White;
-            this.patientButton.Image = ((System.Drawing.Image)(resources.GetObject("patientButton.Image")));
-            this.patientButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.patientButton.ImageSize = new System.Drawing.Size(30, 30);
-            this.patientButton.Location = new System.Drawing.Point(0, 0);
-            this.patientButton.Name = "patientButton";
-            this.patientButton.Size = new System.Drawing.Size(216, 84);
-            this.patientButton.TabIndex = 8;
-            this.patientButton.Text = "Hasta İşlemleri";
-            this.patientButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.patientButton.Click += new System.EventHandler(this.patientButton_Click);
             // 
             // windowNameDragControl
             // 
@@ -424,6 +358,103 @@
             this.containerPanel.Name = "containerPanel";
             this.containerPanel.Size = new System.Drawing.Size(617, 385);
             this.containerPanel.TabIndex = 8;
+            // 
+            // doctorButton
+            // 
+            this.doctorButton.Animated = true;
+            this.doctorButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.doctorButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.doctorButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.doctorButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.doctorButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.doctorButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.doctorButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.doctorButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.doctorButton.ForeColor = System.Drawing.Color.White;
+            this.doctorButton.HoverState.ForeColor = System.Drawing.Color.Orange;
+            this.doctorButton.Image = ((System.Drawing.Image)(resources.GetObject("doctorButton.Image")));
+            this.doctorButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.doctorButton.ImageSize = new System.Drawing.Size(30, 30);
+            this.doctorButton.Location = new System.Drawing.Point(0, 438);
+            this.doctorButton.Name = "doctorButton";
+            this.doctorButton.Size = new System.Drawing.Size(216, 84);
+            this.doctorButton.TabIndex = 12;
+            this.doctorButton.Text = "Doktor İşlemleri";
+            this.doctorButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.doctorButton.Click += new System.EventHandler(this.doctorButton_Click);
+            // 
+            // addNewSecretaryButton
+            // 
+            this.addNewSecretaryButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addNewSecretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.addNewSecretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.addNewSecretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.addNewSecretaryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.addNewSecretaryButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addNewSecretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.addNewSecretaryButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.addNewSecretaryButton.ForeColor = System.Drawing.Color.White;
+            this.addNewSecretaryButton.HoverState.ForeColor = System.Drawing.Color.Orange;
+            this.addNewSecretaryButton.Image = global::HospitalManagement.Properties.Resources.create;
+            this.addNewSecretaryButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.addNewSecretaryButton.ImageOffset = new System.Drawing.Point(5, 0);
+            this.addNewSecretaryButton.Location = new System.Drawing.Point(0, 0);
+            this.addNewSecretaryButton.Name = "addNewSecretaryButton";
+            this.addNewSecretaryButton.Size = new System.Drawing.Size(216, 45);
+            this.addNewSecretaryButton.TabIndex = 0;
+            this.addNewSecretaryButton.Text = "Sekreter Kayıt";
+            this.addNewSecretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.addNewSecretaryButton.TextOffset = new System.Drawing.Point(10, 0);
+            this.addNewSecretaryButton.Click += new System.EventHandler(this.addNewSecretaryButton_Click);
+            // 
+            // secretaryButton
+            // 
+            this.secretaryButton.Animated = true;
+            this.secretaryButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.secretaryButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.secretaryButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.secretaryButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.secretaryButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.secretaryButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.secretaryButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.secretaryButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold);
+            this.secretaryButton.ForeColor = System.Drawing.Color.White;
+            this.secretaryButton.HoverState.ForeColor = System.Drawing.Color.Orange;
+            this.secretaryButton.Image = ((System.Drawing.Image)(resources.GetObject("secretaryButton.Image")));
+            this.secretaryButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.secretaryButton.ImageSize = new System.Drawing.Size(30, 30);
+            this.secretaryButton.Location = new System.Drawing.Point(0, 219);
+            this.secretaryButton.Name = "secretaryButton";
+            this.secretaryButton.Size = new System.Drawing.Size(216, 84);
+            this.secretaryButton.TabIndex = 10;
+            this.secretaryButton.Text = "Sekreter İşlemleri";
+            this.secretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.secretaryButton.Click += new System.EventHandler(this.secretaryButton_Click);
+            // 
+            // patientButton
+            // 
+            this.patientButton.Animated = true;
+            this.patientButton.BackColor = System.Drawing.Color.Yellow;
+            this.patientButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.patientButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.patientButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.patientButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.patientButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.patientButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.patientButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.patientButton.ForeColor = System.Drawing.Color.White;
+            this.patientButton.HoverState.ForeColor = System.Drawing.Color.Orange;
+            this.patientButton.Image = ((System.Drawing.Image)(resources.GetObject("patientButton.Image")));
+            this.patientButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.patientButton.ImageSize = new System.Drawing.Size(30, 30);
+            this.patientButton.Location = new System.Drawing.Point(0, 0);
+            this.patientButton.Name = "patientButton";
+            this.patientButton.Size = new System.Drawing.Size(216, 84);
+            this.patientButton.TabIndex = 8;
+            this.patientButton.Text = "Hasta İşlemleri";
+            this.patientButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.patientButton.Click += new System.EventHandler(this.patientButton_Click);
             // 
             // SecretaryLayer
             // 

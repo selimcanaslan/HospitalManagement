@@ -77,6 +77,16 @@ INSERT User_Login_Info VALUES (@user_name,@password,@auth_type)
 SELECT @user_name
 END
 
+CREATE PROCEDURE [dbo].[fetch_user_data]
+@user_name varchar(30),
+@password varchar(30),
+@auth_type varchar(20)
+AS
+BEGIN
+SELECT user_name,password,auth_type FROM User_Login_Info WHERE user_name = @user_name AND password=@password AND auth_type=@auth_type
+END
+GO
+
 INSERT Secretary VALUES ('21824004326','Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
 INSERT Secretary VALUES ('21824324326','Muhammet Yusuf', 'ASLAN', 'doktoryusuf@gmail.com', '5555345555', 'Mersin Toroslar')
 
