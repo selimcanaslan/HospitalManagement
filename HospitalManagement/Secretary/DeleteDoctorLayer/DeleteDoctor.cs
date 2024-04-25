@@ -16,5 +16,6 @@ namespace HospitalManagement.Secretary.DeleteDoctorLayer
         {
             InitializeComponent();
         }
+
     }
 }

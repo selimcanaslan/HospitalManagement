@@ -150,6 +150,7 @@ namespace HospitalManagement.Secretary
 
         private void deleteSecretaryButton_Click(object sender, EventArgs e)
         {
+
             openChildForm(new DeleteSecretary());
         }
 

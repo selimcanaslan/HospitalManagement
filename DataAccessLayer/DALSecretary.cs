@@ -141,5 +141,54 @@ namespace DataAccessLayer
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
 
         }
+        public bool AddDoctor(string tcno, string name, string surname, string mail, string phone_number, string address, string section)
+        {
+            String query = "INSERT INTO Doctor VALUES ('" + tcno + "','" + name + "','" + surname + "','" + section + "','" + mail +
+                "','" + phone_number + "','" + address + "')";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            try
+            {
+                int rows_affected = com.ExecuteNonQuery();
+                if (rows_affected >= 1) { return true; }
+                else { return false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
+        }
+        public DataTable fetchDoctorByGivenTcNo(string tcNo)
+        {
+            Console.WriteLine("gelinen tcno= " + tcNo);
+            DataTable dt = new DataTable();
+            string query = $"SELECT id,tc_no,name,surname,section,mail,phone_number,address FROM Doctor WHERE tc_no = '{tcNo}'";
+            try
+            {
+                com.Connection = con;
+                com.CommandText = query;
+                da.SelectCommand = com;
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public bool updateDoctor(string name, string surname, string tcNo, string section, string mail, string phoneNumber, string address, int id)
+        {
+            String query = $"UPDATE Doctor SET name= '{name}', surname='{surname}', section='{section}', tc_no = '{tcNo}', mail='{mail}'" +
+                $", phone_number = '{phoneNumber}', address = '{address}' WHERE id = {id}";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            try
+            {
+                int rows_affected = com.ExecuteNonQuery();
+                if (rows_affected >= 1) { return true; }
+                else { return false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
+
+        }
     }
 }

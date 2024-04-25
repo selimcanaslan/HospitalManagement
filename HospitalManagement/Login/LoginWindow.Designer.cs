@@ -174,8 +174,8 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.ImageLocation = "C:\\Users\\selim\\source\\repos\\HospitalManagement\\HospitalManagement\\Assets\\Login\\pa" +
-    "ssword.png";
+            this.pictureBox2.Image = global::HospitalManagement.Properties.Resources.password;
+            this.pictureBox2.ImageLocation = "";
             this.pictureBox2.Location = new System.Drawing.Point(233, 109);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(36, 34);

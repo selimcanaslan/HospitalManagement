@@ -45,5 +45,18 @@ namespace BusinessLayer
         {
             return _dalSecretary.lowercasedAndTrimmedNameSurname(tcNo);
         }
+
+        public bool AddDoctor(string tc_no, string name, string surname, string mail, string phone_number, string address, string section)
+        {
+            return _dalSecretary.AddDoctor(tc_no, name, surname, mail, phone_number, address, section);
+        }
+        public DataTable fetchDoctorByGivenTcNo(string tcNo)
+        {
+            return _dalSecretary.fetchDoctorByGivenTcNo(tcNo);
+        }
+        public bool updateDoctor(string name, string surname, string tcNo, string section, string mail, string phoneNumber, string address, int id)
+        {
+            return _dalSecretary.updateDoctor(name, surname, tcNo, section, mail, phoneNumber, address, id);
+        }
     }
 }
