@@ -17,6 +17,7 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
         public DeleteSecretary()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             _blSecretary = new BlSecretary();
             updateDgv();
             dgvSecretary.Columns["tc_no"].HeaderText = "T.C No";

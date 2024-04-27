@@ -28,10 +28,12 @@ namespace DataAccessLayer
             try
             {
                 int rows_affected = com.ExecuteNonQuery();
-                if (rows_affected >= 1) { return true; }
-                else { return false; }
+                if (rows_affected >= 1) { con.Close(); return true; }
+                else { con.Close(); return false; }
+
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
+            
         }
 
         public DataTable fetchAllSecretary()
@@ -50,6 +52,7 @@ namespace DataAccessLayer
 
                 Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
             }
+            con.Close();
             return dt;
         }
         public DataTable fetchSecretaryByGivenName(string name)
@@ -68,6 +71,7 @@ namespace DataAccessLayer
 
                 Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
             }
+            con.Close();
             return dt;
         }
         public DataTable fetchSecretaryByGivenTcNo(string tcNo)
@@ -86,6 +90,7 @@ namespace DataAccessLayer
             {
                 Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
             }
+            con.Close();
             return dt;
         }
         public bool deleteSecretary(string phone_number)
@@ -97,8 +102,8 @@ namespace DataAccessLayer
             try
             {
                 int rows_affected = com.ExecuteNonQuery();
-                if (rows_affected >= 1) { return true; }
-                else { return false; }
+                if (rows_affected >= 1) { con.Close(); return true; }
+                else { con.Close(); return false; }
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
 
@@ -120,6 +125,7 @@ namespace DataAccessLayer
                 {
                     userName = row["user_name"].ToString();
                 }
+                con.Close();
                 return userName.Replace(" ", "").ToLower();
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return ex.GetType().Name + " - " + ex.Message; }
@@ -135,8 +141,8 @@ namespace DataAccessLayer
             try
             {
                 int rows_affected = com.ExecuteNonQuery();
-                if (rows_affected >= 1) { return true; }
-                else { return false; }
+                if (rows_affected >= 1) { con.Close(); return true; }
+                else { con.Close(); return false; }
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
 
@@ -151,8 +157,8 @@ namespace DataAccessLayer
             try
             {
                 int rows_affected = com.ExecuteNonQuery();
-                if (rows_affected >= 1) { return true; }
-                else { return false; }
+                if (rows_affected >= 1) { con.Close(); return true; }
+                else { con.Close(); return false; }
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
         }
@@ -172,6 +178,7 @@ namespace DataAccessLayer
             {
                 Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
             }
+            con.Close();
             return dt;
         }
         public bool updateDoctor(string name, string surname, string tcNo, string section, string mail, string phoneNumber, string address, int id)
@@ -184,8 +191,8 @@ namespace DataAccessLayer
             try
             {
                 int rows_affected = com.ExecuteNonQuery();
-                if (rows_affected >= 1) { return true; }
-                else { return false; }
+                if (rows_affected >= 1) { con.Close(); return true; }
+                else { con.Close(); return false; }
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
 

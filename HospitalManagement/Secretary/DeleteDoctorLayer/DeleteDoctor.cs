@@ -15,6 +15,7 @@ namespace HospitalManagement.Secretary.DeleteDoctorLayer
         public DeleteDoctor()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
         }
 
     }

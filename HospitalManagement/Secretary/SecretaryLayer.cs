@@ -17,6 +17,7 @@ using HospitalManagement.Secretary.DeleteSecretaryLayer;
 using HospitalManagement.Secretary.UpdateSecretaryLayer;
 using HospitalManagement.Secretary.DeleteDoctorLayer;
 using HospitalManagement.Secretary.UpdateDoctorLayer;
+using HospitalManagement.Secretary.AccountLayer;
 
 namespace HospitalManagement.Secretary
 {
@@ -37,17 +38,19 @@ namespace HospitalManagement.Secretary
                 return cp;
             }
         }
-        public SecretaryLayer(String loginType)
+        public SecretaryLayer(string loginType)
         {
             InitializeComponent();
-            this.Text = loginType.ToUpper();
-            
+            this.DoubleBuffered = true;
+            this.windowName.Text = "Hastane Yönetim Sistemi" + " / " + loginType.ToUpper() + " / " + LoginWindow._userEntity.kullaniciAd;
         }
 
         private void SecretaryLayer_Load(object sender, EventArgs e)
         {
             CenterToParent();
             panelVisibilityInitialize();
+            ShowSubMenu(patientButtonSubMenu);
+            openChildForm(new Account());
         }
 
         private void panelVisibilityInitialize()
@@ -167,6 +170,11 @@ namespace HospitalManagement.Secretary
         private void updateDoctorButton_Click(object sender, EventArgs e)
         {
             openChildForm(new UpdateDoctor());
+        }
+
+        private void accountButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Account());
         }
     }
 }

@@ -23,6 +23,7 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
         public AddDoctor()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             tcnoTextBox.MaxLength = 11;
             phoneTextBox.MaxLength = 10;
             sectionComboBox.Items.Add("Dahiliye");

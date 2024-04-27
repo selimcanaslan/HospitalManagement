@@ -23,6 +23,7 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
         public AddSecretary()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             tcnoTextBox.MaxLength = 11;
             phoneTextBox.MaxLength = 10;
         }

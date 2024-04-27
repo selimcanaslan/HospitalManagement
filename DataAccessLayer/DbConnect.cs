@@ -16,11 +16,12 @@ namespace DataAccessLayer
         protected SqlDataAdapter da = new SqlDataAdapter();
         protected SqlCommand com = new SqlCommand();
         protected SqlException exception = null;
+        
 
         public DbConnect()
         {
             exception = null;
-            con = new SqlConnection(SQLConnectionStringSomee);
+            con = new SqlConnection(SQLConnectionStringLocal);
             if (con.State == ConnectionState.Closed)
             {
                 try

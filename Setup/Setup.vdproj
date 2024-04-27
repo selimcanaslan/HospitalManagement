@@ -382,6 +382,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -985,7 +993,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:HastaneYonetimSistemi"
         "ProductCode" = "8:{197D6FCE-1BE2-4C3C-B0DC-1132C85DCC51}"
-        "PackageCode" = "8:{528033BF-EAB6-4B8E-A9E5-F03146A15625}"
+        "PackageCode" = "8:{6F2E9694-7CE5-459C-8355-CDCF77771993}"
         "UpgradeCode" = "8:{2ABBA39A-8591-4070-86DC-2E3054D2C97E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

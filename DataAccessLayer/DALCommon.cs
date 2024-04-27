@@ -45,6 +45,7 @@ namespace DataAccessLayer
 
                 Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
             }
+            con.Close();
             return dt;
         }
 

@@ -8,19 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HospitalManagement.Secretary.AddNewPatientLayer
+namespace HospitalManagement.Secretary.AccountLayer
 {
-    public partial class AddPatient : Form
+    public partial class Account : Form
     {
-        public AddPatient()
+        public Account()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-        }
-
-        private void AddPatient_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

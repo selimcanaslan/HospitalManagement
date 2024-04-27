@@ -21,6 +21,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
         public UpdateDoctor()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             doctorTcnoTextBox.MaxLength = 11;
             doctorToUpdate = null;
             uploadProfilePicture.Enabled = false;

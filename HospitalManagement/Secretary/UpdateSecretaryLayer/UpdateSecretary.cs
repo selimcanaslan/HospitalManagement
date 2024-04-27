@@ -22,6 +22,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
         public UpdateSecretary()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             secretaryTcnoTextBox.MaxLength = 11;
             secretaryToUpdate = null;
             uploadProfilePicture.Enabled = false;
@@ -122,7 +123,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                     if (secretaryProfilePicture != "")
                     {
                         sendNewProfilePictureViaFtp(secretaryProfilePicture, (name + surname).ToLower().Replace(" ", ""));
-                        secretaryProfilePicture = ""; 
+                        secretaryProfilePicture = "";
                     }
                     if (name != secretaryToUpdate.Rows[0]["name"].ToString() ||
                             surname != secretaryToUpdate.Rows[0]["surname"].ToString())
