@@ -28,12 +28,12 @@ namespace DataAccessLayer
             try
             {
                 int rows_affected = com.ExecuteNonQuery();
-                if (rows_affected >= 1) { con.Close(); return true; }
-                else { con.Close(); return false; }
+                if (rows_affected >= 1) { return true; }
+                else { return false; }
 
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
-            
+
         }
 
         public DataTable fetchAllSecretary()
@@ -52,7 +52,6 @@ namespace DataAccessLayer
 
                 Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
             }
-            con.Close();
             return dt;
         }
         public DataTable fetchSecretaryByGivenName(string name)
@@ -71,7 +70,6 @@ namespace DataAccessLayer
 
                 Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
             }
-            con.Close();
             return dt;
         }
         public DataTable fetchSecretaryByGivenTcNo(string tcNo)
@@ -90,23 +88,27 @@ namespace DataAccessLayer
             {
                 Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
             }
-            con.Close();
             return dt;
         }
-        public bool deleteSecretary(string phone_number)
+        public bool deleteSecretary(string tc_no)
         {
-            String query = "DELETE FROM Secretary WHERE phone_number='" + phone_number + "'";
+            bool response = false;
+            Console.WriteLine("Gelinen tc_no= " + tc_no);
+            string childQuery = $"DELETE FROM Secretary_Login_Info WHERE tc_no='{tc_no}'";
+            string parentQuery = $"DELETE FROM Secretary WHERE tc_no='{tc_no}'";
             exception = null;
             com.Connection = con;
-            com.CommandText = query;
+            com.CommandText = childQuery;
             try
             {
-                int rows_affected = com.ExecuteNonQuery();
-                if (rows_affected >= 1) { con.Close(); return true; }
-                else { con.Close(); return false; }
+                int childRowsAffected = com.ExecuteNonQuery();
+                com.CommandText = parentQuery;
+                int parentRowsAffected = com.ExecuteNonQuery();
+                if (childRowsAffected > 0 && parentRowsAffected > 0) { response = true; }
+                else { response = false; }
             }
-            catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
-
+            catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
+            return response;
         }
 
         public string lowercasedAndTrimmedNameSurname(string tcNo)
@@ -125,7 +127,6 @@ namespace DataAccessLayer
                 {
                     userName = row["user_name"].ToString();
                 }
-                con.Close();
                 return userName.Replace(" ", "").ToLower();
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return ex.GetType().Name + " - " + ex.Message; }
@@ -141,8 +142,8 @@ namespace DataAccessLayer
             try
             {
                 int rows_affected = com.ExecuteNonQuery();
-                if (rows_affected >= 1) { con.Close(); return true; }
-                else { con.Close(); return false; }
+                if (rows_affected >= 1) { return true; }
+                else { return false; }
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
 
@@ -157,8 +158,8 @@ namespace DataAccessLayer
             try
             {
                 int rows_affected = com.ExecuteNonQuery();
-                if (rows_affected >= 1) { con.Close(); return true; }
-                else { con.Close(); return false; }
+                if (rows_affected >= 1) { return true; }
+                else { return false; }
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
         }
@@ -178,7 +179,7 @@ namespace DataAccessLayer
             {
                 Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
             }
-            con.Close();
+
             return dt;
         }
         public bool updateDoctor(string name, string surname, string tcNo, string section, string mail, string phoneNumber, string address, int id)
@@ -191,8 +192,8 @@ namespace DataAccessLayer
             try
             {
                 int rows_affected = com.ExecuteNonQuery();
-                if (rows_affected >= 1) { con.Close(); return true; }
-                else { con.Close(); return false; }
+                if (rows_affected >= 1) { return true; }
+                else { return false; }
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
 

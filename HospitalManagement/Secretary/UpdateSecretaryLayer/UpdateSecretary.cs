@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using HospitalManagement.Dialog;
 
 namespace HospitalManagement.Secretary.UpdateSecretaryLayer
 {
@@ -25,7 +26,6 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
             this.DoubleBuffered = true;
             secretaryTcnoTextBox.MaxLength = 11;
             secretaryToUpdate = null;
-            uploadProfilePicture.Enabled = false;
         }
 
         private void secretaryTcnoTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -49,17 +49,26 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
             }
             FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
             string result = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/{userName}.jpeg");
-            MessageBox.Show(result);
+            InfoMessage infoMessage = new InfoMessage(result, "Bilgi");
+            infoMessage.ShowDialog();
         }
 
         private void uploadProfilePicture_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if (secretaryToUpdate == null)
             {
-                profilePicture.Image = Image.FromFile(ofd.FileName);
-                secretaryProfilePicture = ofd.FileName;
+                InfoMessage infoMessage = new InfoMessage("Henüz Arama Yapmadınız!", "Hata");
+                infoMessage.ShowDialog();
+            }
+            else
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    profilePicture.Image = Image.FromFile(ofd.FileName);
+                    secretaryProfilePicture = ofd.FileName;
+                }
             }
         }
         private void searchButton_Click(object sender, EventArgs e)
@@ -73,18 +82,22 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                     fillFields(secretaryToUpdate);
                     string userName = blSecretary.lowercasedAndTrimmedNameSurname(secretaryTcnoTextBox.Text);
                     profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/{userName}.jpeg");
-                    MessageBox.Show("Bilgiler Başarıyla Getirildi");
+                    InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Getirildi!", "Bilgi");
+                    infoMessage.ShowDialog();
                     uploadProfilePicture.Enabled = true;
                 }
                 else
                 {
-                    MessageBox.Show("Lütfen T.C No 11 Hane Giriniz!");
+                    
+                    InfoMessage infoMessage = new InfoMessage("Lütfen T.C No 11 Hane Giriniz!", "Hata");
+                    infoMessage.ShowDialog();
                 }
 
             }
             else
             {
-                MessageBox.Show("Lütfen T.C No Giriniz!\n");
+                InfoMessage infoMessage = new InfoMessage("Lütfen T.C No Giriniz!", "Hata");
+                infoMessage.ShowDialog();
             }
         }
 
@@ -152,21 +165,26 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                     {
                         secretaryToUpdate.Clear();
                         secretaryToUpdate = blSecretary.fetchSecretaryByGivenTcNo(secretaryTcnoTextBox.Text);
-                        MessageBox.Show("Bilgiler Başarıyla Güncellendi!");
+                        InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Güncellendi!", "Bilgi");
+                        infoMessage.ShowDialog();
                     }
                     else
                     {
-                        MessageBox.Show("Hata");
+                        InfoMessage infoMessage = new InfoMessage("Hata", "Hata");
+                        infoMessage.ShowDialog();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Değişiklik Yapmadınız!");
+                    
+                    InfoMessage infoMessage = new InfoMessage("Değişiklik Yapmadınız", "Bilgi");
+                    infoMessage.ShowDialog();
                 }
             }
             else
             {
-                MessageBox.Show("Henüz Arama Yapmadınız!");
+                InfoMessage infoMessage = new InfoMessage("Henüz Arama Yapmadınız!", "Bilgi");
+                infoMessage.ShowDialog();
             }
         }
     }

@@ -88,7 +88,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ExitLogin";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.ExitLogin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

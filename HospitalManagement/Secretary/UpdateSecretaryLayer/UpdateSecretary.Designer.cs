@@ -124,9 +124,9 @@
             // 
             this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(388, 58);
+            this.profilePicture.Location = new System.Drawing.Point(410, 58);
             this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(222, 222);
+            this.profilePicture.Size = new System.Drawing.Size(200, 222);
             this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilePicture.TabIndex = 11;
             this.profilePicture.TabStop = false;
@@ -349,6 +349,7 @@
             this.updateInformations.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.updateInformations.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.updateInformations.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.updateInformations.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.updateInformations.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.updateInformations.ForeColor = System.Drawing.Color.White;
             this.updateInformations.Location = new System.Drawing.Point(333, 306);
@@ -364,11 +365,12 @@
             this.uploadProfilePicture.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.uploadProfilePicture.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.uploadProfilePicture.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.uploadProfilePicture.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.uploadProfilePicture.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.uploadProfilePicture.ForeColor = System.Drawing.Color.White;
-            this.uploadProfilePicture.Location = new System.Drawing.Point(349, 58);
+            this.uploadProfilePicture.Location = new System.Drawing.Point(333, 58);
             this.uploadProfilePicture.Name = "uploadProfilePicture";
-            this.uploadProfilePicture.Size = new System.Drawing.Size(33, 222);
+            this.uploadProfilePicture.Size = new System.Drawing.Size(71, 222);
             this.uploadProfilePicture.TabIndex = 53;
             this.uploadProfilePicture.Text = "Upload File";
             this.uploadProfilePicture.Click += new System.EventHandler(this.uploadProfilePicture_Click);

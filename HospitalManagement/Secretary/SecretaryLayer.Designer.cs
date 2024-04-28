@@ -33,6 +33,7 @@
             this.exitControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.minimizeControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.topWindowPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.accountButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.windowName = new System.Windows.Forms.Label();
             this.topWindowPanelDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.leftPanel = new Guna.UI2.WinForms.Guna2Panel();
@@ -53,7 +54,6 @@
             this.patientButton = new Guna.UI2.WinForms.Guna2Button();
             this.windowNameDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.containerPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.accountButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.topWindowPanel.SuspendLayout();
             this.leftPanel.SuspendLayout();
             this.doctorButtonSubMenu.SuspendLayout();
@@ -64,6 +64,7 @@
             // exitControlBox
             // 
             this.exitControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exitControlBox.Animated = true;
             this.exitControlBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.exitControlBox.IconColor = System.Drawing.Color.White;
             this.exitControlBox.Location = new System.Drawing.Point(795, 2);
@@ -96,6 +97,22 @@
             this.topWindowPanel.ShadowDecoration.BorderRadius = 30;
             this.topWindowPanel.Size = new System.Drawing.Size(834, 29);
             this.topWindowPanel.TabIndex = 6;
+            // 
+            // accountButton
+            // 
+            this.accountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.accountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.accountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.accountButton.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.accountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.accountButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.accountButton.ForeColor = System.Drawing.Color.White;
+            this.accountButton.Location = new System.Drawing.Point(636, 5);
+            this.accountButton.Name = "accountButton";
+            this.accountButton.Size = new System.Drawing.Size(112, 20);
+            this.accountButton.TabIndex = 9;
+            this.accountButton.Text = "Hesap İşlemleri";
+            this.accountButton.Click += new System.EventHandler(this.accountButton_Click);
             // 
             // windowName
             // 
@@ -465,22 +482,6 @@
             this.containerPanel.Name = "containerPanel";
             this.containerPanel.Size = new System.Drawing.Size(617, 385);
             this.containerPanel.TabIndex = 8;
-            // 
-            // accountButton
-            // 
-            this.accountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.accountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.accountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.accountButton.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.accountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.accountButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.accountButton.ForeColor = System.Drawing.Color.White;
-            this.accountButton.Location = new System.Drawing.Point(636, 5);
-            this.accountButton.Name = "accountButton";
-            this.accountButton.Size = new System.Drawing.Size(112, 20);
-            this.accountButton.TabIndex = 9;
-            this.accountButton.Text = "Hesap İşlemleri";
-            this.accountButton.Click += new System.EventHandler(this.accountButton_Click);
             // 
             // SecretaryLayer
             // 

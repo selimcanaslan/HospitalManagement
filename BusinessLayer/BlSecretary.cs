@@ -11,10 +11,8 @@ namespace BusinessLayer
     public class BlSecretary
     {
         private DALSecretary _dalSecretary;
-        private DbConnect _dbConnect;
         public BlSecretary()
         {
-            _dbConnect = new DbConnect();
             _dalSecretary = new DALSecretary();
         }
         public bool AddSecretary(string tc_no, string name, string surname, string mail, string phone_number, string address)
@@ -37,9 +35,9 @@ namespace BusinessLayer
         {
             return _dalSecretary.updateSecretary(name, surname, tcNo, mail, phoneNumber, address, id);
         }
-        public bool deleteSecretary(string phone_number)
+        public bool deleteSecretary(string tc_no)
         {
-            return _dalSecretary.deleteSecretary(phone_number);
+            return _dalSecretary.deleteSecretary(tc_no);
         }
         public string lowercasedAndTrimmedNameSurname(string tcNo)
         {

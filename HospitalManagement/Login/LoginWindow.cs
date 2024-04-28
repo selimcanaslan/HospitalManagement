@@ -55,37 +55,53 @@ namespace HospitalManagement
             {
                 try
                 {
-
                     _blUserLogin = new BlUserLogin();
-                    DataTable user_info = _blUserLogin.fetchUserLoginData(user_name_textBox.Text, password_textBox.Text, auth_type);
-                    if (user_info.Rows.Count == 1)
+                    DataTable user_info = new DataTable();
+                    if (auth_type == "Secretary")
                     {
-                        _userEntity = new UserLoginEntity();
-                        foreach (DataRow row in user_info.Rows)
+                        user_info = _blUserLogin.FetchSecretaryLoginInfo(user_name_textBox.Text, password_textBox.Text);
+                        if (user_info.Rows.Count == 1)
                         {
-                            auth_type = row["auth_type"].ToString();
-                            _userEntity.AuthType = auth_type;
-                            _userEntity.kullaniciAd = row["user_name"].ToString();
-                            _userEntity.kullaniciSifre = row["password"].ToString();
-                        }
-                        this.Hide();
-                        if (auth_type == "Secretary")
-                        {
+                            _userEntity = new UserLoginEntity();
+                            foreach (DataRow row in user_info.Rows)
+                            {
+                                _userEntity.AuthType = auth_type;
+                                _userEntity.kullaniciAd = row["user_name"].ToString();
+                                _userEntity.kullaniciSifre = row["password"].ToString();
+                            }
+                            this.Hide();
                             SecretaryLayer secretaryLayer = new SecretaryLayer("secretary");
                             //secretaryLayer.Closed += (s, args) => this.Show(); // call the login window after secretary window closed
                             secretaryLayer.Closed += (s, args) => this.Close(); // close whole app after secretary window closed
                             secretaryLayer.Show();
                         }
-                        else if (auth_type == "Doctor")
+                        else
                         {
+                            MessageBox.Show("1-Girdilerinizle Eşleşen Kayıt Bulunamadı!\n2-Kullanıcı Adı ve Şifrenizi Kontrol Edin!", "Hata");
+                        }
+                    }
+                    else if (auth_type == "Doctor")
+                    {
+                        user_info = _blUserLogin.FetchDoctorLoginInfo(user_name_textBox.Text, password_textBox.Text);
+                        if (user_info.Rows.Count == 1)
+                        {
+                            _userEntity = new UserLoginEntity();
+                            foreach (DataRow row in user_info.Rows)
+                            {
+                                _userEntity.AuthType = auth_type;
+                                _userEntity.kullaniciAd = row["user_name"].ToString();
+                                _userEntity.kullaniciSifre = row["password"].ToString();
+                            }
+                            this.Hide();
                             DoctorLayer doctorLayer = new DoctorLayer();
+                            //secretaryLayer.Closed += (s, args) => this.Show(); // call the login window after secretary window closed
                             doctorLayer.Closed += (s, args) => this.Close();
                             doctorLayer.Show();
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Girdilerinizle Eşleşen Kayıt Bulunamadı!", "Hata");
+                        else
+                        {
+                            MessageBox.Show("Girdilerinizle Eşleşen Kayıt Bulunamadı!", "Hata");
+                        }
                     }
                 }
                 catch { MessageBox.Show("Something Went Wrong", "Internal DB Error"); }

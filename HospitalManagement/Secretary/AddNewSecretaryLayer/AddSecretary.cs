@@ -159,17 +159,6 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             }
 
         }
-
-        private void importProfilePicture_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
-            if (ofd.ShowDialog() == DialogResult.OK)
-            {
-                profilePicture.Image = Image.FromFile(ofd.FileName);
-                importedProfilePicture = ofd.FileName;
-            }
-        }
         private string sendNewProfilePictureViaFtp(string imagePath, string identifier = "")
         {
 
@@ -185,6 +174,17 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
             string imageUploadresult = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/{lowercasedAndTrimmedNameSurname}.jpeg");
             return imageUploadresult;
+        }
+
+        private void importPictureButton_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                profilePicture.Image = Image.FromFile(ofd.FileName);
+                importedProfilePicture = ofd.FileName;
+            }
         }
     }
 }

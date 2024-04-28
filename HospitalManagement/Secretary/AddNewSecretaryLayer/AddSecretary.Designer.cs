@@ -41,10 +41,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.profilePicture = new System.Windows.Forms.PictureBox();
-            this.importProfilePicture = new System.Windows.Forms.Label();
+            this.importPictureButton = new Guna.UI2.WinForms.Guna2GradientButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // registerButton
@@ -57,10 +59,10 @@
             this.registerButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.registerButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerButton.ForeColor = System.Drawing.Color.White;
-            this.registerButton.Location = new System.Drawing.Point(12, 340);
+            this.registerButton.Location = new System.Drawing.Point(325, 314);
             this.registerButton.Name = "registerButton";
             this.registerButton.PressedColor = System.Drawing.Color.Gainsboro;
-            this.registerButton.Size = new System.Drawing.Size(306, 42);
+            this.registerButton.Size = new System.Drawing.Size(280, 68);
             this.registerButton.TabIndex = 6;
             this.registerButton.Text = "Kayıt Oluştur";
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
@@ -81,7 +83,7 @@
             this.nameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.nameTextBox.Location = new System.Drawing.Point(12, 10);
+            this.nameTextBox.Location = new System.Drawing.Point(12, 39);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.PasswordChar = '\0';
@@ -108,7 +110,7 @@
             this.surnameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.surnameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.surnameTextBox.Location = new System.Drawing.Point(12, 59);
+            this.surnameTextBox.Location = new System.Drawing.Point(12, 88);
             this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.PasswordChar = '\0';
@@ -134,7 +136,7 @@
             this.mailTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.mailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.mailTextBox.Location = new System.Drawing.Point(12, 158);
+            this.mailTextBox.Location = new System.Drawing.Point(12, 187);
             this.mailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mailTextBox.Name = "mailTextBox";
             this.mailTextBox.PasswordChar = '\0';
@@ -159,7 +161,7 @@
             this.phoneTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.phoneTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.phoneTextBox.Location = new System.Drawing.Point(12, 208);
+            this.phoneTextBox.Location = new System.Drawing.Point(12, 237);
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.PasswordChar = '\0';
@@ -185,21 +187,21 @@
             this.addressTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.addressTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.addressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.addressTextBox.Location = new System.Drawing.Point(12, 258);
+            this.addressTextBox.Location = new System.Drawing.Point(12, 287);
             this.addressTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.addressTextBox.Multiline = true;
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.PasswordChar = '\0';
             this.addressTextBox.PlaceholderText = "";
             this.addressTextBox.SelectedText = "";
-            this.addressTextBox.Size = new System.Drawing.Size(306, 75);
+            this.addressTextBox.Size = new System.Drawing.Size(306, 95);
             this.addressTextBox.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 1);
+            this.label3.Location = new System.Drawing.Point(20, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 16);
             this.label3.TabIndex = 33;
@@ -209,7 +211,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(20, 51);
+            this.label7.Location = new System.Drawing.Point(20, 80);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 16);
             this.label7.TabIndex = 35;
@@ -219,7 +221,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(20, 151);
+            this.label8.Location = new System.Drawing.Point(20, 180);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 16);
             this.label8.TabIndex = 36;
@@ -229,7 +231,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(20, 200);
+            this.label9.Location = new System.Drawing.Point(20, 229);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 16);
             this.label9.TabIndex = 37;
@@ -239,7 +241,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(20, 250);
+            this.label10.Location = new System.Drawing.Point(20, 279);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(41, 16);
             this.label10.TabIndex = 38;
@@ -261,7 +263,7 @@
             this.tcnoTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.tcnoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.tcnoTextBox.Location = new System.Drawing.Point(12, 109);
+            this.tcnoTextBox.Location = new System.Drawing.Point(12, 138);
             this.tcnoTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcnoTextBox.Name = "tcnoTextBox";
             this.tcnoTextBox.PasswordChar = '\0';
@@ -275,42 +277,57 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 102);
+            this.label1.Location = new System.Drawing.Point(20, 131);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 16);
             this.label1.TabIndex = 39;
             this.label1.Text = "T.C No";
             // 
-            // label2
-            // 
-            this.label2.Image = global::HospitalManagement.Properties.Resources.secretary_registiration;
-            this.label2.Location = new System.Drawing.Point(318, 168);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(320, 354);
-            this.label2.TabIndex = 40;
-            // 
             // profilePicture
             // 
             this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(325, 10);
+            this.profilePicture.Location = new System.Drawing.Point(325, 39);
             this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(144, 139);
+            this.profilePicture.Size = new System.Drawing.Size(240, 269);
             this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilePicture.TabIndex = 41;
             this.profilePicture.TabStop = false;
             // 
-            // importProfilePicture
+            // importPictureButton
             // 
-            this.importProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.importProfilePicture.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Italic | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.importProfilePicture.Location = new System.Drawing.Point(350, 151);
-            this.importProfilePicture.Name = "importProfilePicture";
-            this.importProfilePicture.Size = new System.Drawing.Size(98, 16);
-            this.importProfilePicture.TabIndex = 42;
-            this.importProfilePicture.Text = "Fotoğraf Aktar";
-            this.importProfilePicture.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.importProfilePicture.Click += new System.EventHandler(this.importProfilePicture_Click);
+            this.importPictureButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.importPictureButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.importPictureButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.importPictureButton.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.importPictureButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.importPictureButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.importPictureButton.ForeColor = System.Drawing.Color.White;
+            this.importPictureButton.Location = new System.Drawing.Point(571, 39);
+            this.importPictureButton.Name = "importPictureButton";
+            this.importPictureButton.Size = new System.Drawing.Size(34, 269);
+            this.importPictureButton.TabIndex = 43;
+            this.importPictureButton.Text = "Fotoğraf Ekle";
+            this.importPictureButton.Click += new System.EventHandler(this.importPictureButton_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Location = new System.Drawing.Point(-1, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(618, 27);
+            this.panel1.TabIndex = 77;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Orange;
+            this.label2.Location = new System.Drawing.Point(175, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(235, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Lütfen İlgili Alanları Doğru Girdiler İle Doldurunuz!";
             // 
             // AddSecretary
             // 
@@ -318,9 +335,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(617, 387);
-            this.Controls.Add(this.importProfilePicture);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.importPictureButton);
             this.Controls.Add(this.profilePicture);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
@@ -339,6 +356,8 @@
             this.Text = "AddSecretary";
             this.Load += new System.EventHandler(this.AddSecretary_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -358,8 +377,9 @@
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox tcnoTextBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox profilePicture;
-        private System.Windows.Forms.Label importProfilePicture;
+        private Guna.UI2.WinForms.Guna2GradientButton importPictureButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label2;
     }
 }

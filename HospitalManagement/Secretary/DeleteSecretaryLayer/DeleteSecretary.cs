@@ -74,13 +74,14 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
                         Convert.ToString(selectedRow.Cells["surname"].Value);
                     string mail = Convert.ToString(selectedRow.Cells["mail"].Value);
                     string telefon = Convert.ToString(selectedRow.Cells["phone_number"].Value);
+                    string tc_no = Convert.ToString(selectedRow.Cells["tc_no"].Value);
 
                     string infoOfPersonWhoWillBeDeleted = "Silmek İstediğiniz Kişinin Bilgileri Aşağıdadır.\n" +
                                                             "Ad: " + tam_ad + "\nMail: " + mail + "\nTelefon: " + telefon;
                     DialogResult dialogResult = MessageBox.Show(infoOfPersonWhoWillBeDeleted, "Silmek İstediğize Emin Misiniz?", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        bool response = _blSecretary.deleteSecretary(telefon);
+                        bool response = _blSecretary.deleteSecretary(tc_no);
                         if (response) { MessageBox.Show("Kayıt Başarıyla Silindi", "Bilgi"); updateDgv(); }
                         else
                         {
@@ -92,8 +93,9 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
                         return;
                     }
                 }
-                catch
+                catch (ArgumentOutOfRangeException ex)
                 {
+                    Console.WriteLine(ex.Message);
                     return;
                 }
             }

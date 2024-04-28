@@ -15,9 +15,14 @@ namespace DataAccessLayer
             DbConnect dbConnect = new DbConnect();
             _dalCommon = new DALCommon();
         }
-        public DataTable fetchUserData(string username, string password, string auth_type)
+        public DataTable FetchSecretaryLoginInfo(string username, string password)
         {
-            string query = "EXEC fetch_user_data " + username + "," + password + "," + auth_type;
+            string query = "EXEC fetch_secretary_login_data " + username + "," + password;
+            return _dalCommon.DTable(query);
+        }
+        public DataTable FetchDoctorLoginInfo(string username, string password)
+        {
+            string query = "EXEC fetch_doctor_login_data " + username + "," + password;
             return _dalCommon.DTable(query);
         }
     }

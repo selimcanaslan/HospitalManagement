@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.profilePicture = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // profilePicture
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(240, 161);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Account Details";
+            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(12, 12);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(144, 139);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 42;
+            this.profilePicture.TabStop = false;
             // 
             // Account
             // 
@@ -46,17 +49,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(617, 387);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.profilePicture);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Account";
             this.Text = "Account";
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox profilePicture;
     }
 }

@@ -18,6 +18,8 @@ using HospitalManagement.Secretary.UpdateSecretaryLayer;
 using HospitalManagement.Secretary.DeleteDoctorLayer;
 using HospitalManagement.Secretary.UpdateDoctorLayer;
 using HospitalManagement.Secretary.AccountLayer;
+using HospitalManagement.Login;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace HospitalManagement.Secretary
 {
