@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BusinessLayer;
+using HospitalManagement.Dialog;
 
 namespace HospitalManagement.Secretary.DeleteSecretaryLayer
 {
@@ -43,19 +44,21 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
                 if (dt.Rows.Count > 0)
                 {
                     dgvSecretary.DataSource = dt;
-                    MessageBox.Show("Eşleşen Kayıtlar Getirildi!");
-                    secretaryNameTextBox.Focus();
+                    InfoMessage infoMessage = new InfoMessage("Eşleşen Kayıtlar Getirildi!", "Bilgi");
+                    infoMessage.ShowDialog();
 
                 }
                 else
                 {
-                    MessageBox.Show("Girdiğiniz İsimde Sekreter Bulunamadı!\nSekreter adını doğru yazdığınıza emin olun!\nAd, Soyad arasında boşluk bıraktığınıza emin olun!", "Kullanıcı Bulunamadı");
+                    InfoMessage infoMessage = new InfoMessage("Girdiğiniz İsimde Sekreter Bulunamadı!\nSekreter adını doğru yazdığınıza emin olun!\nAd, Soyad arasında boşluk bıraktığınıza emin olun!", "Kullanıcı Bulunamadı");
+                    infoMessage.ShowDialog();
                     secretaryNameTextBox.Focus();
                 }
             }
             else
             {
-                MessageBox.Show("Lütfen Aranacak İsmi Giriniz.");
+                InfoMessage infoMessage = new InfoMessage("Lütfen Aranacak İsmi Giriniz!", "Uyarı");
+                infoMessage.ShowDialog();
                 secretaryNameTextBox.Focus();
             }
 
@@ -82,10 +85,15 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
                     if (dialogResult == DialogResult.Yes)
                     {
                         bool response = _blSecretary.deleteSecretary(tc_no);
-                        if (response) { MessageBox.Show("Kayıt Başarıyla Silindi", "Bilgi"); updateDgv(); }
+                        if (response)
+                        {
+                            InfoMessage infoMessage = new InfoMessage("Kayıt Başarıyla Silindi", "Bilgi");
+                            infoMessage.ShowDialog(); updateDgv();
+                        }
                         else
                         {
-                            MessageBox.Show("Kayıt Silinirken Bir Hata İle Karşılaşıldı", "Bilgi"); ;
+                            InfoMessage infoMessage = new InfoMessage("Kayıt Silinirken Bir Hata İle Karşılaşıldı", "Bilgi");
+                            infoMessage.ShowDialog();
                         }
                     }
                     else if (dialogResult == DialogResult.No)

@@ -399,6 +399,7 @@
             this.Controls.Add(this.guna2Button1);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.secretaryTcnoTextBox);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UpdateSecretary";
             this.Text = "UpdateSecretary";

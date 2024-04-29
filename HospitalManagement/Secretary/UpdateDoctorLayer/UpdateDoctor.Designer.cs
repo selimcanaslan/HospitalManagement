@@ -36,9 +36,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.addressTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.sectionComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
             this.phoneTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.nameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -46,9 +46,9 @@
             this.tcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.mailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.surnameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.searchButton = new Guna.UI2.WinForms.Guna2Button();
             this.doctorTcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.profilePicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +66,7 @@
             this.uploadProfilePicture.Name = "uploadProfilePicture";
             this.uploadProfilePicture.Size = new System.Drawing.Size(78, 194);
             this.uploadProfilePicture.TabIndex = 71;
-            this.uploadProfilePicture.Text = "Upload File";
+            this.uploadProfilePicture.Text = "Fotoğraf Yükle";
             this.uploadProfilePicture.Click += new System.EventHandler(this.uploadProfilePicture_Click);
             // 
             // updateInformations
@@ -151,6 +151,23 @@
             this.label9.TabIndex = 67;
             this.label9.Text = "Telefon";
             // 
+            // sectionComboBox
+            // 
+            this.sectionComboBox.BackColor = System.Drawing.Color.Transparent;
+            this.sectionComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.sectionComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.sectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.sectionComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.sectionComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.sectionComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.sectionComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.sectionComboBox.ItemHeight = 30;
+            this.sectionComboBox.Location = new System.Drawing.Point(323, 58);
+            this.sectionComboBox.Name = "sectionComboBox";
+            this.sectionComboBox.Size = new System.Drawing.Size(287, 36);
+            this.sectionComboBox.TabIndex = 72;
+            this.toolTip1.SetToolTip(this.sectionComboBox, "Bölüm Seçiniz");
+            // 
             // guna2Button1
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
@@ -177,23 +194,6 @@
             this.guna2Button1.Size = new System.Drawing.Size(20, 41);
             this.guna2Button1.TabIndex = 56;
             this.toolTip1.SetToolTip(this.guna2Button1, "Bilgilerini Düzenlemek İstediğiniz Sekreterin TC Numarasını Girerek Aratın");
-            // 
-            // sectionComboBox
-            // 
-            this.sectionComboBox.BackColor = System.Drawing.Color.Transparent;
-            this.sectionComboBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.sectionComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.sectionComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.sectionComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.sectionComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.sectionComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.sectionComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
-            this.sectionComboBox.ItemHeight = 30;
-            this.sectionComboBox.Location = new System.Drawing.Point(323, 58);
-            this.sectionComboBox.Name = "sectionComboBox";
-            this.sectionComboBox.Size = new System.Drawing.Size(287, 36);
-            this.sectionComboBox.TabIndex = 72;
-            this.toolTip1.SetToolTip(this.sectionComboBox, "Bölüm Seçiniz");
             // 
             // label8
             // 
@@ -229,6 +229,7 @@
             this.phoneTextBox.SelectedText = "";
             this.phoneTextBox.Size = new System.Drawing.Size(306, 40);
             this.phoneTextBox.TabIndex = 62;
+            this.phoneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.phoneTextBox_KeyPress);
             // 
             // nameTextBox
             // 
@@ -254,6 +255,7 @@
             this.nameTextBox.SelectedText = "";
             this.nameTextBox.Size = new System.Drawing.Size(306, 40);
             this.nameTextBox.TabIndex = 58;
+            this.nameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameTextBox_KeyPress);
             // 
             // label7
             // 
@@ -289,6 +291,7 @@
             this.tcnoTextBox.SelectedText = "";
             this.tcnoTextBox.Size = new System.Drawing.Size(306, 40);
             this.tcnoTextBox.TabIndex = 60;
+            this.tcnoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tcnoTextBox_KeyPress);
             // 
             // mailTextBox
             // 
@@ -340,17 +343,7 @@
             this.surnameTextBox.SelectedText = "";
             this.surnameTextBox.Size = new System.Drawing.Size(306, 40);
             this.surnameTextBox.TabIndex = 59;
-            // 
-            // profilePicture
-            // 
-            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(323, 102);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(203, 194);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 57;
-            this.profilePicture.TabStop = false;
+            this.surnameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.surnameTextBox_KeyPress);
             // 
             // searchButton
             // 
@@ -392,7 +385,17 @@
             this.doctorTcnoTextBox.SelectedText = "";
             this.doctorTcnoTextBox.Size = new System.Drawing.Size(617, 45);
             this.doctorTcnoTextBox.TabIndex = 54;
-            this.doctorTcnoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.doctorTcnoTextBox_KeyPress);
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(323, 102);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(203, 194);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 57;
+            this.profilePicture.TabStop = false;
             // 
             // UpdateDoctor
             // 
@@ -419,6 +422,7 @@
             this.Controls.Add(this.profilePicture);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.doctorTcnoTextBox);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UpdateDoctor";
             this.Text = "UpdateDoctor";

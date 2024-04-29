@@ -43,11 +43,11 @@
             this.surnameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.sectionComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.uploadProfilePicture = new Guna.UI2.WinForms.Guna2Button();
-            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
+            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -126,10 +126,10 @@
             this.registerButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.registerButton.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.registerButton.ForeColor = System.Drawing.Color.White;
-            this.registerButton.Location = new System.Drawing.Point(322, 307);
+            this.registerButton.Location = new System.Drawing.Point(322, 322);
             this.registerButton.Name = "registerButton";
             this.registerButton.PressedColor = System.Drawing.Color.Gainsboro;
-            this.registerButton.Size = new System.Drawing.Size(287, 75);
+            this.registerButton.Size = new System.Drawing.Size(287, 60);
             this.registerButton.TabIndex = 49;
             this.registerButton.Text = "Kayıt Oluştur";
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
@@ -309,23 +309,12 @@
             this.uploadProfilePicture.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.uploadProfilePicture.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.uploadProfilePicture.ForeColor = System.Drawing.Color.White;
-            this.uploadProfilePicture.Location = new System.Drawing.Point(531, 80);
+            this.uploadProfilePicture.Location = new System.Drawing.Point(574, 80);
             this.uploadProfilePicture.Name = "uploadProfilePicture";
-            this.uploadProfilePicture.Size = new System.Drawing.Size(78, 221);
+            this.uploadProfilePicture.Size = new System.Drawing.Size(35, 235);
             this.uploadProfilePicture.TabIndex = 74;
-            this.uploadProfilePicture.Text = "Upload File";
+            this.uploadProfilePicture.Text = "Fotoğraf Ekle";
             this.uploadProfilePicture.Click += new System.EventHandler(this.importProfilePicture_Click);
-            // 
-            // profilePicture
-            // 
-            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(322, 80);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(203, 221);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 73;
-            this.profilePicture.TabStop = false;
             // 
             // panel1
             // 
@@ -345,6 +334,17 @@
             this.label2.Size = new System.Drawing.Size(235, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Lütfen İlgili Alanları Doğru Girdiler İle Doldurunuz!";
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(322, 80);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(246, 235);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 73;
+            this.profilePicture.TabStop = false;
             // 
             // AddDoctor
             // 
@@ -369,13 +369,14 @@
             this.Controls.Add(this.tcnoTextBox);
             this.Controls.Add(this.mailTextBox);
             this.Controls.Add(this.surnameTextBox);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddDoctor";
             this.Text = "AddDoctor";
             this.Load += new System.EventHandler(this.AddDoctor_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

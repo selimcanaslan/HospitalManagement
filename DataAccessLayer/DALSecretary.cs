@@ -35,7 +35,6 @@ namespace DataAccessLayer
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
 
         }
-
         public DataTable fetchAllSecretary()
         {
             DataTable dt = new DataTable();
@@ -110,7 +109,6 @@ namespace DataAccessLayer
             catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
             return response;
         }
-
         public string lowercasedAndTrimmedNameSurname(string tcNo)
         {
             string userName = "";
@@ -197,6 +195,62 @@ namespace DataAccessLayer
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
 
+        }
+        public DataTable fetchDoctorByGivenName(string name)
+        {
+            DataTable dt = new DataTable();
+            string query = $"SELECT tc_no,name,surname,section,mail,phone_number,address FROM Doctor WHERE name + ' ' + surname LIKE '{name}%'";
+            try
+            {
+                com.Connection = con;
+                com.CommandText = query;
+                da.SelectCommand = com;
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable fetchAllDoctor()
+        {
+            DataTable dt = new DataTable();
+            string query = "SELECT tc_no,name,surname,section,mail,phone_number,address FROM Doctor";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public bool deleteDoctor(string tc_no)
+        {
+            bool response = false;
+            Console.WriteLine("Gelinen tc_no= " + tc_no);
+            string childQuery = $"DELETE FROM Doctor_Login_Info WHERE tc_no='{tc_no}'";
+            string parentQuery = $"DELETE FROM Doctor WHERE tc_no='{tc_no}'";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = childQuery;
+            try
+            {
+                int childRowsAffected = com.ExecuteNonQuery();
+                com.CommandText = parentQuery;
+                int parentRowsAffected = com.ExecuteNonQuery();
+                if (childRowsAffected > 0 && parentRowsAffected > 0) { response = true; }
+                else { response = false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
+            return response;
         }
     }
 }

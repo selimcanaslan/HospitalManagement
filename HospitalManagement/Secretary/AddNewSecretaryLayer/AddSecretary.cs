@@ -12,6 +12,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Net;
 using System.Net.Mail;
 using System.IO;
+using HospitalManagement.Dialog;
 
 namespace HospitalManagement.Secretary.AddNewSecretaryLayer
 {
@@ -88,6 +89,7 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
             {
                 err_message += "TC.No Sıfır (0) ile başlayamaz.";
             }
+            if (tcnoTextBox.Text.Length < 11) { err_message += "TC.No 11 Hane Girilmeli!"; }
 
             if (err_message != "")
             {
@@ -99,7 +101,7 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
         {
             try
             {
-                var smtpClient = new System.Net.Mail.SmtpClient("smtp.gmail.com")
+                var smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
                     Credentials = new NetworkCredential("selimcanaslan33@gmail.com", "awzc nxve hnwo sxkj"),
@@ -138,23 +140,33 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
                     mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text);
                 if (response)
                 {
-                    string uploadResult = sendNewProfilePictureViaFtp(importedProfilePicture);
+                    string uploadResult = string.Empty;
+                    if (importedProfilePicture != "")
+                    {
+                        uploadResult = sendNewProfilePictureViaFtp(importedProfilePicture);
+                    }
+                    else
+                    {
+                        uploadResult = "Profil Fotoğrafı Eklemediniz!";
+                    }
                     string name = nameTextBox.Text.ToString().Trim();
                     string userNameAndPassword = (name + surnameTextBox.Text).ToLower();
                     sendUserNamePasswordToMailAddress(userNameAndPassword, mailTextBox.Text);
-                    MessageBox.Show("Sekreter Kaydı Başarıyla Oluşturuldu!\n" + uploadResult +
-                        "\nGiriş Bilgileri Mail Adresine Gönderildi!");
+                    InfoMessage infoMessage = new InfoMessage("Sekreter Kaydı Başarıyla Oluşturuldu!\n" + uploadResult +
+                        "\nGiriş Bilgileri Mail Adresine Gönderildi!", "bilgi");
+                    infoMessage.ShowDialog();
 
                 }
                 else
                 {
-                    MessageBox.Show("Kayıt Başarısız!\n" +
-                    "Sistem Yöneticinize Ulaşın!");
+                    InfoMessage infoMessage = new InfoMessage("Kayıt Başarısız!\nSistem Yöneticinize Ulaşın!", "HATA");
+                    infoMessage.ShowDialog();
                 }
             }
             else
             {
-                MessageBox.Show(err_message, "Hata!");
+                InfoMessage infoMessage = new InfoMessage(err_message, "Hata!");
+                infoMessage.ShowDialog();
                 err_message = string.Empty;
             }
 
@@ -172,7 +184,7 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
                 }
             }
             FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
-            string imageUploadresult = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/{lowercasedAndTrimmedNameSurname}.jpeg");
+            string imageUploadresult = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/Secretary/{lowercasedAndTrimmedNameSurname}.jpeg");
             return imageUploadresult;
         }
 

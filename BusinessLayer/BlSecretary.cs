@@ -56,5 +56,17 @@ namespace BusinessLayer
         {
             return _dalSecretary.updateDoctor(name, surname, tcNo, section, mail, phoneNumber, address, id);
         }
+        public DataTable fetchDoctorByGivenName(string name)
+        {
+            return _dalSecretary.fetchDoctorByGivenName(name);
+        }
+        public DataTable fetchAllDoctor()
+        {
+            return _dalSecretary.fetchAllDoctor();
+        }
+        public bool deleteDoctor(string tc_no)
+        {
+            return _dalSecretary.deleteDoctor(tc_no);
+        }
     }
 }

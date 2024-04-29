@@ -33,6 +33,7 @@
             this.exitControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.minimizeControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.topWindowPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.accountButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.windowName = new System.Windows.Forms.Label();
             this.topWindowPanelDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
@@ -55,6 +56,7 @@
             this.windowNameDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.containerPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.topWindowPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.leftPanel.SuspendLayout();
             this.doctorButtonSubMenu.SuspendLayout();
             this.secretaryButtonSubMenu.SuspendLayout();
@@ -87,6 +89,7 @@
             // 
             this.topWindowPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.topWindowPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.topWindowPanel.Controls.Add(this.profilePicture);
             this.topWindowPanel.Controls.Add(this.accountButton);
             this.topWindowPanel.Controls.Add(this.windowName);
             this.topWindowPanel.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
@@ -98,6 +101,19 @@
             this.topWindowPanel.Size = new System.Drawing.Size(834, 29);
             this.topWindowPanel.TabIndex = 6;
             // 
+            // profilePicture
+            // 
+            this.profilePicture.ImageRotate = 0F;
+            this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(606, 2);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.profilePicture.Size = new System.Drawing.Size(25, 25);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 0;
+            this.profilePicture.TabStop = false;
+            this.profilePicture.WaitOnLoad = true;
+            // 
             // accountButton
             // 
             this.accountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -107,7 +123,7 @@
             this.accountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.accountButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.accountButton.ForeColor = System.Drawing.Color.White;
-            this.accountButton.Location = new System.Drawing.Point(636, 5);
+            this.accountButton.Location = new System.Drawing.Point(634, 4);
             this.accountButton.Name = "accountButton";
             this.accountButton.Size = new System.Drawing.Size(112, 20);
             this.accountButton.TabIndex = 9;
@@ -494,6 +510,7 @@
             this.Controls.Add(this.exitControlBox);
             this.Controls.Add(this.topWindowPanel);
             this.Controls.Add(this.leftPanel);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -504,6 +521,7 @@
             this.Load += new System.EventHandler(this.SecretaryLayer_Load);
             this.topWindowPanel.ResumeLayout(false);
             this.topWindowPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.leftPanel.ResumeLayout(false);
             this.doctorButtonSubMenu.ResumeLayout(false);
             this.secretaryButtonSubMenu.ResumeLayout(false);
@@ -537,5 +555,6 @@
         private Guna.UI2.WinForms.Guna2DragControl windowNameDragControl;
         private Guna.UI2.WinForms.Guna2Panel containerPanel;
         private Guna.UI2.WinForms.Guna2GradientButton accountButton;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox profilePicture;
     }
 }

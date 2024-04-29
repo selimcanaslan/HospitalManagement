@@ -14,8 +14,7 @@ namespace HospitalManagement.Dialog
 {
     public partial class InfoMessage : Form
     {
-        private string message, title;
-        int seconds = 7;
+        int seconds = 3;
 
         public InfoMessage(string msg = "Mesaj", string ttl = "Title")
         {

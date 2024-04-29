@@ -12,6 +12,7 @@ using BusinessLayer;
 using System.IO;
 using System.Net.Mail;
 using System.Net;
+using HospitalManagement.Dialog;
 
 namespace HospitalManagement.Secretary.AddNewDoctorLayer
 {
@@ -134,7 +135,7 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
 
             if (fieldValidation() == true)
             {
-                lowercasedAndTrimmedNameSurname = nameTextBox.Text.ToLower().Trim() + surnameTextBox.Text.ToLower().Trim();
+                lowercasedAndTrimmedNameSurname = nameTextBox.Text.ToLower().Replace(" ","") + surnameTextBox.Text.ToLower().Replace(" ", "");
                 BlSecretary blSecretary = new BlSecretary();
                 bool response = blSecretary.AddDoctor(tcnoTextBox.Text, nameTextBox.Text, surnameTextBox.Text,
                     mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text, sectionComboBox.Text);
@@ -144,19 +145,23 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
                     string name = nameTextBox.Text.ToString().Trim();
                     string userNameAndPassword = (name + surnameTextBox.Text).ToLower();
                     sendUserNamePasswordToMailAddress(userNameAndPassword, mailTextBox.Text);
-                    MessageBox.Show("Doktor Kaydı Başarıyla Oluşturuldu!\n" + uploadResult +
-                        "\nGiriş Bilgileri Mail Adresine Gönderildi!");
+                    InfoMessage infoMessage = new InfoMessage("Doktor Kaydı Başarıyla Oluşturuldu!\n" + uploadResult +
+                        "\nGiriş Bilgileri Mail Adresine Gönderildi!", "Bilgi");
+                    infoMessage.ShowDialog();
 
                 }
                 else
                 {
-                    MessageBox.Show("Kayıt Başarısız!\n" +
-                    "Sistem Yöneticinize Ulaşın!");
+                    InfoMessage infoMessage = new InfoMessage("Kayıt Başarısız!\n" +
+                    "Sistem Yöneticinize Ulaşın!", "Hata");
+                    infoMessage.ShowDialog();
+                    
                 }
             }
             else
             {
-                MessageBox.Show(err_message, "Hata!");
+                InfoMessage infoMessage = new InfoMessage(err_message, "Hata!");
+                infoMessage.ShowDialog();
                 err_message = string.Empty;
             }
 
@@ -185,7 +190,7 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
                 }
             }
             FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
-            string imageUploadresult = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/{lowercasedAndTrimmedNameSurname}.jpeg");
+            string imageUploadresult = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/Doctor/{lowercasedAndTrimmedNameSurname}.jpeg");
             return imageUploadresult;
         }
     }

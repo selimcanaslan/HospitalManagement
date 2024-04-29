@@ -29,7 +29,6 @@ namespace HospitalManagement.Secretary
         {
             e.Graphics.DrawRectangle(Pens.Black, this.Bounds);
         }
-
         protected override CreateParams CreateParams
         {
             get
@@ -44,7 +43,7 @@ namespace HospitalManagement.Secretary
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            this.windowName.Text = "Hastane Yönetim Sistemi" + " / " + loginType.ToUpper() + " / " + LoginWindow._userEntity.kullaniciAd;
+            this.windowName.Text = "Hastane Yönetim Sistemi" + " / " + loginType.ToUpper() + " / " + LoginWindow._userEntity.KullaniciAd;
         }
 
         private void SecretaryLayer_Load(object sender, EventArgs e)
@@ -53,8 +52,12 @@ namespace HospitalManagement.Secretary
             panelVisibilityInitialize();
             ShowSubMenu(patientButtonSubMenu);
             openChildForm(new Account());
+            LoadProfilePicture();
         }
-
+        public void LoadProfilePicture()
+        {
+            profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/Secretary/{LoginWindow._userEntity.KullaniciAd}.jpeg");
+        }
         private void panelVisibilityInitialize()
         {
             patientButtonSubMenu.Visible = false;

@@ -59,6 +59,35 @@ CREATE TABLE Secretary_Login_Info(
 	password varchar(30)
 );
 
+CREATE TABLE Patient(
+	id int identity(1,1),
+	tc_no int PRIMARY KEY CLUSTERED,
+	name varchar(30),
+	surname varchar(30),
+	mail varchar(255),
+	phone_number varchar(10),
+	address nvarchar(max),
+	registiration_date datetime DEFAULT getdate()
+);
+
+CREATE TABLE Appointment(
+	id int identity(1,1),
+	patient_tc_no int FOREIGN KEY (tc_no) REFERENCES Patient(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
+	section varchar(50),
+	doctor_tc_no varchar(11) FOREIGN KEY (tc_no) REFERENCES Doctor(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
+	appointment_examination_time datetime,
+	is_examination_done bit DEFAULT 0,
+	appointment_created datetime DEFAULT getdate()
+);
+
+CREATE TABLE Examination(
+	id int identity(1,1),
+	patient_tc_no int FOREIGN KEY (tc_no) REFERENCES Patient(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
+	section varchar(50),
+	doctor_tc_no varchar(11) FOREIGN KEY (tc_no) REFERENCES Doctor(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
+	result nvarchar(max)
+);
+
 GO
 CREATE TRIGGER Create_Secretary_Login_Info
 ON Secretary
@@ -92,9 +121,10 @@ CREATE PROCEDURE [dbo].[fetch_secretary_login_data]
 @password varchar(30)
 AS
 BEGIN
-SELECT user_name,password FROM Secretary_Login_Info WHERE user_name = @user_name AND password=@password
+SELECT user_name,password,tc_no FROM Secretary_Login_Info WHERE user_name = @user_name AND password=@password
 END
 GO
+
 
 GO
 CREATE PROCEDURE [dbo].[fetch_doctor_login_data]
@@ -107,15 +137,21 @@ SELECT user_name,password FROM Doctor_Login_Info WHERE user_name = @user_name AN
 END
 GO
 
+
+
+
+
+
+
 INSERT Secretary VALUES ('21824004326','Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
 INSERT Secretary VALUES ('21824324326','Muhammet Yusuf', 'ASLAN', 'doktoryusuf@gmail.com', '5555345555', 'Mersin Toroslar')
 
 SELECT * FROM Secretary
 SELECT * FROM Secretary_Login_Info
 
-TRUNCATE TABLE User_Login_Info
-TRUNCATE TABLE Secretary
-drop table Secretary
+SELECT * FROM Doctor
+SELECT * FROM Doctor_Login_Info
+
 
 SELECT TRIM(LOWER(name + surname)) as user_name FROM Secretary Where tc_no = '21824004326';
 
@@ -123,5 +159,5 @@ SELECT tc_no,name,surname,mail,phone_number,address FROM Secretary WHERE tc_no =
 
 EXEC fetch_secretary_login_data 'selimcanaslan','selimcanaslan'
 
-DELETE FROM Secretary_Login_Info WHERE tc_no='21824324326'
-DELETE FROM Secretary WHERE tc_no='21824324326'
+DELETE FROM Secretary_Login_Info WHERE tc_no='2342324'
+DELETE FROM Secretary WHERE tc_no='2342324'

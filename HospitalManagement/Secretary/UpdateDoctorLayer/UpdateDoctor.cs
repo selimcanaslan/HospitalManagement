@@ -1,4 +1,5 @@
 ﻿using BusinessLayer;
+using HospitalManagement.Dialog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,19 +23,48 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            doctorTcnoTextBox.MaxLength = 11;
+            tcnoTextBox.MaxLength = 11;
+            phoneTextBox.MaxLength = 10;
             doctorToUpdate = null;
             uploadProfilePicture.Enabled = false;
             sectionComboBox.Items.Add("Dahiliye");
         }
 
-        private void doctorTcnoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
+
+        private void surnameTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void phoneTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void tcnoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void sendNewProfilePictureViaFtp(string imagePath, string userName = "")
         {
-            string loggedInUserName = LoginWindow._userEntity.kullaniciAd;
+            string loggedInUserName = LoginWindow._userEntity.KullaniciAd;
             byte[] data;
             using (Image image = Image.FromFile(imagePath))
             {
@@ -45,8 +75,10 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                 }
             }
             FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
-            string result = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/{userName}.jpeg");
-            MessageBox.Show(result);
+            string result = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/Doctor/{userName}.jpeg");
+            InfoMessage infoMessage = new InfoMessage(result, "Bilgi");
+            infoMessage.ShowDialog();
+
         }
 
         private void uploadProfilePicture_Click(object sender, EventArgs e)
@@ -70,18 +102,21 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                     fillFields(doctorToUpdate);
                     string userName = blSecretary.lowercasedAndTrimmedNameSurname(doctorTcnoTextBox.Text);
                     profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/{userName}.jpeg");
-                    MessageBox.Show("Bilgiler Başarıyla Getirildi");
+                    InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Getirildi!", "Bilgi");
+                    infoMessage.ShowDialog();
                     uploadProfilePicture.Enabled = true;
                 }
                 else
                 {
-                    MessageBox.Show("Lütfen T.C No 11 Hane Giriniz!");
+                    InfoMessage infoMessage = new InfoMessage("Lütfen T.C No 11 Hane Giriniz!", "Hata");
+                    infoMessage.ShowDialog();
                 }
 
             }
             else
             {
-                MessageBox.Show("Lütfen T.C No Giriniz!\n");
+                InfoMessage infoMessage = new InfoMessage("Lütfen T.C No Giriniz!", "Hata");
+                infoMessage.ShowDialog();
             }
         }
 
@@ -133,7 +168,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                         try
                         {
                             string newFileName = $"{(nameTextBox.Text + surnameTextBox.Text).ToLower().Replace(" ", "")}.jpeg";
-                            ftpRequest = (FtpWebRequest)WebRequest.Create($"ftp://sca.somee.com/www.sca.somee.com/profilePictures/{(doctorToUpdate.Rows[0]["name"].ToString() + doctorToUpdate.Rows[0]["surname"].ToString()).ToLower().Replace(" ", "")}.jpeg");
+                            ftpRequest = (FtpWebRequest)WebRequest.Create($"ftp://sca.somee.com/www.sca.somee.com/profilePictures/Doctor/{(doctorToUpdate.Rows[0]["name"].ToString() + doctorToUpdate.Rows[0]["surname"].ToString()).ToLower().Replace(" ", "")}.jpeg");
                             ftpRequest.Credentials = new NetworkCredential("sca33", "2XFfX2b6xQUTJ-U");
                             ftpRequest.UseBinary = true;
                             ftpRequest.UsePassive = true;
@@ -152,21 +187,25 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                     {
                         doctorToUpdate.Clear();
                         doctorToUpdate = blSecretary.fetchDoctorByGivenTcNo(doctorTcnoTextBox.Text);
-                        MessageBox.Show("Bilgiler Başarıyla Güncellendi!");
+                        InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Güncellendi!", "Bilgi");
+                        infoMessage.ShowDialog();
                     }
                     else
                     {
-                        MessageBox.Show("Hata");
+                        InfoMessage infoMessage = new InfoMessage("Hata", "Hata");
+                        infoMessage.ShowDialog();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Değişiklik Yapmadınız!");
+                    InfoMessage infoMessage = new InfoMessage("Değişiklik Yapmadınız!", "Bilgi");
+                    infoMessage.ShowDialog();
                 }
             }
             else
             {
-                MessageBox.Show("Henüz Arama Yapmadınız!");
+                InfoMessage infoMessage = new InfoMessage("Henüz Arama Yapmadınız!", "Bilgi");
+                infoMessage.ShowDialog();
             }
         }
     }

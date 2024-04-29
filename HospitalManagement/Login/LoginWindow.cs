@@ -13,6 +13,7 @@ using HospitalManagement.Login;
 using BusinessLayer;
 using HospitalManagement.Doctor;
 using EntityLayer;
+using System.Data.SqlClient;
 
 namespace HospitalManagement
 {
@@ -59,6 +60,7 @@ namespace HospitalManagement
                     DataTable user_info = new DataTable();
                     if (auth_type == "Secretary")
                     {
+                        BlSecretary blSecretary = new BlSecretary();
                         user_info = _blUserLogin.FetchSecretaryLoginInfo(user_name_textBox.Text, password_textBox.Text);
                         if (user_info.Rows.Count == 1)
                         {
@@ -66,8 +68,19 @@ namespace HospitalManagement
                             foreach (DataRow row in user_info.Rows)
                             {
                                 _userEntity.AuthType = auth_type;
-                                _userEntity.kullaniciAd = row["user_name"].ToString();
-                                _userEntity.kullaniciSifre = row["password"].ToString();
+                                _userEntity.KullaniciAd = row["user_name"].ToString();
+                                _userEntity.KullaniciSifre = row["password"].ToString();
+                                _userEntity.Tcno = row["tc_no"].ToString();
+                            }
+                            DataTable LoggedInUser = blSecretary.fetchSecretaryByGivenTcNo(_userEntity.Tcno);
+                            foreach (DataRow row in LoggedInUser.Rows)
+                            {
+                                _userEntity.Id = Int32.Parse(row["id"].ToString()); 
+                                _userEntity.Ad = row["name"].ToString();
+                                _userEntity.Soyad = row["surname"].ToString();
+                                _userEntity.Mail = row["mail"].ToString();
+                                _userEntity.PhoneNumber = row["phone_number"].ToString();
+                                _userEntity.Address = row["address"].ToString();
                             }
                             this.Hide();
                             SecretaryLayer secretaryLayer = new SecretaryLayer("secretary");
@@ -89,8 +102,8 @@ namespace HospitalManagement
                             foreach (DataRow row in user_info.Rows)
                             {
                                 _userEntity.AuthType = auth_type;
-                                _userEntity.kullaniciAd = row["user_name"].ToString();
-                                _userEntity.kullaniciSifre = row["password"].ToString();
+                                _userEntity.KullaniciAd = row["user_name"].ToString();
+                                _userEntity.KullaniciSifre = row["password"].ToString();
                             }
                             this.Hide();
                             DoctorLayer doctorLayer = new DoctorLayer();
@@ -104,7 +117,7 @@ namespace HospitalManagement
                         }
                     }
                 }
-                catch { MessageBox.Show("Something Went Wrong", "Internal DB Error"); }
+                catch(SqlException ex) { MessageBox.Show($"Something Went Wrong {ex.Message}", "Internal DB Error"); }
                 finally { }
             }
         }

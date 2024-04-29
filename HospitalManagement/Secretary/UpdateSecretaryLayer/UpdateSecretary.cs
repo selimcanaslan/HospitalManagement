@@ -37,7 +37,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
         }
         private void sendNewProfilePictureViaFtp(string imagePath, string userName = "")
         {
-            string loggedInUserName = LoginWindow._userEntity.kullaniciAd;
+            string loggedInUserName = LoginWindow._userEntity.KullaniciAd;
             byte[] data;
             using (Image image = Image.FromFile(imagePath))
             {
@@ -48,7 +48,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                 }
             }
             FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
-            string result = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/{userName}.jpeg");
+            string result = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/Secretary/{userName}.jpeg");
             InfoMessage infoMessage = new InfoMessage(result, "Bilgi");
             infoMessage.ShowDialog();
         }
@@ -81,7 +81,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                     secretaryToUpdate = blSecretary.fetchSecretaryByGivenTcNo(secretaryTcnoTextBox.Text);
                     fillFields(secretaryToUpdate);
                     string userName = blSecretary.lowercasedAndTrimmedNameSurname(secretaryTcnoTextBox.Text);
-                    profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/{userName}.jpeg");
+                    profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/Secretary/{userName}.jpeg");
                     InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Getirildi!", "Bilgi");
                     infoMessage.ShowDialog();
                     uploadProfilePicture.Enabled = true;
