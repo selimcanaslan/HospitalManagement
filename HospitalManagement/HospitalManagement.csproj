@@ -139,12 +139,6 @@
     <Compile Include="Secretary\AddNewDoctorLayer\AddDoctor.Designer.cs">
       <DependentUpon>AddDoctor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Secretary\AddNewPatientLayer\AddPatient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Secretary\AddNewPatientLayer\AddPatient.Designer.cs">
-      <DependentUpon>AddPatient.cs</DependentUpon>
-    </Compile>
     <Compile Include="Secretary\AddNewSecretaryLayer\AddSecretary.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,9 +221,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Secretary\AddNewDoctorLayer\AddDoctor.resx">
       <DependentUpon>AddDoctor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Secretary\AddNewPatientLayer\AddPatient.resx">
-      <DependentUpon>AddPatient.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Secretary\AddNewSecretaryLayer\AddSecretary.resx">
       <DependentUpon>AddSecretary.cs</DependentUpon>

@@ -199,7 +199,8 @@ namespace DataAccessLayer
         public DataTable fetchDoctorByGivenName(string name)
         {
             DataTable dt = new DataTable();
-            string query = $"SELECT tc_no,doctor_name,doctor_surname,section,mail,phone_number,address FROM Doctor WHERE name + ' ' + surname LIKE '{name}%'";
+            string query = $"SELECT tc_no,doctor_name,doctor_surname,Sections.name as \"section_name\",mail,phone_number,address\r\nFROM Doctor " +
+                $"INNER JOIN Sections ON Doctor.section_id = Sections.Id \r\nWHERE doctor_name + ' ' + doctor_surname LIKE '{name}%'";
             try
             {
                 com.Connection = con;

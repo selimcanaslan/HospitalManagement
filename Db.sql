@@ -155,9 +155,6 @@ END
 GO
 
 
-EXEC FetchAllDoctor
-
-
 INSERT Secretary VALUES ('21824004326','Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
 INSERT Secretary VALUES ('21824324326','Muhammet Yusuf', 'ASLAN', 'doktoryusuf@gmail.com', '5555345555', 'Mersin Toroslar')
 
@@ -183,5 +180,3 @@ ALTER TABLE Sections
     ALTER COLUMN name VARCHAR(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8;
 SELECT * FROM Sections
 INSERT Sections VALUES ('Çocuk Hastalıkları')
-
-SELECT doctor_name + ' ' doctor_surname as 'full_name' FROM Doctor WHERE section_id ={sectionId}

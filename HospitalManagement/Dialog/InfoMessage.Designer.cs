@@ -42,6 +42,7 @@
             // 
             // okButton
             // 
+            this.okButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.okButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.okButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.okButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));

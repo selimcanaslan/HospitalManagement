@@ -55,14 +55,14 @@ namespace HospitalManagement.Secretary
             panelVisibilityInitialize();
             ShowSubMenu(patientButtonSubMenu);
             openChildForm(new Account());
-            LoadProfilePicture("profilePictures/Secretary/" +LoginWindow._userEntity.KullaniciAd + ".jpeg");
+            LoadProfilePicture("profilePictures/Secretary/" + LoginWindow._userEntity.KullaniciAd + ".jpeg");
         }
         public void LoadProfilePicture(string fileName)
         {
             bool existence = ftpHelper.CheckFileExistence(fileName);
             Console.WriteLine(existence);
             if (existence)
-            {         
+            {
                 profilePicture.LoadAsync($"http://sca.somee.com/{fileName}");
             }
         }
@@ -188,5 +188,11 @@ namespace HospitalManagement.Secretary
         {
             openChildForm(new Account());
         }
+
+        private void profilePicture_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Account());
+        }
+
     }
 }

@@ -92,6 +92,7 @@
             // 
             // uploadProfilePicture
             // 
+            this.uploadProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uploadProfilePicture.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.uploadProfilePicture.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.uploadProfilePicture.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -108,6 +109,7 @@
             // 
             // updateInformations
             // 
+            this.updateInformations.Cursor = System.Windows.Forms.Cursors.Hand;
             this.updateInformations.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.updateInformations.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.updateInformations.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -154,6 +156,7 @@
             // 
             // addressTextBox
             // 
+            this.addressTextBox.Animated = true;
             this.addressTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.addressTextBox.BorderRadius = 2;
             this.addressTextBox.BorderThickness = 2;
@@ -200,6 +203,7 @@
             // 
             // phoneTextBox
             // 
+            this.phoneTextBox.Animated = true;
             this.phoneTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.phoneTextBox.BorderRadius = 2;
             this.phoneTextBox.BorderThickness = 2;
@@ -225,6 +229,7 @@
             // 
             // nameTextBox
             // 
+            this.nameTextBox.Animated = true;
             this.nameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.nameTextBox.BorderRadius = 2;
             this.nameTextBox.BorderThickness = 2;
@@ -260,6 +265,7 @@
             // 
             // tcnoTextBox
             // 
+            this.tcnoTextBox.Animated = true;
             this.tcnoTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.tcnoTextBox.BorderRadius = 2;
             this.tcnoTextBox.BorderThickness = 2;
@@ -285,6 +291,7 @@
             // 
             // mailTextBox
             // 
+            this.mailTextBox.Animated = true;
             this.mailTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.mailTextBox.BorderRadius = 2;
             this.mailTextBox.BorderThickness = 2;
@@ -310,6 +317,7 @@
             // 
             // surnameTextBox
             // 
+            this.surnameTextBox.Animated = true;
             this.surnameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.surnameTextBox.BorderRadius = 2;
             this.surnameTextBox.BorderThickness = 2;

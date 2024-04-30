@@ -41,14 +41,14 @@
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.containerPanel = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.containerPanel = new System.Windows.Forms.Panel();
+            this.containerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.containerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // user_name_textBox
@@ -174,6 +174,27 @@
             this.guna2DragControl2.TargetControl = this.pictureBox3;
             this.guna2DragControl2.UseTransparentDrag = true;
             // 
+            // containerPanel
+            // 
+            this.containerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(54)))));
+            this.containerPanel.Controls.Add(this.pictureBox3);
+            this.containerPanel.Controls.Add(this.guna2ControlBox1);
+            this.containerPanel.Controls.Add(this.user_name_textBox);
+            this.containerPanel.Controls.Add(this.checkBox2);
+            this.containerPanel.Controls.Add(this.login_button);
+            this.containerPanel.Controls.Add(this.checkBox1);
+            this.containerPanel.Controls.Add(this.password_textBox);
+            this.containerPanel.Controls.Add(this.label1);
+            this.containerPanel.Controls.Add(this.pictureBox2);
+            this.containerPanel.Controls.Add(this.panel1);
+            this.containerPanel.Controls.Add(this.panel2);
+            this.containerPanel.Controls.Add(this.pictureBox1);
+            this.containerPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.containerPanel.Location = new System.Drawing.Point(1, 1);
+            this.containerPanel.Name = "containerPanel";
+            this.containerPanel.Size = new System.Drawing.Size(518, 238);
+            this.containerPanel.TabIndex = 18;
+            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::HospitalManagement.Properties.Resources.medical_team;
@@ -208,27 +229,6 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
-            // containerPanel
-            // 
-            this.containerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(54)))));
-            this.containerPanel.Controls.Add(this.pictureBox3);
-            this.containerPanel.Controls.Add(this.guna2ControlBox1);
-            this.containerPanel.Controls.Add(this.user_name_textBox);
-            this.containerPanel.Controls.Add(this.checkBox2);
-            this.containerPanel.Controls.Add(this.login_button);
-            this.containerPanel.Controls.Add(this.checkBox1);
-            this.containerPanel.Controls.Add(this.password_textBox);
-            this.containerPanel.Controls.Add(this.label1);
-            this.containerPanel.Controls.Add(this.pictureBox2);
-            this.containerPanel.Controls.Add(this.panel1);
-            this.containerPanel.Controls.Add(this.panel2);
-            this.containerPanel.Controls.Add(this.pictureBox1);
-            this.containerPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.containerPanel.Location = new System.Drawing.Point(1, 1);
-            this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Size = new System.Drawing.Size(518, 238);
-            this.containerPanel.TabIndex = 18;
-            // 
             // LoginWindow
             // 
             this.AcceptButton = this.login_button;
@@ -248,11 +248,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hastane Giriş";
             this.Load += new System.EventHandler(this.LoginWindow_Load);
+            this.containerPanel.ResumeLayout(false);
+            this.containerPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.containerPanel.ResumeLayout(false);
-            this.containerPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }

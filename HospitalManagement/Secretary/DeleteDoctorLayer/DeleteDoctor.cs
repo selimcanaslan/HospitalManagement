@@ -63,7 +63,7 @@ namespace HospitalManagement.Secretary.DeleteDoctorLayer
         {
             dgvDoctor.DataSource = _blSecretary.fetchAllDoctor();
         }
-        private void dgvDoctor_SelectionChanged(object sender, EventArgs e)
+        private void dgvDoctor_Click(object sender, EventArgs e)
         {
             if (dgvDoctor.SelectedCells.Count > 0)
             {

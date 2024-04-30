@@ -38,7 +38,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.sectionComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.label8 = new System.Windows.Forms.Label();
             this.phoneTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.nameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -48,6 +47,7 @@
             this.surnameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.searchButton = new Guna.UI2.WinForms.Guna2Button();
             this.doctorTcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.profilePicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
@@ -117,6 +117,7 @@
             // 
             // addressTextBox
             // 
+            this.addressTextBox.Animated = true;
             this.addressTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.addressTextBox.BorderRadius = 2;
             this.addressTextBox.BorderThickness = 2;
@@ -171,33 +172,6 @@
             this.sectionComboBox.TabIndex = 72;
             this.toolTip1.SetToolTip(this.sectionComboBox, "Bölüm Seçiniz");
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2Button1.Checked = true;
-            this.guna2Button1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.Image = global::HospitalManagement.Properties.Resources.exlamation_mark;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(594, 2);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.Empty;
-            this.guna2Button1.Size = new System.Drawing.Size(20, 41);
-            this.guna2Button1.TabIndex = 56;
-            this.toolTip1.SetToolTip(this.guna2Button1, "Bilgilerini Düzenlemek İstediğiniz Sekreterin TC Numarasını Girerek Aratın");
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -210,6 +184,7 @@
             // 
             // phoneTextBox
             // 
+            this.phoneTextBox.Animated = true;
             this.phoneTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.phoneTextBox.BorderRadius = 2;
             this.phoneTextBox.BorderThickness = 2;
@@ -236,6 +211,7 @@
             // 
             // nameTextBox
             // 
+            this.nameTextBox.Animated = true;
             this.nameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.nameTextBox.BorderRadius = 2;
             this.nameTextBox.BorderThickness = 2;
@@ -272,6 +248,7 @@
             // 
             // tcnoTextBox
             // 
+            this.tcnoTextBox.Animated = true;
             this.tcnoTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.tcnoTextBox.BorderRadius = 2;
             this.tcnoTextBox.BorderThickness = 2;
@@ -298,6 +275,7 @@
             // 
             // mailTextBox
             // 
+            this.mailTextBox.Animated = true;
             this.mailTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.mailTextBox.BorderRadius = 2;
             this.mailTextBox.BorderThickness = 2;
@@ -323,6 +301,7 @@
             // 
             // surnameTextBox
             // 
+            this.surnameTextBox.Animated = true;
             this.surnameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.surnameTextBox.BorderRadius = 2;
             this.surnameTextBox.BorderThickness = 2;
@@ -388,6 +367,33 @@
             this.doctorTcnoTextBox.SelectedText = "";
             this.doctorTcnoTextBox.Size = new System.Drawing.Size(617, 45);
             this.doctorTcnoTextBox.TabIndex = 54;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2Button1.Checked = true;
+            this.guna2Button1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.Image = global::HospitalManagement.Properties.Resources.exlamation_mark;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button1.Location = new System.Drawing.Point(594, 2);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.PressedColor = System.Drawing.Color.Empty;
+            this.guna2Button1.Size = new System.Drawing.Size(20, 41);
+            this.guna2Button1.TabIndex = 56;
+            this.toolTip1.SetToolTip(this.guna2Button1, "Bilgilerini Düzenlemek İstediğiniz Sekreterin TC Numarasını Girerek Aratın");
             // 
             // profilePicture
             // 

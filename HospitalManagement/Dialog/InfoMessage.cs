@@ -26,11 +26,6 @@ namespace HospitalManagement.Dialog
             messageLabel.Text = msg;
             titleLabel.Text = ttl.ToUpper();
             okButton.Text = $"OK({seconds})";
-            msgHeight(msg.Split('\n').Length);
-        }
-        public void msgHeight(int numLines)
-        {
-            Console.WriteLine(numLines);
         }
         private void InfoMessage_Load(object sender, EventArgs e)
         {

@@ -64,8 +64,7 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
 
 
         }
-
-        private void dgvSecretary_SelectionChanged(object sender, EventArgs e)
+        private void dgvSecretary_Click(object sender, EventArgs e)
         {
             if (dgvSecretary.SelectedCells.Count > 0)
             {
