@@ -53,7 +53,7 @@
             // nameSurnameLabel
             // 
             this.nameSurnameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameSurnameLabel.Location = new System.Drawing.Point(12, 249);
+            this.nameSurnameLabel.Location = new System.Drawing.Point(12, 231);
             this.nameSurnameLabel.Name = "nameSurnameLabel";
             this.nameSurnameLabel.Size = new System.Drawing.Size(268, 25);
             this.nameSurnameLabel.TabIndex = 43;
@@ -63,7 +63,7 @@
             // tcnoLabel
             // 
             this.tcnoLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcnoLabel.Location = new System.Drawing.Point(12, 279);
+            this.tcnoLabel.Location = new System.Drawing.Point(12, 261);
             this.tcnoLabel.Name = "tcnoLabel";
             this.tcnoLabel.Size = new System.Drawing.Size(268, 25);
             this.tcnoLabel.TabIndex = 44;
@@ -73,7 +73,7 @@
             // phoneNumberLabel
             // 
             this.phoneNumberLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberLabel.Location = new System.Drawing.Point(12, 339);
+            this.phoneNumberLabel.Location = new System.Drawing.Point(12, 321);
             this.phoneNumberLabel.Name = "phoneNumberLabel";
             this.phoneNumberLabel.Size = new System.Drawing.Size(268, 25);
             this.phoneNumberLabel.TabIndex = 45;
@@ -83,7 +83,7 @@
             // mailLabel
             // 
             this.mailLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mailLabel.Location = new System.Drawing.Point(12, 309);
+            this.mailLabel.Location = new System.Drawing.Point(12, 291);
             this.mailLabel.Name = "mailLabel";
             this.mailLabel.Size = new System.Drawing.Size(268, 25);
             this.mailLabel.TabIndex = 46;
@@ -101,7 +101,7 @@
             this.uploadProfilePicture.ForeColor = System.Drawing.Color.White;
             this.uploadProfilePicture.Location = new System.Drawing.Point(209, 12);
             this.uploadProfilePicture.Name = "uploadProfilePicture";
-            this.uploadProfilePicture.Size = new System.Drawing.Size(71, 212);
+            this.uploadProfilePicture.Size = new System.Drawing.Size(71, 194);
             this.uploadProfilePicture.TabIndex = 68;
             this.uploadProfilePicture.Text = "Upload File";
             this.uploadProfilePicture.Click += new System.EventHandler(this.uploadProfilePicture_Click);
@@ -341,7 +341,7 @@
             this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
             this.profilePicture.Location = new System.Drawing.Point(12, 12);
             this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(191, 212);
+            this.profilePicture.Size = new System.Drawing.Size(191, 194);
             this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.profilePicture.TabIndex = 54;
             this.profilePicture.TabStop = false;
@@ -374,6 +374,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Account";
+            this.ShowInTaskbar = false;
             this.Text = "Account";
             this.Load += new System.EventHandler(this.Account_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();

@@ -20,11 +20,14 @@ using HospitalManagement.Secretary.UpdateDoctorLayer;
 using HospitalManagement.Secretary.AccountLayer;
 using HospitalManagement.Login;
 using Org.BouncyCastle.Asn1.Ocsp;
+using System.Net;
+using HospitalManagement.Dialog;
 
 namespace HospitalManagement.Secretary
 {
     public partial class SecretaryLayer : Form
     {
+        FTPHelper ftpHelper = new FTPHelper();
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.DrawRectangle(Pens.Black, this.Bounds);
@@ -52,18 +55,22 @@ namespace HospitalManagement.Secretary
             panelVisibilityInitialize();
             ShowSubMenu(patientButtonSubMenu);
             openChildForm(new Account());
-            LoadProfilePicture();
+            LoadProfilePicture("profilePictures/Secretary/" +LoginWindow._userEntity.KullaniciAd + ".jpeg");
         }
-        public void LoadProfilePicture()
+        public void LoadProfilePicture(string fileName)
         {
-            profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/Secretary/{LoginWindow._userEntity.KullaniciAd}.jpeg");
+            bool existence = ftpHelper.CheckFileExistence(fileName);
+            Console.WriteLine(existence);
+            if (existence)
+            {         
+                profilePicture.LoadAsync($"http://sca.somee.com/{fileName}");
+            }
         }
         private void panelVisibilityInitialize()
         {
             patientButtonSubMenu.Visible = false;
             secretaryButtonSubMenu.Visible = false;
             doctorButtonSubMenu.Visible = false;
-
         }
 
         private void hideSubMenu()

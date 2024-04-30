@@ -162,9 +162,12 @@
             this.sectionComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.sectionComboBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.sectionComboBox.ItemHeight = 30;
+            this.sectionComboBox.Items.AddRange(new object[] {
+            "Bölüm Seçiniz"});
             this.sectionComboBox.Location = new System.Drawing.Point(323, 58);
             this.sectionComboBox.Name = "sectionComboBox";
             this.sectionComboBox.Size = new System.Drawing.Size(287, 36);
+            this.sectionComboBox.StartIndex = 0;
             this.sectionComboBox.TabIndex = 72;
             this.toolTip1.SetToolTip(this.sectionComboBox, "Bölüm Seçiniz");
             // 

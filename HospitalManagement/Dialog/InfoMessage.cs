@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 using HospitalManagement.Dialog;
 using HospitalManagement.Secretary;
@@ -14,7 +16,7 @@ namespace HospitalManagement.Dialog
 {
     public partial class InfoMessage : Form
     {
-        int seconds = 3;
+        int seconds = 10;
 
         public InfoMessage(string msg = "Mesaj", string ttl = "Title")
         {
@@ -24,6 +26,11 @@ namespace HospitalManagement.Dialog
             messageLabel.Text = msg;
             titleLabel.Text = ttl.ToUpper();
             okButton.Text = $"OK({seconds})";
+            msgHeight(msg.Split('\n').Length);
+        }
+        public void msgHeight(int numLines)
+        {
+            Console.WriteLine(numLines);
         }
         private void InfoMessage_Load(object sender, EventArgs e)
         {

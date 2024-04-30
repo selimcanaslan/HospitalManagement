@@ -1,12 +1,17 @@
-CREATE DATABASE Hospital;
+﻿CREATE DATABASE Hospital;
 USE Hospital;
+
+CREATE TABLE Sections(
+	id int identity(1,1) PRIMARY KEY CLUSTERED,
+	name varchar(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8,
+);
 
 CREATE TABLE Doctor(
 	id int identity(1,1),
 	tc_no varchar(11) PRIMARY KEY CLUSTERED,
-	name varchar(30),
-	surname varchar(30),
-	section varchar(50),
+	doctor_name varchar(30),
+	doctor_surname varchar(30),
+	section_id int FOREIGN KEY (section_id) REFERENCES Sections(id) ON DELETE CASCADE ON UPDATE CASCADE ,
 	mail varchar(50) UNIQUE,
 	phone_number varchar(10) UNIQUE,
 	address nvarchar(max)
@@ -33,8 +38,8 @@ DECLARE @user_name varchar(30)
 DECLARE @password varchar(30)
 
 SELECT @tc_no=tc_no FROM INSERTED
-SELECT @name=name FROM INSERTED
-SELECT @surname=surname FROM INSERTED
+SELECT @name=doctor_name FROM INSERTED
+SELECT @surname=doctor_surname FROM INSERTED
 SELECT @user_name = LOWER(@name + @surname)
 SELECT @user_name = REPLACE(@user_name,' ', '')
 SELECT @password = @user_name
@@ -88,6 +93,8 @@ CREATE TABLE Examination(
 	result nvarchar(max)
 );
 
+
+
 GO
 CREATE TRIGGER Create_Secretary_Login_Info
 ON Secretary
@@ -137,10 +144,18 @@ SELECT user_name,password FROM Doctor_Login_Info WHERE user_name = @user_name AN
 END
 GO
 
+GO
+CREATE PROCEDURE FetchAllDoctor
+AS
+BEGIN
+SELECT tc_no,doctor_name,doctor_surname,Sections.name as "section_name",mail,phone_number,address
+FROM Doctor
+INNER JOIN Sections ON Doctor.section_id = Sections.Id; 
+END
+GO
 
 
-
-
+EXEC FetchAllDoctor
 
 
 INSERT Secretary VALUES ('21824004326','Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
@@ -161,3 +176,12 @@ EXEC fetch_secretary_login_data 'selimcanaslan','selimcanaslan'
 
 DELETE FROM Secretary_Login_Info WHERE tc_no='2342324'
 DELETE FROM Secretary WHERE tc_no='2342324'
+
+drop table Sections
+
+ALTER TABLE Sections
+    ALTER COLUMN name VARCHAR(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8;
+SELECT * FROM Sections
+INSERT Sections VALUES ('Çocuk Hastalıkları')
+
+SELECT doctor_name + ' ' doctor_surname as 'full_name' FROM Doctor WHERE section_id ={sectionId}

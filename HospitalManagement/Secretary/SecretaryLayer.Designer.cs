@@ -33,34 +33,34 @@
             this.exitControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.minimizeControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.topWindowPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.accountButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.windowName = new System.Windows.Forms.Label();
             this.topWindowPanelDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.leftPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.doctorButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.secretaryButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.patientButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
+            this.patientFeaturesButton = new Guna.UI2.WinForms.Guna2Button();
+            this.windowNameDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.containerPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.deleteDoctorButton = new Guna.UI2.WinForms.Guna2Button();
             this.updateDoctorButton = new Guna.UI2.WinForms.Guna2Button();
             this.addNewDoctorButton = new Guna.UI2.WinForms.Guna2Button();
             this.doctorButton = new Guna.UI2.WinForms.Guna2Button();
-            this.secretaryButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.deleteSecretaryButton = new Guna.UI2.WinForms.Guna2Button();
             this.updateSecretaryButton = new Guna.UI2.WinForms.Guna2Button();
             this.addNewSecretaryButton = new Guna.UI2.WinForms.Guna2Button();
             this.secretaryButton = new Guna.UI2.WinForms.Guna2Button();
-            this.patientButtonSubMenu = new Guna.UI2.WinForms.Guna2Panel();
             this.patientGraphsButton = new Guna.UI2.WinForms.Guna2Button();
-            this.patientFeaturesButton = new Guna.UI2.WinForms.Guna2Button();
             this.createAppointmentButton = new Guna.UI2.WinForms.Guna2Button();
             this.patientButton = new Guna.UI2.WinForms.Guna2Button();
-            this.windowNameDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.containerPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.topWindowPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.leftPanel.SuspendLayout();
             this.doctorButtonSubMenu.SuspendLayout();
             this.secretaryButtonSubMenu.SuspendLayout();
             this.patientButtonSubMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // exitControlBox
@@ -101,19 +101,6 @@
             this.topWindowPanel.Size = new System.Drawing.Size(834, 29);
             this.topWindowPanel.TabIndex = 6;
             // 
-            // profilePicture
-            // 
-            this.profilePicture.ImageRotate = 0F;
-            this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(606, 2);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.profilePicture.Size = new System.Drawing.Size(25, 25);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 0;
-            this.profilePicture.TabStop = false;
-            this.profilePicture.WaitOnLoad = true;
-            // 
             // accountButton
             // 
             this.accountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -121,13 +108,16 @@
             this.accountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.accountButton.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.accountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.accountButton.FillColor = System.Drawing.Color.Orange;
+            this.accountButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.accountButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.accountButton.ForeColor = System.Drawing.Color.White;
-            this.accountButton.Location = new System.Drawing.Point(634, 4);
+            this.accountButton.Location = new System.Drawing.Point(615, 4);
             this.accountButton.Name = "accountButton";
             this.accountButton.Size = new System.Drawing.Size(112, 20);
             this.accountButton.TabIndex = 9;
             this.accountButton.Text = "Hesap İşlemleri";
+            this.accountButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.accountButton.Click += new System.EventHandler(this.accountButton_Click);
             // 
             // windowName
@@ -176,6 +166,85 @@
             this.doctorButtonSubMenu.Name = "doctorButtonSubMenu";
             this.doctorButtonSubMenu.Size = new System.Drawing.Size(216, 135);
             this.doctorButtonSubMenu.TabIndex = 13;
+            // 
+            // secretaryButtonSubMenu
+            // 
+            this.secretaryButtonSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.secretaryButtonSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.secretaryButtonSubMenu.Controls.Add(this.deleteSecretaryButton);
+            this.secretaryButtonSubMenu.Controls.Add(this.updateSecretaryButton);
+            this.secretaryButtonSubMenu.Controls.Add(this.addNewSecretaryButton);
+            this.secretaryButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.secretaryButtonSubMenu.Location = new System.Drawing.Point(0, 303);
+            this.secretaryButtonSubMenu.Name = "secretaryButtonSubMenu";
+            this.secretaryButtonSubMenu.Size = new System.Drawing.Size(216, 135);
+            this.secretaryButtonSubMenu.TabIndex = 11;
+            // 
+            // patientButtonSubMenu
+            // 
+            this.patientButtonSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.patientButtonSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
+            this.patientButtonSubMenu.Controls.Add(this.patientGraphsButton);
+            this.patientButtonSubMenu.Controls.Add(this.patientFeaturesButton);
+            this.patientButtonSubMenu.Controls.Add(this.createAppointmentButton);
+            this.patientButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientButtonSubMenu.Location = new System.Drawing.Point(0, 84);
+            this.patientButtonSubMenu.Name = "patientButtonSubMenu";
+            this.patientButtonSubMenu.Size = new System.Drawing.Size(216, 135);
+            this.patientButtonSubMenu.TabIndex = 9;
+            // 
+            // patientFeaturesButton
+            // 
+            this.patientFeaturesButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.patientFeaturesButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.patientFeaturesButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.patientFeaturesButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.patientFeaturesButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.patientFeaturesButton.Dock = System.Windows.Forms.DockStyle.Top;
+            this.patientFeaturesButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.patientFeaturesButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.patientFeaturesButton.ForeColor = System.Drawing.Color.White;
+            this.patientFeaturesButton.HoverState.ForeColor = System.Drawing.Color.Orange;
+            this.patientFeaturesButton.Image = global::HospitalManagement.Properties.Resources.edit;
+            this.patientFeaturesButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.patientFeaturesButton.ImageOffset = new System.Drawing.Point(5, 0);
+            this.patientFeaturesButton.Location = new System.Drawing.Point(0, 45);
+            this.patientFeaturesButton.Name = "patientFeaturesButton";
+            this.patientFeaturesButton.Size = new System.Drawing.Size(216, 45);
+            this.patientFeaturesButton.TabIndex = 1;
+            this.patientFeaturesButton.Text = "Hasta (Ekle - Sil - Güncelle)";
+            this.patientFeaturesButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.patientFeaturesButton.TextOffset = new System.Drawing.Point(10, 0);
+            this.patientFeaturesButton.Click += new System.EventHandler(this.patientFeaturesButton_Click);
+            // 
+            // windowNameDragControl
+            // 
+            this.windowNameDragControl.DockIndicatorTransparencyValue = 0.6D;
+            this.windowNameDragControl.DragStartTransparencyValue = 1D;
+            this.windowNameDragControl.TargetControl = this.windowName;
+            this.windowNameDragControl.UseTransparentDrag = true;
+            // 
+            // containerPanel
+            // 
+            this.containerPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.containerPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.containerPanel.Location = new System.Drawing.Point(218, 30);
+            this.containerPanel.Name = "containerPanel";
+            this.containerPanel.Size = new System.Drawing.Size(617, 385);
+            this.containerPanel.TabIndex = 8;
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.ImageRotate = 0F;
+            this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(709, 2);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.profilePicture.Size = new System.Drawing.Size(25, 25);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 0;
+            this.profilePicture.TabStop = false;
+            this.profilePicture.WaitOnLoad = true;
             // 
             // deleteDoctorButton
             // 
@@ -273,19 +342,6 @@
             this.doctorButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.doctorButton.Click += new System.EventHandler(this.doctorButton_Click);
             // 
-            // secretaryButtonSubMenu
-            // 
-            this.secretaryButtonSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.secretaryButtonSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.secretaryButtonSubMenu.Controls.Add(this.deleteSecretaryButton);
-            this.secretaryButtonSubMenu.Controls.Add(this.updateSecretaryButton);
-            this.secretaryButtonSubMenu.Controls.Add(this.addNewSecretaryButton);
-            this.secretaryButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.secretaryButtonSubMenu.Location = new System.Drawing.Point(0, 303);
-            this.secretaryButtonSubMenu.Name = "secretaryButtonSubMenu";
-            this.secretaryButtonSubMenu.Size = new System.Drawing.Size(216, 135);
-            this.secretaryButtonSubMenu.TabIndex = 11;
-            // 
             // deleteSecretaryButton
             // 
             this.deleteSecretaryButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -382,19 +438,6 @@
             this.secretaryButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.secretaryButton.Click += new System.EventHandler(this.secretaryButton_Click);
             // 
-            // patientButtonSubMenu
-            // 
-            this.patientButtonSubMenu.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.patientButtonSubMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(55)))), ((int)(((byte)(55)))));
-            this.patientButtonSubMenu.Controls.Add(this.patientGraphsButton);
-            this.patientButtonSubMenu.Controls.Add(this.patientFeaturesButton);
-            this.patientButtonSubMenu.Controls.Add(this.createAppointmentButton);
-            this.patientButtonSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.patientButtonSubMenu.Location = new System.Drawing.Point(0, 84);
-            this.patientButtonSubMenu.Name = "patientButtonSubMenu";
-            this.patientButtonSubMenu.Size = new System.Drawing.Size(216, 135);
-            this.patientButtonSubMenu.TabIndex = 9;
-            // 
             // patientGraphsButton
             // 
             this.patientGraphsButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -407,6 +450,9 @@
             this.patientGraphsButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.patientGraphsButton.ForeColor = System.Drawing.Color.White;
             this.patientGraphsButton.HoverState.ForeColor = System.Drawing.Color.Orange;
+            this.patientGraphsButton.Image = global::HospitalManagement.Properties.Resources.bar_chart;
+            this.patientGraphsButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.patientGraphsButton.ImageOffset = new System.Drawing.Point(5, 0);
             this.patientGraphsButton.Location = new System.Drawing.Point(0, 90);
             this.patientGraphsButton.Name = "patientGraphsButton";
             this.patientGraphsButton.Size = new System.Drawing.Size(216, 45);
@@ -415,27 +461,6 @@
             this.patientGraphsButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.patientGraphsButton.TextOffset = new System.Drawing.Point(10, 0);
             this.patientGraphsButton.Click += new System.EventHandler(this.patientGraphsButton_Click);
-            // 
-            // patientFeaturesButton
-            // 
-            this.patientFeaturesButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.patientFeaturesButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.patientFeaturesButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.patientFeaturesButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.patientFeaturesButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.patientFeaturesButton.Dock = System.Windows.Forms.DockStyle.Top;
-            this.patientFeaturesButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.patientFeaturesButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.patientFeaturesButton.ForeColor = System.Drawing.Color.White;
-            this.patientFeaturesButton.HoverState.ForeColor = System.Drawing.Color.Orange;
-            this.patientFeaturesButton.Location = new System.Drawing.Point(0, 45);
-            this.patientFeaturesButton.Name = "patientFeaturesButton";
-            this.patientFeaturesButton.Size = new System.Drawing.Size(216, 45);
-            this.patientFeaturesButton.TabIndex = 1;
-            this.patientFeaturesButton.Text = "Hasta (Ekle - Sil - Güncelle)";
-            this.patientFeaturesButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.patientFeaturesButton.TextOffset = new System.Drawing.Point(10, 0);
-            this.patientFeaturesButton.Click += new System.EventHandler(this.patientFeaturesButton_Click);
             // 
             // createAppointmentButton
             // 
@@ -449,6 +474,9 @@
             this.createAppointmentButton.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createAppointmentButton.ForeColor = System.Drawing.Color.White;
             this.createAppointmentButton.HoverState.ForeColor = System.Drawing.Color.Orange;
+            this.createAppointmentButton.Image = global::HospitalManagement.Properties.Resources.schedule;
+            this.createAppointmentButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.createAppointmentButton.ImageOffset = new System.Drawing.Point(5, 0);
             this.createAppointmentButton.Location = new System.Drawing.Point(0, 0);
             this.createAppointmentButton.Name = "createAppointmentButton";
             this.createAppointmentButton.Size = new System.Drawing.Size(216, 45);
@@ -483,22 +511,6 @@
             this.patientButton.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.patientButton.Click += new System.EventHandler(this.patientButton_Click);
             // 
-            // windowNameDragControl
-            // 
-            this.windowNameDragControl.DockIndicatorTransparencyValue = 0.6D;
-            this.windowNameDragControl.DragStartTransparencyValue = 1D;
-            this.windowNameDragControl.TargetControl = this.windowName;
-            this.windowNameDragControl.UseTransparentDrag = true;
-            // 
-            // containerPanel
-            // 
-            this.containerPanel.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.containerPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.containerPanel.Location = new System.Drawing.Point(218, 30);
-            this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Size = new System.Drawing.Size(617, 385);
-            this.containerPanel.TabIndex = 8;
-            // 
             // SecretaryLayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,11 +533,11 @@
             this.Load += new System.EventHandler(this.SecretaryLayer_Load);
             this.topWindowPanel.ResumeLayout(false);
             this.topWindowPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.leftPanel.ResumeLayout(false);
             this.doctorButtonSubMenu.ResumeLayout(false);
             this.secretaryButtonSubMenu.ResumeLayout(false);
             this.patientButtonSubMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }

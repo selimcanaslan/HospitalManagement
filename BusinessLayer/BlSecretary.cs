@@ -44,15 +44,15 @@ namespace BusinessLayer
             return _dalSecretary.lowercasedAndTrimmedNameSurname(tcNo);
         }
 
-        public bool AddDoctor(string tc_no, string name, string surname, string mail, string phone_number, string address, string section)
+        public bool AddDoctor(string tc_no, string name, string surname, int sectionId, string mail, string phone_number, string address)
         {
-            return _dalSecretary.AddDoctor(tc_no, name, surname, mail, phone_number, address, section);
+            return _dalSecretary.AddDoctor(tc_no, name, surname, sectionId, mail, phone_number, address);
         }
         public DataTable fetchDoctorByGivenTcNo(string tcNo)
         {
             return _dalSecretary.fetchDoctorByGivenTcNo(tcNo);
         }
-        public bool updateDoctor(string name, string surname, string tcNo, string section, string mail, string phoneNumber, string address, int id)
+        public bool updateDoctor(string name, string surname, string tcNo, int section, string mail, string phoneNumber, string address, int id)
         {
             return _dalSecretary.updateDoctor(name, surname, tcNo, section, mail, phoneNumber, address, id);
         }
@@ -67,6 +67,14 @@ namespace BusinessLayer
         public bool deleteDoctor(string tc_no)
         {
             return _dalSecretary.deleteDoctor(tc_no);
+        }
+        public DataTable FetchSections()
+        {
+            return _dalSecretary.FetchSections();
+        }
+        public DataTable FetchSectionIdRelatedDoctors(int sectionId)
+        {
+            return _dalSecretary.FetchSectionIdRelatedDoctors(sectionId);
         }
     }
 }

@@ -273,6 +273,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\bar-chart.png" />
+    <None Include="Resources\schedule.png" />
     <None Include="Assets\Secretary\create.png" />
     <None Include="Assets\Secretary\delete.png" />
     <Content Include="Assets\Secretary\doctor.png" />

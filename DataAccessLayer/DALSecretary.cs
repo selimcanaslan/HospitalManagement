@@ -146,9 +146,9 @@ namespace DataAccessLayer
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
 
         }
-        public bool AddDoctor(string tcno, string name, string surname, string mail, string phone_number, string address, string section)
+        public bool AddDoctor(string tcno, string name, string surname, int sectionId, string mail, string phone_number, string address)
         {
-            String query = "INSERT INTO Doctor VALUES ('" + tcno + "','" + name + "','" + surname + "','" + section + "','" + mail +
+            String query = "INSERT INTO Doctor VALUES ('" + tcno + "','" + name + "','" + surname + "'," + sectionId + ",'" + mail +
                 "','" + phone_number + "','" + address + "')";
             exception = null;
             com.Connection = con;
@@ -165,7 +165,7 @@ namespace DataAccessLayer
         {
             Console.WriteLine("gelinen tcno= " + tcNo);
             DataTable dt = new DataTable();
-            string query = $"SELECT id,tc_no,name,surname,section,mail,phone_number,address FROM Doctor WHERE tc_no = '{tcNo}'";
+            string query = $"SELECT id,tc_no,doctor_name,doctor_surname,section_id,mail,phone_number,address FROM Doctor WHERE tc_no = '{tcNo}'";
             try
             {
                 com.Connection = con;
@@ -180,9 +180,9 @@ namespace DataAccessLayer
 
             return dt;
         }
-        public bool updateDoctor(string name, string surname, string tcNo, string section, string mail, string phoneNumber, string address, int id)
+        public bool updateDoctor(string name, string surname, string tcNo, int section, string mail, string phoneNumber, string address, int id)
         {
-            String query = $"UPDATE Doctor SET name= '{name}', surname='{surname}', section='{section}', tc_no = '{tcNo}', mail='{mail}'" +
+            String query = $"UPDATE Doctor SET doctor_name= '{name}', doctor_surname='{surname}', section_id='{section}', tc_no = '{tcNo}', mail='{mail}'" +
                 $", phone_number = '{phoneNumber}', address = '{address}' WHERE id = {id}";
             exception = null;
             com.Connection = con;
@@ -199,7 +199,7 @@ namespace DataAccessLayer
         public DataTable fetchDoctorByGivenName(string name)
         {
             DataTable dt = new DataTable();
-            string query = $"SELECT tc_no,name,surname,section,mail,phone_number,address FROM Doctor WHERE name + ' ' + surname LIKE '{name}%'";
+            string query = $"SELECT tc_no,doctor_name,doctor_surname,section,mail,phone_number,address FROM Doctor WHERE name + ' ' + surname LIKE '{name}%'";
             try
             {
                 com.Connection = con;
@@ -217,7 +217,7 @@ namespace DataAccessLayer
         public DataTable fetchAllDoctor()
         {
             DataTable dt = new DataTable();
-            string query = "SELECT tc_no,name,surname,section,mail,phone_number,address FROM Doctor";
+            string query = "EXEC FetchAllDoctor";
             com.Connection = con;
             com.CommandText = query;
             da.SelectCommand = com;
@@ -252,5 +252,42 @@ namespace DataAccessLayer
             catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
             return response;
         }
+        public DataTable FetchSections()
+        {
+            DataTable dt = new DataTable();
+            string query = "SELECT * FROM Sections";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable FetchSectionIdRelatedDoctors(int sectionId)
+        {
+            DataTable dt = new DataTable();
+            string query = $"SELECT doctor_name + ' ' + doctor_surname as 'full_name' FROM Doctor WHERE section_id ={sectionId}";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        
     }
 }

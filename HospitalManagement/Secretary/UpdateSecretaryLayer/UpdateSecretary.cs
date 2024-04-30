@@ -47,7 +47,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                     data = m.ToArray();
                 }
             }
-            FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
+            FTPHelper fTPHelper = new FTPHelper();
             string result = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/Secretary/{userName}.jpeg");
             InfoMessage infoMessage = new InfoMessage(result, "Bilgi");
             infoMessage.ShowDialog();

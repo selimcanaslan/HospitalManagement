@@ -22,12 +22,13 @@ namespace HospitalManagement.Secretary.DeleteDoctorLayer
             _blSecretary = new BlSecretary();
             updateDgv();
             dgvDoctor.Columns["tc_no"].HeaderText = "T.C No";
-            dgvDoctor.Columns["name"].HeaderText = "Ad";
-            dgvDoctor.Columns["surname"].HeaderText = "Soyad";
-            dgvDoctor.Columns["section"].HeaderText = "Bölüm";
+            dgvDoctor.Columns["doctor_name"].HeaderText = "Ad";
+            dgvDoctor.Columns["doctor_surname"].HeaderText = "Soyad";
+            dgvDoctor.Columns["section_name"].HeaderText = "Bölüm";
             dgvDoctor.Columns["mail"].HeaderText = "Mail";
             dgvDoctor.Columns["phone_number"].HeaderText = "Telefon";
             dgvDoctor.Columns["address"].HeaderText = "Adres";
+            
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -70,8 +71,8 @@ namespace HospitalManagement.Secretary.DeleteDoctorLayer
                 {
                     int selectedrowindex = dgvDoctor.SelectedRows[0].Index;
                     DataGridViewRow selectedRow = dgvDoctor.Rows[selectedrowindex];
-                    string tam_ad = Convert.ToString(selectedRow.Cells["name"].Value) + " " +
-                        Convert.ToString(selectedRow.Cells["surname"].Value);
+                    string tam_ad = Convert.ToString(selectedRow.Cells["doctor_name"].Value) + " " +
+                        Convert.ToString(selectedRow.Cells["doctor_surname"].Value);
                     string mail = Convert.ToString(selectedRow.Cells["mail"].Value);
                     string telefon = Convert.ToString(selectedRow.Cells["phone_number"].Value);
                     string tc_no = Convert.ToString(selectedRow.Cells["tc_no"].Value);

@@ -20,7 +20,6 @@ namespace HospitalManagement.Secretary.AccountLayer
         public Account()
         {
             InitializeComponent();
-            this.DoubleBuffered = true;
         }
 
         private void Account_Load(object sender, EventArgs e)
@@ -37,6 +36,7 @@ namespace HospitalManagement.Secretary.AccountLayer
             //ProfilePicture
             profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/Secretary/{LoginWindow._userEntity.KullaniciAd}.jpeg");
         }
+
         private void LabelUpdate()
         {
             nameSurnameLabel.Text = LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad;

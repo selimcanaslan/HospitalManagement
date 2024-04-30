@@ -27,12 +27,21 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
             this.DoubleBuffered = true;
             tcnoTextBox.MaxLength = 11;
             phoneTextBox.MaxLength = 10;
-            sectionComboBox.Items.Add("Dahiliye");
         }
 
         private void AddDoctor_Load(object sender, EventArgs e)
         {
             CenterToParent();
+            FillSectionComboBox();
+        }
+        private void FillSectionComboBox()
+        {
+            BlSecretary blSecretary = new BlSecretary();
+            DataTable sections = blSecretary.FetchSections();
+            foreach(DataRow row in sections.Rows)
+            {
+                sectionComboBox.Items.Add(row["name"].ToString());
+            }
         }
 
         private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -135,13 +144,17 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
 
             if (fieldValidation() == true)
             {
+                string uploadResult = "";
                 lowercasedAndTrimmedNameSurname = nameTextBox.Text.ToLower().Replace(" ","") + surnameTextBox.Text.ToLower().Replace(" ", "");
                 BlSecretary blSecretary = new BlSecretary();
                 bool response = blSecretary.AddDoctor(tcnoTextBox.Text, nameTextBox.Text, surnameTextBox.Text,
-                    mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text, sectionComboBox.Text);
+                    sectionComboBox.SelectedIndex, mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text);
                 if (response)
                 {
-                    string uploadResult = sendNewProfilePictureViaFtp(importedProfilePicture);
+                    if (importedProfilePicture != "")
+                    {
+                        uploadResult = sendNewProfilePictureViaFtp(importedProfilePicture);
+                    }
                     string name = nameTextBox.Text.ToString().Trim();
                     string userNameAndPassword = (name + surnameTextBox.Text).ToLower();
                     sendUserNamePasswordToMailAddress(userNameAndPassword, mailTextBox.Text);
@@ -170,7 +183,7 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
         private void importProfilePicture_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
+            ofd.FileName = "Image Files (JPG,PNG,GIF,JPEG) | *.JPG;*.PNG;*.GIF;*.JPEG";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 profilePicture.Image = Image.FromFile(ofd.FileName);

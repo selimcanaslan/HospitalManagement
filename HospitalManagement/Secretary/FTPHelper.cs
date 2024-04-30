@@ -10,7 +10,7 @@ namespace HospitalManagement.Secretary
 {
     public class FTPHelper
     {
-        public FTPHelper(string address, string login, string password)
+        public FTPHelper(string address= "\tftp://155.254.244.38/www.sca.somee.com/", string login="sca33", string password = "2XFfX2b6xQUTJ-U")
         {
             Address = address;
             Login = login;
@@ -38,6 +38,25 @@ namespace HospitalManagement.Secretary
             {
                 return ex.InnerException.ToString();
             }
+        }
+        public bool CheckFileExistence(string fileName)
+        {
+            var request = (FtpWebRequest)WebRequest.Create($"{Address}" + fileName);
+            request.Credentials = new NetworkCredential(Login, Password);
+            request.Method = WebRequestMethods.Ftp.GetFileSize;
+
+            try
+            {
+                FtpWebResponse response = (FtpWebResponse)request.GetResponse();
+                return true;
+            }
+            catch (WebException ex)
+            {
+                FtpWebResponse response = (FtpWebResponse)ex.Response;
+                if (response.StatusCode == FtpStatusCode.ActionNotTakenFileUnavailable)
+                    return false;
+            }
+            return false;
         }
 
         public string Address { get; set; }

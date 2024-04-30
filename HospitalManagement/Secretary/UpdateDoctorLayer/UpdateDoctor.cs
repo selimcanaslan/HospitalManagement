@@ -26,10 +26,17 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
             tcnoTextBox.MaxLength = 11;
             phoneTextBox.MaxLength = 10;
             doctorToUpdate = null;
-            uploadProfilePicture.Enabled = false;
-            sectionComboBox.Items.Add("Dahiliye");
+            FillSectionComboBox();
         }
-
+        private void FillSectionComboBox()
+        {
+            BlSecretary blSecretary = new BlSecretary();
+            DataTable sections = blSecretary.FetchSections();
+            foreach (DataRow row in sections.Rows)
+            {
+                sectionComboBox.Items.Add(row["name"].ToString());
+            }
+        }
         private void nameTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsDigit(e.KeyChar))
@@ -83,13 +90,22 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
 
         private void uploadProfilePicture_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if (doctorToUpdate != null)
             {
-                profilePicture.Image = Image.FromFile(ofd.FileName);
-                doctorProfilePicture = ofd.FileName;
+                OpenFileDialog ofd = new OpenFileDialog();
+                ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    profilePicture.Image = Image.FromFile(ofd.FileName);
+                    doctorProfilePicture = ofd.FileName;
+                }
             }
+            else
+            {
+                InfoMessage infoMessage = new InfoMessage("Henüz Arama Yapmadınız!", "Bilgi");
+                infoMessage.ShowDialog();
+            }
+            
         }
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -100,8 +116,8 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                     BlSecretary blSecretary = new BlSecretary();
                     doctorToUpdate = blSecretary.fetchDoctorByGivenTcNo(doctorTcnoTextBox.Text);
                     fillFields(doctorToUpdate);
-                    string userName = blSecretary.lowercasedAndTrimmedNameSurname(doctorTcnoTextBox.Text);
-                    profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/{userName}.jpeg");
+                    string userName = (doctorToUpdate.Rows[0]["doctor_name"].ToString() + doctorToUpdate.Rows[0]["doctor_surname"].ToString()).Replace(" ","").ToLower();
+                    profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/Doctor/{userName}.jpeg");
                     InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Getirildi!", "Bilgi");
                     infoMessage.ShowDialog();
                     uploadProfilePicture.Enabled = true;
@@ -124,10 +140,10 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
         {
             foreach (DataRow dr in doctorToUpdate.Rows)
             {
-                nameTextBox.Text = dr["name"].ToString();
-                surnameTextBox.Text = dr["surname"].ToString();
+                nameTextBox.Text = dr["doctor_name"].ToString();
+                surnameTextBox.Text = dr["doctor_surname"].ToString();
                 tcnoTextBox.Text = dr["tc_no"].ToString();
-                sectionComboBox.Text = dr["section"].ToString();
+                sectionComboBox.SelectedIndex = Int16.Parse(dr["section_id"].ToString());
                 mailTextBox.Text = dr["mail"].ToString();
                 phoneTextBox.Text = dr["phone_number"].ToString();
                 addressTextBox.Text = dr["address"].ToString();
@@ -142,14 +158,14 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                 string name = nameTextBox.Text;
                 string surname = surnameTextBox.Text;
                 string tcno = tcnoTextBox.Text;
-                string section = sectionComboBox.Text;
+                int section = sectionComboBox.SelectedIndex;
                 string mail = mailTextBox.Text;
                 string phone = phoneTextBox.Text;
                 string address = addressTextBox.Text;
-                if (name != doctorToUpdate.Rows[0]["name"].ToString() ||
-                    surname != doctorToUpdate.Rows[0]["surname"].ToString() ||
+                if (name != doctorToUpdate.Rows[0]["doctor_name"].ToString() ||
+                    surname != doctorToUpdate.Rows[0]["doctor_surname"].ToString() ||
                     tcno != doctorToUpdate.Rows[0]["tc_no"].ToString() ||
-                    section != doctorToUpdate.Rows[0]["section"].ToString() ||
+                    section != Int16.Parse(doctorToUpdate.Rows[0]["section_id"].ToString()) ||
                     mail != doctorToUpdate.Rows[0]["mail"].ToString() ||
                     phone != doctorToUpdate.Rows[0]["phone_number"].ToString() ||
                     address != doctorToUpdate.Rows[0]["address"].ToString() ||
@@ -160,8 +176,8 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                         sendNewProfilePictureViaFtp(doctorProfilePicture, (name + surname).ToLower().Replace(" ", ""));
                         doctorProfilePicture = "";
                     }
-                    if (name != doctorToUpdate.Rows[0]["name"].ToString() ||
-                            surname != doctorToUpdate.Rows[0]["surname"].ToString())
+                    if (name != doctorToUpdate.Rows[0]["doctor_name"].ToString() ||
+                            surname != doctorToUpdate.Rows[0]["doctor_surname"].ToString())
                     {
                         FtpWebRequest ftpRequest = null;
                         FtpWebResponse ftpResponse = null;
