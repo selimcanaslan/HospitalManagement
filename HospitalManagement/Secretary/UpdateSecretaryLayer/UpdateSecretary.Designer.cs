@@ -35,9 +35,7 @@
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.profilePicture = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.addressTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.phoneTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -48,6 +46,9 @@
             this.surnameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.updateInformations = new Guna.UI2.WinForms.Guna2Button();
             this.uploadProfilePicture = new Guna.UI2.WinForms.Guna2Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.addressTextBox = new System.Windows.Forms.RichTextBox();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,16 +142,6 @@
             this.label1.TabIndex = 51;
             this.label1.Text = "T.C No";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(18, 298);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 16);
-            this.label10.TabIndex = 50;
-            this.label10.Text = "Adres";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -160,33 +151,6 @@
             this.label3.Size = new System.Drawing.Size(23, 16);
             this.label3.TabIndex = 46;
             this.label3.Text = "Ad";
-            // 
-            // addressTextBox
-            // 
-            this.addressTextBox.Animated = true;
-            this.addressTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.addressTextBox.BorderRadius = 2;
-            this.addressTextBox.BorderThickness = 2;
-            this.addressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.addressTextBox.DefaultText = "";
-            this.addressTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.addressTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.addressTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.addressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.addressTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
-            this.addressTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.addressTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
-            this.addressTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.addressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.addressTextBox.Location = new System.Drawing.Point(10, 306);
-            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.addressTextBox.Multiline = true;
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.PasswordChar = '\0';
-            this.addressTextBox.PlaceholderText = "";
-            this.addressTextBox.SelectedText = "";
-            this.addressTextBox.Size = new System.Drawing.Size(306, 75);
-            this.addressTextBox.TabIndex = 45;
             // 
             // label9
             // 
@@ -224,7 +188,7 @@
             this.phoneTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
             this.phoneTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.phoneTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.phoneTextBox.Location = new System.Drawing.Point(10, 256);
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.phoneTextBox.Name = "phoneTextBox";
@@ -250,7 +214,7 @@
             this.nameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
             this.nameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.nameTextBox.Location = new System.Drawing.Point(10, 58);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nameTextBox.Name = "nameTextBox";
@@ -286,7 +250,7 @@
             this.tcnoTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
             this.tcnoTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.tcnoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.tcnoTextBox.Location = new System.Drawing.Point(10, 157);
             this.tcnoTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcnoTextBox.Name = "tcnoTextBox";
@@ -312,7 +276,7 @@
             this.mailTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
             this.mailTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.mailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.mailTextBox.Location = new System.Drawing.Point(10, 206);
             this.mailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mailTextBox.Name = "mailTextBox";
@@ -339,7 +303,7 @@
             this.surnameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
             this.surnameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.surnameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.surnameTextBox.Location = new System.Drawing.Point(10, 107);
             this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.surnameTextBox.Name = "surnameTextBox";
@@ -359,7 +323,7 @@
             this.updateInformations.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.updateInformations.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.updateInformations.ForeColor = System.Drawing.Color.White;
-            this.updateInformations.Location = new System.Drawing.Point(333, 306);
+            this.updateInformations.Location = new System.Drawing.Point(333, 308);
             this.updateInformations.Name = "updateInformations";
             this.updateInformations.Size = new System.Drawing.Size(277, 75);
             this.updateInformations.TabIndex = 52;
@@ -383,18 +347,68 @@
             this.uploadProfilePicture.Text = "Upload File";
             this.uploadProfilePicture.Click += new System.EventHandler(this.uploadProfilePicture_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(18, 300);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 16);
+            this.label10.TabIndex = 82;
+            this.label10.Text = "Adres";
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.addressTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.addressTextBox.Location = new System.Drawing.Point(13, 316);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(300, 63);
+            this.addressTextBox.TabIndex = 83;
+            this.addressTextBox.Text = "";
+            this.addressTextBox.Enter += new System.EventHandler(this.addressTextBox_Enter);
+            this.addressTextBox.Leave += new System.EventHandler(this.addressTextBox_Leave);
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.Animated = true;
+            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2TextBox1.BorderRadius = 2;
+            this.guna2TextBox1.BorderThickness = 2;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FillColor = System.Drawing.SystemColors.AppWorkspace;
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.Red;
+            this.guna2TextBox1.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.guna2TextBox1.Location = new System.Drawing.Point(10, 308);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(306, 75);
+            this.guna2TextBox1.TabIndex = 84;
+            // 
             // UpdateSecretary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(617, 387);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.uploadProfilePicture);
             this.Controls.Add(this.updateInformations);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.phoneTextBox);
@@ -425,9 +439,7 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.PictureBox profilePicture;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label3;
-        private Guna.UI2.WinForms.Guna2TextBox addressTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2TextBox phoneTextBox;
@@ -438,5 +450,8 @@
         private Guna.UI2.WinForms.Guna2TextBox surnameTextBox;
         private Guna.UI2.WinForms.Guna2Button updateInformations;
         private Guna.UI2.WinForms.Guna2Button uploadProfilePicture;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RichTextBox addressTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
     }
 }

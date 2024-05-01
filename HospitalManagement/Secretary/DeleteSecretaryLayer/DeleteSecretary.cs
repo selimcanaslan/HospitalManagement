@@ -77,9 +77,9 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
                     string mail = Convert.ToString(selectedRow.Cells["mail"].Value);
                     string telefon = Convert.ToString(selectedRow.Cells["phone_number"].Value);
                     string tc_no = Convert.ToString(selectedRow.Cells["tc_no"].Value);
-
+                    Clipboard.SetText(Convert.ToString(selectedRow.Cells["tc_no"].Value));
                     string infoOfPersonWhoWillBeDeleted = "Silmek İstediğiniz Kişinin Bilgileri Aşağıdadır.\n" +
-                                                            "Ad: " + tam_ad + "\nMail: " + mail + "\nTelefon: " + telefon;
+                                                            "Ad: " + tam_ad + "\nMail: " + mail + "\nTelefon: " + telefon +"\nDüzenleme yapmak isterseniz TCNo panoya kopyalandı!";
                     DialogResult dialogResult = MessageBox.Show(infoOfPersonWhoWillBeDeleted, "Silmek İstediğize Emin Misiniz?", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {

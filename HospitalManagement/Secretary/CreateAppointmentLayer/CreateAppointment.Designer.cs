@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.nameLabel = new System.Windows.Forms.Label();
-            this.addressTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.phoneTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -47,9 +45,13 @@
             this.createAppointmentButton = new Guna.UI2.WinForms.Guna2Button();
             this.examinationDateTimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.examinationTimeComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.patientProblemTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.addressTextBox = new System.Windows.Forms.RichTextBox();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.patientProblemTextBox = new System.Windows.Forms.RichTextBox();
+            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -62,16 +64,6 @@
             this.label1.TabIndex = 81;
             this.label1.Text = "T.C No";
             // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(16, 297);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 16);
-            this.label10.TabIndex = 80;
-            this.label10.Text = "Adres";
-            // 
             // nameLabel
             // 
             this.nameLabel.AutoSize = true;
@@ -81,33 +73,6 @@
             this.nameLabel.Size = new System.Drawing.Size(23, 16);
             this.nameLabel.TabIndex = 76;
             this.nameLabel.Text = "Ad";
-            // 
-            // addressTextBox
-            // 
-            this.addressTextBox.Animated = true;
-            this.addressTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.addressTextBox.BorderRadius = 2;
-            this.addressTextBox.BorderThickness = 2;
-            this.addressTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.addressTextBox.DefaultText = "";
-            this.addressTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.addressTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.addressTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.addressTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.addressTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
-            this.addressTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.addressTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
-            this.addressTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.addressTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.addressTextBox.Location = new System.Drawing.Point(8, 305);
-            this.addressTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.addressTextBox.Multiline = true;
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.PasswordChar = '\0';
-            this.addressTextBox.PlaceholderText = "";
-            this.addressTextBox.SelectedText = "";
-            this.addressTextBox.Size = new System.Drawing.Size(306, 75);
-            this.addressTextBox.TabIndex = 75;
             // 
             // label9
             // 
@@ -145,7 +110,7 @@
             this.phoneTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
             this.phoneTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.phoneTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.phoneTextBox.Location = new System.Drawing.Point(8, 255);
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.phoneTextBox.Name = "phoneTextBox";
@@ -172,7 +137,7 @@
             this.nameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
             this.nameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.nameTextBox.Location = new System.Drawing.Point(8, 57);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nameTextBox.Name = "nameTextBox";
@@ -209,7 +174,7 @@
             this.tcnoTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
             this.tcnoTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.tcnoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.tcnoTextBox.Location = new System.Drawing.Point(8, 156);
             this.tcnoTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tcnoTextBox.Name = "tcnoTextBox";
@@ -236,7 +201,7 @@
             this.mailTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
             this.mailTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.mailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.mailTextBox.Location = new System.Drawing.Point(8, 205);
             this.mailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mailTextBox.Name = "mailTextBox";
@@ -263,7 +228,7 @@
             this.surnameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
             this.surnameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
             this.surnameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
+            this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.surnameTextBox.Location = new System.Drawing.Point(8, 106);
             this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.surnameTextBox.Name = "surnameTextBox";
@@ -406,42 +371,6 @@
             this.examinationTimeComboBox.StartIndex = 0;
             this.examinationTimeComboBox.TabIndex = 90;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(340, 247);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 16);
-            this.label2.TabIndex = 92;
-            this.label2.Text = "Hasta Şikayeti";
-            // 
-            // patientProblemTextBox
-            // 
-            this.patientProblemTextBox.Animated = true;
-            this.patientProblemTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.patientProblemTextBox.BorderRadius = 2;
-            this.patientProblemTextBox.BorderThickness = 2;
-            this.patientProblemTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.patientProblemTextBox.DefaultText = "";
-            this.patientProblemTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.patientProblemTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.patientProblemTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.patientProblemTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.patientProblemTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
-            this.patientProblemTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.patientProblemTextBox.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.patientProblemTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.patientProblemTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(111)))), ((int)(((byte)(111)))));
-            this.patientProblemTextBox.Location = new System.Drawing.Point(332, 255);
-            this.patientProblemTextBox.Multiline = true;
-            this.patientProblemTextBox.Name = "patientProblemTextBox";
-            this.patientProblemTextBox.PasswordChar = '\0';
-            this.patientProblemTextBox.PlaceholderText = "";
-            this.patientProblemTextBox.SelectedText = "";
-            this.patientProblemTextBox.Size = new System.Drawing.Size(273, 66);
-            this.patientProblemTextBox.TabIndex = 91;
-            // 
             // guna2Button1
             // 
             this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
@@ -468,6 +397,104 @@
             this.guna2Button1.Size = new System.Drawing.Size(20, 41);
             this.guna2Button1.TabIndex = 84;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(16, 299);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 16);
+            this.label10.TabIndex = 93;
+            this.label10.Text = "Adres";
+            // 
+            // addressTextBox
+            // 
+            this.addressTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.addressTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.addressTextBox.Location = new System.Drawing.Point(11, 315);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(300, 63);
+            this.addressTextBox.TabIndex = 94;
+            this.addressTextBox.Text = "";
+            this.addressTextBox.Enter += new System.EventHandler(this.addressTextBox_Enter);
+            this.addressTextBox.Leave += new System.EventHandler(this.addressTextBox_Leave);
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.Animated = true;
+            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2TextBox1.BorderRadius = 2;
+            this.guna2TextBox1.BorderThickness = 2;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FillColor = System.Drawing.SystemColors.AppWorkspace;
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.Red;
+            this.guna2TextBox1.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.guna2TextBox1.Location = new System.Drawing.Point(8, 307);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(306, 75);
+            this.guna2TextBox1.TabIndex = 95;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(339, 244);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 16);
+            this.label2.TabIndex = 96;
+            this.label2.Text = "Hasta Şikayeti";
+            // 
+            // patientProblemTextBox
+            // 
+            this.patientProblemTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.patientProblemTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.patientProblemTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.patientProblemTextBox.Location = new System.Drawing.Point(334, 260);
+            this.patientProblemTextBox.Name = "patientProblemTextBox";
+            this.patientProblemTextBox.Size = new System.Drawing.Size(267, 55);
+            this.patientProblemTextBox.TabIndex = 97;
+            this.patientProblemTextBox.Text = "";
+            this.patientProblemTextBox.Enter += new System.EventHandler(this.patientProblemTextBox_Enter);
+            this.patientProblemTextBox.Leave += new System.EventHandler(this.patientProblemTextBox_Leave);
+            // 
+            // guna2TextBox2
+            // 
+            this.guna2TextBox2.Animated = true;
+            this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2TextBox2.BorderRadius = 2;
+            this.guna2TextBox2.BorderThickness = 2;
+            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox2.DefaultText = "";
+            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.FillColor = System.Drawing.SystemColors.AppWorkspace;
+            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.Red;
+            this.guna2TextBox2.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.guna2TextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.guna2TextBox2.Location = new System.Drawing.Point(331, 252);
+            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox2.Name = "guna2TextBox2";
+            this.guna2TextBox2.PasswordChar = '\0';
+            this.guna2TextBox2.PlaceholderText = "";
+            this.guna2TextBox2.SelectedText = "";
+            this.guna2TextBox2.Size = new System.Drawing.Size(274, 68);
+            this.guna2TextBox2.TabIndex = 98;
+            // 
             // CreateAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,6 +503,10 @@
             this.ClientSize = new System.Drawing.Size(617, 387);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.patientProblemTextBox);
+            this.Controls.Add(this.guna2TextBox2);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.addressTextBox);
+            this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.examinationTimeComboBox);
             this.Controls.Add(this.examinationDateTimePicker);
             this.Controls.Add(this.createAppointmentButton);
@@ -485,9 +516,7 @@
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.doctorTcnoTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label10);
             this.Controls.Add(this.nameLabel);
-            this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.phoneTextBox);
@@ -510,9 +539,7 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label nameLabel;
-        private Guna.UI2.WinForms.Guna2TextBox addressTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private Guna.UI2.WinForms.Guna2TextBox phoneTextBox;
@@ -529,7 +556,11 @@
         private Guna.UI2.WinForms.Guna2Button createAppointmentButton;
         private Guna.UI2.WinForms.Guna2DateTimePicker examinationDateTimePicker;
         private Guna.UI2.WinForms.Guna2ComboBox examinationTimeComboBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RichTextBox addressTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label label2;
-        private Guna.UI2.WinForms.Guna2TextBox patientProblemTextBox;
+        private System.Windows.Forms.RichTextBox patientProblemTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
     }
 }

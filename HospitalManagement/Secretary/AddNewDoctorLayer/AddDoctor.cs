@@ -206,5 +206,14 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
             string imageUploadresult = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/Doctor/{lowercasedAndTrimmedNameSurname}.jpeg");
             return imageUploadresult;
         }
+        private void addressTextBox_Leave(object sender, EventArgs e)
+        {
+            guna2TextBox1.BorderColor = Color.FromArgb(46, 46, 46);
+        }
+
+        private void addressTextBox_Enter(object sender, EventArgs e)
+        {
+            guna2TextBox1.BorderColor = Color.Red;
+        }
     }
 }

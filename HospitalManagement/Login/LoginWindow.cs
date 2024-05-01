@@ -14,6 +14,7 @@ using BusinessLayer;
 using HospitalManagement.Doctor;
 using EntityLayer;
 using System.Data.SqlClient;
+using HospitalManagement.Dialog;
 
 namespace HospitalManagement
 {
@@ -118,7 +119,7 @@ namespace HospitalManagement
                     }
                 }
                 catch(SqlException ex) { MessageBox.Show($"Something Went Wrong {ex.Message}", "Internal DB Error"); }
-                finally { }
+                finally {  }
             }
         }
 

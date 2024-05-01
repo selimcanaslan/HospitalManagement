@@ -22,6 +22,7 @@ using HospitalManagement.Login;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Net;
 using HospitalManagement.Dialog;
+using System.Runtime.CompilerServices;
 
 namespace HospitalManagement.Secretary
 {
@@ -192,7 +193,13 @@ namespace HospitalManagement.Secretary
         private void profilePicture_Click(object sender, EventArgs e)
         {
             openChildForm(new Account());
+            
         }
 
+        private void SecretaryLayer_Shown(object sender, EventArgs e)
+        {
+            Toast toast = new Toast(this, $"Hoşgeldiniz {LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad}");
+            toast.Show();
+        }
     }
 }

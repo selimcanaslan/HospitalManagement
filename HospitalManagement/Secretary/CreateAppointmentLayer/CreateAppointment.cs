@@ -112,5 +112,23 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
             DataTable relatedDoctors = blSecretary.FetchSectionIdRelatedDoctors(sectionId);
             foreach (DataRow row in relatedDoctors.Rows) { doctorComboBox.Items.Add(row["full_name"].ToString()); }
         }
+        private void addressTextBox_Leave(object sender, EventArgs e)
+        {
+            guna2TextBox1.BorderColor = Color.FromArgb(46, 46, 46);
+        }
+
+        private void addressTextBox_Enter(object sender, EventArgs e)
+        {
+            guna2TextBox1.BorderColor = Color.Red;
+        }
+        private void patientProblemTextBox_Leave(object sender, EventArgs e)
+        {
+            guna2TextBox2.BorderColor = Color.FromArgb(46, 46, 46);
+        }
+
+        private void patientProblemTextBox_Enter(object sender, EventArgs e)
+        {
+            guna2TextBox2.BorderColor = Color.Red;
+        }
     }
 }

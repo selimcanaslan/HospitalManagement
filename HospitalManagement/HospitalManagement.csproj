@@ -107,6 +107,12 @@
     <Compile Include="Dialog\InfoMessage.Designer.cs">
       <DependentUpon>InfoMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialog\Toast.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\Toast.Designer.cs">
+      <DependentUpon>Toast.cs</DependentUpon>
+    </Compile>
     <Compile Include="Doctor\DoctorLayer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     </Compile>
     <EmbeddedResource Include="Dialog\InfoMessage.resx">
       <DependentUpon>InfoMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\Toast.resx">
+      <DependentUpon>Toast.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\DoctorLayer.resx">
       <DependentUpon>DoctorLayer.cs</DependentUpon>

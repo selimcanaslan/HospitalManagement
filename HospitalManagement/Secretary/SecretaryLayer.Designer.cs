@@ -538,6 +538,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "SecretaryLayer";
             this.Load += new System.EventHandler(this.SecretaryLayer_Load);
+            this.Shown += new System.EventHandler(this.SecretaryLayer_Shown);
             this.topWindowPanel.ResumeLayout(false);
             this.topWindowPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();

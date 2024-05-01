@@ -198,5 +198,14 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
                 importedProfilePicture = ofd.FileName;
             }
         }
+        private void addressTextBox_Leave(object sender, EventArgs e)
+        {
+            guna2TextBox1.BorderColor = Color.FromArgb(46, 46, 46);
+        }
+
+        private void addressTextBox_Enter(object sender, EventArgs e)
+        {
+            guna2TextBox1.BorderColor = Color.Red;
+        }
     }
 }
