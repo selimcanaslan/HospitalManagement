@@ -43,15 +43,15 @@
             this.sectionComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.doctorComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
             this.createAppointmentButton = new Guna.UI2.WinForms.Guna2Button();
-            this.examinationDateTimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.examinationTimeComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.label10 = new System.Windows.Forms.Label();
             this.addressTextBox = new System.Windows.Forms.RichTextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.patientProblemTextBox = new System.Windows.Forms.RichTextBox();
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.examinationDateTimePicker = new Guna.UI2.WinForms.Guna2DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -108,7 +108,7 @@
             this.phoneTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.phoneTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.phoneTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.phoneTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.phoneTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.phoneTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.phoneTextBox.Location = new System.Drawing.Point(8, 255);
@@ -135,7 +135,7 @@
             this.nameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.nameTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.nameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.nameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.nameTextBox.Location = new System.Drawing.Point(8, 57);
@@ -172,7 +172,7 @@
             this.tcnoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tcnoTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.tcnoTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.tcnoTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.tcnoTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.tcnoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.tcnoTextBox.Location = new System.Drawing.Point(8, 156);
@@ -199,7 +199,7 @@
             this.mailTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.mailTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.mailTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.mailTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.mailTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.mailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.mailTextBox.Location = new System.Drawing.Point(8, 205);
@@ -226,7 +226,7 @@
             this.surnameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.surnameTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.surnameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.surnameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.surnameTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.surnameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.surnameTextBox.Location = new System.Drawing.Point(8, 106);
@@ -289,7 +289,7 @@
             this.sectionComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.sectionComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.sectionComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.sectionComboBox.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.sectionComboBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sectionComboBox.ForeColor = System.Drawing.Color.White;
             this.sectionComboBox.ItemHeight = 30;
             this.sectionComboBox.Items.AddRange(new object[] {
@@ -338,19 +338,6 @@
             this.createAppointmentButton.Text = "Randevu Oluştur";
             this.createAppointmentButton.Click += new System.EventHandler(this.createAppointmentButton_Click);
             // 
-            // examinationDateTimePicker
-            // 
-            this.examinationDateTimePicker.Checked = true;
-            this.examinationDateTimePicker.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.examinationDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
-            this.examinationDateTimePicker.Location = new System.Drawing.Point(332, 57);
-            this.examinationDateTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.examinationDateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.examinationDateTimePicker.Name = "examinationDateTimePicker";
-            this.examinationDateTimePicker.Size = new System.Drawing.Size(273, 36);
-            this.examinationDateTimePicker.TabIndex = 89;
-            this.examinationDateTimePicker.Value = new System.DateTime(2024, 4, 29, 20, 44, 33, 756);
-            // 
             // examinationTimeComboBox
             // 
             this.examinationTimeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
@@ -371,32 +358,6 @@
             this.examinationTimeComboBox.StartIndex = 0;
             this.examinationTimeComboBox.TabIndex = 90;
             // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2Button1.Checked = true;
-            this.guna2Button1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.Image = global::HospitalManagement.Properties.Resources.exlamation_mark;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(596, 2);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.Empty;
-            this.guna2Button1.Size = new System.Drawing.Size(20, 41);
-            this.guna2Button1.TabIndex = 84;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -411,7 +372,7 @@
             // 
             this.addressTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.addressTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.addressTextBox.Location = new System.Drawing.Point(11, 315);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(300, 63);
@@ -460,7 +421,7 @@
             // 
             this.patientProblemTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.patientProblemTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.patientProblemTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.patientProblemTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.patientProblemTextBox.Location = new System.Drawing.Point(334, 260);
             this.patientProblemTextBox.Name = "patientProblemTextBox";
             this.patientProblemTextBox.Size = new System.Drawing.Size(267, 55);
@@ -495,12 +456,56 @@
             this.guna2TextBox2.Size = new System.Drawing.Size(274, 68);
             this.guna2TextBox2.TabIndex = 98;
             // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2Button1.Checked = true;
+            this.guna2Button1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.Image = global::HospitalManagement.Properties.Resources.exlamation_mark;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button1.Location = new System.Drawing.Point(596, 2);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.PressedColor = System.Drawing.Color.Empty;
+            this.guna2Button1.Size = new System.Drawing.Size(20, 41);
+            this.guna2Button1.TabIndex = 84;
+            // 
+            // examinationDateTimePicker
+            // 
+            this.examinationDateTimePicker.Checked = true;
+            this.examinationDateTimePicker.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.examinationDateTimePicker.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.examinationDateTimePicker.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.examinationDateTimePicker.ForeColor = System.Drawing.Color.White;
+            this.examinationDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Long;
+            this.examinationDateTimePicker.Location = new System.Drawing.Point(331, 57);
+            this.examinationDateTimePicker.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
+            this.examinationDateTimePicker.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
+            this.examinationDateTimePicker.Name = "examinationDateTimePicker";
+            this.examinationDateTimePicker.Size = new System.Drawing.Size(274, 40);
+            this.examinationDateTimePicker.TabIndex = 100;
+            this.examinationDateTimePicker.Value = new System.DateTime(2024, 5, 1, 10, 44, 54, 264);
+            this.examinationDateTimePicker.ValueChanged += new System.EventHandler(this.examinationDateTimePicker_ValueChanged);
+            // 
             // CreateAppointment
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(617, 387);
+            this.Controls.Add(this.examinationDateTimePicker);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.patientProblemTextBox);
             this.Controls.Add(this.guna2TextBox2);
@@ -508,7 +513,6 @@
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.guna2TextBox1);
             this.Controls.Add(this.examinationTimeComboBox);
-            this.Controls.Add(this.examinationDateTimePicker);
             this.Controls.Add(this.createAppointmentButton);
             this.Controls.Add(this.doctorComboBox);
             this.Controls.Add(this.sectionComboBox);
@@ -554,7 +558,6 @@
         private Guna.UI2.WinForms.Guna2ComboBox sectionComboBox;
         private Guna.UI2.WinForms.Guna2ComboBox doctorComboBox;
         private Guna.UI2.WinForms.Guna2Button createAppointmentButton;
-        private Guna.UI2.WinForms.Guna2DateTimePicker examinationDateTimePicker;
         private Guna.UI2.WinForms.Guna2ComboBox examinationTimeComboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox addressTextBox;
@@ -562,5 +565,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox patientProblemTextBox;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2DateTimePicker examinationDateTimePicker;
     }
 }

@@ -32,8 +32,6 @@
             this.searchButton = new Guna.UI2.WinForms.Guna2Button();
             this.secretaryTcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,6 +47,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.addressTextBox = new System.Windows.Forms.RichTextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.profilePicture = new System.Windows.Forms.PictureBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +80,7 @@
             this.secretaryTcnoTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.secretaryTcnoTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.secretaryTcnoTextBox.FocusedState.BorderColor = System.Drawing.Color.White;
-            this.secretaryTcnoTextBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secretaryTcnoTextBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.secretaryTcnoTextBox.ForeColor = System.Drawing.Color.White;
             this.secretaryTcnoTextBox.HoverState.BorderColor = System.Drawing.Color.White;
             this.secretaryTcnoTextBox.Location = new System.Drawing.Point(0, 0);
@@ -93,44 +93,6 @@
             this.secretaryTcnoTextBox.Size = new System.Drawing.Size(617, 45);
             this.secretaryTcnoTextBox.TabIndex = 8;
             this.secretaryTcnoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.secretaryTcnoTextBox_KeyPress);
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.guna2Button1.Checked = true;
-            this.guna2Button1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.Image = global::HospitalManagement.Properties.Resources.exlamation_mark;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
-            this.guna2Button1.Location = new System.Drawing.Point(594, 2);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.PressedColor = System.Drawing.Color.Empty;
-            this.guna2Button1.Size = new System.Drawing.Size(20, 41);
-            this.guna2Button1.TabIndex = 10;
-            this.toolTip1.SetToolTip(this.guna2Button1, "Bilgilerini Düzenlemek İstediğiniz Sekreterin TC Numarasını Girerek Aratın");
-            // 
-            // profilePicture
-            // 
-            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(410, 58);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(200, 222);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 11;
-            this.profilePicture.TabStop = false;
             // 
             // label1
             // 
@@ -186,7 +148,7 @@
             this.phoneTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.phoneTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.phoneTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.phoneTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.phoneTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.phoneTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.phoneTextBox.Location = new System.Drawing.Point(10, 256);
@@ -212,7 +174,7 @@
             this.nameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.nameTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.nameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.nameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.nameTextBox.Location = new System.Drawing.Point(10, 58);
@@ -248,7 +210,7 @@
             this.tcnoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tcnoTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.tcnoTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.tcnoTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.tcnoTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.tcnoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.tcnoTextBox.Location = new System.Drawing.Point(10, 157);
@@ -274,7 +236,7 @@
             this.mailTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.mailTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.mailTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.mailTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.mailTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.mailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.mailTextBox.Location = new System.Drawing.Point(10, 206);
@@ -301,7 +263,7 @@
             this.surnameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.surnameTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.surnameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.surnameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.surnameTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.surnameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.surnameTextBox.Location = new System.Drawing.Point(10, 107);
@@ -361,7 +323,7 @@
             // 
             this.addressTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.addressTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.addressTextBox.Location = new System.Drawing.Point(13, 316);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(300, 63);
@@ -395,6 +357,44 @@
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.Size = new System.Drawing.Size(306, 75);
             this.guna2TextBox1.TabIndex = 84;
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(410, 58);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(200, 222);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 11;
+            this.profilePicture.TabStop = false;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.guna2Button1.Checked = true;
+            this.guna2Button1.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button1.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2Button1.Image = global::HospitalManagement.Properties.Resources.exlamation_mark;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(30, 30);
+            this.guna2Button1.Location = new System.Drawing.Point(594, 2);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.PressedColor = System.Drawing.Color.Empty;
+            this.guna2Button1.Size = new System.Drawing.Size(20, 41);
+            this.guna2Button1.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.guna2Button1, "Bilgilerini Düzenlemek İstediğiniz Sekreterin TC Numarasını Girerek Aratın");
             // 
             // UpdateSecretary
             // 

@@ -73,7 +73,6 @@ namespace DataAccessLayer
         }
         public DataTable fetchSecretaryByGivenTcNo(string tcNo)
         {
-            Console.WriteLine("gelinen tcno= " + tcNo);
             DataTable dt = new DataTable();
             string query = $"SELECT id,tc_no,name,surname,mail,phone_number,address FROM Secretary WHERE tc_no = '{tcNo}'";
             try
@@ -92,7 +91,6 @@ namespace DataAccessLayer
         public bool deleteSecretary(string tc_no)
         {
             bool response = false;
-            Console.WriteLine("Gelinen tc_no= " + tc_no);
             string childQuery = $"DELETE FROM Secretary_Login_Info WHERE tc_no='{tc_no}'";
             string parentQuery = $"DELETE FROM Secretary WHERE tc_no='{tc_no}'";
             exception = null;
@@ -163,7 +161,6 @@ namespace DataAccessLayer
         }
         public DataTable fetchDoctorByGivenTcNo(string tcNo)
         {
-            Console.WriteLine("gelinen tcno= " + tcNo);
             DataTable dt = new DataTable();
             string query = $"SELECT id,tc_no,doctor_name,doctor_surname,section_id,mail,phone_number,address FROM Doctor WHERE tc_no = '{tcNo}'";
             try

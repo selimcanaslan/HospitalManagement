@@ -29,6 +29,7 @@ namespace HospitalManagement.Secretary
     public partial class SecretaryLayer : Form
     {
         FTPHelper ftpHelper = new FTPHelper();
+        public static int mainX, mainY, mainW, mainH;
         protected override void OnPaint(PaintEventArgs e)
         {
             e.Graphics.DrawRectangle(Pens.Black, this.Bounds);
@@ -46,6 +47,8 @@ namespace HospitalManagement.Secretary
         public SecretaryLayer(string loginType)
         {
             InitializeComponent();
+            mainW = this.Width;
+            mainH = this.Height;
             this.DoubleBuffered = true;
             this.windowName.Text = "Hastane Yönetim Sistemi" + " / " + loginType.ToUpper() + " / " + LoginWindow._userEntity.KullaniciAd;
         }
@@ -61,7 +64,6 @@ namespace HospitalManagement.Secretary
         public void LoadProfilePicture(string fileName)
         {
             bool existence = ftpHelper.CheckFileExistence(fileName);
-            Console.WriteLine(existence);
             if (existence)
             {
                 profilePicture.LoadAsync($"http://sca.somee.com/{fileName}");
@@ -193,13 +195,18 @@ namespace HospitalManagement.Secretary
         private void profilePicture_Click(object sender, EventArgs e)
         {
             openChildForm(new Account());
-            
         }
 
         private void SecretaryLayer_Shown(object sender, EventArgs e)
         {
-            Toast toast = new Toast(this, $"Hoşgeldiniz {LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad}");
+            Toast toast = new Toast($"Hoş geldiniz {LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad}!", Color.Green);
             toast.Show();
+        }
+
+        private void SecretaryLayer_LocationChanged(object sender, EventArgs e)
+        {
+            mainX = this.Location.X;
+            mainY = this.Location.Y;
         }
     }
 }

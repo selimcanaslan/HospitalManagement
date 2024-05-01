@@ -69,7 +69,7 @@
             this.doctorNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.doctorNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.doctorNameTextBox.FocusedState.BorderColor = System.Drawing.Color.White;
-            this.doctorNameTextBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.doctorNameTextBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.doctorNameTextBox.ForeColor = System.Drawing.Color.White;
             this.doctorNameTextBox.HoverState.BorderColor = System.Drawing.Color.White;
             this.doctorNameTextBox.Location = new System.Drawing.Point(0, 0);

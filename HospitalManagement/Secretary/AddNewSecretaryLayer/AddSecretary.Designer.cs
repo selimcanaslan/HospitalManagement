@@ -39,15 +39,15 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.importPictureButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.addressTextBox = new System.Windows.Forms.RichTextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
+            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // registerButton
@@ -82,7 +82,7 @@
             this.nameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.nameTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.nameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.nameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.nameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.nameTextBox.Location = new System.Drawing.Point(12, 39);
@@ -110,7 +110,7 @@
             this.surnameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.surnameTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.surnameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.surnameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.surnameTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.surnameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.surnameTextBox.Location = new System.Drawing.Point(12, 88);
@@ -137,7 +137,7 @@
             this.mailTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.mailTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.mailTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.mailTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.mailTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.mailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.mailTextBox.Location = new System.Drawing.Point(12, 187);
@@ -163,7 +163,7 @@
             this.phoneTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.phoneTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.phoneTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.phoneTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.phoneTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.phoneTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.phoneTextBox.Location = new System.Drawing.Point(12, 237);
@@ -230,7 +230,7 @@
             this.tcnoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tcnoTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.tcnoTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.tcnoTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.tcnoTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.tcnoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.tcnoTextBox.Location = new System.Drawing.Point(12, 138);
@@ -252,17 +252,6 @@
             this.label1.Size = new System.Drawing.Size(46, 16);
             this.label1.TabIndex = 39;
             this.label1.Text = "T.C No";
-            // 
-            // profilePicture
-            // 
-            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(325, 39);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(240, 269);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 41;
-            this.profilePicture.TabStop = false;
             // 
             // importPictureButton
             // 
@@ -295,10 +284,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Orange;
             this.label2.Location = new System.Drawing.Point(175, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(235, 13);
+            this.label2.Size = new System.Drawing.Size(267, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Lütfen İlgili Alanları Doğru Girdiler İle Doldurunuz!";
             // 
@@ -316,7 +306,7 @@
             // 
             this.addressTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.addressTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.addressTextBox.Location = new System.Drawing.Point(15, 297);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(300, 80);
@@ -351,6 +341,17 @@
             this.guna2TextBox1.Size = new System.Drawing.Size(306, 93);
             this.guna2TextBox1.TabIndex = 81;
             // 
+            // profilePicture
+            // 
+            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(325, 39);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(240, 269);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 41;
+            this.profilePicture.TabStop = false;
+            // 
             // AddSecretary
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,9 +379,9 @@
             this.Name = "AddSecretary";
             this.Text = "AddSecretary";
             this.Load += new System.EventHandler(this.AddSecretary_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

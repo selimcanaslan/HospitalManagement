@@ -78,7 +78,9 @@ namespace HospitalManagement.Secretary.DeleteDoctorLayer
                     string tc_no = Convert.ToString(selectedRow.Cells["tc_no"].Value);
                     Clipboard.SetText(Convert.ToString(selectedRow.Cells["tc_no"].Value));
                     string infoOfPersonWhoWillBeDeleted = "Silmek İstediğiniz Kişinin Bilgileri Aşağıdadır.\n" +
-                                                            "Ad: " + tam_ad + "\nMail: " + mail + "\nTelefon: " + telefon + "\nDüzenleme yapmak isterseniz TCNo panoya kopyalandı!";   
+                                                            "Ad: " + tam_ad + "\nMail: " + mail + "\nTelefon: " + telefon;
+                    Toast toast = new Toast($"TCNO ({tc_no}) Panoya Kopyalandı!", Color.Green);
+                    toast.Show();
                     DialogResult dialogResult = MessageBox.Show(infoOfPersonWhoWillBeDeleted, "Silmek İstediğize Emin Misiniz?", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {

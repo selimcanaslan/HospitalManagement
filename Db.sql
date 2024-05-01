@@ -93,7 +93,10 @@ CREATE TABLE Examination(
 	result nvarchar(max)
 );
 
-
+CREATE TABLE Appointment_Hours(
+	id int identity(1,1) PRIMARY KEY CLUSTERED,
+	appointment_hour time
+);
 
 GO
 CREATE TRIGGER Create_Secretary_Login_Info

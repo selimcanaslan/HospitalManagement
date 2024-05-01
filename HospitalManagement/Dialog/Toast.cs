@@ -13,16 +13,41 @@ namespace HospitalManagement.Dialog
 {
     public partial class Toast : Form
     {
-        int toastX, toastY;
-        double seconds = 5.0;
-        public Toast(SecretaryLayer ParentForm, string msg)
+        int toastX, toastY, x, y, w, h;
+        double seconds = 3.0;
+
+        private void msgLabel_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            msgLabel.Text = msg;
-            toastX = ParentForm.Location.X + ParentForm.Width - (this.Width);
-            toastY = ParentForm.Location.Y + ParentForm.Height - (this.Height);   
+            this.Close();
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public Toast(string msg, Color color)
+        {
+            int x = SecretaryLayer.mainX;
+            int y = SecretaryLayer.mainY;
+            int w = SecretaryLayer.mainW;
+            int h = SecretaryLayer.mainH;
+            InitializeComponent();
+            msgLabel.Text = msg;
+            //panel1.BackColor = color;
+            toastX = x + w - (this.Width);
+            toastY = y + h - (this.Height);
+        }
         private void Toast_Load(object sender, EventArgs e)
         {
             Position();
@@ -33,7 +58,10 @@ namespace HospitalManagement.Dialog
             timer.Tick += new EventHandler(timer_Tick);
             timer.Start();
         }
-
+        private void Position()
+        {
+            this.Location = new Point(toastX, toastY);
+        }
         private void timerToast_Tick(object sender, EventArgs e)
         {
             this.Height -= 2;
@@ -52,10 +80,6 @@ namespace HospitalManagement.Dialog
                 this.Close();
             }
         }
-
-        private void Position()
-        {
-            this.Location = new Point(toastX, toastY);
-        }
+        
     }
 }

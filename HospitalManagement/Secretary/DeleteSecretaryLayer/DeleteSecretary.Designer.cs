@@ -53,7 +53,7 @@
             this.secretaryNameTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.secretaryNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.secretaryNameTextBox.FocusedState.BorderColor = System.Drawing.Color.White;
-            this.secretaryNameTextBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secretaryNameTextBox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.secretaryNameTextBox.ForeColor = System.Drawing.Color.White;
             this.secretaryNameTextBox.HoverState.BorderColor = System.Drawing.Color.White;
             this.secretaryNameTextBox.Location = new System.Drawing.Point(0, 0);

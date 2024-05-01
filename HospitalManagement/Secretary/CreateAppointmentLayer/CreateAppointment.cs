@@ -104,9 +104,9 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
         }
         private void FillDoctorComboBox(int sectionId)
         {
-            for (int i = 1; i <= doctorComboBox.Items.Count-1; i++)
+            for (int i = 1; i <= doctorComboBox.Items.Count - 1; i++)
             {
-                if (i<= sectionComboBox.Items.Count-1)
+                if (i <= sectionComboBox.Items.Count - 1)
                     doctorComboBox.Items.RemoveAt(i);
             }
             DataTable relatedDoctors = blSecretary.FetchSectionIdRelatedDoctors(sectionId);
@@ -129,6 +129,19 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
         private void patientProblemTextBox_Enter(object sender, EventArgs e)
         {
             guna2TextBox2.BorderColor = Color.Red;
+        }
+
+        private void examinationDateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime dateTimePickerValue = examinationDateTimePicker.Value;
+            DateTime today = DateTime.Now;
+            if (dateTimePickerValue.Year <= today.Year &&
+                dateTimePickerValue.DayOfYear < today.DayOfYear)
+            {
+                examinationDateTimePicker.Value = today;
+                Toast toast = new Toast("Bugünden daha eski bir tarih seçemezsin!", Color.Red);
+                toast.ShowDialog();
+            }
         }
     }
 }

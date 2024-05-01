@@ -44,10 +44,10 @@
             this.tcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.mailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.surnameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.profilePicture = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.addressTextBox = new System.Windows.Forms.RichTextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
+            this.profilePicture = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -179,7 +179,7 @@
             this.phoneTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.phoneTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.phoneTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.phoneTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.phoneTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.phoneTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.phoneTextBox.Location = new System.Drawing.Point(303, 216);
@@ -205,7 +205,7 @@
             this.nameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.nameTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.nameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.nameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.nameTextBox.Location = new System.Drawing.Point(303, 18);
@@ -241,7 +241,7 @@
             this.tcnoTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.tcnoTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.tcnoTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.tcnoTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.tcnoTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcnoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.tcnoTextBox.Location = new System.Drawing.Point(303, 117);
@@ -267,7 +267,7 @@
             this.mailTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.mailTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.mailTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.mailTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.mailTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.mailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.mailTextBox.Location = new System.Drawing.Point(303, 166);
@@ -294,7 +294,7 @@
             this.surnameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.surnameTextBox.FillColor = System.Drawing.SystemColors.AppWorkspace;
             this.surnameTextBox.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.surnameTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.surnameTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.surnameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.surnameTextBox.Location = new System.Drawing.Point(303, 67);
@@ -305,18 +305,6 @@
             this.surnameTextBox.SelectedText = "";
             this.surnameTextBox.Size = new System.Drawing.Size(306, 40);
             this.surnameTextBox.TabIndex = 56;
-            // 
-            // profilePicture
-            // 
-            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(12, 12);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.Size = new System.Drawing.Size(191, 194);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 54;
-            this.profilePicture.TabStop = false;
             // 
             // label10
             // 
@@ -332,7 +320,7 @@
             // 
             this.addressTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.addressTextBox.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.addressTextBox.Location = new System.Drawing.Point(306, 274);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(300, 63);
@@ -366,6 +354,18 @@
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.Size = new System.Drawing.Size(306, 75);
             this.guna2TextBox1.TabIndex = 84;
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(12, 12);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.Size = new System.Drawing.Size(191, 194);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 54;
+            this.profilePicture.TabStop = false;
             // 
             // Account
             // 
