@@ -112,7 +112,7 @@
             this.phoneTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.phoneTextBox.Location = new System.Drawing.Point(8, 255);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.PasswordChar = '\0';
             this.phoneTextBox.PlaceholderText = "";
@@ -139,7 +139,7 @@
             this.nameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.nameTextBox.Location = new System.Drawing.Point(8, 57);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.PasswordChar = '\0';
             this.nameTextBox.PlaceholderText = "";
@@ -176,7 +176,7 @@
             this.tcnoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.tcnoTextBox.Location = new System.Drawing.Point(8, 156);
-            this.tcnoTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcnoTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tcnoTextBox.Name = "tcnoTextBox";
             this.tcnoTextBox.PasswordChar = '\0';
             this.tcnoTextBox.PlaceholderText = "";
@@ -203,7 +203,7 @@
             this.mailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.mailTextBox.Location = new System.Drawing.Point(8, 205);
-            this.mailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.mailTextBox.Name = "mailTextBox";
             this.mailTextBox.PasswordChar = '\0';
             this.mailTextBox.PlaceholderText = "";
@@ -230,7 +230,7 @@
             this.surnameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.surnameTextBox.Location = new System.Drawing.Point(8, 106);
-            this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.PasswordChar = '\0';
             this.surnameTextBox.PlaceholderText = "";
@@ -289,17 +289,14 @@
             this.sectionComboBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.sectionComboBox.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.sectionComboBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.sectionComboBox.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sectionComboBox.Font = new System.Drawing.Font("Segoe UI", 9.75F);
             this.sectionComboBox.ForeColor = System.Drawing.Color.White;
             this.sectionComboBox.ItemHeight = 30;
-            this.sectionComboBox.Items.AddRange(new object[] {
-            "Bölüm Seçiniz"});
             this.sectionComboBox.Location = new System.Drawing.Point(332, 106);
             this.sectionComboBox.Name = "sectionComboBox";
             this.sectionComboBox.Size = new System.Drawing.Size(273, 36);
-            this.sectionComboBox.StartIndex = 0;
             this.sectionComboBox.TabIndex = 85;
-            this.sectionComboBox.SelectedIndexChanged += new System.EventHandler(this.sectionComboBox_SelectedIndexChanged);
+            this.sectionComboBox.SelectedValueChanged += new System.EventHandler(this.sectionComboBox_SelectedValueChanged);
             // 
             // doctorComboBox
             // 
@@ -313,13 +310,11 @@
             this.doctorComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.doctorComboBox.ForeColor = System.Drawing.Color.White;
             this.doctorComboBox.ItemHeight = 30;
-            this.doctorComboBox.Items.AddRange(new object[] {
-            "Doktor Seçiniz"});
             this.doctorComboBox.Location = new System.Drawing.Point(332, 156);
             this.doctorComboBox.Name = "doctorComboBox";
             this.doctorComboBox.Size = new System.Drawing.Size(273, 36);
-            this.doctorComboBox.StartIndex = 0;
             this.doctorComboBox.TabIndex = 86;
+            this.doctorComboBox.SelectedIndexChanged += new System.EventHandler(this.doctorComboBox_SelectedIndexChanged);
             // 
             // createAppointmentButton
             // 
@@ -350,12 +345,9 @@
             this.examinationTimeComboBox.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.examinationTimeComboBox.ForeColor = System.Drawing.Color.White;
             this.examinationTimeComboBox.ItemHeight = 30;
-            this.examinationTimeComboBox.Items.AddRange(new object[] {
-            "Muayene Saati Seçiniz"});
             this.examinationTimeComboBox.Location = new System.Drawing.Point(332, 205);
             this.examinationTimeComboBox.Name = "examinationTimeComboBox";
             this.examinationTimeComboBox.Size = new System.Drawing.Size(273, 36);
-            this.examinationTimeComboBox.StartIndex = 0;
             this.examinationTimeComboBox.TabIndex = 90;
             // 
             // label10

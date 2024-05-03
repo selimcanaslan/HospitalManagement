@@ -13,7 +13,7 @@ namespace HospitalManagement.Dialog
 {
     public partial class Toast : Form
     {
-        int toastX, toastY, x, y, w, h;
+        int toastX, toastY;
         double seconds = 3.0;
 
         private void msgLabel_Click(object sender, EventArgs e)

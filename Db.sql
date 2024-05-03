@@ -6,6 +6,8 @@ CREATE TABLE Sections(
 	name varchar(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8,
 );
 
+Select * From Doctor
+
 CREATE TABLE Doctor(
 	id int identity(1,1),
 	tc_no varchar(11) PRIMARY KEY CLUSTERED,
@@ -66,7 +68,7 @@ CREATE TABLE Secretary_Login_Info(
 
 CREATE TABLE Patient(
 	id int identity(1,1),
-	tc_no int PRIMARY KEY CLUSTERED,
+	tc_no varchar(11) PRIMARY KEY CLUSTERED,
 	name varchar(30),
 	surname varchar(30),
 	mail varchar(255),
@@ -77,9 +79,9 @@ CREATE TABLE Patient(
 
 CREATE TABLE Appointment(
 	id int identity(1,1),
-	patient_tc_no int FOREIGN KEY (tc_no) REFERENCES Patient(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
+	patient_tc_no varchar(11) FOREIGN KEY (patient_tc_no) REFERENCES Patient(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
 	section varchar(50),
-	doctor_tc_no varchar(11) FOREIGN KEY (tc_no) REFERENCES Doctor(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
+	doctor_tc_no varchar(11) FOREIGN KEY (doctor_tc_no) REFERENCES Doctor(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
 	appointment_examination_time datetime,
 	is_examination_done bit DEFAULT 0,
 	appointment_created datetime DEFAULT getdate()
@@ -87,9 +89,9 @@ CREATE TABLE Appointment(
 
 CREATE TABLE Examination(
 	id int identity(1,1),
-	patient_tc_no int FOREIGN KEY (tc_no) REFERENCES Patient(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
+	patient_tc_no varchar(11) FOREIGN KEY (patient_tc_no) REFERENCES Patient(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
 	section varchar(50),
-	doctor_tc_no varchar(11) FOREIGN KEY (tc_no) REFERENCES Doctor(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
+	doctor_tc_no varchar(11) FOREIGN KEY (doctor_tc_no) REFERENCES Doctor(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
 	result nvarchar(max)
 );
 

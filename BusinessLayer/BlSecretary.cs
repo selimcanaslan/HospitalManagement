@@ -76,5 +76,13 @@ namespace BusinessLayer
         {
             return _dalSecretary.FetchSectionIdRelatedDoctors(sectionId);
         }
+        public DataTable FetchDoctorAppointments(string tcNo)
+        {
+            return _dalSecretary.FetchDoctorAppointments(tcNo);
+        }
+        public DataTable fetchAppointmentHours()
+        {
+            return _dalSecretary.fetchAppointmentHours();
+        }
     }
 }

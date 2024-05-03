@@ -8,21 +8,36 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace HospitalManagement.Secretary.CreateAppointmentLayer
 {
     public partial class CreateAppointment : Form
     {
+        DataTable relatedDoctorsGlobal = null;
+        DataTable appointmentHoursGlobal;
         BlSecretary blSecretary = new BlSecretary();
         public CreateAppointment()
         {
             InitializeComponent();
-
+            FillComboboxFirstItem();
+        }
+        private void FillComboboxFirstItem()
+        {
+            sectionComboBox.Items.Insert(0, "Bölüm Seçiniz");
+            doctorComboBox.Items.Insert(0, "Doktor Seçiniz");
+            examinationTimeComboBox.Items.Insert(0, "Muayene Saati Seçiniz");
+            sectionComboBox.StartIndex = 0;
+            doctorComboBox.StartIndex = 0;
+            examinationTimeComboBox.StartIndex = 0;
         }
         private void CreateAppointment_Load(object sender, EventArgs e)
         {
             FillSections();
+            relatedDoctorsGlobal = new DataTable();
+            appointmentHoursGlobal = new DataTable();
+            appointmentHoursGlobal = blSecretary.fetchAppointmentHours();
         }
         private void FillSections()
         {
@@ -97,21 +112,6 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                 infoMessage.ShowDialog();
             }
         }
-
-        private void sectionComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            FillDoctorComboBox(sectionComboBox.SelectedIndex);
-        }
-        private void FillDoctorComboBox(int sectionId)
-        {
-            for (int i = 1; i <= doctorComboBox.Items.Count - 1; i++)
-            {
-                if (i <= sectionComboBox.Items.Count - 1)
-                    doctorComboBox.Items.RemoveAt(i);
-            }
-            DataTable relatedDoctors = blSecretary.FetchSectionIdRelatedDoctors(sectionId);
-            foreach (DataRow row in relatedDoctors.Rows) { doctorComboBox.Items.Add(row["full_name"].ToString()); }
-        }
         private void addressTextBox_Leave(object sender, EventArgs e)
         {
             guna2TextBox1.BorderColor = Color.FromArgb(46, 46, 46);
@@ -142,6 +142,105 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                 Toast toast = new Toast("Bugünden daha eski bir tarih seçemezsin!", Color.Red);
                 toast.ShowDialog();
             }
+        }
+        private void sectionComboBox_SelectedValueChanged(object sender, EventArgs e)
+        {
+            doctorComboBox.SelectedIndex = 0;
+            FillDoctorComboBox(sectionComboBox.SelectedIndex);
+        }
+        private void FillDoctorComboBox(int sectionId)
+        {
+            try
+            {
+                if (sectionId != 0)
+                {
+                    if (doctorComboBox.Items.Count > 1)
+                    {
+                        for(int i = doctorComboBox.Items.Count - 1; i > 0; i--)
+                        {
+                            doctorComboBox.Items.RemoveAt(i);
+                        }
+                    }
+                    DataTable relatedDoctors = blSecretary.FetchSectionIdRelatedDoctors(sectionId);
+                    relatedDoctorsGlobal = relatedDoctors;
+                    if (relatedDoctors.Rows.Count > 0)
+                    {
+                        foreach (DataRow row in relatedDoctors.Rows)
+                        {
+                            doctorComboBox.Items.Add(row["full_name"].ToString());
+                        }
+                    }
+                    else
+                    {
+                        InfoMessage infoMessage = new InfoMessage("İlgili Bölüme Ait Uygun Doktor Bulunamadı", "Hata");
+                        infoMessage.Show();
+                    }
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+        }
+        private void doctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (doctorComboBox.SelectedIndex != 0)
+                {
+                    string chosenDoctor = doctorComboBox.Text;
+                    string selectedDoctorTcNo = string.Empty;
+                    foreach (DataRow row in relatedDoctorsGlobal.Rows)
+                    {
+                        string fullName = row["full_name"].ToString();
+                        if (fullName == chosenDoctor)
+                        {
+                            Console.WriteLine($"Eslesen doktor bulundu TcNosu= {row["tc_no"]}");
+                            selectedDoctorTcNo = row["tc_no"].ToString();
+                            break;
+                        }
+                    }
+                    FillAppointmentHours(selectedDoctorTcNo);
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+
+        }
+        private void FillAppointmentHours(string tcNo)
+        {
+            try
+            {
+                if (tcNo != string.Empty)
+                {
+                    DataTable doctorAppointments = new DataTable();
+                    doctorAppointments = blSecretary.FetchDoctorAppointments(tcNo);
+                    DateTime appointmentDate = new DateTime();
+
+                    if (examinationTimeComboBox.Items.Count > 1)
+                    {
+                        for (int i = examinationTimeComboBox.Items.Count - 1; i > 0; i--)
+                        {
+                            examinationTimeComboBox.Items.RemoveAt(i);
+                        }
+                    }
+                    foreach (DataRow _row in appointmentHoursGlobal.Rows)
+                    {
+                        string hour = _row["appointment_hour"].ToString();
+                        if (hour != appointmentDate.ToString("HH:mm:ss"))
+                        {
+                            examinationTimeComboBox.Items.Add(hour);
+                        }
+                        
+                        //if (tempDate.ToString("HH:mm:ss") != )
+                        foreach (DataRow row in doctorAppointments.Rows)
+                        {
+                            appointmentDate = (DateTime)row["appointment_examination_time"];
+                        }
+
+                    }
+                }
+
+            }
+            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
         }
     }
 }

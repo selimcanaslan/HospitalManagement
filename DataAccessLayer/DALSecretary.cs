@@ -271,7 +271,43 @@ namespace DataAccessLayer
         public DataTable FetchSectionIdRelatedDoctors(int sectionId)
         {
             DataTable dt = new DataTable();
-            string query = $"SELECT doctor_name + ' ' + doctor_surname as 'full_name' FROM Doctor WHERE section_id ={sectionId}";
+            string query = $"SELECT doctor_name + ' ' + doctor_surname as 'full_name',tc_no FROM Doctor WHERE section_id ={sectionId}";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable FetchDoctorAppointments(string tcNo)
+        {
+            DataTable dt = new DataTable();
+            string query = $"SELECT * FROM Appointment WHERE doctor_tc_no = '{tcNo}'";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable fetchAppointmentHours()
+        {
+            DataTable dt = new DataTable();
+            string query = "SELECT * FROM Appointment_Hours";
             com.Connection = con;
             com.CommandText = query;
             da.SelectCommand = com;
@@ -287,5 +323,6 @@ namespace DataAccessLayer
             return dt;
         }
         
+
     }
 }
