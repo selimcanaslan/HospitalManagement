@@ -364,7 +364,7 @@
             // 
             this.addressTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addressTextBox.Location = new System.Drawing.Point(11, 315);
             this.addressTextBox.Name = "addressTextBox";
             this.addressTextBox.Size = new System.Drawing.Size(300, 63);
@@ -413,7 +413,7 @@
             // 
             this.patientProblemTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.patientProblemTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.patientProblemTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.patientProblemTextBox.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.patientProblemTextBox.Location = new System.Drawing.Point(334, 260);
             this.patientProblemTextBox.Name = "patientProblemTextBox";
             this.patientProblemTextBox.Size = new System.Drawing.Size(267, 55);

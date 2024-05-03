@@ -322,7 +322,56 @@ namespace DataAccessLayer
             }
             return dt;
         }
-        
+        public bool PatientExistenceCheck(string tcNo)
+        {
+            bool response = false;
+            DataTable dt = new DataTable();
+            string query = $"SELECT * FROM Patient WHERE tc_no='{tcNo}'";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            try
+            {
+                da.Fill(dt);
+                if (dt.Rows.Count > 0) { response = true; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
+            return response;
+        }
+        public bool CreatePatient(string tcNo, string name, string surname, string mail, string phone, string address, string registirationDate)
+        {
+            bool response = false;
+            string query = $"INSERT Patient VALUES ('{tcNo}','{name}','{surname}','{mail}','{phone}','{address}','{registirationDate}')";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            try
+            {
 
+                int rowsAffected = com.ExecuteNonQuery();
+                if (rowsAffected > 0) { response = true; }
+                else { response = false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
+            return response;
+        }
+        public bool CreateAppointment(string tcNo, string section, string doctorTcno, string examinationDate, string examinationHour, int isDone, string appointmentCreationDate)
+        {
+            bool response = false;
+            string query = $"INSERT Appointment VALUES ('{tcNo}','{section}','{doctorTcno}','{examinationDate}','{examinationHour}',{isDone},'{appointmentCreationDate}')";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            try
+            {
+
+                int rowsAffected = com.ExecuteNonQuery();
+                if (rowsAffected > 0) { response = true; }
+                else { response = false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
+            return response;
+        }
+        
     }
 }

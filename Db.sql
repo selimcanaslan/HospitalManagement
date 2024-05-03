@@ -78,11 +78,12 @@ CREATE TABLE Patient(
 );
 
 CREATE TABLE Appointment(
-	id int identity(1,1),
+	id int identity(1,1) PRIMARY KEY CLUSTERED,
 	patient_tc_no varchar(11) FOREIGN KEY (patient_tc_no) REFERENCES Patient(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
 	section varchar(50),
 	doctor_tc_no varchar(11) FOREIGN KEY (doctor_tc_no) REFERENCES Doctor(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
-	appointment_examination_time datetime,
+	examination_time datetime,
+	examination_hour varchar(50),
 	is_examination_done bit DEFAULT 0,
 	appointment_created datetime DEFAULT getdate()
 );
@@ -94,6 +95,10 @@ CREATE TABLE Examination(
 	doctor_tc_no varchar(11) FOREIGN KEY (doctor_tc_no) REFERENCES Doctor(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
 	result nvarchar(max)
 );
+
+SELECT * FROM Patient
+SELECT * FROM Appointment
+
 
 CREATE TABLE Appointment_Hours(
 	id int identity(1,1) PRIMARY KEY CLUSTERED,

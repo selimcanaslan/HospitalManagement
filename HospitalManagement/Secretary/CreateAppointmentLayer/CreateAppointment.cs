@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace HospitalManagement.Secretary.CreateAppointmentLayer
 {
@@ -17,6 +18,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
     {
         DataTable relatedDoctorsGlobal = null;
         DataTable appointmentHoursGlobal;
+        string lastSelectedDoctorTcno = string.Empty;
         BlSecretary blSecretary = new BlSecretary();
         public CreateAppointment()
         {
@@ -103,8 +105,41 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
             string validation = validateFields();
             if (validation == "OK")
             {
-                InfoMessage infoMessage = new InfoMessage("Bütün Fieldlar OK", "Bilgi");
-                infoMessage.ShowDialog();
+                string totalResponse = string.Empty;
+                string name = nameTextBox.Text;
+                string surname = surnameTextBox.Text;
+                string tcNo = tcnoTextBox.Text;
+                string mail = mailTextBox.Text;
+                string phone = phoneTextBox.Text;
+                string address = addressTextBox.Text;
+                string problem = patientProblemTextBox.Text;
+                string section = sectionComboBox.Text;
+                string doctor = doctorComboBox.Text;
+                string examinationTimeHour = examinationTimeComboBox.Text;
+                string examinationDate = examinationDateTimePicker.Value.ToString();
+                
+                try
+                {
+                    bool isPatientExist = blSecretary.PatientExistenceCheck(tcNo);
+                    if (!isPatientExist)
+                    {
+                        bool patientCreationResponse = blSecretary.CreatePatient(tcNo, name, surname, mail, phone, address, DateTime.Now.ToString());
+                        if (patientCreationResponse) { totalResponse += "Yeni Hasta Kaydı Yapıldı"; }
+                        else { totalResponse += "Yeni Hasta Kaydı Yapılamadı"; }
+                    }
+                    bool isPatientExist2 = blSecretary.PatientExistenceCheck(tcNo);
+                    if (isPatientExist2)
+                    {
+                        bool appointmentCreationResponse = blSecretary.CreateAppointment(tcNo, section, lastSelectedDoctorTcno, examinationDate, examinationTimeHour, 0, DateTime.Now.ToString());
+                        if (appointmentCreationResponse)
+                        {
+                            InfoMessage infoMessage = new InfoMessage("Hasta Randevusu Başarıyla Oluşturuldu.\nRandevu Bilgileri Mail Yoluyla İletildi.", "Bilgi");
+                            infoMessage.ShowDialog();
+                        }
+                    }
+                }
+                catch (Exception ex) { Console.WriteLine(ex.Message); }
+                
             }
             else
             {
@@ -140,7 +175,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
             {
                 examinationDateTimePicker.Value = today;
                 Toast toast = new Toast("Bugünden daha eski bir tarih seçemezsin!", Color.Red);
-                toast.ShowDialog();
+                toast.Show();
             }
         }
         private void sectionComboBox_SelectedValueChanged(object sender, EventArgs e)
@@ -156,7 +191,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                 {
                     if (doctorComboBox.Items.Count > 1)
                     {
-                        for(int i = doctorComboBox.Items.Count - 1; i > 0; i--)
+                        for (int i = doctorComboBox.Items.Count - 1; i > 0; i--)
                         {
                             doctorComboBox.Items.RemoveAt(i);
                         }
@@ -172,8 +207,8 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                     }
                     else
                     {
-                        InfoMessage infoMessage = new InfoMessage("İlgili Bölüme Ait Uygun Doktor Bulunamadı", "Hata");
-                        infoMessage.Show();
+                        Toast toast = new Toast("İlgili Bölüme Ait Doktor Bulunamadı", Color.Red);
+                        toast.Show();
                     }
                 }
 
@@ -193,8 +228,8 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                         string fullName = row["full_name"].ToString();
                         if (fullName == chosenDoctor)
                         {
-                            Console.WriteLine($"Eslesen doktor bulundu TcNosu= {row["tc_no"]}");
                             selectedDoctorTcNo = row["tc_no"].ToString();
+                            lastSelectedDoctorTcno = selectedDoctorTcNo;
                             break;
                         }
                     }
@@ -229,7 +264,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                         {
                             examinationTimeComboBox.Items.Add(hour);
                         }
-                        
+
                         //if (tempDate.ToString("HH:mm:ss") != )
                         foreach (DataRow row in doctorAppointments.Rows)
                         {

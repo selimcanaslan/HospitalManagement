@@ -84,5 +84,17 @@ namespace BusinessLayer
         {
             return _dalSecretary.fetchAppointmentHours();
         }
+        public bool PatientExistenceCheck(string tcNo)
+        {
+            return _dalSecretary.PatientExistenceCheck(tcNo);
+        }
+        public bool CreatePatient(string tcNo, string name, string surname, string mail, string phone, string address, string registirationDate)
+        {
+            return _dalSecretary.CreatePatient(tcNo, name, surname, mail, phone, address, registirationDate);
+        }
+        public bool CreateAppointment(string tcNo, string section, string doctorTcno, string examinationDate, string examinationHour, int isDone, string appointmentCreationDate)
+        {
+            return _dalSecretary.CreateAppointment(tcNo, section, doctorTcno, examinationDate, examinationHour, isDone, appointmentCreationDate);
+        }
     }
 }
