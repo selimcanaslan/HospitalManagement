@@ -87,6 +87,10 @@ CREATE TABLE Appointment(
 	is_examination_done bit DEFAULT 0,
 	appointment_created datetime DEFAULT getdate()
 );
+DROP TABLE Appointment
+SELECT * FROM Patient
+SELECT * FROM Appointment
+SELECT COUNT(patient_tc_no) as hasta_sayisi, doctor_tc_no FROM Appointment GROUP BY doctor_tc_no
 
 CREATE TABLE Examination(
 	id int identity(1,1),
@@ -96,8 +100,47 @@ CREATE TABLE Examination(
 	result nvarchar(max)
 );
 
-SELECT * FROM Patient
-SELECT * FROM Appointment
+GO
+CREATE PROCEDURE FetchAllAwaitingAppointments
+AS
+BEGIN
+SELECT Patient.name + ' ' + Patient.surname as patient_name,patient_tc_no,section,Doctor.doctor_name + ' ' + Doctor.doctor_surname as doctor_name,
+FORMAT(examination_time,'yyyy-MM-dd') as examination_time,examination_hour
+FROM Appointment
+INNER JOIN Doctor ON Appointment.doctor_tc_no = Doctor.tc_no
+INNER JOIN Patient ON Appointment.patient_tc_no = Patient.tc_no
+WHERE is_examination_done = 0
+END
+GO
+
+GO
+CREATE PROCEDURE FetchAwaitingAppointmentsFilteredByDateAndTcNo
+@tcNo varchar(11),
+@date DateTime
+AS
+BEGIN
+SELECT Patient.name + ' ' + Patient.surname as patient_name,patient_tc_no,section,Doctor.doctor_name + ' ' + Doctor.doctor_surname as doctor_name,
+FORMAT(examination_time,'yyyy-MM-dd') as examination_time,examination_hour
+FROM Appointment
+INNER JOIN Doctor ON Appointment.doctor_tc_no = Doctor.tc_no
+INNER JOIN Patient ON Appointment.patient_tc_no = Patient.tc_no
+WHERE is_examination_done = 0 AND patient_tc_no = @tcNo AND FORMAT(examination_time,'yyyy-MM-dd') = @date
+END
+GO
+
+GO
+CREATE PROCEDURE FetchAwaitingAppointmentsFilteredByDate
+@date DateTime
+AS
+BEGIN
+SELECT Patient.name + ' ' + Patient.surname as patient_name,patient_tc_no,section,Doctor.doctor_name + ' ' + Doctor.doctor_surname as doctor_name,
+FORMAT(examination_time,'yyyy-MM-dd') as examination_time,examination_hour
+FROM Appointment
+INNER JOIN Doctor ON Appointment.doctor_tc_no = Doctor.tc_no
+INNER JOIN Patient ON Appointment.patient_tc_no = Patient.tc_no
+WHERE is_examination_done = 0 AND FORMAT(examination_time,'yyyy-MM-dd') = @date
+END
+GO
 
 
 CREATE TABLE Appointment_Hours(
@@ -163,6 +206,9 @@ FROM Doctor
 INNER JOIN Sections ON Doctor.section_id = Sections.Id; 
 END
 GO
+
+
+
 
 
 INSERT Secretary VALUES ('21824004326','Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')

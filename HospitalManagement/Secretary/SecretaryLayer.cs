@@ -18,11 +18,13 @@ using HospitalManagement.Secretary.UpdateSecretaryLayer;
 using HospitalManagement.Secretary.DeleteDoctorLayer;
 using HospitalManagement.Secretary.UpdateDoctorLayer;
 using HospitalManagement.Secretary.AccountLayer;
+using HospitalManagement.Secretary.AppointmentsLayer;
 using HospitalManagement.Login;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Net;
 using HospitalManagement.Dialog;
 using System.Runtime.CompilerServices;
+
 
 namespace HospitalManagement.Secretary
 {
@@ -190,6 +192,11 @@ namespace HospitalManagement.Secretary
         private void accountButton_Click(object sender, EventArgs e)
         {
             openChildForm(new Account());
+        }
+
+        private void showAppointmentButton_Click(object sender, EventArgs e)
+        {
+            openChildForm(new Appointments());
         }
 
         private void profilePicture_Click(object sender, EventArgs e)

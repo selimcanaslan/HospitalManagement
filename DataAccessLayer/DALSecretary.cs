@@ -372,6 +372,78 @@ namespace DataAccessLayer
             catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
             return response;
         }
+        public DataTable FetchPatientBytcNo(string tcNo)
+        {
+            DataTable dt = new DataTable();
+            string query = $"SELECT * FROM Patient WHERE tc_no ='{tcNo}'";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable fetchAllAwaitingAppointments()
+        {
+            DataTable dt = new DataTable();
+            string query = "EXEC FetchAllAwaitingAppointments";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable FetchAwaitingAppointmentsFilteredByDateAndTcNo(string tcNo, string date)
+        {
+            DataTable dt = new DataTable();
+            string query = $"EXEC FetchAwaitingAppointmentsFilteredByDateAndTcNo '{tcNo}', '{date}'";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable FetchAwaitingAppointmentsFilteredByDate(string date)
+        {
+            DataTable dt = new DataTable();
+            string query = $"EXEC FetchAwaitingAppointmentsFilteredByDate '{date}'";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
         
     }
 }

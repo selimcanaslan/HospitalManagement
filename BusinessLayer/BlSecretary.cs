@@ -96,5 +96,22 @@ namespace BusinessLayer
         {
             return _dalSecretary.CreateAppointment(tcNo, section, doctorTcno, examinationDate, examinationHour, isDone, appointmentCreationDate);
         }
+        public DataTable FetchPatientBytcNo(string tcNo)
+        {
+            return _dalSecretary.FetchPatientBytcNo(tcNo);
+        }
+        public DataTable fetchAllAwaitingAppointments()
+        {
+            return _dalSecretary.fetchAllAwaitingAppointments();
+        }
+        public DataTable FetchAwaitingAppointmentsFilteredByDateAndTcNo(string tcNo, string date)
+        {
+            return _dalSecretary.FetchAwaitingAppointmentsFilteredByDateAndTcNo(tcNo, date);
+        }
+        public DataTable FetchAwaitingAppointmentsFilteredByDate(string date)
+        {
+            return _dalSecretary.FetchAwaitingAppointmentsFilteredByDate(date);
+        }
+        
     }
 }
