@@ -60,9 +60,6 @@ namespace DataAccessLayer.Properties {
             }
         }
         
-        /// <summary>
-        ///   Looks up a localized string similar to workstation id=gp_hospital.mssql.somee.com;packet size=4096;user id=sca33_SQLLogin_1;pwd=ejc7i6uu64;data source=gp_hospital.mssql.somee.com;persist security info=False;initial catalog=gp_hospital;TrustServerCertificate=True.
-        /// </summary>
         internal static string dbConSt {
             get {
                 return ResourceManager.GetString("dbConSt", resourceCulture);
