@@ -52,7 +52,7 @@ namespace HospitalManagement.Secretary
             mainW = this.Width;
             mainH = this.Height;
             this.DoubleBuffered = true;
-            this.windowName.Text = "Hastane Yönetim Sistemi" + " / " + loginType.ToUpper() + " / " + LoginWindow._userEntity.KullaniciAd;
+            this.windowName.Text = "Hastane Yönetim Sistemi" + " / " + loginType.ToUpper() + " / " + LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad;
         }
 
         private void SecretaryLayer_Load(object sender, EventArgs e)

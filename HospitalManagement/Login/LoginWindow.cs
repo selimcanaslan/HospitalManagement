@@ -85,7 +85,7 @@ namespace HospitalManagement
                                 _userEntity.Address = row["address"].ToString();
                             }
                             this.Hide();
-                            SecretaryLayer secretaryLayer = new SecretaryLayer("secretary");
+                            SecretaryLayer secretaryLayer = new SecretaryLayer("Sekreter");
                             secretaryLayer.Closed += (s, args) => this.Show(); // call the login window after secretary window closed
                             //secretaryLayer.Closed += (s, args) => this.Close(); // close whole app after secretary window closed
                             secretaryLayer.Show();
@@ -120,7 +120,7 @@ namespace HospitalManagement
                                 _userEntity.SectionId = Int16.Parse(row["section_id"].ToString());
                             }
                             this.Hide();
-                            DoctorLayer doctorLayer = new DoctorLayer();
+                            DoctorLayer doctorLayer = new DoctorLayer("Doktor");
                             doctorLayer.Closed += (s, args) => this.Show(); // call the login window after secretary window closed
                             //doctorLayer.Closed += (s, args) => this.Close();
                             doctorLayer.Show();

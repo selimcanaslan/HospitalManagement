@@ -1,6 +1,6 @@
-﻿namespace HospitalManagement.Secretary.AccountLayer
+﻿namespace HospitalManagement.Doctor.DocAccountLayer
 {
-    partial class Account
+    partial class DocAccount
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.nameSurnameLabel = new System.Windows.Forms.Label();
-            this.tcnoLabel = new System.Windows.Forms.Label();
-            this.phoneNumberLabel = new System.Windows.Forms.Label();
-            this.mailLabel = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.addressTextBox = new System.Windows.Forms.RichTextBox();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.uploadProfilePicture = new Guna.UI2.WinForms.Guna2Button();
             this.updateInformations = new Guna.UI2.WinForms.Guna2Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,52 +43,61 @@
             this.tcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.mailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.surnameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.addressTextBox = new System.Windows.Forms.RichTextBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.profilePicture = new System.Windows.Forms.PictureBox();
+            this.mailLabel = new System.Windows.Forms.Label();
+            this.phoneNumberLabel = new System.Windows.Forms.Label();
+            this.tcnoLabel = new System.Windows.Forms.Label();
+            this.nameSurnameLabel = new System.Windows.Forms.Label();
+            this.closeWindowButton = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
-            // nameSurnameLabel
+            // label10
             // 
-            this.nameSurnameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameSurnameLabel.Location = new System.Drawing.Point(12, 231);
-            this.nameSurnameLabel.Name = "nameSurnameLabel";
-            this.nameSurnameLabel.Size = new System.Drawing.Size(268, 25);
-            this.nameSurnameLabel.TabIndex = 43;
-            this.nameSurnameLabel.Text = "NameSurname";
-            this.nameSurnameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(309, 256);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(41, 16);
+            this.label10.TabIndex = 102;
+            this.label10.Text = "Adres";
             // 
-            // tcnoLabel
+            // addressTextBox
             // 
-            this.tcnoLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcnoLabel.Location = new System.Drawing.Point(12, 261);
-            this.tcnoLabel.Name = "tcnoLabel";
-            this.tcnoLabel.Size = new System.Drawing.Size(268, 25);
-            this.tcnoLabel.TabIndex = 44;
-            this.tcnoLabel.Text = "tcno";
-            this.tcnoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.addressTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
+            this.addressTextBox.Location = new System.Drawing.Point(304, 272);
+            this.addressTextBox.Name = "addressTextBox";
+            this.addressTextBox.Size = new System.Drawing.Size(300, 63);
+            this.addressTextBox.TabIndex = 103;
+            this.addressTextBox.Text = "";
             // 
-            // phoneNumberLabel
+            // guna2TextBox1
             // 
-            this.phoneNumberLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.phoneNumberLabel.Location = new System.Drawing.Point(12, 321);
-            this.phoneNumberLabel.Name = "phoneNumberLabel";
-            this.phoneNumberLabel.Size = new System.Drawing.Size(268, 25);
-            this.phoneNumberLabel.TabIndex = 45;
-            this.phoneNumberLabel.Text = "phoneNumber";
-            this.phoneNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // mailLabel
-            // 
-            this.mailLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mailLabel.Location = new System.Drawing.Point(12, 291);
-            this.mailLabel.Name = "mailLabel";
-            this.mailLabel.Size = new System.Drawing.Size(268, 25);
-            this.mailLabel.TabIndex = 46;
-            this.mailLabel.Text = "mailAddress";
-            this.mailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.guna2TextBox1.Animated = true;
+            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2TextBox1.BorderRadius = 2;
+            this.guna2TextBox1.BorderThickness = 2;
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FillColor = System.Drawing.SystemColors.AppWorkspace;
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.Red;
+            this.guna2TextBox1.Font = new System.Drawing.Font("Cambria", 14.25F);
+            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.guna2TextBox1.Location = new System.Drawing.Point(301, 264);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '\0';
+            this.guna2TextBox1.PlaceholderText = "";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(306, 75);
+            this.guna2TextBox1.TabIndex = 104;
             // 
             // uploadProfilePicture
             // 
@@ -101,10 +109,10 @@
             this.uploadProfilePicture.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.uploadProfilePicture.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.uploadProfilePicture.ForeColor = System.Drawing.Color.White;
-            this.uploadProfilePicture.Location = new System.Drawing.Point(209, 12);
+            this.uploadProfilePicture.Location = new System.Drawing.Point(207, 10);
             this.uploadProfilePicture.Name = "uploadProfilePicture";
             this.uploadProfilePicture.Size = new System.Drawing.Size(71, 194);
-            this.uploadProfilePicture.TabIndex = 68;
+            this.uploadProfilePicture.TabIndex = 101;
             this.uploadProfilePicture.Text = "Upload File";
             this.uploadProfilePicture.Click += new System.EventHandler(this.uploadProfilePicture_Click);
             // 
@@ -118,10 +126,10 @@
             this.updateInformations.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.updateInformations.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.updateInformations.ForeColor = System.Drawing.Color.White;
-            this.updateInformations.Location = new System.Drawing.Point(303, 346);
+            this.updateInformations.Location = new System.Drawing.Point(421, 344);
             this.updateInformations.Name = "updateInformations";
-            this.updateInformations.Size = new System.Drawing.Size(306, 36);
-            this.updateInformations.TabIndex = 67;
+            this.updateInformations.Size = new System.Drawing.Size(186, 36);
+            this.updateInformations.TabIndex = 100;
             this.updateInformations.Text = "Bilgileri Güncelle";
             this.updateInformations.Click += new System.EventHandler(this.updateInformations_Click);
             // 
@@ -129,40 +137,40 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(311, 110);
+            this.label1.Location = new System.Drawing.Point(309, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 16);
-            this.label1.TabIndex = 66;
+            this.label1.TabIndex = 99;
             this.label1.Text = "T.C No";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(311, 9);
+            this.label3.Location = new System.Drawing.Point(309, 7);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(23, 16);
-            this.label3.TabIndex = 61;
+            this.label3.TabIndex = 95;
             this.label3.Text = "Ad";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(311, 208);
+            this.label9.Location = new System.Drawing.Point(309, 206);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(47, 16);
-            this.label9.TabIndex = 64;
+            this.label9.TabIndex = 98;
             this.label9.Text = "Telefon";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(311, 159);
+            this.label8.Location = new System.Drawing.Point(309, 157);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 16);
-            this.label8.TabIndex = 63;
+            this.label8.TabIndex = 97;
             this.label8.Text = "Mail";
             // 
             // phoneTextBox
@@ -182,14 +190,14 @@
             this.phoneTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.phoneTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
-            this.phoneTextBox.Location = new System.Drawing.Point(303, 216);
+            this.phoneTextBox.Location = new System.Drawing.Point(301, 214);
             this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.PasswordChar = '\0';
             this.phoneTextBox.PlaceholderText = "";
             this.phoneTextBox.SelectedText = "";
             this.phoneTextBox.Size = new System.Drawing.Size(306, 40);
-            this.phoneTextBox.TabIndex = 59;
+            this.phoneTextBox.TabIndex = 94;
             // 
             // nameTextBox
             // 
@@ -208,23 +216,23 @@
             this.nameTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
-            this.nameTextBox.Location = new System.Drawing.Point(303, 18);
+            this.nameTextBox.Location = new System.Drawing.Point(301, 16);
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.PasswordChar = '\0';
             this.nameTextBox.PlaceholderText = "";
             this.nameTextBox.SelectedText = "";
             this.nameTextBox.Size = new System.Drawing.Size(306, 40);
-            this.nameTextBox.TabIndex = 55;
+            this.nameTextBox.TabIndex = 90;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(311, 59);
+            this.label7.Location = new System.Drawing.Point(309, 57);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 16);
-            this.label7.TabIndex = 62;
+            this.label7.TabIndex = 96;
             this.label7.Text = "Soyad";
             // 
             // tcnoTextBox
@@ -244,14 +252,14 @@
             this.tcnoTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcnoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
-            this.tcnoTextBox.Location = new System.Drawing.Point(303, 117);
+            this.tcnoTextBox.Location = new System.Drawing.Point(301, 115);
             this.tcnoTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tcnoTextBox.Name = "tcnoTextBox";
             this.tcnoTextBox.PasswordChar = '\0';
             this.tcnoTextBox.PlaceholderText = "";
             this.tcnoTextBox.SelectedText = "";
             this.tcnoTextBox.Size = new System.Drawing.Size(306, 40);
-            this.tcnoTextBox.TabIndex = 57;
+            this.tcnoTextBox.TabIndex = 92;
             // 
             // mailTextBox
             // 
@@ -270,14 +278,14 @@
             this.mailTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
             this.mailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
-            this.mailTextBox.Location = new System.Drawing.Point(303, 166);
+            this.mailTextBox.Location = new System.Drawing.Point(301, 164);
             this.mailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.mailTextBox.Name = "mailTextBox";
             this.mailTextBox.PasswordChar = '\0';
             this.mailTextBox.PlaceholderText = "";
             this.mailTextBox.SelectedText = "";
             this.mailTextBox.Size = new System.Drawing.Size(306, 40);
-            this.mailTextBox.TabIndex = 58;
+            this.mailTextBox.TabIndex = 93;
             // 
             // surnameTextBox
             // 
@@ -297,82 +305,91 @@
             this.surnameTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.surnameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
-            this.surnameTextBox.Location = new System.Drawing.Point(303, 67);
+            this.surnameTextBox.Location = new System.Drawing.Point(301, 65);
             this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.PasswordChar = '\0';
             this.surnameTextBox.PlaceholderText = "";
             this.surnameTextBox.SelectedText = "";
             this.surnameTextBox.Size = new System.Drawing.Size(306, 40);
-            this.surnameTextBox.TabIndex = 56;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(311, 258);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 16);
-            this.label10.TabIndex = 82;
-            this.label10.Text = "Adres";
-            // 
-            // addressTextBox
-            // 
-            this.addressTextBox.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.addressTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.addressTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F);
-            this.addressTextBox.Location = new System.Drawing.Point(306, 274);
-            this.addressTextBox.Name = "addressTextBox";
-            this.addressTextBox.Size = new System.Drawing.Size(300, 63);
-            this.addressTextBox.TabIndex = 83;
-            this.addressTextBox.Text = "";
-            this.addressTextBox.Enter += new System.EventHandler(this.addressTextBox_Enter);
-            this.addressTextBox.Leave += new System.EventHandler(this.addressTextBox_Leave);
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.Animated = true;
-            this.guna2TextBox1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2TextBox1.BorderRadius = 2;
-            this.guna2TextBox1.BorderThickness = 2;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FillColor = System.Drawing.SystemColors.AppWorkspace;
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.guna2TextBox1.Font = new System.Drawing.Font("Cambria", 14.25F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.Red;
-            this.guna2TextBox1.Location = new System.Drawing.Point(303, 266);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PasswordChar = '\0';
-            this.guna2TextBox1.PlaceholderText = "";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(306, 75);
-            this.guna2TextBox1.TabIndex = 84;
+            this.surnameTextBox.TabIndex = 91;
             // 
             // profilePicture
             // 
             this.profilePicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.profilePicture.Image = global::HospitalManagement.Properties.Resources.ppholder;
             this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(12, 12);
+            this.profilePicture.Location = new System.Drawing.Point(10, 10);
             this.profilePicture.Name = "profilePicture";
             this.profilePicture.Size = new System.Drawing.Size(191, 194);
             this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 54;
+            this.profilePicture.TabIndex = 89;
             this.profilePicture.TabStop = false;
             // 
-            // Account
+            // mailLabel
+            // 
+            this.mailLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mailLabel.Location = new System.Drawing.Point(10, 289);
+            this.mailLabel.Name = "mailLabel";
+            this.mailLabel.Size = new System.Drawing.Size(268, 25);
+            this.mailLabel.TabIndex = 88;
+            this.mailLabel.Text = "mailAddress";
+            this.mailLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // phoneNumberLabel
+            // 
+            this.phoneNumberLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.phoneNumberLabel.Location = new System.Drawing.Point(10, 319);
+            this.phoneNumberLabel.Name = "phoneNumberLabel";
+            this.phoneNumberLabel.Size = new System.Drawing.Size(268, 25);
+            this.phoneNumberLabel.TabIndex = 87;
+            this.phoneNumberLabel.Text = "phoneNumber";
+            this.phoneNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tcnoLabel
+            // 
+            this.tcnoLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcnoLabel.Location = new System.Drawing.Point(10, 259);
+            this.tcnoLabel.Name = "tcnoLabel";
+            this.tcnoLabel.Size = new System.Drawing.Size(268, 25);
+            this.tcnoLabel.TabIndex = 86;
+            this.tcnoLabel.Text = "tcno";
+            this.tcnoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // nameSurnameLabel
+            // 
+            this.nameSurnameLabel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameSurnameLabel.Location = new System.Drawing.Point(10, 229);
+            this.nameSurnameLabel.Name = "nameSurnameLabel";
+            this.nameSurnameLabel.Size = new System.Drawing.Size(268, 25);
+            this.nameSurnameLabel.TabIndex = 85;
+            this.nameSurnameLabel.Text = "NameSurname";
+            this.nameSurnameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // closeWindowButton
+            // 
+            this.closeWindowButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeWindowButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.closeWindowButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.closeWindowButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.closeWindowButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.closeWindowButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.closeWindowButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.closeWindowButton.ForeColor = System.Drawing.Color.White;
+            this.closeWindowButton.Location = new System.Drawing.Point(301, 344);
+            this.closeWindowButton.Name = "closeWindowButton";
+            this.closeWindowButton.Size = new System.Drawing.Size(114, 36);
+            this.closeWindowButton.TabIndex = 105;
+            this.closeWindowButton.Text = "KAPAT";
+            this.closeWindowButton.Click += new System.EventHandler(this.closeWindowButton_Click);
+            // 
+            // DocAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(617, 387);
+            this.Controls.Add(this.closeWindowButton);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.addressTextBox);
             this.Controls.Add(this.guna2TextBox1);
@@ -393,13 +410,11 @@
             this.Controls.Add(this.phoneNumberLabel);
             this.Controls.Add(this.tcnoLabel);
             this.Controls.Add(this.nameSurnameLabel);
-            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Account";
-            this.ShowInTaskbar = false;
+            this.Name = "DocAccount";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Account";
-            this.Load += new System.EventHandler(this.Account_Load);
+            this.Text = "DocAccount";
+            this.Load += new System.EventHandler(this.DocAccount_Load);
             ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -407,10 +422,10 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label nameSurnameLabel;
-        private System.Windows.Forms.Label tcnoLabel;
-        private System.Windows.Forms.Label phoneNumberLabel;
-        private System.Windows.Forms.Label mailLabel;
+
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.RichTextBox addressTextBox;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private Guna.UI2.WinForms.Guna2Button uploadProfilePicture;
         private Guna.UI2.WinForms.Guna2Button updateInformations;
         private System.Windows.Forms.Label label1;
@@ -424,8 +439,10 @@
         private Guna.UI2.WinForms.Guna2TextBox mailTextBox;
         private Guna.UI2.WinForms.Guna2TextBox surnameTextBox;
         private System.Windows.Forms.PictureBox profilePicture;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RichTextBox addressTextBox;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private System.Windows.Forms.Label mailLabel;
+        private System.Windows.Forms.Label phoneNumberLabel;
+        private System.Windows.Forms.Label tcnoLabel;
+        private System.Windows.Forms.Label nameSurnameLabel;
+        private Guna.UI2.WinForms.Guna2Button closeWindowButton;
     }
 }

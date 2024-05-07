@@ -185,6 +185,12 @@
     <Compile Include="Dialog\Toast.Designer.cs">
       <DependentUpon>Toast.cs</DependentUpon>
     </Compile>
+    <Compile Include="Doctor\DocAccountLayer\DocAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor\DocAccountLayer\DocAccount.Designer.cs">
+      <DependentUpon>DocAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Doctor\DoctorLayer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +298,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\Toast.resx">
       <DependentUpon>Toast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\DocAccountLayer\DocAccount.resx">
+      <DependentUpon>DocAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\DoctorLayer.resx">
       <DependentUpon>DoctorLayer.cs</DependentUpon>
