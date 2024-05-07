@@ -108,5 +108,30 @@ namespace HospitalManagement.Secretary.DeleteDoctorLayer
                 }
             }
         }
+
+        private void dgvDoctor_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void doctorNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void guna2HtmlToolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -392,6 +392,24 @@ namespace DataAccessLayer
             }
             return dt;
         }
+        public DataTable FetchPatientBytcNoForDeleteAndUpdate(string tcNo)
+        {
+            DataTable dt = new DataTable();
+            string query = $"SELECT tc_no, name + ' ' + surname as full_name, mail, phone_number, address, registiration_date FROM Patient WHERE tc_no ='{tcNo}'";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
         public DataTable fetchAllAwaitingAppointments()
         {
             DataTable dt = new DataTable();
@@ -499,5 +517,58 @@ namespace DataAccessLayer
             }
             return dt;
         }
+        public DataTable FetchAllPatients()
+        {
+            DataTable dt = new DataTable();
+            string query = "SELECT tc_no, name + ' ' + surname as full_name, mail, phone_number, address, registiration_date FROM Patient";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public bool DeletePatientByTcNo(string tcNo)
+        {
+            bool response = false;
+            string query = $"DELETE FROM Patient WHERE tc_no={tcNo}";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            try
+            {
+
+                int rowsAffected = com.ExecuteNonQuery();
+                if (rowsAffected > 0) { response = true; }
+                else { response = false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
+            return response;
+        }
+        public bool UpdatePatient(string tcNo, string name, string surname, string mail, string phone, string address)
+        {
+            bool response = false;
+            string query = $"EXEC UpdatePatient '{tcNo}', '{name}', '{surname}', '{mail}', '{phone}', '{address}'";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            try
+            {
+
+                int rowsAffected = com.ExecuteNonQuery();
+                if (rowsAffected > 0) { response = true; }
+                else { response = false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
+            return response;
+        }
+        
     }
 }

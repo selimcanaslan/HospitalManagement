@@ -110,6 +110,12 @@
     <Compile Include="Dialog\InfoMessage.Designer.cs">
       <DependentUpon>InfoMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dialog\OptionDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\OptionDialog.Designer.cs">
+      <DependentUpon>OptionDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\Toast.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -179,6 +185,12 @@
       <DependentUpon>DeleteSecretary.cs</DependentUpon>
     </Compile>
     <Compile Include="Secretary\FTPHelper.cs" />
+    <Compile Include="Secretary\PatientEditLayer\PatientEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Secretary\PatientEditLayer\PatientEdit.Designer.cs">
+      <DependentUpon>PatientEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Secretary\PatientFeaturesLayer\PatientFeatures.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +223,9 @@
     </Compile>
     <EmbeddedResource Include="Dialog\InfoMessage.resx">
       <DependentUpon>InfoMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\OptionDialog.resx">
+      <DependentUpon>OptionDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dialog\Toast.resx">
       <DependentUpon>Toast.cs</DependentUpon>
@@ -254,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Secretary\DeleteSecretaryLayer\DeleteSecretary.resx">
       <DependentUpon>DeleteSecretary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Secretary\PatientEditLayer\PatientEdit.resx">
+      <DependentUpon>PatientEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Secretary\PatientFeaturesLayer\PatientFeatures.resx">
       <DependentUpon>PatientFeatures.cs</DependentUpon>

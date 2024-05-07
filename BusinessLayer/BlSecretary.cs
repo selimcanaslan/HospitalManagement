@@ -3,8 +3,11 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Net;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace BusinessLayer
 {
@@ -100,6 +103,10 @@ namespace BusinessLayer
         {
             return _dalSecretary.FetchPatientBytcNo(tcNo);
         }
+        public DataTable FetchPatientBytcNoForDeleteAndUpdate(string tcNo)
+        {
+            return _dalSecretary.FetchPatientBytcNoForDeleteAndUpdate(tcNo);
+        }
         public DataTable fetchAllAwaitingAppointments()
         {
             return _dalSecretary.fetchAllAwaitingAppointments();
@@ -124,5 +131,18 @@ namespace BusinessLayer
         {
             return _dalSecretary.FetchPatientCountGroupedBySection();
         }
+        public DataTable FetchAllPatients()
+        {
+            return _dalSecretary.FetchAllPatients();
+        }
+        public bool DeletePatientByTcNo(string tcNo)
+        {
+            return _dalSecretary.DeletePatientByTcNo(tcNo);
+        }
+        public bool UpdatePatient(string tcNo, string name, string surname, string mail, string phone, string address)
+        {
+            return _dalSecretary.UpdatePatient(tcNo, name, surname, mail, phone, address);
+        }
+
     }
 }

@@ -21,7 +21,7 @@ namespace DataAccessLayer
         public DbConnect()
         {
             exception = null;
-            con = new SqlConnection(SQLConnectionStringLocal);
+            con = new SqlConnection(SQLConnectionStringSomee);
             if (con.State == ConnectionState.Closed)
             {
                 try

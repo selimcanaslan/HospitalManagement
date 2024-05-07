@@ -73,7 +73,7 @@
             this.doctorNameTextBox.ForeColor = System.Drawing.Color.White;
             this.doctorNameTextBox.HoverState.BorderColor = System.Drawing.Color.White;
             this.doctorNameTextBox.Location = new System.Drawing.Point(0, 0);
-            this.doctorNameTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.doctorNameTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.doctorNameTextBox.Name = "doctorNameTextBox";
             this.doctorNameTextBox.PasswordChar = '\0';
             this.doctorNameTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
@@ -81,11 +81,17 @@
             this.doctorNameTextBox.SelectedText = "";
             this.doctorNameTextBox.Size = new System.Drawing.Size(617, 45);
             this.doctorNameTextBox.TabIndex = 8;
+            this.doctorNameTextBox.TextChanged += new System.EventHandler(this.doctorNameTextBox_TextChanged);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
             // guna2HtmlToolTip1
             // 
             this.guna2HtmlToolTip1.AllowLinksHandling = true;
             this.guna2HtmlToolTip1.MaximumSize = new System.Drawing.Size(0, 0);
+            this.guna2HtmlToolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.guna2HtmlToolTip1_Popup);
             // 
             // guna2Button1
             // 
@@ -112,6 +118,7 @@
             this.guna2Button1.PressedColor = System.Drawing.Color.Empty;
             this.guna2Button1.Size = new System.Drawing.Size(20, 41);
             this.guna2Button1.TabIndex = 11;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // dgvDoctor
             // 
@@ -158,6 +165,7 @@
             this.dgvDoctor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDoctor.Size = new System.Drawing.Size(617, 340);
             this.dgvDoctor.TabIndex = 12;
+            this.dgvDoctor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDoctor_CellContentClick);
             this.dgvDoctor.Click += new System.EventHandler(this.dgvDoctor_Click);
             // 
             // DeleteDoctor

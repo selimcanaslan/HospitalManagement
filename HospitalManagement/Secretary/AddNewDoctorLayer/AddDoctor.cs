@@ -186,8 +186,17 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
             ofd.FileName = "Image Files (JPG,PNG,GIF,JPEG) | *.JPG;*.PNG;*.GIF;*.JPEG";
             if (ofd.ShowDialog() == DialogResult.OK)
             {
-                profilePicture.Image = Image.FromFile(ofd.FileName);
-                importedProfilePicture = ofd.FileName;
+                var size = new FileInfo(ofd.FileName).Length;
+                if (size < 120000)
+                {
+                    profilePicture.Image = Image.FromFile(ofd.FileName);
+                    importedProfilePicture = ofd.FileName;
+                }
+                else
+                {
+                    InfoMessage infoMessage = new InfoMessage("Dosya Boyutu 120Kb'dan Fazla Olamaz!", "Bilgi");
+                    infoMessage.ShowDialog();
+                }
             }
         }
         private string sendNewProfilePictureViaFtp(string imagePath, string identifier = "")

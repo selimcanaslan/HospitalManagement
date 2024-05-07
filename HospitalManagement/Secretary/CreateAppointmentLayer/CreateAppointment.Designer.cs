@@ -275,7 +275,7 @@
             this.tcNoToSearchTextBox.Dock = System.Windows.Forms.DockStyle.Top;
             this.tcNoToSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.tcNoToSearchTextBox.FocusedState.BorderColor = System.Drawing.Color.White;
-            this.tcNoToSearchTextBox.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tcNoToSearchTextBox.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcNoToSearchTextBox.ForeColor = System.Drawing.Color.White;
             this.tcNoToSearchTextBox.HoverState.BorderColor = System.Drawing.Color.White;
             this.tcNoToSearchTextBox.Location = new System.Drawing.Point(0, 0);

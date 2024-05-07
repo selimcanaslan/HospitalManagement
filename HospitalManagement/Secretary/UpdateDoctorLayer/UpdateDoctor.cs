@@ -96,8 +96,18 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                 ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    profilePicture.Image = Image.FromFile(ofd.FileName);
-                    doctorProfilePicture = ofd.FileName;
+                    var size = new FileInfo(ofd.FileName).Length;
+                    if (size < 120000)
+                    {
+                        profilePicture.Image = Image.FromFile(ofd.FileName);
+                        doctorProfilePicture = ofd.FileName;
+                    }
+                    else
+                    {
+                        InfoMessage infoMessage = new InfoMessage("Dosya Boyutu 120Kb'dan Fazla Olamaz!", "Bilgi");
+                        infoMessage.ShowDialog();
+                    }
+                        
                 }
             }
             else
