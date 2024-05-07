@@ -87,9 +87,7 @@ CREATE TABLE Appointment(
 	is_examination_done bit DEFAULT 0,
 	appointment_created datetime DEFAULT getdate()
 );
-DROP TABLE Appointment
-SELECT * FROM Patient
-SELECT * FROM Appointment
+
 SELECT COUNT(patient_tc_no) as hasta_sayisi, doctor_tc_no FROM Appointment GROUP BY doctor_tc_no
 
 CREATE TABLE Examination(
@@ -105,11 +103,11 @@ CREATE PROCEDURE FetchAllAwaitingAppointments
 AS
 BEGIN
 SELECT Patient.name + ' ' + Patient.surname as patient_name,patient_tc_no,section,Doctor.doctor_name + ' ' + Doctor.doctor_surname as doctor_name,
-FORMAT(examination_time,'yyyy-MM-dd') as examination_time,examination_hour
+FORMAT(examination_time,'yyyy-MM-dd') as examination_time,examination_hour,Appointment.id
 FROM Appointment
 INNER JOIN Doctor ON Appointment.doctor_tc_no = Doctor.tc_no
 INNER JOIN Patient ON Appointment.patient_tc_no = Patient.tc_no
-WHERE is_examination_done = 0
+WHERE is_examination_done = 0 AND FORMAT(examination_time,'yyyy-MM-dd') >= FORMAT(GETDATE(),'yyyy-MM-dd')
 END
 GO
 
@@ -142,6 +140,15 @@ WHERE is_examination_done = 0 AND FORMAT(examination_time,'yyyy-MM-dd') = @date
 END
 GO
 
+GO
+CREATE PROCEDURE UpdateAppointmentState
+@id int
+AS
+BEGIN
+UPDATE Appointment SET is_examination_done = 1
+WHERE id = @id
+END
+GO
 
 CREATE TABLE Appointment_Hours(
 	id int identity(1,1) PRIMARY KEY CLUSTERED,
@@ -207,15 +214,15 @@ INNER JOIN Sections ON Doctor.section_id = Sections.Id;
 END
 GO
 
-
+SELECT COUNT(patient_tc_no) as hasta_sayisi,doctor_tc_no FROM Appointment GROUP BY doctor_tc_no
 
 
 
 INSERT Secretary VALUES ('21824004326','Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
 INSERT Secretary VALUES ('21824324326','Muhammet Yusuf', 'ASLAN', 'doktoryusuf@gmail.com', '5555345555', 'Mersin Toroslar')
 
-SELECT * FROM Secretary
-SELECT * FROM Secretary_Login_Info
+SELECT * FROM Appointment
+SELECT * FROM Patient
 
 SELECT * FROM Doctor
 SELECT * FROM Doctor_Login_Info

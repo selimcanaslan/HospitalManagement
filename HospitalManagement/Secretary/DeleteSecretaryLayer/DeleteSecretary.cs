@@ -31,7 +31,6 @@ namespace HospitalManagement.Secretary.DeleteSecretaryLayer
         private void updateDgv()
         {
             dgvSecretary.DataSource = _blSecretary.fetchAllSecretary();
-
         }
 
         private void searchButton_Click(object sender, EventArgs e)

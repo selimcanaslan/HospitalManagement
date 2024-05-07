@@ -112,6 +112,17 @@ namespace BusinessLayer
         {
             return _dalSecretary.FetchAwaitingAppointmentsFilteredByDate(date);
         }
-        
+        public bool updateAppointmentState(int id)
+        {
+            return _dalSecretary.updateAppointmentState(id);
+        }
+        public DataTable FetchPatientCountGroupedByDoctor()
+        {
+            return _dalSecretary.FetchPatientCountGroupedByDoctor();
+        }
+        public DataTable FetchPatientCountGroupedBySection()
+        {
+            return _dalSecretary.FetchPatientCountGroupedBySection();
+        }
     }
 }

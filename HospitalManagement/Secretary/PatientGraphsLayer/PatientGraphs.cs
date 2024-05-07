@@ -1,4 +1,5 @@
-﻿using HospitalManagement.Dialog;
+﻿using BusinessLayer;
+using HospitalManagement.Dialog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,22 +15,24 @@ namespace HospitalManagement.Secretary.PatientGraphsLayer
 {
     public partial class PatientGraphs : Form
     {
+        private BlSecretary blSecretary;
         public PatientGraphs()
         {
             InitializeComponent();
+            blSecretary = new BlSecretary();
         }
 
         private void PatientGraphs_Load(object sender, EventArgs e)
         {
-            string[] cmbItems = {"Grafik Verisini Seçiniz","Doktor'a Göre Hasta Sayısı", "Muayene Bölümüne Göre Hasta Sayısı" };
+            string[] cmbItems = { "Grafik Verisini Seçiniz", "Doktor'a Göre Hasta Sayısı", "Muayene Bölümüne Göre Hasta Sayısı" };
             dataComboBox.Items.AddRange(cmbItems);
             dataComboBox.SelectedIndex = 0;
         }
-        private void BarPlot()
+        private void Plot(double[] numericData, string[] textData, string xLabelText, string yLabelText, string titleText)
         {
             // generate some fake data
-            double[] y = { 1, 2, 3, 9, 1, 15, 3, 7, 2 };
-            string[] schools = { "A", "B", "C", "D", "E", "F", "G", "H", "J" };
+            double[] y = numericData;
+            string[] names = textData;
 
             //generate pane
             var pane = zedGraphControl1.GraphPane;
@@ -41,8 +44,12 @@ namespace HospitalManagement.Secretary.PatientGraphsLayer
             pane.XAxis.MajorGrid.IsVisible = true;
             pane.YAxis.MajorGrid.IsVisible = true;
 
-            pane.XAxis.Scale.TextLabels = schools;
+            pane.XAxis.Scale.TextLabels = names;
             pane.XAxis.Type = AxisType.Text;
+
+            pane.XAxis.Title.Text = xLabelText;
+            pane.YAxis.Title.Text = yLabelText;
+            pane.Title.Text = titleText;
 
 
             //var pointsCurve;
@@ -69,10 +76,37 @@ namespace HospitalManagement.Secretary.PatientGraphsLayer
             int selectedIndex = dataComboBox.SelectedIndex;
             if (selectedIndex == 1)
             {
-
+                List<double> countsList = new List<double>();
+                List<string> nameList = new List<string>();
+                double[] countsArray;
+                string[] nameArray;
+                DataTable data = blSecretary.FetchPatientCountGroupedByDoctor();
+                foreach (DataRow row in data.Rows)
+                {
+                    countsList.Add(Int16.Parse(row["hasta_sayisi"].ToString()));
+                    DataTable nameDt = blSecretary.fetchDoctorByGivenTcNo(row["doctor_tc_no"].ToString());
+                    string name = nameDt.Rows[0]["doctor_name"].ToString() + " " + nameDt.Rows[0]["doctor_surname"].ToString();
+                    nameList.Add(name);
+                }
+                countsArray = countsList.ToArray();
+                nameArray = nameList.ToArray();
+                Plot(countsArray, nameArray, "Doktor Adı", "Hasta Sayısı", "Doktor Başına Hasta Sayısı");
             }
             else if (selectedIndex == 2)
             {
+                List<double> countsList = new List<double>();
+                List<string> sectionList = new List<string>();
+                double[] countsArray;
+                string[] sectionArray;
+                DataTable data = blSecretary.FetchPatientCountGroupedBySection();
+                foreach (DataRow row in data.Rows)
+                {
+                    countsList.Add(Int16.Parse(row["hasta_sayisi"].ToString()));
+                    sectionList.Add(row["section"].ToString());
+                }
+                countsArray = countsList.ToArray();
+                sectionArray = sectionList.ToArray();
+                Plot(countsArray, sectionArray, "Bölüm Adı", "Hasta Sayısı", "Bölüm Başına Hasta Sayısı");
 
             }
             else

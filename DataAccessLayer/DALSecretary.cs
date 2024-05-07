@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using static System.Collections.Specialized.BitVector32;
 
 namespace DataAccessLayer
 {
@@ -444,6 +446,58 @@ namespace DataAccessLayer
             }
             return dt;
         }
-        
+        public bool updateAppointmentState(int id)
+        {
+            bool response = false;
+            string query = $"EXEC UpdateAppointmentState {id}";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            try
+            {
+
+                int rowsAffected = com.ExecuteNonQuery();
+                if (rowsAffected > 0) { response = true; }
+                else { response = false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
+            return response;
+        }
+        public DataTable FetchPatientCountGroupedByDoctor()
+        {
+            DataTable dt = new DataTable();
+            string query = "SELECT COUNT(patient_tc_no) as hasta_sayisi,doctor_tc_no FROM Appointment GROUP BY doctor_tc_no";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
+        public DataTable FetchPatientCountGroupedBySection()
+        {
+            DataTable dt = new DataTable();
+            string query = "SELECT COUNT(patient_tc_no) as hasta_sayisi,section FROM Appointment GROUP BY section";
+            com.Connection = con;
+            com.CommandText = query;
+            da.SelectCommand = com;
+            try
+            {
+                da.Fill(dt);
+            }
+            catch (SqlException ex)
+            {
+
+                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
+            }
+            return dt;
+        }
     }
 }
