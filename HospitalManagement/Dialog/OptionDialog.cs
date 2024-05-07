@@ -34,5 +34,10 @@ namespace HospitalManagement.Dialog
             response = "delete";
             this.Close();
         }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -167,6 +167,19 @@ END
 GO
 
 GO
+CREATE PROCEDURE fetchAllAwaitingAppointmentsFilteredByDoctorTcNo
+@tcNo varchar(11)
+AS
+BEGIN
+SELECT Patient.name + ' ' + Patient.surname as patient_name,patient_tc_no,section,
+FORMAT(examination_time,'yyyy-MM-dd') as examination_time,examination_hour
+FROM Appointment
+INNER JOIN Patient ON Appointment.patient_tc_no = Patient.tc_no
+WHERE is_examination_done = 0 AND doctor_tc_no = @tcNo AND FORMAT(examination_time,'yyyy-MM-dd') >= FORMAT(GETDATE(),'yyyy-MM-dd')
+END
+GO
+
+GO
 CREATE PROCEDURE UpdateAppointmentState
 @id int
 AS
@@ -207,10 +220,9 @@ GO
 CREATE PROCEDURE [dbo].[fetch_doctor_login_data]
 @user_name varchar(30),
 @password varchar(30)
-
 AS
 BEGIN
-SELECT user_name,password FROM Doctor_Login_Info WHERE user_name = @user_name AND password=@password
+SELECT tc_no,user_name,password FROM Doctor_Login_Info WHERE user_name = @user_name AND password=@password
 END
 GO
 
@@ -229,6 +241,7 @@ SELECT COUNT(patient_tc_no) as hasta_sayisi,doctor_tc_no FROM Appointment GROUP 
 
 
 INSERT Secretary VALUES ('21824004326','Selim Can', 'ASLAN', 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
+INSERT Doctor VALUES ('21824004326','Selim Can', 'ASLAN',1, 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
 INSERT Secretary VALUES ('21824324326','Muhammet Yusuf', 'ASLAN', 'doktoryusuf@gmail.com', '5555345555', 'Mersin Toroslar')
 ALTER TABLE Sections
     ALTER COLUMN name VARCHAR(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8;
@@ -257,4 +270,3 @@ SELECT * FROM Appointment
 SELECT * FROM Patient
 SELECT * FROM Doctor
 SELECT * FROM Doctor_Login_Info
-

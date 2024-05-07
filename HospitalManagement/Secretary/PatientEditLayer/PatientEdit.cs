@@ -13,7 +13,7 @@ namespace HospitalManagement.Secretary.PatientEditLayer
 {
     public partial class PatientEdit : Form
     {
-        public static bool confirmButtonResponse;
+        public static string confirmButtonResponse = "nonEdited";
         private BlSecretary blSecretary = new BlSecretary();
         public PatientEdit(string tcNo)
         {
@@ -34,6 +34,7 @@ namespace HospitalManagement.Secretary.PatientEditLayer
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            confirmButtonResponse = "nonEdited";
             this.Close();
         }
 
@@ -45,7 +46,11 @@ namespace HospitalManagement.Secretary.PatientEditLayer
             string mail = mailTextBox.Text;
             string phone = phoneTextBox.Text;
             string address = addressTextBox.Text;
-            confirmButtonResponse = blSecretary.UpdatePatient(tcNo, name, surname, mail, phone, address);
+            bool response = blSecretary.UpdatePatient(tcNo, name, surname, mail, phone, address);
+            if (response)
+            {
+                confirmButtonResponse = "OK";
+            }
             this.Close();
         }
     }

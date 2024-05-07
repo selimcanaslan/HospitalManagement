@@ -18,6 +18,7 @@ namespace EntityLayer
         private string _address { get; set; }
         private string _phoneNumber { get; set; }
         private string _authType { get; set; }
+        private int _sectionId { get; set; }
 
         public int Id
         {
@@ -70,6 +71,11 @@ namespace EntityLayer
         {
             get { return _authType; }
             set { _authType = value; }
+        }
+        public int SectionId
+        {
+            get { return _sectionId; }
+            set { _sectionId = value; }
         }
     }
 }

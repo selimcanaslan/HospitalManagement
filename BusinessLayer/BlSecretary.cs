@@ -143,6 +143,9 @@ namespace BusinessLayer
         {
             return _dalSecretary.UpdatePatient(tcNo, name, surname, mail, phone, address);
         }
-
+        public DataTable FetchAllAwaitingAppointmentsFilteredByDoctorTcNo(string tcNo)
+        {
+            return _dalSecretary.FetchAllAwaitingAppointmentsFilteredByDoctorTcNo(tcNo);
+        }
     }
 }

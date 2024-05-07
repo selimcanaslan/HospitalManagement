@@ -20,13 +20,14 @@ namespace HospitalManagement
 {
     public partial class LoginWindow : Form
     {
+        private BlSecretary blSecretary;
         private BlUserLogin _blUserLogin;
         private string auth_type;
         public static UserLoginEntity _userEntity;
         public LoginWindow()
         {
             InitializeComponent();
-
+            blSecretary = new BlSecretary();
         }
 
         private void LoginWindow_Load(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace HospitalManagement
                     DataTable user_info = new DataTable();
                     if (auth_type == "Secretary")
                     {
-                        BlSecretary blSecretary = new BlSecretary();
+                        
                         user_info = _blUserLogin.FetchSecretaryLoginInfo(user_name_textBox.Text, password_textBox.Text);
                         if (user_info.Rows.Count == 1)
                         {
@@ -85,8 +86,8 @@ namespace HospitalManagement
                             }
                             this.Hide();
                             SecretaryLayer secretaryLayer = new SecretaryLayer("secretary");
-                            //secretaryLayer.Closed += (s, args) => this.Show(); // call the login window after secretary window closed
-                            secretaryLayer.Closed += (s, args) => this.Close(); // close whole app after secretary window closed
+                            secretaryLayer.Closed += (s, args) => this.Show(); // call the login window after secretary window closed
+                            //secretaryLayer.Closed += (s, args) => this.Close(); // close whole app after secretary window closed
                             secretaryLayer.Show();
                         }
                         else
@@ -105,11 +106,23 @@ namespace HospitalManagement
                                 _userEntity.AuthType = auth_type;
                                 _userEntity.KullaniciAd = row["user_name"].ToString();
                                 _userEntity.KullaniciSifre = row["password"].ToString();
+                                _userEntity.Tcno = row["tc_no"].ToString();
+                            }
+                            DataTable LoggedInUser = blSecretary.fetchDoctorByGivenTcNo(_userEntity.Tcno);
+                            foreach (DataRow row in LoggedInUser.Rows)
+                            {
+                                _userEntity.Id = Int32.Parse(row["id"].ToString());
+                                _userEntity.Ad = row["doctor_name"].ToString();
+                                _userEntity.Soyad = row["doctor_surname"].ToString();
+                                _userEntity.Mail = row["mail"].ToString();
+                                _userEntity.PhoneNumber = row["phone_number"].ToString();
+                                _userEntity.Address = row["address"].ToString();
+                                _userEntity.SectionId = Int16.Parse(row["section_id"].ToString());
                             }
                             this.Hide();
                             DoctorLayer doctorLayer = new DoctorLayer();
-                            //secretaryLayer.Closed += (s, args) => this.Show(); // call the login window after secretary window closed
-                            doctorLayer.Closed += (s, args) => this.Close();
+                            doctorLayer.Closed += (s, args) => this.Show(); // call the login window after secretary window closed
+                            //doctorLayer.Closed += (s, args) => this.Close();
                             doctorLayer.Show();
                         }
                         else

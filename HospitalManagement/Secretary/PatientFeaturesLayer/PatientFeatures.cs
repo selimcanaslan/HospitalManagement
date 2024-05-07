@@ -51,11 +51,15 @@ namespace HospitalManagement.Secretary.PatientFeaturesLayer
                 {
                     PatientEdit patientEdit = new PatientEdit(Convert.ToString(selectedRow.Cells["tc_no"].Value));
                     patientEdit.ShowDialog();
-                    if (PatientEdit.confirmButtonResponse)
+                    if (PatientEdit.confirmButtonResponse == "OK")
                     {
                         updateDgv();
                         InfoMessage infoMessage = new InfoMessage("Hasta Bilgileri Başarıyla Düzenlendi!", "Bilgi");
                         infoMessage.ShowDialog();
+                    }
+                    else if (PatientEdit.confirmButtonResponse == "nonEdited")
+                    {
+                        return;
                     }
                     else
                     {
