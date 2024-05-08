@@ -30,7 +30,7 @@ namespace HospitalManagement.Secretary.PatientGraphsLayer
         }
         private void Plot(double[] numericData, string[] textData, string xLabelText, string yLabelText, string titleText)
         {
-            // generate some fake data
+            zedGraphControl1.GraphPane.CurveList.Clear();
             double[] y = numericData;
             string[] names = textData;
 
