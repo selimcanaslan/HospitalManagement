@@ -16,6 +16,7 @@ using iText.Kernel.Pdf.Canvas.Parser.ClipperLib;
 using HospitalManagement.Secretary;
 using HospitalManagement.Secretary.AccountLayer;
 using HospitalManagement.Doctor.DocAccountLayer;
+using HospitalManagement.Doctor.PrescriptionLayer;
 
 namespace HospitalManagement.Doctor
 {
@@ -99,7 +100,14 @@ namespace HospitalManagement.Doctor
 
         private void sendAppointmentDetailsToPatientViaMail_Click(object sender, EventArgs e)
         {
-
+            string patientName = $"{nameTextBox.Text + " " + surnameTextBox.Text}";
+            string doctorName = LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad;
+            string mailAddress = $"{mailTextBox.Text}";
+            string appointmentDataAndHour = $"{appointments.Rows[0]["examination_time"]} - {appointments.Rows[0]["examination_hour"]}";
+            string section = $"{appointments.Rows[0]["section"]}";
+            string title = $"{appointments.Rows[0]["examination_time"]} Tarihli Muayene Özetiniz";
+            Prescription prescription = new Prescription(title,patientName,doctorName,mailAddress,appointmentDataAndHour,section);
+            prescription.ShowDialog();
         }
     }
 }

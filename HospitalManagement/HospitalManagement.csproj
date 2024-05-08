@@ -197,6 +197,12 @@
     <Compile Include="Doctor\DoctorLayer.Designer.cs">
       <DependentUpon>DoctorLayer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Doctor\PrescriptionLayer\Prescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Doctor\PrescriptionLayer\Prescription.Designer.cs">
+      <DependentUpon>Prescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\ExitLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -304,6 +310,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\DoctorLayer.resx">
       <DependentUpon>DoctorLayer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Doctor\PrescriptionLayer\Prescription.resx">
+      <DependentUpon>Prescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\ExitLogin.resx">
       <DependentUpon>ExitLogin.cs</DependentUpon>
