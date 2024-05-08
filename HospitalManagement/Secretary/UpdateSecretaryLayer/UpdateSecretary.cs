@@ -155,7 +155,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                         try
                         {
                             string newFileName = $"{(nameTextBox.Text + surnameTextBox.Text).ToLower().Replace(" ", "")}.jpeg";
-                            ftpRequest = (FtpWebRequest)WebRequest.Create($"ftp://sca.somee.com/www.sca.somee.com/profilePictures/{(secretaryToUpdate.Rows[0]["name"].ToString() + secretaryToUpdate.Rows[0]["surname"].ToString()).ToLower().Replace(" ", "")}.jpeg");
+                            ftpRequest = (FtpWebRequest)WebRequest.Create($"\tftp://155.254.244.38/www.sca.somee.com/profilePictures/Secretary/{(secretaryToUpdate.Rows[0]["name"].ToString() + secretaryToUpdate.Rows[0]["surname"].ToString()).ToLower().Replace(" ", "")}.jpeg");
                             ftpRequest.Credentials = new NetworkCredential("sca33", "2XFfX2b6xQUTJ-U");
                             ftpRequest.UseBinary = true;
                             ftpRequest.UsePassive = true;

@@ -379,21 +379,6 @@
     <None Include="Resources\exclamation-mark.png" />
     <None Include="Resources\bar-chart.png" />
     <None Include="Resources\schedule.png" />
-    <None Include="Assets\Secretary\create.png" />
-    <None Include="Assets\Secretary\delete.png" />
-    <Content Include="Assets\Secretary\doctor.png" />
-    <None Include="Assets\Secretary\edit.png" />
-    <Content Include="Assets\Secretary\patient.png" />
-    <Content Include="Assets\Secretary\ppholder.png" />
-    <Content Include="Assets\Secretary\secretary.png" />
-    <None Include="Assets\common\exlamation_mark.png" />
-    <Content Include="Assets\hospital.ico" />
-    <Content Include="Assets\Login\exit.png" />
-    <Content Include="Assets\Login\login_pic.png" />
-    <Content Include="Assets\Login\medical-team.png" />
-    <Content Include="Assets\Login\password.png" />
-    <Content Include="Assets\Login\profile.png" />
-    <None Include="Assets\Secretary\secretary_registiration.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BusinessLayer\BusinessLayer.csproj">
@@ -406,7 +391,21 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Assets\Secretary\temp\" />
+    <Content Include="Assets\common\exlamation_mark.png" />
+    <Content Include="Assets\hospital.ico" />
+    <Content Include="Assets\Login\exit.png" />
+    <Content Include="Assets\Login\login_pic.png" />
+    <Content Include="Assets\Login\medical-team.png" />
+    <Content Include="Assets\Login\password.png" />
+    <Content Include="Assets\Login\profile.png" />
+    <Content Include="Assets\Secretary\create.png" />
+    <Content Include="Assets\Secretary\delete.png" />
+    <Content Include="Assets\Secretary\doctor.png" />
+    <Content Include="Assets\Secretary\edit.png" />
+    <Content Include="Assets\Secretary\patient.png" />
+    <Content Include="Assets\Secretary\ppholder.png" />
+    <Content Include="Assets\Secretary\secretary.png" />
+    <Content Include="Assets\Secretary\secretary_registiration.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -419,6 +418,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Secretary\temp\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

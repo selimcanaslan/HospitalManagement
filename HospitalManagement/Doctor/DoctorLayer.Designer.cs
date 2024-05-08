@@ -35,7 +35,6 @@
             this.minimizeControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.exitControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.topWindowPanel = new Guna.UI2.WinForms.Guna2Panel();
-            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.accountButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.windowName = new System.Windows.Forms.Label();
             this.topWindowPanelDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
@@ -60,11 +59,12 @@
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
+            this.sendAppointmentDetailsToPatientViaMail = new Guna.UI2.WinForms.Guna2Button();
+            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.topWindowPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAwaitingAppointments)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // minimizeControlBox
@@ -108,20 +108,6 @@
             this.topWindowPanel.ShadowDecoration.BorderRadius = 30;
             this.topWindowPanel.Size = new System.Drawing.Size(834, 29);
             this.topWindowPanel.TabIndex = 9;
-            // 
-            // profilePicture
-            // 
-            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.profilePicture.ImageRotate = 0F;
-            this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(710, 2);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.profilePicture.Size = new System.Drawing.Size(25, 25);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 0;
-            this.profilePicture.TabStop = false;
-            this.profilePicture.WaitOnLoad = true;
             // 
             // accountButton
             // 
@@ -173,7 +159,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.panel1.Controls.Add(this.guna2Button2);
+            this.panel1.Controls.Add(this.sendAppointmentDetailsToPatientViaMail);
             this.panel1.Controls.Add(this.guna2Button1);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.guna2TextBox2);
@@ -560,20 +546,35 @@
             this.guna2Button1.TabIndex = 111;
             this.guna2Button1.Text = "Görüşmeyi PDF\'e Aktar";
             // 
-            // guna2Button2
+            // sendAppointmentDetailsToPatientViaMail
             // 
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(474, 160);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(150, 45);
-            this.guna2Button2.TabIndex = 112;
-            this.guna2Button2.Text = "Görüşmeyi Hastaya Gönder";
+            this.sendAppointmentDetailsToPatientViaMail.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.sendAppointmentDetailsToPatientViaMail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.sendAppointmentDetailsToPatientViaMail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.sendAppointmentDetailsToPatientViaMail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.sendAppointmentDetailsToPatientViaMail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.sendAppointmentDetailsToPatientViaMail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.sendAppointmentDetailsToPatientViaMail.ForeColor = System.Drawing.Color.White;
+            this.sendAppointmentDetailsToPatientViaMail.Location = new System.Drawing.Point(474, 160);
+            this.sendAppointmentDetailsToPatientViaMail.Name = "sendAppointmentDetailsToPatientViaMail";
+            this.sendAppointmentDetailsToPatientViaMail.Size = new System.Drawing.Size(150, 45);
+            this.sendAppointmentDetailsToPatientViaMail.TabIndex = 112;
+            this.sendAppointmentDetailsToPatientViaMail.Text = "Görüşmeyi Hastaya Gönder";
+            this.sendAppointmentDetailsToPatientViaMail.Click += new System.EventHandler(this.sendAppointmentDetailsToPatientViaMail_Click);
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.profilePicture.ImageRotate = 0F;
+            this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(710, 2);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.profilePicture.Size = new System.Drawing.Size(25, 25);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 0;
+            this.profilePicture.TabStop = false;
+            this.profilePicture.WaitOnLoad = true;
             // 
             // DoctorLayer
             // 
@@ -592,10 +593,10 @@
             this.Load += new System.EventHandler(this.DoctorLayer_Load);
             this.topWindowPanel.ResumeLayout(false);
             this.topWindowPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAwaitingAppointments)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -630,6 +631,6 @@
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button sendAppointmentDetailsToPatientViaMail;
     }
 }

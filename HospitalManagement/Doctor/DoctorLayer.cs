@@ -96,5 +96,10 @@ namespace HospitalManagement.Doctor
             DocAccount account = new DocAccount();
             account.ShowDialog();
         }
+
+        private void sendAppointmentDetailsToPatientViaMail_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
