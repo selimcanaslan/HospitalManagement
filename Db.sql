@@ -214,7 +214,7 @@ BEGIN
 SELECT user_name,password,tc_no FROM Secretary_Login_Info WHERE user_name = @user_name AND password=@password
 END
 GO
-SELECT COUNT(patient_tc_no) as hasta_sayisi,section FROM Appointment GROUP BY section
+
 
 GO
 CREATE PROCEDURE [dbo].[fetch_doctor_login_data]

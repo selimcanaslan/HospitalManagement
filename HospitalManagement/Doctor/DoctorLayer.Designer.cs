@@ -35,14 +35,16 @@
             this.minimizeControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.exitControlBox = new Guna.UI2.WinForms.Guna2ControlBox();
             this.topWindowPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.accountButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.windowName = new System.Windows.Forms.Label();
             this.topWindowPanelDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.windowNameDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.refreshDgvButton = new Guna.UI2.WinForms.Guna2Button();
-            this.noAppointmentLabel = new System.Windows.Forms.Label();
-            this.dgvAwaitingAppointments = new System.Windows.Forms.DataGridView();
+            this.sendAppointmentDetailsToPatientViaMail = new Guna.UI2.WinForms.Guna2Button();
+            this.exportPdfButton = new Guna.UI2.WinForms.Guna2Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.addressTextBox = new System.Windows.Forms.RichTextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
@@ -56,15 +58,13 @@
             this.tcnoTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.mailTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.surnameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.sendAppointmentDetailsToPatientViaMail = new Guna.UI2.WinForms.Guna2Button();
-            this.profilePicture = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.refreshDgvButton = new Guna.UI2.WinForms.Guna2Button();
+            this.noAppointmentLabel = new System.Windows.Forms.Label();
+            this.dgvAwaitingAppointments = new System.Windows.Forms.DataGridView();
             this.topWindowPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAwaitingAppointments)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // minimizeControlBox
@@ -108,6 +108,20 @@
             this.topWindowPanel.ShadowDecoration.BorderRadius = 30;
             this.topWindowPanel.Size = new System.Drawing.Size(834, 29);
             this.topWindowPanel.TabIndex = 9;
+            // 
+            // profilePicture
+            // 
+            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.profilePicture.ImageRotate = 0F;
+            this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
+            this.profilePicture.Location = new System.Drawing.Point(710, 2);
+            this.profilePicture.Name = "profilePicture";
+            this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.profilePicture.Size = new System.Drawing.Size(25, 25);
+            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.profilePicture.TabIndex = 0;
+            this.profilePicture.TabStop = false;
+            this.profilePicture.WaitOnLoad = true;
             // 
             // accountButton
             // 
@@ -160,7 +174,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.panel1.Controls.Add(this.sendAppointmentDetailsToPatientViaMail);
-            this.panel1.Controls.Add(this.guna2Button1);
+            this.panel1.Controls.Add(this.exportPdfButton);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.guna2TextBox2);
             this.panel1.Controls.Add(this.label10);
@@ -185,79 +199,75 @@
             this.panel1.Size = new System.Drawing.Size(834, 385);
             this.panel1.TabIndex = 10;
             // 
-            // refreshDgvButton
+            // sendAppointmentDetailsToPatientViaMail
             // 
-            this.refreshDgvButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.refreshDgvButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.refreshDgvButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.refreshDgvButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.refreshDgvButton.FillColor = System.Drawing.Color.Orange;
-            this.refreshDgvButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.refreshDgvButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.refreshDgvButton.Location = new System.Drawing.Point(318, 305);
-            this.refreshDgvButton.Name = "refreshDgvButton";
-            this.refreshDgvButton.Size = new System.Drawing.Size(180, 45);
-            this.refreshDgvButton.TabIndex = 19;
-            this.refreshDgvButton.Text = "YENİLE";
-            this.refreshDgvButton.Visible = false;
-            this.refreshDgvButton.Click += new System.EventHandler(this.refreshDgvButton_Click);
+            this.sendAppointmentDetailsToPatientViaMail.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.sendAppointmentDetailsToPatientViaMail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.sendAppointmentDetailsToPatientViaMail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.sendAppointmentDetailsToPatientViaMail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.sendAppointmentDetailsToPatientViaMail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.sendAppointmentDetailsToPatientViaMail.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.sendAppointmentDetailsToPatientViaMail.ForeColor = System.Drawing.Color.White;
+            this.sendAppointmentDetailsToPatientViaMail.Location = new System.Drawing.Point(474, 160);
+            this.sendAppointmentDetailsToPatientViaMail.Name = "sendAppointmentDetailsToPatientViaMail";
+            this.sendAppointmentDetailsToPatientViaMail.Size = new System.Drawing.Size(150, 45);
+            this.sendAppointmentDetailsToPatientViaMail.TabIndex = 112;
+            this.sendAppointmentDetailsToPatientViaMail.Text = "Görüşmeyi Hastaya Gönder";
+            this.sendAppointmentDetailsToPatientViaMail.Click += new System.EventHandler(this.sendAppointmentDetailsToPatientViaMail_Click);
             // 
-            // noAppointmentLabel
+            // exportPdfButton
             // 
-            this.noAppointmentLabel.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.noAppointmentLabel.Location = new System.Drawing.Point(97, 260);
-            this.noAppointmentLabel.Name = "noAppointmentLabel";
-            this.noAppointmentLabel.Size = new System.Drawing.Size(638, 42);
-            this.noAppointmentLabel.TabIndex = 18;
-            this.noAppointmentLabel.Text = "BEKLEYEN RANDEVUNUZ BULUNMAMAKTADIR!";
-            this.noAppointmentLabel.Visible = false;
+            this.exportPdfButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.exportPdfButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.exportPdfButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.exportPdfButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.exportPdfButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.exportPdfButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.exportPdfButton.ForeColor = System.Drawing.Color.White;
+            this.exportPdfButton.Location = new System.Drawing.Point(318, 160);
+            this.exportPdfButton.Name = "exportPdfButton";
+            this.exportPdfButton.Size = new System.Drawing.Size(150, 45);
+            this.exportPdfButton.TabIndex = 111;
+            this.exportPdfButton.Text = "Görüşmeyi PDF\'e Aktar";
+            this.exportPdfButton.Click += new System.EventHandler(this.exportPdfButton_Click);
             // 
-            // dgvAwaitingAppointments
+            // label2
             // 
-            this.dgvAwaitingAppointments.AllowUserToAddRows = false;
-            this.dgvAwaitingAppointments.AllowUserToResizeColumns = false;
-            this.dgvAwaitingAppointments.AllowUserToResizeRows = false;
-            this.dgvAwaitingAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvAwaitingAppointments.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvAwaitingAppointments.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAwaitingAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvAwaitingAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAwaitingAppointments.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dgvAwaitingAppointments.EnableHeadersVisualStyles = false;
-            this.dgvAwaitingAppointments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.dgvAwaitingAppointments.Location = new System.Drawing.Point(0, 208);
-            this.dgvAwaitingAppointments.MultiSelect = false;
-            this.dgvAwaitingAppointments.Name = "dgvAwaitingAppointments";
-            this.dgvAwaitingAppointments.ReadOnly = true;
-            this.dgvAwaitingAppointments.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAwaitingAppointments.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvAwaitingAppointments.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvAwaitingAppointments.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvAwaitingAppointments.RowTemplate.Height = 25;
-            this.dgvAwaitingAppointments.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAwaitingAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAwaitingAppointments.Size = new System.Drawing.Size(834, 177);
-            this.dgvAwaitingAppointments.TabIndex = 17;
-            this.dgvAwaitingAppointments.Click += new System.EventHandler(this.dgvAwaitingAppointments_Click);
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(641, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 16);
+            this.label2.TabIndex = 110;
+            this.label2.Text = "Tahlil Sonuçları";
+            // 
+            // guna2TextBox2
+            // 
+            this.guna2TextBox2.Animated = true;
+            this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.guna2TextBox2.BorderRadius = 2;
+            this.guna2TextBox2.BorderThickness = 2;
+            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox2.DefaultText = "";
+            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox2.FillColor = System.Drawing.SystemColors.AppWorkspace;
+            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.Red;
+            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2TextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
+            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.guna2TextBox2.Location = new System.Drawing.Point(631, 17);
+            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.guna2TextBox2.Multiline = true;
+            this.guna2TextBox2.Name = "guna2TextBox2";
+            this.guna2TextBox2.PasswordChar = '\0';
+            this.guna2TextBox2.PlaceholderText = "";
+            this.guna2TextBox2.ReadOnly = true;
+            this.guna2TextBox2.SelectedText = "";
+            this.guna2TextBox2.Size = new System.Drawing.Size(199, 188);
+            this.guna2TextBox2.TabIndex = 109;
             // 
             // label10
             // 
@@ -493,88 +503,79 @@
             this.surnameTextBox.Size = new System.Drawing.Size(306, 40);
             this.surnameTextBox.TabIndex = 97;
             // 
-            // guna2TextBox2
+            // refreshDgvButton
             // 
-            this.guna2TextBox2.Animated = true;
-            this.guna2TextBox2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2TextBox2.BorderRadius = 2;
-            this.guna2TextBox2.BorderThickness = 2;
-            this.guna2TextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox2.DefaultText = "";
-            this.guna2TextBox2.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox2.FillColor = System.Drawing.SystemColors.AppWorkspace;
-            this.guna2TextBox2.FocusedState.BorderColor = System.Drawing.Color.Red;
-            this.guna2TextBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2TextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
-            this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.Red;
-            this.guna2TextBox2.Location = new System.Drawing.Point(631, 17);
-            this.guna2TextBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.guna2TextBox2.Multiline = true;
-            this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PasswordChar = '\0';
-            this.guna2TextBox2.PlaceholderText = "";
-            this.guna2TextBox2.ReadOnly = true;
-            this.guna2TextBox2.SelectedText = "";
-            this.guna2TextBox2.Size = new System.Drawing.Size(199, 188);
-            this.guna2TextBox2.TabIndex = 109;
+            this.refreshDgvButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.refreshDgvButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.refreshDgvButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.refreshDgvButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.refreshDgvButton.FillColor = System.Drawing.Color.Orange;
+            this.refreshDgvButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.refreshDgvButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.refreshDgvButton.Location = new System.Drawing.Point(318, 305);
+            this.refreshDgvButton.Name = "refreshDgvButton";
+            this.refreshDgvButton.Size = new System.Drawing.Size(180, 45);
+            this.refreshDgvButton.TabIndex = 19;
+            this.refreshDgvButton.Text = "YENİLE";
+            this.refreshDgvButton.Visible = false;
+            this.refreshDgvButton.Click += new System.EventHandler(this.refreshDgvButton_Click);
             // 
-            // label2
+            // noAppointmentLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(641, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 16);
-            this.label2.TabIndex = 110;
-            this.label2.Text = "Tahlil Sonuçları";
+            this.noAppointmentLabel.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.noAppointmentLabel.Location = new System.Drawing.Point(97, 260);
+            this.noAppointmentLabel.Name = "noAppointmentLabel";
+            this.noAppointmentLabel.Size = new System.Drawing.Size(638, 42);
+            this.noAppointmentLabel.TabIndex = 18;
+            this.noAppointmentLabel.Text = "BEKLEYEN RANDEVUNUZ BULUNMAMAKTADIR!";
+            this.noAppointmentLabel.Visible = false;
             // 
-            // guna2Button1
+            // dgvAwaitingAppointments
             // 
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(318, 160);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(150, 45);
-            this.guna2Button1.TabIndex = 111;
-            this.guna2Button1.Text = "Görüşmeyi PDF\'e Aktar";
-            // 
-            // sendAppointmentDetailsToPatientViaMail
-            // 
-            this.sendAppointmentDetailsToPatientViaMail.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.sendAppointmentDetailsToPatientViaMail.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.sendAppointmentDetailsToPatientViaMail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.sendAppointmentDetailsToPatientViaMail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.sendAppointmentDetailsToPatientViaMail.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
-            this.sendAppointmentDetailsToPatientViaMail.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.sendAppointmentDetailsToPatientViaMail.ForeColor = System.Drawing.Color.White;
-            this.sendAppointmentDetailsToPatientViaMail.Location = new System.Drawing.Point(474, 160);
-            this.sendAppointmentDetailsToPatientViaMail.Name = "sendAppointmentDetailsToPatientViaMail";
-            this.sendAppointmentDetailsToPatientViaMail.Size = new System.Drawing.Size(150, 45);
-            this.sendAppointmentDetailsToPatientViaMail.TabIndex = 112;
-            this.sendAppointmentDetailsToPatientViaMail.Text = "Görüşmeyi Hastaya Gönder";
-            this.sendAppointmentDetailsToPatientViaMail.Click += new System.EventHandler(this.sendAppointmentDetailsToPatientViaMail_Click);
-            // 
-            // profilePicture
-            // 
-            this.profilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.profilePicture.ImageRotate = 0F;
-            this.profilePicture.InitialImage = global::HospitalManagement.Properties.Resources.ppholder;
-            this.profilePicture.Location = new System.Drawing.Point(710, 2);
-            this.profilePicture.Name = "profilePicture";
-            this.profilePicture.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.profilePicture.Size = new System.Drawing.Size(25, 25);
-            this.profilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.profilePicture.TabIndex = 0;
-            this.profilePicture.TabStop = false;
-            this.profilePicture.WaitOnLoad = true;
+            this.dgvAwaitingAppointments.AllowUserToAddRows = false;
+            this.dgvAwaitingAppointments.AllowUserToResizeColumns = false;
+            this.dgvAwaitingAppointments.AllowUserToResizeRows = false;
+            this.dgvAwaitingAppointments.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvAwaitingAppointments.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvAwaitingAppointments.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAwaitingAppointments.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvAwaitingAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAwaitingAppointments.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.dgvAwaitingAppointments.EnableHeadersVisualStyles = false;
+            this.dgvAwaitingAppointments.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            this.dgvAwaitingAppointments.Location = new System.Drawing.Point(0, 208);
+            this.dgvAwaitingAppointments.MultiSelect = false;
+            this.dgvAwaitingAppointments.Name = "dgvAwaitingAppointments";
+            this.dgvAwaitingAppointments.ReadOnly = true;
+            this.dgvAwaitingAppointments.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvAwaitingAppointments.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvAwaitingAppointments.RowHeadersVisible = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvAwaitingAppointments.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvAwaitingAppointments.RowTemplate.Height = 25;
+            this.dgvAwaitingAppointments.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvAwaitingAppointments.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAwaitingAppointments.Size = new System.Drawing.Size(834, 177);
+            this.dgvAwaitingAppointments.TabIndex = 17;
+            this.dgvAwaitingAppointments.Click += new System.EventHandler(this.dgvAwaitingAppointments_Click);
             // 
             // DoctorLayer
             // 
@@ -593,10 +594,10 @@
             this.Load += new System.EventHandler(this.DoctorLayer_Load);
             this.topWindowPanel.ResumeLayout(false);
             this.topWindowPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAwaitingAppointments)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.profilePicture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -630,7 +631,7 @@
         private Guna.UI2.WinForms.Guna2TextBox surnameTextBox;
         private System.Windows.Forms.Label label2;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2Button exportPdfButton;
         private Guna.UI2.WinForms.Guna2Button sendAppointmentDetailsToPatientViaMail;
     }
 }

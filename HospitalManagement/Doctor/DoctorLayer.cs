@@ -8,15 +8,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
 using HospitalManagement.Dialog;
-using iText.Kernel.Pdf.Canvas.Parser.ClipperLib;
 using HospitalManagement.Secretary;
 using HospitalManagement.Secretary.AccountLayer;
 using HospitalManagement.Doctor.DocAccountLayer;
 using HospitalManagement.Doctor.PrescriptionLayer;
+using static System.Collections.Specialized.BitVector32;
+using System.IO;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using PdfSharp;
+using System.Drawing.Imaging;
+using Org.BouncyCastle.Asn1.Pkcs;
 
 namespace HospitalManagement.Doctor
 {
@@ -47,7 +50,7 @@ namespace HospitalManagement.Doctor
                 dgvAwaitingAppointments.Columns["examination_time"].HeaderText = "Muayene Tarihi";
                 dgvAwaitingAppointments.Columns["examination_hour"].HeaderText = "Muayene Saati";
                 noAppointmentLabel.Visible = false;
-                refreshDgvButton.Visible = false; 
+                refreshDgvButton.Visible = false;
             }
             else
             {
@@ -80,7 +83,7 @@ namespace HospitalManagement.Doctor
                 int selectedrowindex = dgvAwaitingAppointments.SelectedRows[0].Index;
                 DataGridViewRow selectedRow = dgvAwaitingAppointments.Rows[selectedrowindex];
                 DataTable chosenAppointmentPatient = blSecretary.FetchPatientBytcNo(Convert.ToString(selectedRow.Cells["patient_tc_no"].Value));
-                foreach(DataRow row in chosenAppointmentPatient.Rows)
+                foreach (DataRow row in chosenAppointmentPatient.Rows)
                 {
                     nameTextBox.Text = row["name"].ToString();
                     surnameTextBox.Text = row["surname"].ToString();
@@ -106,8 +109,73 @@ namespace HospitalManagement.Doctor
             string appointmentDataAndHour = $"{appointments.Rows[0]["examination_time"]} - {appointments.Rows[0]["examination_hour"]}";
             string section = $"{appointments.Rows[0]["section"]}";
             string title = $"{appointments.Rows[0]["examination_time"]} Tarihli Muayene Özetiniz";
-            Prescription prescription = new Prescription(title,patientName,doctorName,mailAddress,appointmentDataAndHour,section);
+            Prescription prescription = new Prescription(title, patientName, doctorName, mailAddress, appointmentDataAndHour, section);
             prescription.ShowDialog();
+        }
+
+        private void exportPdfButton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "PDF Files|*.pdf";
+            saveFileDialog.Title = "Save PDF File";
+            saveFileDialog.FileName = $"{tcnoTextBox.Text}";
+
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                CreatePDF(saveFileDialog.FileName);
+            }
+        }
+        private void CreatePDF(string filePath)
+        {
+            // Create a new PDF document
+            PdfDocument document = new PdfDocument();
+            PdfPage page = document.AddPage();
+            page.Size = PageSize.A4;
+            XGraphics gfx = XGraphics.FromPdfPage(page);
+            XBrush brush = XBrushes.White;
+            XFont font = new XFont("Arial", 16);
+
+            CreateTopAndBackground(page, gfx);
+
+            gfx.DrawString($"{appointments.Rows[0]["examination_time"]} - {appointments.Rows[0]["examination_hour"]} Tarihli Muayene Özetiniz".ToUpper(), new XFont("Arial", 20), brush, new XRect(10, page.Height / 10 + 10, page.Width, page.Height), XStringFormats.TopCenter);
+            gfx.DrawString($"Hasta Adı : {nameTextBox.Text + " " + surnameTextBox.Text}", font, brush, new XRect(20, page.Height / 10 + 40, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Hasta TCNO : {tcnoTextBox.Text}", font, brush, new XRect(20, page.Height / 10 + 60, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Hasta Mail : {mailTextBox.Text}", font, brush, new XRect(20, page.Height / 10 + 80, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Hasta Adres : {addressTextBox.Text}", font, brush, new XRect(20, page.Height / 10 + 100, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Doktor Adı : {LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad}", font, brush, new XRect(20, page.Height / 10 + 120, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Bölüm : {appointments.Rows[0]["section"]}", font, brush, new XRect(20, page.Height / 10 + 140, page.Width, page.Height), XStringFormats.TopLeft);
+
+            //Footer
+            gfx.DrawString("selim hastanesi since 1911 - www.seliminhastanesi.com - 444 0 444", new XFont("Arial", 12), brush, new XRect(100, page.Height /10 + 730, page.Width, page.Height), XStringFormats.TopLeft);
+
+            document.Save(filePath);
+        }
+        private void CreateTopAndBackground(PdfPage page, XGraphics gfx)
+        {
+            //BannerBG
+            Bitmap imageFromResources = Properties.Resources.banner_bg;
+            string tempImagePath = Path.GetTempFileName() + ".png";
+            imageFromResources.Save(tempImagePath, ImageFormat.Png);
+            XImage image = XImage.FromFile(tempImagePath);
+            gfx.DrawImage(image, 0, 0, page.Width, page.Height / 10);
+            //Background
+            Bitmap imageFromResources2 = Properties.Resources.bg;
+            string tempImagePath2 = Path.GetTempFileName() + ".png";
+            imageFromResources2.Save(tempImagePath2, ImageFormat.Png);
+            XImage image2 = XImage.FromFile(tempImagePath2);
+            gfx.DrawImage(image2, 0, page.Height / 10, page.Width, page.Height * 0.9);
+            //Medical-Team Picture
+            Bitmap imageFromResources3 = Properties.Resources.medical_team;
+            string tempImagePath3 = Path.GetTempFileName() + ".png";
+            imageFromResources3.Save(tempImagePath3, ImageFormat.Png);
+            XImage image3 = XImage.FromFile(tempImagePath3);
+            gfx.DrawImage(image3, 10, 10, 66, 66);
+            //OverBanner
+            Bitmap imageFromResources4 = Properties.Resources.over_banner;
+            string tempImagePath4 = Path.GetTempFileName() + ".png";
+            imageFromResources4.Save(tempImagePath4, ImageFormat.Png);
+            XImage image4 = XImage.FromFile(tempImagePath4);
+            gfx.DrawImage(image4, 90, 0, 480, 80);
         }
     }
 }
