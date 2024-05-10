@@ -92,6 +92,8 @@ namespace HospitalManagement.Doctor
                     phoneTextBox.Text = row["phone_number"].ToString();
                     addressTextBox.Text = row["address"].ToString();
                 }
+                InfoMessage infoMessage = new InfoMessage("Hasta bilgileri Getirildi!", "Bilgi");
+                infoMessage.ShowDialog();
             }
         }
 
@@ -146,9 +148,15 @@ namespace HospitalManagement.Doctor
             gfx.DrawString($"Bölüm : {appointments.Rows[0]["section"]}", font, brush, new XRect(20, page.Height / 10 + 140, page.Width, page.Height), XStringFormats.TopLeft);
 
             //Footer
-            gfx.DrawString("selim hastanesi since 1911 - www.seliminhastanesi.com - 444 0 444", new XFont("Arial", 12), brush, new XRect(100, page.Height /10 + 730, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString("selim hastanesi since 1911 - www.seliminhastanesi.com - 444 0 444", new XFont("Arial", 12), brush, new XRect(100, page.Height / 10 + 730, page.Width, page.Height), XStringFormats.TopLeft);
+            try
+            {
+                document.Save(filePath);
+                InfoMessage infoMessage = new InfoMessage("Muayene Özeti PDF'i Başarıyla Oluşturuldu!","Bilgi");
+                infoMessage.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.ToString()); }
 
-            document.Save(filePath);
         }
         private void CreateTopAndBackground(PdfPage page, XGraphics gfx)
         {

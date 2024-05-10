@@ -115,6 +115,10 @@ namespace BusinessLayer
         {
             return _dalSecretary.FetchAwaitingAppointmentsFilteredByDateAndTcNo(tcNo, date);
         }
+        public DataTable FetchAwaitingAppointmentsFilteredByTcNo(string tcNo)
+        {
+            return _dalSecretary.FetchAwaitingAppointmentsFilteredByTcNo(tcNo);
+        }
         public DataTable FetchAwaitingAppointmentsFilteredByDate(string date)
         {
             return _dalSecretary.FetchAwaitingAppointmentsFilteredByDate(date);

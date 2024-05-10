@@ -153,6 +153,20 @@ END
 GO
 
 GO
+CREATE PROCEDURE FetchAwaitingAppointmentsFilteredByTcNo
+@tcNo varchar(11)
+AS
+BEGIN
+SELECT Patient.name + ' ' + Patient.surname as patient_name,patient_tc_no,section,Doctor.doctor_name + ' ' + Doctor.doctor_surname as doctor_name,
+FORMAT(examination_time,'yyyy-MM-dd') as examination_time,examination_hour
+FROM Appointment
+INNER JOIN Doctor ON Appointment.doctor_tc_no = Doctor.tc_no
+INNER JOIN Patient ON Appointment.patient_tc_no = Patient.tc_no
+WHERE is_examination_done = 0 AND patient_tc_no = @tcNo AND FORMAT(examination_time,'yyyy-MM-dd') >= FORMAT(GETDATE(),'yyyy-MM-dd')
+END
+GO
+
+GO
 CREATE PROCEDURE FetchAwaitingAppointmentsFilteredByDate
 @date DateTime
 AS

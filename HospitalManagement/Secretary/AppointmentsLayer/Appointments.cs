@@ -19,24 +19,24 @@ namespace HospitalManagement.Secretary.AppointmentsLayer
         public Appointments()
         {
             InitializeComponent();
+            tcNoTextBox.MaxLength = 11;
             _blSecretary = new BlSecretary();
             dateTimePicker.Value = DateTime.Today;
             updateDgv();
+        }
+        private void updateDgv()
+        {
+            awaitingAppointments = new DataTable();
+            awaitingAppointments = _blSecretary.fetchAllAwaitingAppointments();
+            DataTable dataSource = awaitingAppointments;
+            dataSource.Columns.Remove("id");
+            dgvAppointment.DataSource = dataSource;
             dgvAppointment.Columns["patient_name"].HeaderText = "Hasta Ad";
             dgvAppointment.Columns["patient_tc_no"].HeaderText = "Hasta T.C";
             dgvAppointment.Columns["section"].HeaderText = "Bölüm";
             dgvAppointment.Columns["doctor_name"].HeaderText = "Doktor Ad";
             dgvAppointment.Columns["examination_time"].HeaderText = "Muayene Tarihi";
             dgvAppointment.Columns["examination_hour"].HeaderText = "Muayene Saati";
-            updateDgv();
-            //dgvAppointment.Columns["is_examination_done"].HeaderText = "Gerçekleşti mi?";
-            //dgvAppointment.Columns["appointment_created"].HeaderText = "Oluşturulma Tarihi";
-        }
-        private void updateDgv()
-        {
-            awaitingAppointments = new DataTable();
-            awaitingAppointments = _blSecretary.fetchAllAwaitingAppointments();
-            dgvAppointment.DataSource = awaitingAppointments;
         }
 
         private void fetchAppointments_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace HospitalManagement.Secretary.AppointmentsLayer
                     if (source.Rows.Count > 0)
                     {
                         dgvAppointment.DataSource = source;
-                        InfoMessage infoMessage = new InfoMessage($"'{dateTimePicker.Value.ToString("yyyy-MM-dd")}' Tarihli ve '{tcNoTextBox.Text}' TCNO'lu Randevular Getirildi!", "Bilgi");
+                        InfoMessage infoMessage = new InfoMessage($"'{dateTimePicker.Value.ToString("yyyy-MM-dd")}' Tarihli ve '{tcNoTextBox.Text}' TCNO'lu {source.Rows.Count} Adet Randevu Getirildi!", "Bilgi");
                         infoMessage.ShowDialog();
                     }
                     else
@@ -66,7 +66,7 @@ namespace HospitalManagement.Secretary.AppointmentsLayer
                     if (source.Rows.Count > 0)
                     {
                         dgvAppointment.DataSource = source;
-                        InfoMessage infoMessage = new InfoMessage($"{dateTimePicker.Value.ToString("yyyy-MM-dd")} Tarihli Randevular Getirildi!", "Bilgi");
+                        InfoMessage infoMessage = new InfoMessage($"{dateTimePicker.Value.ToString("yyyy-MM-dd")} Tarihli {source.Rows.Count} Adet Randevu Getirildi!", "Bilgi");
                         infoMessage.ShowDialog();
                     }
                     else
@@ -75,10 +75,41 @@ namespace HospitalManagement.Secretary.AppointmentsLayer
                         infoMessage.ShowDialog();
                     }
                 }
+                else
+                {
+                    InfoMessage infoMessage = new InfoMessage("Lütfen 11 Haneli TCNO Giriniz!", "Bilgi");
+                    infoMessage.ShowDialog();
+                }
             }
             else
             {
+                DataTable source = new DataTable();
+                string tcNoToSearch = tcNoTextBox.Text;
+                if (tcNoToSearch.Length == 11)
+                {
+                    try
+                    {
+                        source = _blSecretary.FetchAwaitingAppointmentsFilteredByTcNo(tcNoToSearch);
+                        if (source.Rows.Count > 0)
+                        {
+                            dgvAppointment.DataSource = source;
+                            InfoMessage infoMessage = new InfoMessage($"{tcNoToSearch} TCNO'lu {source.Rows.Count} Adet Randevu Bulundu!", "Bilgi");
+                            infoMessage.ShowDialog();
+                        }
+                        else
+                        {
+                            InfoMessage infoMessage = new InfoMessage($"{tcNoToSearch} TCNO'lu Randevu Bulunamadı!", "Bilgi");
+                            infoMessage.ShowDialog();
+                        }
 
+                    }
+                    catch (Exception ex) { ex.Message.ToString(); }
+                }
+                else
+                {
+                    InfoMessage infoMessage = new InfoMessage("Lütfen 11 Haneli TCNO Giriniz!", "Bilgi");
+                    infoMessage.ShowDialog();
+                }
             }
         }
 

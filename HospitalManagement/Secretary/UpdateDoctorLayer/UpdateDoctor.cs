@@ -1,5 +1,6 @@
 ﻿using BusinessLayer;
 using HospitalManagement.Dialog;
+using Org.BouncyCastle.Utilities.Net;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,6 +12,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Collections.Specialized.BitVector32;
 using static System.Net.WebRequestMethods;
 
 namespace HospitalManagement.Secretary.UpdateDoctorLayer
@@ -24,6 +26,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
             InitializeComponent();
             this.DoubleBuffered = true;
             tcnoTextBox.MaxLength = 11;
+            tcnoTextBox.ReadOnly = true;
             phoneTextBox.MaxLength = 10;
             doctorToUpdate = null;
             FillSectionComboBox();
@@ -69,7 +72,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
             }
         }
 
-        private void sendNewProfilePictureViaFtp(string imagePath, string userName = "")
+        private string sendNewProfilePictureViaFtp(string imagePath, string userName = "")
         {
             string loggedInUserName = LoginWindow._userEntity.KullaniciAd;
             byte[] data;
@@ -83,8 +86,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
             }
             FTPHelper fTPHelper = new FTPHelper("\tftp://155.254.244.38/www.sca.somee.com", "sca33", "2XFfX2b6xQUTJ-U");
             string result = fTPHelper.Upload(new MemoryStream(data), $"profilePictures/Doctor/{userName}.jpeg");
-            InfoMessage infoMessage = new InfoMessage(result, "Bilgi");
-            infoMessage.ShowDialog();
+            return result;
 
         }
 
@@ -107,7 +109,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                         InfoMessage infoMessage = new InfoMessage("Dosya Boyutu 120Kb'dan Fazla Olamaz!", "Bilgi");
                         infoMessage.ShowDialog();
                     }
-                        
+
                 }
             }
             else
@@ -115,7 +117,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                 InfoMessage infoMessage = new InfoMessage("Henüz Arama Yapmadınız!", "Bilgi");
                 infoMessage.ShowDialog();
             }
-            
+
         }
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -126,7 +128,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                     BlSecretary blSecretary = new BlSecretary();
                     doctorToUpdate = blSecretary.fetchDoctorByGivenTcNo(doctorTcnoTextBox.Text);
                     fillFields(doctorToUpdate);
-                    string userName = (doctorToUpdate.Rows[0]["doctor_name"].ToString() + doctorToUpdate.Rows[0]["doctor_surname"].ToString()).Replace(" ","").ToLower();
+                    string userName = (doctorToUpdate.Rows[0]["doctor_name"].ToString() + doctorToUpdate.Rows[0]["doctor_surname"].ToString()).Replace(" ", "").ToLower();
                     profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/Doctor/{userName}.jpeg");
                     InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Getirildi!", "Bilgi");
                     infoMessage.ShowDialog();
@@ -163,77 +165,102 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
 
         private void updateInformations_Click(object sender, EventArgs e)
         {
-            if (doctorToUpdate != null)
+            string totalInformationText = string.Empty;
+            string name = nameTextBox.Text;
+            string surname = surnameTextBox.Text;
+            string tcno = tcnoTextBox.Text;
+            int section = sectionComboBox.SelectedIndex;
+            string mail = mailTextBox.Text;
+            string phone = phoneTextBox.Text;
+            string address = addressTextBox.Text;
+            //if doctor has been searched to update
+            try
             {
-                string name = nameTextBox.Text;
-                string surname = surnameTextBox.Text;
-                string tcno = tcnoTextBox.Text;
-                int section = sectionComboBox.SelectedIndex;
-                string mail = mailTextBox.Text;
-                string phone = phoneTextBox.Text;
-                string address = addressTextBox.Text;
-                if (name != doctorToUpdate.Rows[0]["doctor_name"].ToString() ||
-                    surname != doctorToUpdate.Rows[0]["doctor_surname"].ToString() ||
-                    tcno != doctorToUpdate.Rows[0]["tc_no"].ToString() ||
-                    section != Int16.Parse(doctorToUpdate.Rows[0]["section_id"].ToString()) ||
-                    mail != doctorToUpdate.Rows[0]["mail"].ToString() ||
-                    phone != doctorToUpdate.Rows[0]["phone_number"].ToString() ||
-                    address != doctorToUpdate.Rows[0]["address"].ToString() ||
-                    doctorProfilePicture != "")
+                if (doctorToUpdate != null)
                 {
-                    if (doctorProfilePicture != "")
+                    if (doctorProfilePicture != "" ||
+                        FieldValidationIfAnyChangesMade(name, surname, tcno, section, mail, phone, address))
                     {
-                        sendNewProfilePictureViaFtp(doctorProfilePicture, (name + surname).ToLower().Replace(" ", ""));
-                        doctorProfilePicture = "";
-                    }
-                    if (name != doctorToUpdate.Rows[0]["doctor_name"].ToString() ||
-                            surname != doctorToUpdate.Rows[0]["doctor_surname"].ToString())
-                    {
-                        FtpWebRequest ftpRequest = null;
-                        FtpWebResponse ftpResponse = null;
-                        try
+                        if (doctorProfilePicture != "")
                         {
-                            string newFileName = $"{(nameTextBox.Text + surnameTextBox.Text).ToLower().Replace(" ", "")}.jpeg";
-                            ftpRequest = (FtpWebRequest)WebRequest.Create($"\tftp://155.254.244.38/www.sca.somee.com/profilePictures/Doctor/{(doctorToUpdate.Rows[0]["doctor_name"].ToString() + doctorToUpdate.Rows[0]["doctor_surname"].ToString()).ToLower().Replace(" ", "")}.jpeg");
-                            ftpRequest.Credentials = new NetworkCredential("sca33", "2XFfX2b6xQUTJ-U");
-                            ftpRequest.UseBinary = true;
-                            ftpRequest.UsePassive = true;
-                            ftpRequest.KeepAlive = true;
-                            ftpRequest.Method = Ftp.Rename;
-                            ftpRequest.RenameTo = newFileName;
-                            ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
-                            ftpResponse.Close();
-                            ftpRequest = null;
+                            totalInformationText += sendNewProfilePictureViaFtp(doctorProfilePicture, $"{(doctorToUpdate.Rows[0]["doctor_name"].ToString() + doctorToUpdate.Rows[0]["doctor_surname"].ToString()).ToLower().Replace(" ", "")}");
+                            doctorProfilePicture = "";
                         }
-                        catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+                        //if name changes updating ftp located pp file name
+                        if (name != doctorToUpdate.Rows[0]["doctor_name"].ToString() ||
+                                surname != doctorToUpdate.Rows[0]["doctor_surname"].ToString())
+                        {
+                            FtpWebRequest ftpRequest = null;
+                            FtpWebResponse ftpResponse = null;
+                            try
+                            {
+                                string newFileName = $"{(nameTextBox.Text + surnameTextBox.Text).ToLower().Replace(" ", "")}.jpeg";
+                                ftpRequest = (FtpWebRequest)WebRequest.Create($"\tftp://155.254.244.38/www.sca.somee.com/profilePictures/Doctor/{(doctorToUpdate.Rows[0]["doctor_name"].ToString() + doctorToUpdate.Rows[0]["doctor_surname"].ToString()).ToLower().Replace(" ", "")}.jpeg");
+                                ftpRequest.Credentials = new NetworkCredential("sca33", "2XFfX2b6xQUTJ-U");
+                                ftpRequest.UseBinary = true;
+                                ftpRequest.UsePassive = true;
+                                ftpRequest.KeepAlive = true;
+                                ftpRequest.Method = Ftp.Rename;
+                                ftpRequest.RenameTo = newFileName;
+                                ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
+                                ftpResponse.Close();
+                                ftpRequest = null;
+                            }
+                            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+                        }
+                        if (FieldValidationIfAnyChangesMade(name, surname, tcno, section, mail, phone, address))
+                        {
+                            BlSecretary blSecretary = new BlSecretary();
+                            bool response = blSecretary.updateDoctor(name, surname, tcno, section, mail, phone, address, Convert.ToInt16(doctorToUpdate.Rows[0]["id"]));
+                            if (response)
+                            {
+                                doctorToUpdate.Clear();
+                                doctorToUpdate = blSecretary.fetchDoctorByGivenTcNo(doctorTcnoTextBox.Text);
+                                totalInformationText += "\nBilgiler Başarıyla Güncellendi!";
+                            }
+                            else
+                            {
+                                totalInformationText += "\nBilgiler Güncellenirken Hata!";
+                            }
+                        }
+
                     }
-                    BlSecretary blSecretary = new BlSecretary();
-                    bool response = blSecretary.updateDoctor(name, surname, tcno, section, mail, phone, address, Convert.ToInt16(doctorToUpdate.Rows[0]["id"]));
-                    if (response)
-                    {
-                        doctorToUpdate.Clear();
-                        doctorToUpdate = blSecretary.fetchDoctorByGivenTcNo(doctorTcnoTextBox.Text);
-                        InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Güncellendi!", "Bilgi");
-                        infoMessage.ShowDialog();
-                    }
-                    else
-                    {
-                        InfoMessage infoMessage = new InfoMessage("Hata", "Hata");
-                        infoMessage.ShowDialog();
-                    }
+
+
                 }
                 else
                 {
-                    InfoMessage infoMessage = new InfoMessage("Değişiklik Yapmadınız!", "Bilgi");
-                    infoMessage.ShowDialog();
+                    totalInformationText += "Henüz Arama Yapmadınız!";
                 }
             }
-            else
+            catch (Exception ex)
             {
-                InfoMessage infoMessage = new InfoMessage("Henüz Arama Yapmadınız!", "Bilgi");
+                MessageBox.Show(ex.Message.ToString());
+            }
+            finally
+            {
+                InfoMessage infoMessage = new InfoMessage(totalInformationText, "Bilgi");
                 infoMessage.ShowDialog();
             }
 
+
+        }
+        private bool FieldValidationIfAnyChangesMade(string name, string surname, string tcno, int section, string mail, string phone, string address)
+        {
+            if (name != doctorToUpdate.Rows[0]["doctor_name"].ToString() ||
+                surname != doctorToUpdate.Rows[0]["doctor_surname"].ToString() ||
+                tcno != doctorToUpdate.Rows[0]["tc_no"].ToString() ||
+                section != Int16.Parse(doctorToUpdate.Rows[0]["section_id"].ToString()) ||
+                mail != doctorToUpdate.Rows[0]["mail"].ToString() ||
+                phone != doctorToUpdate.Rows[0]["phone_number"].ToString() ||
+                address != doctorToUpdate.Rows[0]["address"].ToString())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         private void addressTextBox_Leave(object sender, EventArgs e)
         {

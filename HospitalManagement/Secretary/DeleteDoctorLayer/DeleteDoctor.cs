@@ -1,14 +1,17 @@
 ﻿using BusinessLayer;
 using HospitalManagement.Dialog;
+using Org.BouncyCastle.Asn1.Ocsp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 namespace HospitalManagement.Secretary.DeleteDoctorLayer
 {
@@ -80,13 +83,24 @@ namespace HospitalManagement.Secretary.DeleteDoctorLayer
                     string infoOfPersonWhoWillBeDeleted = "Silmek İstediğiniz Kişinin Bilgileri Aşağıdadır.\n" +
                                                             "Ad: " + tam_ad + "\nMail: " + mail + "\nTelefon: " + telefon;
                     Toast toast = new Toast($"TCNO ({tc_no}) Panoya Kopyalandı!", Color.Green);
-                    toast.Show();
+                    toast.ShowDialog();
                     DialogResult dialogResult = MessageBox.Show(infoOfPersonWhoWillBeDeleted, "Silmek İstediğize Emin Misiniz?", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         bool response = _blSecretary.deleteDoctor(tc_no);
                         if (response)
                         {
+                            FtpWebRequest ftpRequest = null;
+                            try
+                            {
+                                ftpRequest = (FtpWebRequest)WebRequest.Create($"\tftp://155.254.244.38/www.sca.somee.com/profilePictures/Doctor/{tam_ad.ToLower().Replace(" ", "")}.jpeg");
+                                ftpRequest.Credentials = new NetworkCredential("sca33", "2XFfX2b6xQUTJ-U");
+                                ftpRequest.Method = Ftp.DeleteFile;
+                                FtpWebResponse ftpResponse = (FtpWebResponse)ftpRequest.GetResponse();
+                                ftpResponse.Close();
+                            }
+                            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+
                             InfoMessage infoMessage = new InfoMessage("Kayıt Başarıyla Silindi", "Bilgi");
                             infoMessage.ShowDialog(); updateDgv();
                         }
