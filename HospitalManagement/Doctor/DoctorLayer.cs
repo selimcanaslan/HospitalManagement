@@ -26,11 +26,11 @@ namespace HospitalManagement.Doctor
     public partial class DoctorLayer : Form
     {
         FTPHelper ftpHelper = new FTPHelper();
-        private BlSecretary blSecretary;
+        private BlDoctor blDoctor;
         private DataTable appointments;
         public DoctorLayer(string loginType)
         {
-            blSecretary = new BlSecretary();
+            blDoctor = new BlDoctor();
             InitializeComponent();
             this.windowName.Text = "Hastane Yönetim Sistemi" + " / " + loginType.ToUpper() + " / " + LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad;
             CenterToParent();
@@ -40,7 +40,7 @@ namespace HospitalManagement.Doctor
         {
             appointments = new DataTable();
             Console.WriteLine(LoginWindow._userEntity.Tcno);
-            appointments = blSecretary.FetchAllAwaitingAppointmentsFilteredByDoctorTcNo(LoginWindow._userEntity.Tcno);
+            appointments = blDoctor.FetchAllAwaitingAppointmentsFilteredByDoctorTcNo(LoginWindow._userEntity.Tcno);
             if (appointments.Rows.Count > 0)
             {
                 dgvAwaitingAppointments.DataSource = appointments;
@@ -82,7 +82,7 @@ namespace HospitalManagement.Doctor
             {
                 int selectedrowindex = dgvAwaitingAppointments.SelectedRows[0].Index;
                 DataGridViewRow selectedRow = dgvAwaitingAppointments.Rows[selectedrowindex];
-                DataTable chosenAppointmentPatient = blSecretary.FetchPatientBytcNo(Convert.ToString(selectedRow.Cells["patient_tc_no"].Value));
+                DataTable chosenAppointmentPatient = blDoctor.FetchPatientBytcNo(Convert.ToString(selectedRow.Cells["patient_tc_no"].Value));
                 foreach (DataRow row in chosenAppointmentPatient.Rows)
                 {
                     nameTextBox.Text = row["name"].ToString();

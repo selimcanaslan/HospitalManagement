@@ -57,7 +57,7 @@
             this.showGraph.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.showGraph.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.showGraph.ForeColor = System.Drawing.Color.White;
-            this.showGraph.Location = new System.Drawing.Point(302, 350);
+            this.showGraph.Location = new System.Drawing.Point(481, 351);
             this.showGraph.Name = "showGraph";
             this.showGraph.Size = new System.Drawing.Size(135, 36);
             this.showGraph.TabIndex = 2;
@@ -76,7 +76,7 @@
             this.dataComboBox.ItemHeight = 30;
             this.dataComboBox.Location = new System.Drawing.Point(0, 350);
             this.dataComboBox.Name = "dataComboBox";
-            this.dataComboBox.Size = new System.Drawing.Size(285, 36);
+            this.dataComboBox.Size = new System.Drawing.Size(481, 36);
             this.dataComboBox.TabIndex = 3;
             // 
             // PatientGraphs
