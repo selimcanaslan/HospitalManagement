@@ -1,6 +1,16 @@
 ﻿CREATE DATABASE Hospital;
 USE Hospital;
 
+
+-- COLLATE TO TURKISH
+ALTER DATABASE gp_hospital SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+
+ALTER DATABASE gp_hospital COLLATE Turkish_CI_AS;
+
+ALTER DATABASE gp_hospital SET MULTI_USER;
+
+
+
 CREATE TABLE Sections(
 	id int identity(1,1) PRIMARY KEY CLUSTERED,
 	name varchar(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8,
@@ -117,12 +127,36 @@ CREATE TABLE Appointment(
 );
 
 CREATE TABLE Examination(
-	id int identity(1,1),
+	id int identity(1,1) PRIMARY KEY,
+	appointment_id int FOREIGN KEY (appointment_id) REFERENCES Appointment (id),
 	patient_tc_no varchar(11) FOREIGN KEY (patient_tc_no) REFERENCES Patient(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
 	section varchar(50),
 	doctor_tc_no varchar(11) FOREIGN KEY (doctor_tc_no) REFERENCES Doctor(tc_no) ON DELETE CASCADE ON UPDATE CASCADE,
+	analysis nvarchar(max),
 	result nvarchar(max)
 );
+
+
+GO
+CREATE TRIGGER CreateExaminationRecord 
+ON Appointment
+AFTER INSERT
+AS 
+BEGIN
+
+DECLARE @appointment_id int
+DECLARE @patient_tc_no varchar(11)
+DECLARE @section varchar(50)
+DECLARE @doctor_tc_no varchar(11)
+
+SELECT @appointment_id=id FROM INSERTED
+SELECT @patient_tc_no=patient_tc_no FROM INSERTED
+SELECT @section=section FROM INSERTED
+SELECT @doctor_tc_no=doctor_tc_no FROM INSERTED
+
+INSERT Examination VALUES (@appointment_id,@patient_tc_no,@section,@doctor_tc_no, 'Yapılan Tahlil Bulunamadı.', 'Henüz Sonuç Eklemediniz.')
+END
+
 
 GO
 CREATE PROCEDURE FetchAllAwaitingAppointments
@@ -185,7 +219,7 @@ CREATE PROCEDURE fetchAllAwaitingAppointmentsFilteredByDoctorTcNo
 @tcNo varchar(11)
 AS
 BEGIN
-SELECT Patient.name + ' ' + Patient.surname as patient_name,patient_tc_no,section,
+SELECT Appointment.id,Patient.name + ' ' + Patient.surname as patient_name,patient_tc_no,section,
 FORMAT(examination_time,'yyyy-MM-dd') as examination_time,examination_hour
 FROM Appointment
 INNER JOIN Patient ON Appointment.patient_tc_no = Patient.tc_no

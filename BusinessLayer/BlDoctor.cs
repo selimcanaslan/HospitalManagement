@@ -27,5 +27,13 @@ namespace BusinessLayer
         {
             return _dalDoctor.FetchPatientBytcNo(tcNo);
         }
+        public DataTable FetchRelatedExamination(int appointmentId)
+        {
+            return _dalDoctor.FetchRelatedExamination(appointmentId);
+        }
+        public bool UpdateExaminationResult(int appointmentId, string result)
+        {
+            return _dalDoctor.UpdateExaminationResult(appointmentId, result);
+        }
     }
 }

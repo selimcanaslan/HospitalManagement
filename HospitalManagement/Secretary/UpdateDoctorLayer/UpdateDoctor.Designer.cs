@@ -296,7 +296,6 @@
             this.surnameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.surnameTextBox.BorderRadius = 2;
             this.surnameTextBox.BorderThickness = 2;
-            this.surnameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.surnameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.surnameTextBox.DefaultText = "";
             this.surnameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -350,7 +349,7 @@
             this.doctorTcnoTextBox.ForeColor = System.Drawing.Color.White;
             this.doctorTcnoTextBox.HoverState.BorderColor = System.Drawing.Color.White;
             this.doctorTcnoTextBox.Location = new System.Drawing.Point(0, 0);
-            this.doctorTcnoTextBox.Margin = new System.Windows.Forms.Padding(5);
+            this.doctorTcnoTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.doctorTcnoTextBox.Name = "doctorTcnoTextBox";
             this.doctorTcnoTextBox.PasswordChar = '\0';
             this.doctorTcnoTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;

@@ -44,6 +44,7 @@ namespace HospitalManagement.Doctor
             if (appointments.Rows.Count > 0)
             {
                 dgvAwaitingAppointments.DataSource = appointments;
+                dgvAwaitingAppointments.Columns["id"].HeaderText = "Randevu ID";
                 dgvAwaitingAppointments.Columns["patient_name"].HeaderText = "Hasta Ad";
                 dgvAwaitingAppointments.Columns["patient_tc_no"].HeaderText = "Hasta T.C";
                 dgvAwaitingAppointments.Columns["section"].HeaderText = "Bölüm";
@@ -83,6 +84,7 @@ namespace HospitalManagement.Doctor
                 int selectedrowindex = dgvAwaitingAppointments.SelectedRows[0].Index;
                 DataGridViewRow selectedRow = dgvAwaitingAppointments.Rows[selectedrowindex];
                 DataTable chosenAppointmentPatient = blDoctor.FetchPatientBytcNo(Convert.ToString(selectedRow.Cells["patient_tc_no"].Value));
+                DataTable chosenExamination = blDoctor.FetchRelatedExamination(Int16.Parse(selectedRow.Cells["id"].Value.ToString()));
                 foreach (DataRow row in chosenAppointmentPatient.Rows)
                 {
                     nameTextBox.Text = row["name"].ToString();
@@ -91,6 +93,11 @@ namespace HospitalManagement.Doctor
                     mailTextBox.Text = row["mail"].ToString();
                     phoneTextBox.Text = row["phone_number"].ToString();
                     addressTextBox.Text = row["address"].ToString();
+                }
+                if (chosenExamination.Rows.Count > 0)
+                {
+                    analysisTextBox.Text = chosenExamination.Rows[0]["analysis"].ToString();
+                    appointmentResultTextBox.Text = chosenExamination.Rows[0]["result"].ToString();
                 }
                 InfoMessage infoMessage = new InfoMessage("Hasta bilgileri Getirildi!", "Bilgi");
                 infoMessage.ShowDialog();
@@ -120,7 +127,7 @@ namespace HospitalManagement.Doctor
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "PDF Files|*.pdf";
             saveFileDialog.Title = "Save PDF File";
-            saveFileDialog.FileName = $"{tcnoTextBox.Text}";
+            saveFileDialog.FileName = $"{tcnoTextBox.Text}";    
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -184,6 +191,24 @@ namespace HospitalManagement.Doctor
             imageFromResources4.Save(tempImagePath4, ImageFormat.Png);
             XImage image4 = XImage.FromFile(tempImagePath4);
             gfx.DrawImage(image4, 90, 0, 480, 80);
+        }
+
+        private void updateExaminationResultButton_Click(object sender, EventArgs e)
+        {
+            string result = appointmentResultTextBox.Text;
+            int selectedrowindex = dgvAwaitingAppointments.SelectedRows[0].Index;
+            DataGridViewRow selectedRow = dgvAwaitingAppointments.Rows[selectedrowindex];
+            bool response = blDoctor.UpdateExaminationResult(Int16.Parse(selectedRow.Cells["id"].Value.ToString()), result);
+            if (response)
+            {
+                InfoMessage infoMessage = new InfoMessage("Muayene Sonucu Başarıyla Güncellendi", "Bilgi");
+                infoMessage.ShowDialog();
+            }
+            else
+            {
+                InfoMessage infoMessage = new InfoMessage("Muayene Sonucu Güncelleme İşlemi Başarısız", "Hata");
+                infoMessage.ShowDialog();
+            }
         }
     }
 }

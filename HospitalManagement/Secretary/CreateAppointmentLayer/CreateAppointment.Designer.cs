@@ -223,7 +223,6 @@
             this.surnameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.surnameTextBox.BorderRadius = 2;
             this.surnameTextBox.BorderThickness = 2;
-            this.surnameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.surnameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.surnameTextBox.DefaultText = "";
             this.surnameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -279,7 +278,7 @@
             this.tcNoToSearchTextBox.ForeColor = System.Drawing.Color.White;
             this.tcNoToSearchTextBox.HoverState.BorderColor = System.Drawing.Color.White;
             this.tcNoToSearchTextBox.Location = new System.Drawing.Point(0, 0);
-            this.tcNoToSearchTextBox.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.tcNoToSearchTextBox.Margin = new System.Windows.Forms.Padding(5);
             this.tcNoToSearchTextBox.Name = "tcNoToSearchTextBox";
             this.tcNoToSearchTextBox.PasswordChar = '\0';
             this.tcNoToSearchTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;

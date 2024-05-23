@@ -10,7 +10,7 @@ namespace DataAccessLayer
 {
     public class DbConnect
     {
-        private string SQLConnectionStringLocal = @"Server = SCA\SQLEXPRESS;Database =Hospital; Trusted_Connection = True;";
+        private string SQLConnectionStringLocal = @"Server = SCA\SQLEXPRESS;Database =gp_hospital; Trusted_Connection = True;";
         private string SQLConnectionStringSomee = Properties.Resources.dbConSt;
         protected SqlConnection con = new SqlConnection();
         protected SqlDataAdapter da = new SqlDataAdapter();
@@ -21,7 +21,7 @@ namespace DataAccessLayer
         public DbConnect()
         {
             exception = null;
-            con = new SqlConnection(SQLConnectionStringSomee);
+            con = new SqlConnection(SQLConnectionStringLocal);
             if (con.State == ConnectionState.Closed)
             {
                 try

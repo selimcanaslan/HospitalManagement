@@ -195,7 +195,6 @@
             this.surnameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.surnameTextBox.BorderRadius = 2;
             this.surnameTextBox.BorderThickness = 2;
-            this.surnameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.surnameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.surnameTextBox.DefaultText = "";
             this.surnameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));

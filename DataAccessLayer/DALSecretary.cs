@@ -586,24 +586,6 @@ namespace DataAccessLayer
             catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
             return response;
         }
-        public DataTable FetchAllAwaitingAppointmentsFilteredByDoctorTcNo(string tcNo)
-        {
-            DataTable dt = new DataTable();
-            string query = $"EXEC fetchAllAwaitingAppointmentsFilteredByDoctorTcNo '{tcNo}'";
-            com.Connection = con;
-            com.CommandText = query;
-            da.SelectCommand = com;
-            try
-            {
-                da.Fill(dt);
-            }
-            catch (SqlException ex)
-            {
-
-                Console.WriteLine(ex.GetType().Name + " - " + ex.Message);
-            }
-            return dt;
-        }
         
     }
 }

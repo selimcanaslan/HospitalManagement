@@ -86,7 +86,7 @@
             this.nameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.nameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.nameTextBox.Location = new System.Drawing.Point(12, 39);
-            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.nameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.PasswordChar = '\0';
             this.nameTextBox.PlaceholderText = "";
@@ -101,7 +101,6 @@
             this.surnameTextBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(46)))));
             this.surnameTextBox.BorderRadius = 2;
             this.surnameTextBox.BorderThickness = 2;
-            this.surnameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.surnameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.surnameTextBox.DefaultText = "";
             this.surnameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -114,7 +113,7 @@
             this.surnameTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.surnameTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.surnameTextBox.Location = new System.Drawing.Point(12, 88);
-            this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.surnameTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.surnameTextBox.Name = "surnameTextBox";
             this.surnameTextBox.PasswordChar = '\0';
             this.surnameTextBox.PlaceholderText = "";
@@ -141,7 +140,7 @@
             this.mailTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.mailTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.mailTextBox.Location = new System.Drawing.Point(12, 187);
-            this.mailTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mailTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.mailTextBox.Name = "mailTextBox";
             this.mailTextBox.PasswordChar = '\0';
             this.mailTextBox.PlaceholderText = "";
@@ -167,7 +166,7 @@
             this.phoneTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.phoneTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.phoneTextBox.Location = new System.Drawing.Point(12, 237);
-            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phoneTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.phoneTextBox.Name = "phoneTextBox";
             this.phoneTextBox.PasswordChar = '\0';
             this.phoneTextBox.PlaceholderText = "";
@@ -234,7 +233,7 @@
             this.tcnoTextBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(1)))), ((int)(((byte)(1)))));
             this.tcnoTextBox.HoverState.BorderColor = System.Drawing.Color.Red;
             this.tcnoTextBox.Location = new System.Drawing.Point(12, 138);
-            this.tcnoTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcnoTextBox.Margin = new System.Windows.Forms.Padding(4);
             this.tcnoTextBox.Name = "tcnoTextBox";
             this.tcnoTextBox.PasswordChar = '\0';
             this.tcnoTextBox.PlaceholderText = "";
