@@ -37,6 +37,7 @@ namespace HospitalManagement.Dialog
 
         private void cancelButton_Click(object sender, EventArgs e)
         {
+            response = "";
             this.Close();
         }
     }

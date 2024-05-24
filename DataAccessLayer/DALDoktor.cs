@@ -105,6 +105,23 @@ namespace DataAccessLayer
             catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
             return response;
         }
+        public bool UpdateDoctor(string name, string surname, string tcNo, string mail, string phoneNumber, string address, int id)
+        {
+            bool response = false;
+            string query = $"UPDATE Doctor SET tc_no='{tcNo}',doctor_name='{name}', doctor_surname='{surname}',mail='{mail}',phone_number='{phoneNumber}',address='{address}' WHERE id = {id}";
+            exception = null;
+            com.Connection = con;
+            com.CommandText = query;
+            try
+            {
+
+                int rowsAffected = com.ExecuteNonQuery();
+                if (rowsAffected > 0) { response = true; }
+                else { response = false; }
+            }
+            catch (SqlException ex) { Console.WriteLine(ex.ToString() + " - " + ex.Message); }
+            return response;
+        }
         
     }
 }

@@ -29,8 +29,9 @@ namespace HospitalManagement.Secretary.AppointmentsLayer
             awaitingAppointments = new DataTable();
             awaitingAppointments = _blSecretary.fetchAllAwaitingAppointments();
             DataTable dataSource = awaitingAppointments;
-            dataSource.Columns.Remove("id");
+            //dataSource.Columns.Remove("id");
             dgvAppointment.DataSource = dataSource;
+            dgvAppointment.Columns["id"].HeaderText = "Randevu ID";
             dgvAppointment.Columns["patient_name"].HeaderText = "Hasta Ad";
             dgvAppointment.Columns["patient_tc_no"].HeaderText = "Hasta T.C";
             dgvAppointment.Columns["section"].HeaderText = "Bölüm";

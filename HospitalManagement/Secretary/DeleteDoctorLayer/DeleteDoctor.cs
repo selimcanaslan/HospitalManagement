@@ -31,7 +31,7 @@ namespace HospitalManagement.Secretary.DeleteDoctorLayer
             dgvDoctor.Columns["mail"].HeaderText = "Mail";
             dgvDoctor.Columns["phone_number"].HeaderText = "Telefon";
             dgvDoctor.Columns["address"].HeaderText = "Adres";
-            
+
         }
 
         private void searchButton_Click(object sender, EventArgs e)
@@ -75,16 +75,14 @@ namespace HospitalManagement.Secretary.DeleteDoctorLayer
                     int selectedrowindex = dgvDoctor.SelectedRows[0].Index;
                     DataGridViewRow selectedRow = dgvDoctor.Rows[selectedrowindex];
                     string tam_ad = Convert.ToString(selectedRow.Cells["doctor_name"].Value) + " " +
-                        Convert.ToString(selectedRow.Cells["doctor_surname"].Value);
+                    Convert.ToString(selectedRow.Cells["doctor_surname"].Value);
                     string mail = Convert.ToString(selectedRow.Cells["mail"].Value);
                     string telefon = Convert.ToString(selectedRow.Cells["phone_number"].Value);
                     string tc_no = Convert.ToString(selectedRow.Cells["tc_no"].Value);
                     Clipboard.SetText(Convert.ToString(selectedRow.Cells["tc_no"].Value));
                     string infoOfPersonWhoWillBeDeleted = "Silmek İstediğiniz Kişinin Bilgileri Aşağıdadır.\n" +
                                                             "Ad: " + tam_ad + "\nMail: " + mail + "\nTelefon: " + telefon;
-                    Toast toast = new Toast($"TCNO ({tc_no}) Panoya Kopyalandı!", Color.Green);
-                    toast.ShowDialog();
-                    DialogResult dialogResult = MessageBox.Show(infoOfPersonWhoWillBeDeleted, "Silmek İstediğize Emin Misiniz?", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show(infoOfPersonWhoWillBeDeleted, "Silmek İstediğize Emin Misiniz? (TCNO Kopyalandı!)", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         bool response = _blSecretary.deleteDoctor(tc_no);

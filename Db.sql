@@ -162,15 +162,16 @@ GO
 CREATE PROCEDURE FetchAllAwaitingAppointments
 AS
 BEGIN
-SELECT Patient.name + ' ' + Patient.surname as patient_name,patient_tc_no,section,Doctor.doctor_name + ' ' + Doctor.doctor_surname as doctor_name,
-FORMAT(examination_time,'yyyy-MM-dd') as examination_time,examination_hour,Appointment.id
+SELECT Appointment.id,Patient.name + ' ' + Patient.surname as patient_name,patient_tc_no,section,Doctor.doctor_name + ' ' + Doctor.doctor_surname as doctor_name,
+FORMAT(examination_time,'yyyy-MM-dd') as examination_time,examination_hour
 FROM Appointment
 INNER JOIN Doctor ON Appointment.doctor_tc_no = Doctor.tc_no
 INNER JOIN Patient ON Appointment.patient_tc_no = Patient.tc_no
 WHERE is_examination_done = 0 AND FORMAT(examination_time,'yyyy-MM-dd') >= FORMAT(GETDATE(),'yyyy-MM-dd')
 END
 GO
-
+EXEC FetchAllAwaitingAppointments
+DROP PROCEDURE FetchAllAwaitingAppointments
 GO
 CREATE PROCEDURE FetchAwaitingAppointmentsFilteredByDateAndTcNo
 @tcNo varchar(11),
@@ -280,9 +281,10 @@ AS
 BEGIN
 SELECT tc_no,doctor_name,doctor_surname,Sections.name as "section_name",mail,phone_number,address
 FROM Doctor
-INNER JOIN Sections ON Doctor.section_id = Sections.Id; 
+INNER JOIN Sections ON Doctor.section_id = Sections.id; 
 END
 GO
+
 
 SELECT COUNT(patient_tc_no) as hasta_sayisi,doctor_tc_no FROM Appointment GROUP BY doctor_tc_no
 
@@ -317,4 +319,5 @@ INSERT Appointment_Hours VALUES ('16:00:00')
 SELECT * FROM Appointment
 SELECT * FROM Patient
 SELECT * FROM Doctor
+SELECT * FROM Sections
 SELECT * FROM Doctor_Login_Info

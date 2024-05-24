@@ -99,13 +99,16 @@ namespace HospitalManagement.Doctor.DocAccountLayer
         private string InformationUpdate()
         {
             string response = string.Empty;
-            BlSecretary blSecretary = new BlSecretary();
-            bool infoUpdateResponse = blSecretary.updateSecretary(nameTextBox.Text, surnameTextBox.Text, tcnoTextBox.Text
+            BlDoctor blDoctor = new BlDoctor();
+            bool infoUpdateResponse = blDoctor.UpdateDoctor(nameTextBox.Text, surnameTextBox.Text, tcnoTextBox.Text
                 , mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text, LoginWindow._userEntity.Id);
             if (infoUpdateResponse) { response = "Bilgiler Başarıyla Güncellendi!"; }
             else { response = "Bilgiler Güncellenirken Hata İle Karşılaşıldı!"; }
 
             return response;
+
+            
+
         }
         private void updateInformations_Click(object sender, EventArgs e)
         {

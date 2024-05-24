@@ -35,5 +35,9 @@ namespace BusinessLayer
         {
             return _dalDoctor.UpdateExaminationResult(appointmentId, result);
         }
+        public bool UpdateDoctor(string name, string surname, string tcNo, string mail, string phoneNumber, string address, int id)
+        {
+            return _dalDoctor.UpdateDoctor(name,surname,tcNo, mail, phoneNumber, address,id);
+        }
     }
 }

@@ -28,6 +28,8 @@ namespace HospitalManagement.Doctor
         FTPHelper ftpHelper = new FTPHelper();
         private BlDoctor blDoctor;
         private DataTable appointments;
+        private DataTable lastExamination;
+        private DataGridViewRow lastSelectedRow = null;
         public DoctorLayer(string loginType)
         {
             blDoctor = new BlDoctor();
@@ -83,8 +85,10 @@ namespace HospitalManagement.Doctor
             {
                 int selectedrowindex = dgvAwaitingAppointments.SelectedRows[0].Index;
                 DataGridViewRow selectedRow = dgvAwaitingAppointments.Rows[selectedrowindex];
+                lastSelectedRow = selectedRow;
                 DataTable chosenAppointmentPatient = blDoctor.FetchPatientBytcNo(Convert.ToString(selectedRow.Cells["patient_tc_no"].Value));
                 DataTable chosenExamination = blDoctor.FetchRelatedExamination(Int16.Parse(selectedRow.Cells["id"].Value.ToString()));
+                lastExamination = chosenExamination;
                 foreach (DataRow row in chosenAppointmentPatient.Rows)
                 {
                     nameTextBox.Text = row["name"].ToString();
@@ -147,12 +151,23 @@ namespace HospitalManagement.Doctor
             CreateTopAndBackground(page, gfx);
 
             gfx.DrawString($"{appointments.Rows[0]["examination_time"]} - {appointments.Rows[0]["examination_hour"]} Tarihli Muayene Özetiniz".ToUpper(), new XFont("Arial", 20), brush, new XRect(10, page.Height / 10 + 10, page.Width, page.Height), XStringFormats.TopCenter);
-            gfx.DrawString($"Hasta Adı : {nameTextBox.Text + " " + surnameTextBox.Text}", font, brush, new XRect(20, page.Height / 10 + 40, page.Width, page.Height), XStringFormats.TopLeft);
-            gfx.DrawString($"Hasta TCNO : {tcnoTextBox.Text}", font, brush, new XRect(20, page.Height / 10 + 60, page.Width, page.Height), XStringFormats.TopLeft);
-            gfx.DrawString($"Hasta Mail : {mailTextBox.Text}", font, brush, new XRect(20, page.Height / 10 + 80, page.Width, page.Height), XStringFormats.TopLeft);
-            gfx.DrawString($"Hasta Adres : {addressTextBox.Text}", font, brush, new XRect(20, page.Height / 10 + 100, page.Width, page.Height), XStringFormats.TopLeft);
-            gfx.DrawString($"Doktor Adı : {LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad}", font, brush, new XRect(20, page.Height / 10 + 120, page.Width, page.Height), XStringFormats.TopLeft);
-            gfx.DrawString($"Bölüm : {appointments.Rows[0]["section"]}", font, brush, new XRect(20, page.Height / 10 + 140, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Hasta Adı : {nameTextBox.Text + " " + surnameTextBox.Text}", font, brush, new XRect(40, page.Height / 10 + 40, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Hasta TCNO : {tcnoTextBox.Text}", font, brush, new XRect(40, page.Height / 10 + 60, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Hasta Mail : {mailTextBox.Text}", font, brush, new XRect(40, page.Height / 10 + 80, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Hasta Adres : {addressTextBox.Text}", font, brush, new XRect(40, page.Height / 10 + 100, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Doktor Adı : {LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad}", font, brush, new XRect(40, page.Height / 10 + 120, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Bölüm : {appointments.Rows[0]["section"]}", font, brush, new XRect(40, page.Height / 10 + 140, page.Width, page.Height), XStringFormats.TopLeft);
+            gfx.DrawString($"Tahlil Sonuçları : {lastExamination.Rows[0]["analysis"]}", font, brush, new XRect(40, page.Height / 10 + 160, page.Width, page.Height), XStringFormats.TopLeft);
+           
+            gfx.DrawString($"Muayene Sonucu", font, brush, new XRect(40, page.Height / 10 + 180, page.Width, page.Height), XStringFormats.TopLeft);
+            string appointmentResult = lastExamination.Rows[0]["result"].ToString();
+            string[] appointmentResultSplitted = appointmentResult.Split(',');
+            int where = 200;
+            foreach (string line in appointmentResultSplitted)
+            {
+                gfx.DrawString($"{line}", font, brush, new XRect(40, page.Height / 10 + where, page.Width, page.Height), XStringFormats.TopLeft);
+                where += 20;
+            }
 
             //Footer
             gfx.DrawString("selim hastanesi since 1911 - www.seliminhastanesi.com - 444 0 444", new XFont("Arial", 12), brush, new XRect(100, page.Height / 10 + 730, page.Width, page.Height), XStringFormats.TopLeft);
@@ -198,15 +213,33 @@ namespace HospitalManagement.Doctor
             string result = appointmentResultTextBox.Text;
             int selectedrowindex = dgvAwaitingAppointments.SelectedRows[0].Index;
             DataGridViewRow selectedRow = dgvAwaitingAppointments.Rows[selectedrowindex];
-            bool response = blDoctor.UpdateExaminationResult(Int16.Parse(selectedRow.Cells["id"].Value.ToString()), result);
-            if (response)
+
+            if (lastSelectedRow != null)
             {
-                InfoMessage infoMessage = new InfoMessage("Muayene Sonucu Başarıyla Güncellendi", "Bilgi");
-                infoMessage.ShowDialog();
+                if (!string.IsNullOrEmpty(result))
+                {
+                    bool response = blDoctor.UpdateExaminationResult(Int16.Parse(selectedRow.Cells["id"].Value.ToString()), result);
+                    if (response)
+                    {
+                        InfoMessage infoMessage = new InfoMessage("Muayene Sonucu Başarıyla Güncellendi", "Bilgi");
+                        infoMessage.ShowDialog();
+                    }
+                    else
+                    {
+                        InfoMessage infoMessage = new InfoMessage("Muayene Sonucu Güncelleme İşlemi Başarısız", "Hata");
+                        infoMessage.ShowDialog();
+
+                    }
+                }
+                else
+                {
+                    InfoMessage infoMessage = new InfoMessage("Lütfen Sonuç Kısmını Boş Bırakmayınız!", "Hata");
+                    infoMessage.ShowDialog();
+                }
             }
             else
             {
-                InfoMessage infoMessage = new InfoMessage("Muayene Sonucu Güncelleme İşlemi Başarısız", "Hata");
+                InfoMessage infoMessage = new InfoMessage("Lütfen Öncelikle Randevu Seçiniz!", "Hata");
                 infoMessage.ShowDialog();
             }
         }
