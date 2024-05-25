@@ -128,11 +128,20 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                     BlSecretary blSecretary = new BlSecretary();
                     doctorToUpdate = blSecretary.fetchDoctorByGivenTcNo(doctorTcnoTextBox.Text);
                     fillFields(doctorToUpdate);
-                    string userName = (doctorToUpdate.Rows[0]["doctor_name"].ToString() + doctorToUpdate.Rows[0]["doctor_surname"].ToString()).Replace(" ", "").ToLower();
-                    profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/Doctor/{userName}.jpeg");
-                    InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Getirildi!", "Bilgi");
-                    infoMessage.ShowDialog();
-                    uploadProfilePicture.Enabled = true;
+                    if (doctorToUpdate.Rows.Count > 0)
+                    {
+                        string userName = (doctorToUpdate.Rows[0]["doctor_name"].ToString() + doctorToUpdate.Rows[0]["doctor_surname"].ToString()).Replace(" ", "").ToLower();
+                        profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/Doctor/{userName}.jpeg");
+                        InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Getirildi!", "Bilgi");
+                        infoMessage.ShowDialog();
+                        uploadProfilePicture.Enabled = true;
+
+                    }
+                    else
+                    {
+                        InfoMessage infoMessage = new InfoMessage("Belirtilen T.C. No ile doktor bulunamadı!", "Hata");
+                        infoMessage.ShowDialog();
+                    }
                 }
                 else
                 {

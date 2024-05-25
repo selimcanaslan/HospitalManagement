@@ -31,10 +31,8 @@ namespace DataAccessLayer
                 int rows_affected = com.ExecuteNonQuery();
                 if (rows_affected >= 1) { return true; }
                 else { return false; }
-
             }
             catch (SqlException ex) { Console.WriteLine(ex.GetType().Name + " - " + ex.Message); return false; }
-
         }
         public DataTable fetchAllSecretary()
         {

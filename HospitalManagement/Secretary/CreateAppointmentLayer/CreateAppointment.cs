@@ -6,6 +6,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI.WebControls;
@@ -299,23 +301,32 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                     bool isPatientExist2 = blSecretary.PatientExistenceCheck(tcNo);
                     if (isPatientExist2)
                     {
-
-                        bool appointmentCreationResponse = blSecretary.CreateAppointment(tcNo, section, lastSelectedDoctorTcno, examinationDate, examinationTimeHour, 0, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
-                        if (appointmentCreationResponse)
+                        DataTable sameAppointmentExistence = new DataTable();
+                        sameAppointmentExistence = blSecretary.FetchAwaitingAppointmentsFilteredByDateAndTcNo(tcNo, DateTime.Now.ToString("yyyy-MM-dd"));
+                        Console.WriteLine(sameAppointmentExistence.Rows.Count);
+                        if (sameAppointmentExistence.Rows.Count > 0 && sameAppointmentExistence.Rows[0]["section"].ToString() == section)
                         {
-                            totalResponse += "Hasta Randevusu Başarıyla Oluşturuldu.\nRandevu Bilgileri Mail Yoluyla İletildi.";
 
+                            totalResponse += $"Hasta adına bugün {section} bölümüne alınmış bir randevu zaten var!";
                         }
                         else
                         {
-                            totalResponse += "Hasta Randevusu Oluşturulamadı.";
+                            bool appointmentCreationResponse = blSecretary.CreateAppointment(tcNo, section, lastSelectedDoctorTcno, examinationDate, examinationTimeHour, 0, DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss"));
+                            if (appointmentCreationResponse)
+                            {
+                                totalResponse += "Hasta Randevusu Başarıyla Oluşturuldu.\nRandevu Bilgileri Mail Yoluyla İletildi.";
+                                sendAppointmentInfoToMailAddress(section, DateTime.Now.ToString("yyyy-MM-dd"), examinationTimeHour, doctor, mail);
+                            }
+                            else
+                            {
+                                totalResponse += "Hasta Randevusu Oluşturulamadı.";
+                            }
                         }
                     }
                     InfoMessage infoMessage = new InfoMessage(totalResponse, "Bilgi");
                     infoMessage.ShowDialog();
                 }
                 catch (Exception ex) { Console.WriteLine(ex.Message); }
-
             }
             else
             {
@@ -355,6 +366,38 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                     infoMessage.ShowDialog();
                 }
             }
+        }
+        private void sendAppointmentInfoToMailAddress(string section, string date, string time, string doctorName, string mailAddress)
+        {
+            try
+            {
+                var smtpClient = new System.Net.Mail.SmtpClient("smtp.gmail.com")
+                {
+                    Port = 587,
+                    Credentials = new NetworkCredential("selimcanaslan33@gmail.com", "awzc nxve hnwo sxkj"),
+                    EnableSsl = true,
+                };
+
+                var mailMessage = new MailMessage
+                {
+                    From = new MailAddress("selimcanaslan33@gmail.com"),
+                    Subject = "Randevu Bilgileriniz",
+                    Body = "<h1>Randevu Bilgileriniz Aşağıda Gösterilmektedir</h1>" +
+                    "<p>Randevu Bölümü: " + section + "</p>" +
+                    "<p>Randevu Tarihi: " + date + "</p>" +
+                    "<p>Randevu Saati: " + time + "</p>" +
+                    "<p>Doktor: " + doctorName + "</p>",
+                    IsBodyHtml = true,
+                };
+                mailMessage.To.Add(mailAddress);
+
+                smtpClient.SendMailAsync(mailMessage);
+            }
+            catch (SmtpException e)
+            {
+                Console.WriteLine("Error: {0}", e.StatusCode);
+            }
+
         }
     }
 }
