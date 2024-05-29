@@ -19,7 +19,6 @@ using HospitalManagement.Secretary.DeleteDoctorLayer;
 using HospitalManagement.Secretary.UpdateDoctorLayer;
 using HospitalManagement.Secretary.AccountLayer;
 using HospitalManagement.Secretary.AppointmentsLayer;
-using HospitalManagement.Login;
 using Org.BouncyCastle.Asn1.Ocsp;
 using System.Net;
 using HospitalManagement.Dialog;

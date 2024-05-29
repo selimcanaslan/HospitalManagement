@@ -52,6 +52,7 @@ namespace HospitalManagement.Secretary
             }
             catch (WebException ex)
             {
+                Console.WriteLine(ex.Message);
                 FtpWebResponse response = (FtpWebResponse)ex.Response;
                 if (response.StatusCode == FtpStatusCode.ActionNotTakenFileUnavailable)
                     return false;

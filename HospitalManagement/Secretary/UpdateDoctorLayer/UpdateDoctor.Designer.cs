@@ -353,10 +353,11 @@
             this.doctorTcnoTextBox.Name = "doctorTcnoTextBox";
             this.doctorTcnoTextBox.PasswordChar = '\0';
             this.doctorTcnoTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.doctorTcnoTextBox.PlaceholderText = "Sekreter T.C Kimlik Numarası";
+            this.doctorTcnoTextBox.PlaceholderText = "Doktor T.C Kimlik Numarası";
             this.doctorTcnoTextBox.SelectedText = "";
             this.doctorTcnoTextBox.Size = new System.Drawing.Size(617, 45);
             this.doctorTcnoTextBox.TabIndex = 54;
+            this.doctorTcnoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.doctorTcnoTextBox_KeyPress);
             // 
             // label10
             // 

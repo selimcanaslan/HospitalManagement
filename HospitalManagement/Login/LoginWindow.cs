@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HospitalManagement.Secretary;
-using HospitalManagement.Login;
 using BusinessLayer;
 using HospitalManagement.Doctor;
 using EntityLayer;
@@ -33,14 +32,8 @@ namespace HospitalManagement
         private void LoginWindow_Load(object sender, EventArgs e)
         {
             CenterToScreen();
-            test_fill_info();
         }
-        private void test_fill_info()
-        {
-            user_name_textBox.Text = "selimcanaslan";
-            password_textBox.Text = "selimcanaslan";
-            checkBox2.Checked = true;
-        }
+
         private void login_button_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrWhiteSpace(user_name_textBox.Text) == true || String.IsNullOrWhiteSpace(password_textBox.Text) == true)

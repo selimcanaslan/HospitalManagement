@@ -173,12 +173,6 @@
     <Compile Include="Doctor\PrescriptionLayer\Prescription.Designer.cs">
       <DependentUpon>Prescription.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\ExitLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Login\ExitLogin.Designer.cs">
-      <DependentUpon>ExitLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login\LoginWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -283,9 +277,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Doctor\PrescriptionLayer\Prescription.resx">
       <DependentUpon>Prescription.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login\ExitLogin.resx">
-      <DependentUpon>ExitLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\LoginWindow.resx">
       <DependentUpon>LoginWindow.cs</DependentUpon>

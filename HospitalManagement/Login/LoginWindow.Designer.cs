@@ -30,9 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginWindow));
-            this.user_name_textBox = new System.Windows.Forms.TextBox();
             this.login_button = new System.Windows.Forms.Button();
-            this.password_textBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -40,31 +38,18 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.guna2ControlBox1 = new Guna.UI2.WinForms.Guna2ControlBox();
             this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
-            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.containerPanel = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
+            this.user_name_textBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.password_textBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.containerPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // user_name_textBox
-            // 
-            this.user_name_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.user_name_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(54)))));
-            this.user_name_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.user_name_textBox.Font = new System.Drawing.Font("Lucida Sans Unicode", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.user_name_textBox.ForeColor = System.Drawing.Color.White;
-            this.user_name_textBox.Location = new System.Drawing.Point(276, 45);
-            this.user_name_textBox.Name = "user_name_textBox";
-            this.user_name_textBox.Size = new System.Drawing.Size(229, 30);
-            this.user_name_textBox.TabIndex = 2;
-            this.user_name_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // login_button
             // 
@@ -79,22 +64,6 @@
             this.login_button.Text = "Giriş Yap";
             this.login_button.UseVisualStyleBackColor = false;
             this.login_button.Click += new System.EventHandler(this.login_button_Click);
-            // 
-            // password_textBox
-            // 
-            this.password_textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.password_textBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(54)))));
-            this.password_textBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.password_textBox.Font = new System.Drawing.Font("Lucida Sans Unicode", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.password_textBox.ForeColor = System.Drawing.Color.White;
-            this.password_textBox.Location = new System.Drawing.Point(276, 113);
-            this.password_textBox.Name = "password_textBox";
-            this.password_textBox.Size = new System.Drawing.Size(229, 30);
-            this.password_textBox.TabIndex = 3;
-            this.password_textBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.password_textBox.UseSystemPasswordChar = true;
             // 
             // label1
             // 
@@ -168,22 +137,16 @@
             this.guna2DragControl1.TargetControl = this.containerPanel;
             this.guna2DragControl1.UseTransparentDrag = true;
             // 
-            // guna2DragControl2
-            // 
-            this.guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
-            this.guna2DragControl2.TargetControl = this.pictureBox3;
-            this.guna2DragControl2.UseTransparentDrag = true;
-            // 
             // containerPanel
             // 
             this.containerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(54)))));
+            this.containerPanel.Controls.Add(this.password_textBox);
+            this.containerPanel.Controls.Add(this.user_name_textBox);
             this.containerPanel.Controls.Add(this.pictureBox3);
             this.containerPanel.Controls.Add(this.guna2ControlBox1);
-            this.containerPanel.Controls.Add(this.user_name_textBox);
             this.containerPanel.Controls.Add(this.checkBox2);
             this.containerPanel.Controls.Add(this.login_button);
             this.containerPanel.Controls.Add(this.checkBox1);
-            this.containerPanel.Controls.Add(this.password_textBox);
             this.containerPanel.Controls.Add(this.label1);
             this.containerPanel.Controls.Add(this.pictureBox2);
             this.containerPanel.Controls.Add(this.panel1);
@@ -229,6 +192,58 @@
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
+            // guna2DragControl2
+            // 
+            this.guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl2.TargetControl = this.pictureBox3;
+            this.guna2DragControl2.UseTransparentDrag = true;
+            // 
+            // user_name_textBox
+            // 
+            this.user_name_textBox.BorderThickness = 0;
+            this.user_name_textBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.user_name_textBox.DefaultText = "";
+            this.user_name_textBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.user_name_textBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.user_name_textBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.user_name_textBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.user_name_textBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(54)))));
+            this.user_name_textBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.user_name_textBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.user_name_textBox.ForeColor = System.Drawing.Color.White;
+            this.user_name_textBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.user_name_textBox.Location = new System.Drawing.Point(277, 41);
+            this.user_name_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.user_name_textBox.Name = "user_name_textBox";
+            this.user_name_textBox.PasswordChar = '\0';
+            this.user_name_textBox.PlaceholderText = "Kullanıcı Adı";
+            this.user_name_textBox.SelectedText = "";
+            this.user_name_textBox.Size = new System.Drawing.Size(230, 34);
+            this.user_name_textBox.TabIndex = 18;
+            // 
+            // password_textBox
+            // 
+            this.password_textBox.BorderThickness = 0;
+            this.password_textBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.password_textBox.DefaultText = "";
+            this.password_textBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.password_textBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.password_textBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.password_textBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.password_textBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(54)))));
+            this.password_textBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.password_textBox.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.password_textBox.ForeColor = System.Drawing.Color.White;
+            this.password_textBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.password_textBox.Location = new System.Drawing.Point(277, 109);
+            this.password_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.password_textBox.Name = "password_textBox";
+            this.password_textBox.PasswordChar = '\0';
+            this.password_textBox.PlaceholderText = "Şifre";
+            this.password_textBox.SelectedText = "";
+            this.password_textBox.Size = new System.Drawing.Size(230, 34);
+            this.password_textBox.TabIndex = 19;
+            // 
             // LoginWindow
             // 
             this.AcceptButton = this.login_button;
@@ -258,9 +273,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox user_name_textBox;
         private System.Windows.Forms.Button login_button;
-        private System.Windows.Forms.TextBox password_textBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -273,6 +286,8 @@
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
         private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
         private System.Windows.Forms.Panel containerPanel;
+        private Guna.UI2.WinForms.Guna2TextBox user_name_textBox;
+        private Guna.UI2.WinForms.Guna2TextBox password_textBox;
     }
 }
 

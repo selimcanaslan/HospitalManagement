@@ -116,14 +116,22 @@ namespace HospitalManagement.Doctor
 
         private void sendAppointmentDetailsToPatientViaMail_Click(object sender, EventArgs e)
         {
-            string patientName = $"{nameTextBox.Text + " " + surnameTextBox.Text}";
-            string doctorName = LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad;
-            string mailAddress = $"{mailTextBox.Text}";
-            string appointmentDataAndHour = $"{appointments.Rows[0]["examination_time"]} - {appointments.Rows[0]["examination_hour"]}";
-            string section = $"{appointments.Rows[0]["section"]}";
-            string title = $"{appointments.Rows[0]["examination_time"]} Tarihli Muayene Özetiniz";
-            Prescription prescription = new Prescription(title, patientName, doctorName, mailAddress, appointmentDataAndHour, section);
-            prescription.ShowDialog();
+            if(appointments.Rows.Count > 0)
+            {
+                string patientName = $"{nameTextBox.Text + " " + surnameTextBox.Text}";
+                string doctorName = LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad;
+                string mailAddress = $"{mailTextBox.Text}";
+                string appointmentDataAndHour = $"{appointments.Rows[0]["examination_time"]} - {appointments.Rows[0]["examination_hour"]}";
+                string section = $"{appointments.Rows[0]["section"]}";
+                string title = $"{appointments.Rows[0]["examination_time"]} Tarihli Muayene Özetiniz";
+                Prescription prescription = new Prescription(title, patientName, doctorName, mailAddress, appointmentDataAndHour, section);
+                prescription.ShowDialog();
+            }
+            else
+            {
+                InfoMessage infoMessage = new InfoMessage("Henüz Randevu Seçmediniz!", "Bilgi");
+                infoMessage.ShowDialog();
+            }
         }
 
         private void exportPdfButton_Click(object sender, EventArgs e)
@@ -210,12 +218,11 @@ namespace HospitalManagement.Doctor
 
         private void updateExaminationResultButton_Click(object sender, EventArgs e)
         {
-            string result = appointmentResultTextBox.Text;
-            int selectedrowindex = dgvAwaitingAppointments.SelectedRows[0].Index;
-            DataGridViewRow selectedRow = dgvAwaitingAppointments.Rows[selectedrowindex];
-
             if (lastSelectedRow != null)
             {
+                string result = appointmentResultTextBox.Text;
+                int selectedrowindex = dgvAwaitingAppointments.SelectedRows[0].Index;
+                DataGridViewRow selectedRow = dgvAwaitingAppointments.Rows[selectedrowindex];
                 if (!string.IsNullOrEmpty(result))
                 {
                     bool response = blDoctor.UpdateExaminationResult(Int16.Parse(selectedRow.Cells["id"].Value.ToString()), result);

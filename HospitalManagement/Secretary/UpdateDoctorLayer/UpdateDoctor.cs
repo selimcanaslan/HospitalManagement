@@ -19,6 +19,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
 {
     public partial class UpdateDoctor : Form
     {
+        FTPHelper ftpHelper = new FTPHelper();
         DataTable doctorToUpdate = new DataTable();
         string doctorProfilePicture = "";
         public UpdateDoctor()
@@ -26,6 +27,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
             InitializeComponent();
             this.DoubleBuffered = true;
             tcnoTextBox.MaxLength = 11;
+            doctorTcnoTextBox.MaxLength = 11;
             tcnoTextBox.ReadOnly = true;
             phoneTextBox.MaxLength = 10;
             doctorToUpdate = null;
@@ -65,6 +67,13 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
         }
 
         private void tcnoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void doctorTcnoTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetter(e.KeyChar))
             {
@@ -119,6 +128,19 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
             }
 
         }
+        public void LoadProfilePicture(string fileName)
+        {
+            bool existence = ftpHelper.CheckFileExistence(fileName);
+            if (existence)
+            {
+                profilePicture.LoadAsync($"http://sca.somee.com/{fileName}");
+            }
+            else
+            {
+                InfoMessage infoMessage = new InfoMessage("Doktor Profil Fotoğrafı Eklenmemiş!\nEn kısa zamanda ekleyiniz!", "Hata");
+                infoMessage.ShowDialog();
+            }
+        }
         private void searchButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(doctorTcnoTextBox.Text) == false)
@@ -127,11 +149,11 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
                 {
                     BlSecretary blSecretary = new BlSecretary();
                     doctorToUpdate = blSecretary.fetchDoctorByGivenTcNo(doctorTcnoTextBox.Text);
-                    fillFields(doctorToUpdate);
                     if (doctorToUpdate.Rows.Count > 0)
                     {
+                        fillFields(doctorToUpdate);
                         string userName = (doctorToUpdate.Rows[0]["doctor_name"].ToString() + doctorToUpdate.Rows[0]["doctor_surname"].ToString()).Replace(" ", "").ToLower();
-                        profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/Doctor/{userName}.jpeg");
+                        LoadProfilePicture("profilePictures/Doctor/" + userName + ".jpeg");
                         InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Getirildi!", "Bilgi");
                         infoMessage.ShowDialog();
                         uploadProfilePicture.Enabled = true;

@@ -18,6 +18,7 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
 {
     public partial class UpdateSecretary : Form
     {
+        FTPHelper ftpHelper = new FTPHelper();
         DataTable secretaryToUpdate = new DataTable();
         string secretaryProfilePicture = "";
         public UpdateSecretary()
@@ -80,6 +81,19 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                 }
             }
         }
+        public void LoadProfilePicture(string fileName)
+        {
+            bool existence = ftpHelper.CheckFileExistence(fileName);
+            if (existence)
+            {
+                profilePicture.LoadAsync($"http://sca.somee.com/{fileName}");
+            }
+            else
+            {
+                InfoMessage infoMessage = new InfoMessage("Sekreter Profil Fotoğrafı Eklenmemiş!\nEn kısa zamanda ekleyiniz!", "Hata");
+                infoMessage.ShowDialog();
+            }
+        }
         private void searchButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(secretaryTcnoTextBox.Text) == false)
@@ -88,12 +102,20 @@ namespace HospitalManagement.Secretary.UpdateSecretaryLayer
                 {
                     BlSecretary blSecretary = new BlSecretary();
                     secretaryToUpdate = blSecretary.fetchSecretaryByGivenTcNo(secretaryTcnoTextBox.Text);
-                    fillFields(secretaryToUpdate);
-                    string userName = blSecretary.lowercasedAndTrimmedNameSurname(secretaryTcnoTextBox.Text);
-                    profilePicture.LoadAsync($"http://sca.somee.com/profilePictures/Secretary/{userName}.jpeg");
-                    InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Getirildi!", "Bilgi");
-                    infoMessage.ShowDialog();
-                    uploadProfilePicture.Enabled = true;
+                    if(secretaryToUpdate.Rows.Count > 0)
+                    {
+                        fillFields(secretaryToUpdate);
+                        string userName = blSecretary.lowercasedAndTrimmedNameSurname(secretaryTcnoTextBox.Text);
+                        LoadProfilePicture("profilePictures/Secretary/" + userName + ".jpeg");
+                        InfoMessage infoMessage = new InfoMessage("Bilgiler Başarıyla Getirildi!", "Bilgi");
+                        infoMessage.ShowDialog();
+                        uploadProfilePicture.Enabled = true;
+                    }
+                    else
+                    {
+                        InfoMessage infoMessage = new InfoMessage("Belirtilen T.C. No ile sekreter bulunamadı!", "Hata");
+                        infoMessage.ShowDialog();
+                    }
                 }
                 else
                 {
