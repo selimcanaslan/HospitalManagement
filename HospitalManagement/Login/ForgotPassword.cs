@@ -63,6 +63,7 @@ namespace HospitalManagement.Login
                         sendUserNamePasswordToMailAddress(password.Rows[0]["password"].ToString(), mailTextBox.Text);
                         InfoMessage infoMessage = new InfoMessage("Şifreniz Mail Adresinize Gönderildi!", "Bilgi");
                         infoMessage.ShowDialog();
+                        this.Close();
                     }
                     else
                     {
