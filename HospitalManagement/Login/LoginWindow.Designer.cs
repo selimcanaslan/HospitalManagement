@@ -238,11 +238,12 @@
             this.password_textBox.Location = new System.Drawing.Point(277, 109);
             this.password_textBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.password_textBox.Name = "password_textBox";
-            this.password_textBox.PasswordChar = '\0';
+            this.password_textBox.PasswordChar = '●';
             this.password_textBox.PlaceholderText = "Şifre";
             this.password_textBox.SelectedText = "";
             this.password_textBox.Size = new System.Drawing.Size(230, 34);
             this.password_textBox.TabIndex = 19;
+            this.password_textBox.UseSystemPasswordChar = true;
             // 
             // LoginWindow
             // 

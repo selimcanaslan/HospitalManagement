@@ -14,6 +14,7 @@ using HospitalManagement.Doctor;
 using EntityLayer;
 using System.Data.SqlClient;
 using HospitalManagement.Dialog;
+using HospitalManagement.Login;
 
 namespace HospitalManagement
 {
@@ -154,7 +155,8 @@ namespace HospitalManagement
 
         private void label1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Banane", "Error");
+            ForgotPassword forgotPassword = new ForgotPassword();
+            forgotPassword.ShowDialog();
         }
     }
 }

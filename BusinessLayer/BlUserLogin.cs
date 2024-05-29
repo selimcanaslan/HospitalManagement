@@ -24,5 +24,9 @@ namespace BusinessLayer
         {
             return _dalUserLogin.FetchDoctorLoginInfo(username, password);
         }
+        public DataTable FetchUserPassword(string mail, string userType)
+        {
+            return _dalUserLogin.FetchUserPassword(mail, userType);
+        }
     }
 }
