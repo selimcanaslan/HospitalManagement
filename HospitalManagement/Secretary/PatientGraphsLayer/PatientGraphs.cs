@@ -50,8 +50,8 @@ namespace HospitalManagement.Secretary.PatientGraphsLayer
             pane.YAxis.Title.Text = yLabelText;
             pane.Title.Text = titleText;
 
-            pane.XAxis.Scale.FontSpec.Angle = 45;
-            pane.XAxis.Scale.FontSpec.Size = 10;
+            pane.XAxis.Scale.FontSpec.Angle = 75;
+            pane.XAxis.Scale.FontSpec.Size = 14;
             pane.XAxis.Scale.FontSpec.Family = "Arial";
             pane.XAxis.Scale.FontSpec.IsBold = true;
 
@@ -59,11 +59,8 @@ namespace HospitalManagement.Secretary.PatientGraphsLayer
             pane.XAxis.Scale.MajorStep = 1;
 
             pane.XAxis.Scale.Min = 0;
-            pane.XAxis.Scale.Max = Math.Min(10, names.Length);
+            pane.XAxis.Scale.Max = numericData.Length + 1; 
             pane.XAxis.Scale.MinorStep = 1;
-
-            zedGraphControl1.IsShowHScrollBar = true;
-            zedGraphControl1.IsAutoScrollRange = true;
 
             BarItem bar = pane.AddBar("", null, y, Color.Black);
             bar.Bar.Fill = new Fill(new Color[] { Color.Blue, Color.Green, Color.Red });
@@ -73,6 +70,7 @@ namespace HospitalManagement.Secretary.PatientGraphsLayer
             zedGraphControl1.Refresh();
             this.Controls.Add(zedGraphControl1);
         }
+
 
         private void showGraph_Click(object sender, EventArgs e)
         {
