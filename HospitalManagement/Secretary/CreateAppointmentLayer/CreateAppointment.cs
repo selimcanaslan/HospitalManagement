@@ -133,6 +133,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
 
         private void examinationDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
+            ResetAllComboBoxAtOnce();
             DateTime dateTimePickerValue = examinationDateTimePicker.Value;
             DateTime today = DateTime.Now;
             if (dateTimePickerValue.Year <= today.Year &&
@@ -201,7 +202,6 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                     }
                     FillAppointmentHours(selectedDoctorTcNo);
                 }
-
             }
             catch (Exception ex) { Console.WriteLine(ex.ToString()); }
         }
@@ -209,91 +209,74 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
         {
             try
             {
+                DataTable doctorAppointments = new DataTable();
+                doctorAppointments = blSecretary.FetchDoctorAppointments(tcNo, examinationDateTimePicker.Value.ToString("yyyy-MM-dd"));
+                Console.WriteLine(doctorAppointments.Rows.Count);
                 if (tcNo != string.Empty)
                 {
-                    DataTable doctorAppointments = new DataTable();
-                    doctorAppointments = blSecretary.FetchDoctorAppointments(tcNo);
-                    DateTime examinationDate;
-
                     if (examinationTimeComboBox.Items.Count > 1)
                     {
-                        for (int i = examinationTimeComboBox.Items.Count - 1; i > 0; i--)
+                        int itemCount = examinationTimeComboBox.Items.Count;
+                        for (int i = itemCount - 1; i > 0; i--)
                         {
                             examinationTimeComboBox.Items.RemoveAt(i);
+                            Console.WriteLine($"{i} is deleted duo resetting combobox");
                         }
+                        examinationTimeComboBox.SelectedIndex = 0;
                     }
                     if (doctorAppointments.Rows.Count > 0)
                     {
-                        foreach (DataRow row in doctorAppointments.Rows)
+                        List<string> hourList = new List<string>();
+                        List<string> hoursToDelete = new List<string>();
+                        foreach (DataRow row in appointmentHoursGlobal.Rows)
                         {
-                            examinationDate = (DateTime)row["examination_time"];
-
-                            if (examinationDate.ToString() == examinationDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss"))
+                            hourList.Add(row["appointment_hour"].ToString());
+                        }
+                        foreach(DataRow _row in doctorAppointments.Rows)
+                        {
+                            foreach(var item in hourList)
                             {
-                                Console.WriteLine("Tarihler Eslesiyor");
-                            }
-
-                            string examinationHour = row["examination_hour"].ToString();
-                            foreach (DataRow _row in appointmentHoursGlobal.Rows)
-                            {
-                                string hour = _row["appointment_hour"].ToString();
-                                Console.WriteLine($"{examinationDate} and {examinationDateTimePicker.Value}");
-                                if (examinationDate.ToString("yyyy-MM-dd") == examinationDateTimePicker.Value.ToString("yyyy-MM-dd"))
+                                if (_row["examination_hour"].ToString() == item)
                                 {
-                                    if (hour != examinationHour)
-                                    {
-                                        if (!examinationTimeComboBox.Items.Contains(hour))
-                                        {
-                                            examinationTimeComboBox.Items.Add(hour);
-                                        }
-                                    }
-                                    else
-                                    {
-                                        if (examinationTimeComboBox.Items.Contains(hour))
-                                        {
-                                            examinationTimeComboBox.Items.Remove(hour);
-                                        }
-                                    }
-                                }
-                                else
-                                {
-                                    if (!examinationTimeComboBox.Items.Contains(hour))
-                                    {
-                                        examinationTimeComboBox.Items.Add(hour);
-                                    }
+                                    hoursToDelete.Add(item.ToString());
                                 }
                             }
+                        }
+                        foreach(DataRow dataRow in appointmentHoursGlobal.Rows)
+                        {
+                            examinationTimeComboBox.Items.Add(dataRow["appointment_hour"]);
+                        }
+                        for (int i = examinationTimeComboBox.Items.Count - 1; i>0; i--)
+                        {
+                            foreach(var item in hoursToDelete)
+                            {
+                                if (examinationTimeComboBox.Items[i].ToString() == item)
+                                {
+                                    examinationTimeComboBox.Items.RemoveAt(i);
+                                }
+                            }
+                            
                         }
                     }
                     else
                     {
-                        foreach (DataRow _row in appointmentHoursGlobal.Rows)
+                        foreach (DataRow dataRow in appointmentHoursGlobal.Rows)
                         {
-                            string hour = _row["appointment_hour"].ToString();
-                            examinationTimeComboBox.Items.Add(hour);
+                            examinationTimeComboBox.Items.Add(dataRow["appointment_hour"]);
                         }
                     }
-
                 }
-
             }
-            catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+            catch (Exception ex) { Console.WriteLine(ex.Message); }
+
         }
         private void ResetAllComboBoxAtOnce()
         {
             if (sectionComboBox.SelectedIndex != 0)
             {
-                sectionComboBox.Items.Clear();
-                doctorComboBox.Items.Clear();
-                examinationTimeComboBox.Items.Clear();
-
-                sectionComboBox.Items.Insert(0, "Bölüm Seçiniz");
-                doctorComboBox.Items.Insert(0, "Doktor Seçiniz");
-                examinationTimeComboBox.Items.Insert(0, "Muayene Saati Seçiniz");
-                sectionComboBox.StartIndex = 0;
-                doctorComboBox.StartIndex = 0;
-                examinationTimeComboBox.StartIndex = 0;
-                FillSections();
+                sectionComboBox.SelectedIndex = 0;
+                doctorComboBox.SelectedIndex = 0;
+                examinationTimeComboBox.SelectedIndex = 0;
             }
             else
             {
@@ -316,7 +299,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                 string section = sectionComboBox.Text;
                 string doctor = doctorComboBox.Text;
                 string examinationTimeHour = examinationTimeComboBox.Text;
-                string examinationDate = examinationDateTimePicker.Value.ToString("yyyy-MM-dd HH:mm:ss");
+                string examinationDate = examinationDateTimePicker.Value.ToString("yyyy-MM-dd");
                 Console.WriteLine(examinationDate);
                 try
                 {
@@ -345,6 +328,9 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                             {
                                 totalResponse += "Hasta Randevusu Başarıyla Oluşturuldu.\nRandevu Bilgileri Mail Yoluyla İletildi.";
                                 sendAppointmentInfoToMailAddress(section, examinationDateTimePicker.Value.ToString("dd MMMM"), examinationTimeHour, doctor, mail);
+                                sectionComboBox.SelectedIndex = 0;
+                                doctorComboBox.SelectedIndex = 0;
+                                examinationDateTimePicker.Value = DateTime.Now;
                             }
                             else
                             {

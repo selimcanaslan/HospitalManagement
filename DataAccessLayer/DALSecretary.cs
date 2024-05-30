@@ -285,10 +285,10 @@ namespace DataAccessLayer
             }
             return dt;
         }
-        public DataTable FetchDoctorAppointments(string tcNo)
+        public DataTable FetchDoctorAppointments(string tcNo, string examinationTime)
         {
             DataTable dt = new DataTable();
-            string query = $"SELECT * FROM Appointment WHERE doctor_tc_no = '{tcNo}'";
+            string query = $"SELECT * FROM Appointment WHERE doctor_tc_no = '{tcNo}' AND FORMAT(examination_time,'yyyy-MM-dd') = '{examinationTime}'";
             com.Connection = con;
             com.CommandText = query;
             da.SelectCommand = com;
