@@ -177,6 +177,17 @@ namespace HospitalManagement.Doctor
 
             gfx.DrawString($"Muayene Sonucu", font, brush, new XRect(40, page.Height / 10 + 180, page.Width, page.Height), XStringFormats.TopLeft);
             string appointmentResult = appointmentResultTextBox.Text;
+            StringBuilder appointmentResultWithCommas = new StringBuilder();
+
+            for (int i = 0; i < appointmentResult.Length; i++)
+            {
+                appointmentResultWithCommas.Append(appointmentResult[i]);
+                if ((i + 1) % 65 == 0 && i != appointmentResult.Length - 1)
+                {
+                    appointmentResultWithCommas.Append(',');
+                }
+            }
+            appointmentResult = appointmentResultWithCommas.ToString();
             string[] appointmentResultSplitted = appointmentResult.Split(',');
             int where = 200;
             foreach (string line in appointmentResultSplitted)
