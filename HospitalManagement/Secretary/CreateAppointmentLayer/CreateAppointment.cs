@@ -414,7 +414,5 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
             }
 
         }
-
-
     }
 }

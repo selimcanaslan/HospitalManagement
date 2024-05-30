@@ -134,7 +134,7 @@ namespace HospitalManagement.Secretary.AddNewSecretaryLayer
 
             if (fieldValidation() == true)
             {
-                lowercasedAndTrimmedNameSurname = nameTextBox.Text.ToLower().Trim() + surnameTextBox.Text.ToLower().Trim();
+                lowercasedAndTrimmedNameSurname = nameTextBox.Text.ToLower().Replace(" ","") + surnameTextBox.Text.ToLower().Replace(" ", "");
                 BlSecretary blSecretary = new BlSecretary();
                 bool response = blSecretary.AddSecretary(tcnoTextBox.Text, nameTextBox.Text, surnameTextBox.Text,
                     mailTextBox.Text, phoneTextBox.Text, addressTextBox.Text);

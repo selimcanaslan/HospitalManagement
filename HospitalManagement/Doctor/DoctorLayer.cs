@@ -64,7 +64,6 @@ namespace HospitalManagement.Doctor
         private void DoctorLayer_Load(object sender, EventArgs e)
         {
             LoadProfilePicture("profilePictures/Doctor/" + LoginWindow._userEntity.KullaniciAd + ".jpeg");
-
         }
         public void LoadProfilePicture(string fileName)
         {
@@ -112,11 +111,12 @@ namespace HospitalManagement.Doctor
         {
             DocAccount account = new DocAccount();
             account.ShowDialog();
+            LoadProfilePicture("profilePictures/Doctor/" + LoginWindow._userEntity.KullaniciAd + ".jpeg");
         }
 
         private void sendAppointmentDetailsToPatientViaMail_Click(object sender, EventArgs e)
         {
-            if(appointments.Rows.Count > 0)
+            if (lastSelectedRow != null)
             {
                 string patientName = $"{nameTextBox.Text + " " + surnameTextBox.Text}";
                 string doctorName = LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad;
@@ -150,7 +150,7 @@ namespace HospitalManagement.Doctor
             }
             else
             {
-                InfoMessage infoMessage = new InfoMessage("Öncelikle Muayene Seçmelisiniz!", "Bilgi");
+                InfoMessage infoMessage = new InfoMessage("Öncelikle Randevu Seçmelisiniz!", "Bilgi");
                 infoMessage.ShowDialog();
             }
         }
@@ -174,7 +174,7 @@ namespace HospitalManagement.Doctor
             gfx.DrawString($"Doktor Adı : {LoginWindow._userEntity.Ad + " " + LoginWindow._userEntity.Soyad}", font, brush, new XRect(40, page.Height / 10 + 120, page.Width, page.Height), XStringFormats.TopLeft);
             gfx.DrawString($"Bölüm : {appointments.Rows[0]["section"]}", font, brush, new XRect(40, page.Height / 10 + 140, page.Width, page.Height), XStringFormats.TopLeft);
             gfx.DrawString($"Tahlil Sonuçları : {lastExamination.Rows[0]["analysis"]}", font, brush, new XRect(40, page.Height / 10 + 160, page.Width, page.Height), XStringFormats.TopLeft);
-           
+
             gfx.DrawString($"Muayene Sonucu", font, brush, new XRect(40, page.Height / 10 + 180, page.Width, page.Height), XStringFormats.TopLeft);
             string appointmentResult = lastExamination.Rows[0]["result"].ToString();
             string[] appointmentResultSplitted = appointmentResult.Split(',');
@@ -190,7 +190,7 @@ namespace HospitalManagement.Doctor
             try
             {
                 document.Save(filePath);
-                InfoMessage infoMessage = new InfoMessage("Muayene Özeti PDF'i Başarıyla Oluşturuldu!","Bilgi");
+                InfoMessage infoMessage = new InfoMessage("Muayene Özeti PDF'i Başarıyla Oluşturuldu!", "Bilgi");
                 infoMessage.ShowDialog();
             }
             catch (Exception ex) { MessageBox.Show(ex.ToString()); }
@@ -257,6 +257,11 @@ namespace HospitalManagement.Doctor
                 InfoMessage infoMessage = new InfoMessage("Lütfen Öncelikle Randevu Seçiniz!", "Hata");
                 infoMessage.ShowDialog();
             }
+        }
+
+        private void profilePicture_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
