@@ -28,6 +28,7 @@ namespace HospitalManagement
         {
             InitializeComponent();
             blSecretary = new BlSecretary();
+            user_name_textBox.Select();
         }
 
         private void LoginWindow_Load(object sender, EventArgs e)

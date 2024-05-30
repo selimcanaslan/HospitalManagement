@@ -28,6 +28,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
             FillComboboxFirstItem();
             tcnoTextBox.MaxLength = 11;
             phoneTextBox.MaxLength = 10;
+            tcNoToSearchTextBox.MaxLength = 11;
         }
         private void FillComboboxFirstItem()
         {
@@ -79,6 +80,13 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
         }
 
         private void tcnoTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void tcNoToSearchTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (char.IsLetter(e.KeyChar))
             {
@@ -195,7 +203,6 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
 
             }
             catch (Exception ex) { Console.WriteLine(ex.ToString()); }
-
         }
         private void FillAppointmentHours(string tcNo)
         {
@@ -302,7 +309,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                     if (isPatientExist2)
                     {
                         DataTable sameAppointmentExistence = new DataTable();
-                        sameAppointmentExistence = blSecretary.FetchAwaitingAppointmentsFilteredByDateAndTcNo(tcNo, DateTime.Now.ToString("yyyy-MM-dd"));
+                        sameAppointmentExistence = blSecretary.FetchAwaitingAppointmentsFilteredByDateAndTcNo(tcNo, examinationDateTimePicker.Value.ToString("yyyy-MM-dd"));
                         Console.WriteLine(sameAppointmentExistence.Rows.Count);
                         if (sameAppointmentExistence.Rows.Count > 0 && sameAppointmentExistence.Rows[0]["section"].ToString() == section)
                         {
@@ -315,7 +322,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
                             if (appointmentCreationResponse)
                             {
                                 totalResponse += "Hasta Randevusu Başarıyla Oluşturuldu.\nRandevu Bilgileri Mail Yoluyla İletildi.";
-                                sendAppointmentInfoToMailAddress(section, DateTime.Now.ToString("yyyy-MM-dd"), examinationTimeHour, doctor, mail);
+                                sendAppointmentInfoToMailAddress(section, examinationDateTimePicker.Value.ToString("dd MMMM"), examinationTimeHour, doctor, mail);
                             }
                             else
                             {
@@ -399,5 +406,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
             }
 
         }
+
+
     }
 }

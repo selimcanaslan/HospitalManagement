@@ -136,14 +136,22 @@ namespace HospitalManagement.Doctor
 
         private void exportPdfButton_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PDF Files|*.pdf";
-            saveFileDialog.Title = "Save PDF File";
-            saveFileDialog.FileName = $"{tcnoTextBox.Text}";    
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (lastSelectedRow != null)
             {
-                CreatePDF(saveFileDialog.FileName);
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "PDF Files|*.pdf";
+                saveFileDialog.Title = "Save PDF File";
+                saveFileDialog.FileName = $"{tcnoTextBox.Text}";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    CreatePDF(saveFileDialog.FileName);
+                }
+            }
+            else
+            {
+                InfoMessage infoMessage = new InfoMessage("Öncelikle Muayene Seçmelisiniz!", "Bilgi");
+                infoMessage.ShowDialog();
             }
         }
         private void CreatePDF(string filePath)

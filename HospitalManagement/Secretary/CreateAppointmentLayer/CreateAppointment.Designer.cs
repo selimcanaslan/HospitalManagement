@@ -287,6 +287,7 @@
             this.tcNoToSearchTextBox.Size = new System.Drawing.Size(617, 45);
             this.tcNoToSearchTextBox.TabIndex = 82;
             this.toolTip1.SetToolTip(this.tcNoToSearchTextBox, "Önceden Kaydı Olan Hastalar İçin Arama Yapabilirsiniz!");
+            this.tcNoToSearchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tcNoToSearchTextBox_KeyPress);
             // 
             // sectionComboBox
             // 

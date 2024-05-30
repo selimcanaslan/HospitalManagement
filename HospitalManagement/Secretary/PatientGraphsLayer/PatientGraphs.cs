@@ -34,9 +34,8 @@ namespace HospitalManagement.Secretary.PatientGraphsLayer
             double[] y = numericData;
             string[] names = textData;
 
-            //generate pane
+            // Generate pane
             var pane = zedGraphControl1.GraphPane;
-
 
             pane.XAxis.Scale.IsVisible = true;
             pane.YAxis.Scale.IsVisible = true;
@@ -51,20 +50,24 @@ namespace HospitalManagement.Secretary.PatientGraphsLayer
             pane.YAxis.Title.Text = yLabelText;
             pane.Title.Text = titleText;
 
+            pane.XAxis.Scale.FontSpec.Angle = 45;
+            pane.XAxis.Scale.FontSpec.Size = 10;
+            pane.XAxis.Scale.FontSpec.Family = "Arial";
+            pane.XAxis.Scale.FontSpec.IsBold = true;
 
-            //var pointsCurve;
+            pane.XAxis.Scale.MajorStepAuto = false;
+            pane.XAxis.Scale.MajorStep = 1;
 
-            LineItem pointsCurve = pane.AddCurve("", null, y, Color.Black);
-            pointsCurve.Line.IsVisible = true;
-            pointsCurve.Line.Width = 3.0F;
-            //Create your own scale of colors.
+            pane.XAxis.Scale.Min = 0;
+            pane.XAxis.Scale.Max = Math.Min(10, names.Length);
+            pane.XAxis.Scale.MinorStep = 1;
 
-            pointsCurve.Symbol.Fill = new Fill(new Color[] { Color.Blue, Color.Green, Color.Red });
-            pointsCurve.Symbol.Fill.Type = FillType.Solid;
-            pointsCurve.Symbol.Type = SymbolType.Circle;
-            pointsCurve.Symbol.Border.IsVisible = true;
+            zedGraphControl1.IsShowHScrollBar = true;
+            zedGraphControl1.IsAutoScrollRange = true;
 
-
+            BarItem bar = pane.AddBar("", null, y, Color.Black);
+            bar.Bar.Fill = new Fill(new Color[] { Color.Blue, Color.Green, Color.Red });
+            bar.Bar.Fill.Type = FillType.Solid;
 
             pane.AxisChange();
             zedGraphControl1.Refresh();

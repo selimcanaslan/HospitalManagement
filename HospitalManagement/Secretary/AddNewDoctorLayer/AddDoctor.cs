@@ -166,7 +166,7 @@ namespace HospitalManagement.Secretary.AddNewDoctorLayer
                 else
                 {
                     InfoMessage infoMessage = new InfoMessage("Kayıt Başarısız!\n" +
-                    "Sistem Yöneticinize Ulaşın!", "Hata");
+                    "Girilen Mail Ya Da T.C No Zaten Kullanılıyor!", "Hata");
                     infoMessage.ShowDialog();
                     
                 }

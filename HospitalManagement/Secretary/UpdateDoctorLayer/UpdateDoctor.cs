@@ -104,7 +104,7 @@ namespace HospitalManagement.Secretary.UpdateDoctorLayer
             if (doctorToUpdate != null)
             {
                 OpenFileDialog ofd = new OpenFileDialog();
-                ofd.FileName = "Image Files (JPG,PNG,GIF) | *.JPG;*.PNG;*.GIF";
+                ofd.Filter = "Image Files (JPG,PNG,GIF,JPEG)|*.JPG;*.PNG;*.GIF;*.JPEG";
                 if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     var size = new FileInfo(ofd.FileName).Length;
