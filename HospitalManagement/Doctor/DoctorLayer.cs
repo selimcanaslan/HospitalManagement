@@ -176,7 +176,7 @@ namespace HospitalManagement.Doctor
             gfx.DrawString($"Tahlil Sonuçları : {lastExamination.Rows[0]["analysis"]}", font, brush, new XRect(40, page.Height / 10 + 160, page.Width, page.Height), XStringFormats.TopLeft);
 
             gfx.DrawString($"Muayene Sonucu", font, brush, new XRect(40, page.Height / 10 + 180, page.Width, page.Height), XStringFormats.TopLeft);
-            string appointmentResult = lastExamination.Rows[0]["result"].ToString();
+            string appointmentResult = appointmentResultTextBox.Text;
             string[] appointmentResultSplitted = appointmentResult.Split(',');
             int where = 200;
             foreach (string line in appointmentResultSplitted)
