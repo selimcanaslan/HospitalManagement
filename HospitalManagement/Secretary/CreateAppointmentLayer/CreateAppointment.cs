@@ -182,6 +182,7 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
         }
         private void doctorComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            examinationTimeComboBox.SelectedIndex = 0;
             try
             {
                 if (doctorComboBox.SelectedIndex != 0)
@@ -277,6 +278,27 @@ namespace HospitalManagement.Secretary.CreateAppointmentLayer
 
             }
             catch (Exception ex) { Console.WriteLine(ex.ToString()); }
+        }
+        private void ResetAllComboBoxAtOnce()
+        {
+            if (sectionComboBox.SelectedIndex != 0)
+            {
+                sectionComboBox.Items.Clear();
+                doctorComboBox.Items.Clear();
+                examinationTimeComboBox.Items.Clear();
+
+                sectionComboBox.Items.Insert(0, "Bölüm Seçiniz");
+                doctorComboBox.Items.Insert(0, "Doktor Seçiniz");
+                examinationTimeComboBox.Items.Insert(0, "Muayene Saati Seçiniz");
+                sectionComboBox.StartIndex = 0;
+                doctorComboBox.StartIndex = 0;
+                examinationTimeComboBox.StartIndex = 0;
+                FillSections();
+            }
+            else
+            {
+                return;
+            }
         }
         private void createAppointmentButton_Click(object sender, EventArgs e)
         {
