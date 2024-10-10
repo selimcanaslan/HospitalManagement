@@ -313,8 +313,8 @@ SELECT COUNT(patient_tc_no) as hasta_sayisi,doctor_tc_no FROM Appointment GROUP 
 
 
 INSERT Secretary VALUES ('12312312312','Emre Kaan', 'ARSLAN', 'sekreteremre@gmail.com', '5655654545', 'Memleket')
-INSERT Doctor VALUES ('21824004326','Selim Can', 'ASLAN',1, 'sekreterselim@gmail.com', '5442628133', 'Mersin Toroslar')
-INSERT Secretary VALUES ('21824324326','Muhammet Yusuf', 'ASLAN', 'doktoryusuf@gmail.com', '5555345555', 'Mersin Toroslar')
+INSERT Doctor VALUES ('56487967543','Selim Can', 'ASLAN',1, 'sekreterselim@gmail.com', '5647865467', 'Mersin')
+INSERT Secretary VALUES ('87409870324','Namik', 'ASLAN', 'doktoryusuf@gmail.com', '5555345555', 'Mersin')
 ALTER TABLE Sections
     ALTER COLUMN name VARCHAR(50) COLLATE Latin1_General_100_CI_AI_SC_UTF8;
 
