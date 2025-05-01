@@ -10,7 +10,7 @@ namespace HospitalManagement.Secretary
 {
     public class FTPHelper
     {
-        public FTPHelper(string address= "\tftp://155.254.244.38/www.sca.somee.com/", string login="sca33", string password = "2XFfX2b6xQUTJ-U")
+        public FTPHelper(string address= "", string login="", string password = "")
         {
             Address = address;
             Login = login;
