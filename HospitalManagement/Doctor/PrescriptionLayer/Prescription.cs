@@ -59,7 +59,7 @@ namespace HospitalManagement.Doctor.PrescriptionLayer
                 var smtpClient = new SmtpClient("smtp.gmail.com")
                 {
                     Port = 587,
-                    Credentials = new NetworkCredential("selimcanaslan33@gmail.com", "awzc nxve hnwo sxkj"),
+                    Credentials = new NetworkCredential("", ""),
                     EnableSsl = true,
                 };
                 string body = bodyTextBox.Text;
